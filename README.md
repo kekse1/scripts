@@ -7,6 +7,7 @@ Atm only [Bash](#bash) shell scripts. May grow..
 1. [Bash](#bash)
 	* [`prompt.sh`](#promptsh)
 	* [`up2date.sh`](#up2datesh)
+2. [Copyright and License](#copyright-and-license)
 
 ## Bash
 
@@ -22,4 +23,8 @@ Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and 
 I'm using it to do all steps to keep your packages `up2date`, in just one step!
 
 Also, just copy it to `/etc/profile.d/up2date.sh`
+
+## Copyright and License
+The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
+and it's licensed under the [MIT](./LICENSE.txt) (also known as 'X' or 'X11' license).
 
