@@ -10,14 +10,14 @@ Atm only [Bash](#bash) shell scripts. May grow..
 
 ## Bash
 
-### [**prompt**.sh](scripts/prompt.sh)
+### [`prompt`.sh](scripts/prompt.sh)
 Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS1` prompt.
 Uses the `$PROMPT_COMMAND` variable to dynamically change the prompt.
 
 #### Screenshot
 ![$PS1](docs/prompt.sh.png)
 
-### [**up2date**.sh](scripts/up2date.sh)
+### [`up2date`.sh](scripts/up2date.sh)
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
 I'm using it to do all steps to keep your packages `up2date`, in just one step!
 
