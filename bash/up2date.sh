@@ -23,7 +23,7 @@ OS()
 	_termux="`which pkg 2>/dev/null`"
 
 	if [ -z "$_gentoo" -a -z "$_debian" -a -z "$_termux" ]; then
-		echo "You neither use 'Gentoo' Linux nor 'Debian' Linux!" >&2
+		echo "You neither use 'Gentoo' Linux nor 'Debian' or 'Termux' Linux!" >&2
 		return 1
 	fi
 
