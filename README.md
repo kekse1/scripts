@@ -5,6 +5,8 @@ Atm only [Bash](#bash) shell scripts. May grow..
 
 ## Index
 1. [Bash](#bash)
+	* [`prompt.sh`](#promptsh)
+	* [`up2date.sh`](#up2datesh)
 
 ## Bash
 
@@ -12,7 +14,7 @@ Atm only [Bash](#bash) shell scripts. May grow..
 Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS` prompt.
 
 #### Screenshot
-[$PS1](docs/prompt.sh.png)
+![$PS1](docs/prompt.sh.png)
 
 ### [`up2date.sh`](scripts/up2date.sh)
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
