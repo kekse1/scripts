@@ -11,7 +11,7 @@ Atm only [Bash](#bash) shell scripts. May grow..
 ## Bash
 
 ### [`prompt.sh`](scripts/prompt.sh)
-Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS` prompt.
+Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS1` prompt.
 
 #### Screenshot
 ![$PS1](docs/prompt.sh.png)
