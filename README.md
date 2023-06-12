@@ -34,7 +34,7 @@ Also, just copy it to `/etc/profile.d/up2date.sh`
 See the comment on top of this file. Here's an example screenshot: ![layout.sh](docs/layout.sh.png)
 
 ### Snippets and one-liners
-Really tiny helper scripts, or one-liner, etc..
+Really tiny helper scripts, or one-liner, cheats, etc..
 
 #### [`count-all-lines`.sh](snippets/count-all-lines.sh)
 Define a glob and search for them (only _real_ files), then print their line counts (sorted, ascending),
@@ -47,9 +47,9 @@ One command to 'fresh up' the current git repository.. mentioned to be in `/etc/
 Starting `qemu` with some most common, configurable parameters (as I like them).. really nothing special!
 
 #### [`substring`.sh](dunno/substring.sh)
-Short overview over the string substitutions supported by the `bash`.. dug it out under '~/git/knowledge/',
+Short overview over the string substitutions supported by the `bash`.. dug it out under my `~/git/knowledge/`,
 so really not worth to mention here, but maybe a help if you need to write a shell script quickly (I don't
-like it when using the `bash`, but doing such things with external commands outside the shell..).
+like it when using the `bash` but doing such things with external commands...).
 
 ## Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
