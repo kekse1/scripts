@@ -8,11 +8,11 @@ Atm only [Bash](#bash) shell scripts. May grow..
 	* [`prompt`.sh](#promptsh)
 	* [`up2date`.sh](#up2datesh)
     * [`layout`.sh](#layoutsh)
-2. [Snippets](#snippets)
-    * [`count-all-lines`.sh](#count-all-lines)
-    * [`fresh`.sh](#freshsh)
-    * [`qemu`.sh](#qemush)
-    * [`substring`.sh](#substringsh)
+    * [Snippets](#snippets)
+        * [`count-all-lines`.sh](#count-all-lines)
+        * [`fresh`.sh](#freshsh)
+        * [`qemu`.sh](#qemush)
+        * [`substring`.sh](#substringsh)
 3. [Copyright and License](#copyright-and-license)
 
 ## Bash
