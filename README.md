@@ -31,7 +31,11 @@ I'm using it to do all steps to keep your packages `up2date`, in just one step!
 Also, just copy it to `/etc/profile.d/up2date.sh`
 
 ### [`layout`.sh](bash/layout.sh)
-See the comment on top of this file. Here's an example screenshot: ![layout.sh](docs/layout.sh.png)
+The most important thing for me was to switch between keyboard layouts - easily with a shortcut I've set up in XFCE
+(Settings -> Keyboard): calling this script with '-' argument only (so switching, *not* setting..)!
+
+Here's an example screenshot:
+![layout.sh](docs/layout.sh.png)
 
 ### Snippets and one-liners
 Really tiny helper scripts, or one-liner, cheats, etc..
