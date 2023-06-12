@@ -33,20 +33,20 @@ Also, just copy it to `/etc/profile.d/up2date.sh`
 ### [`layout`.sh](bash/layout.sh)
 See the comment on top of this file. Here's an example screenshot: ![layout.sh](docs/layout.sh.png)
 
-## Snippets
+### Snippets
 Really tiny helper scripts, or one-liner, etc..
 
-### [`count-all-lines`.sh](snippets/count-all-lines.sh)
+#### [`count-all-lines`.sh](snippets/count-all-lines.sh)
 Define a glob and search for them (only _real_ files), then print their line counts (sorted, ascending),
 plus the total count in the last line.
 
-### [`fresh`.sh](snippets/fresh.sh)
+#### [`fresh`.sh](snippets/fresh.sh)
 One command to 'fresh up' the current git repository.. mentioned to be in `/etc/profile.d/`.
 
-### [`qemu`.sh](snippets/qemu.sh)
+#### [`qemu`.sh](snippets/qemu.sh)
 Starting `qemu` with some most common, configurable parameters (as I like them).. really nothing special!
 
-### [`substring`.sh](dunno/substring.sh)
+#### [`substring`.sh](dunno/substring.sh)
 Short overview over the string substitutions supported by the `bash`.. dug it out under '~/git/knowledge/',
 so really not worth to mention here, but maybe a help if you need to write a shell script quickly (I don't
 like it when using the `bash`, but doing such things with external commands outside the shell..).
