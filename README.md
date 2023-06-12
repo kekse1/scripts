@@ -32,7 +32,7 @@ Also, just copy it to `/etc/profile.d/up2date.sh`
 
 ### [`layout`.sh](bash/layout.sh)
 The most important thing for me was to switch between keyboard layouts - easily with a shortcut I've set up in XFCE
-(Settings -> Keyboard): calling this script with '-' argument only (so switching, *not* setting..)!
+(Settings -> Keyboard): calling this script with '-' argument only (so traversing, *not* setting..)!
 
 Here's an example screenshot:
 ![layout.sh](docs/layout.sh.png)
