@@ -15,7 +15,7 @@ Atm only [Bash](#bash) shell scripts. May grow..
         * [`substring`.sh](#substringsh)
 3. [Copyright and License](#copyright-and-license)
 
-## Bash
+## [Bash](bash/)
 
 ### [`prompt`.sh](bash/prompt.sh)
 Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS1` prompt.
