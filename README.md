@@ -41,7 +41,7 @@ Define a glob and search for them (only _real_ files), then print their line cou
 plus the total count in the last line.
 
 ### [`fresh`.sh](snippets/fresh.sh)
-One command to 'fresh up' the current git repository.. ^\_^
+One command to 'fresh up' the current git repository.. mentioned to be in `/etc/profile.d/`.
 
 ### [`qemu`.sh](snippets/qemu.sh)
 Starting `qemu` with some most common, configurable parameters (as I like them).. really nothing special!
