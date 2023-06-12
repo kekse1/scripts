@@ -31,8 +31,7 @@ I'm using it to do all steps to keep your packages `up2date`, in just one step!
 Also, just copy it to `/etc/profile.d/up2date.sh`
 
 ### [`layout`.sh](bash/layout.sh)
-See the comment on top of this file. Here's an example screenshot:
-~[layout.sh](docs/layout.sh.png)
+See the comment on top of this file. Here's an example screenshot: ![layout.sh](docs/layout.sh.png)
 
 ## Snippets
 Really tiny helper scripts, or one-liner, etc..
