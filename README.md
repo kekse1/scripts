@@ -47,8 +47,9 @@ One command to 'fresh up' the current git repository.. ^\_^
 Starting `qemu` with some most common, configurable parameters (as I like them).. really nothing special!
 
 ### [`substring`.sh](dunno/substring.sh)
-Short overview over the string substitution supported by the `bash`.. dug it out under 'knowledge/', so really
-not worth to mention, but maybe a help if you need to write a shell script quickly.. so jfyi.
+Short overview over the string substitutions supported by the `bash`.. dug it out under '~/git/knowledge/',
+so really not worth to mention here, but maybe a help if you need to write a shell script quickly (I don't
+like it when using the `bash`, but doing such things with external commands outside the shell..).
 
 ## Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
