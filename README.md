@@ -8,7 +8,7 @@ Atm only [Bash](#bash) shell scripts. May grow..
 	* [`prompt`.sh](#promptsh)
 	* [`up2date`.sh](#up2datesh)
     * [`layout`.sh](#layoutsh)
-    * [Snippets and one-liners](#snippets-and-one-liners)
+    * [Snippets and one-liners](#bash/snippets-and-one-liners)
         * [`count-all-lines`.sh](#count-all-linessh)
         * [`fresh`.sh](#freshsh)
         * [`qemu`.sh](#qemush)
@@ -40,17 +40,17 @@ Here's an example screenshot:
 ### Snippets and one-liners
 Really tiny helper scripts, or one-liner, cheats, etc..
 
-#### [`count-all-lines`.sh](snippets/count-all-lines.sh)
+#### [`count-all-lines`.sh](bash/snippets/count-all-lines.sh)
 Define a glob and search for them (only _real_ files), then print their line counts (sorted, ascending),
 plus the total count in the last line.
 
-#### [`fresh`.sh](snippets/fresh.sh)
+#### [`fresh`.sh](bash/snippets/fresh.sh)
 One command to 'fresh up' the current git repository.. mentioned to be in `/etc/profile.d/`.
 
-#### [`qemu`.sh](snippets/qemu.sh)
+#### [`qemu`.sh](bash/snippets/qemu.sh)
 Starting `qemu` with some most common, configurable parameters (as I like them).. really nothing special!
 
-#### [`substring`.sh](dunno/substring.sh)
+#### [`substring`.sh](bash/dunno/substring.sh)
 Short overview over the string substitutions supported by the `bash`.. dug it out under my `~/git/knowledge/`,
 so really not worth to mention here, but maybe a help if you need to write a shell script quickly (I don't
 like it when using the `bash` but doing such things with external commands...).
