@@ -8,8 +8,8 @@ Atm only [Bash](#bash) shell scripts. May grow..
 	* [`prompt`.sh](#promptsh)
 	* [`up2date`.sh](#up2datesh)
     * [`layout`.sh](#layoutsh)
-    * [Snippets](#snippets)
-        * [`count-all-lines`.sh](#count-all-lines)
+    * [Snippets and one-liners](#snippets-and-one-liners)
+        * [`count-all-lines`.sh](#count-all-linessh)
         * [`fresh`.sh](#freshsh)
         * [`qemu`.sh](#qemush)
         * [`substring`.sh](#substringsh)
@@ -33,7 +33,7 @@ Also, just copy it to `/etc/profile.d/up2date.sh`
 ### [`layout`.sh](bash/layout.sh)
 See the comment on top of this file. Here's an example screenshot: ![layout.sh](docs/layout.sh.png)
 
-### Snippets
+### Snippets and one-liners
 Really tiny helper scripts, or one-liner, etc..
 
 #### [`count-all-lines`.sh](snippets/count-all-lines.sh)
