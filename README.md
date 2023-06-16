@@ -37,6 +37,10 @@ The most important thing for me was to switch between keyboard layouts - easily 
 Here's an example screenshot:
 ![layout.sh](docs/layout.sh.png)
 
+So either call it without arguments, so it'll show you the currently used layout. Call it with a concrete layout, to
+switch to it directly. Or call it with a single `-`, so it'll traverse through the `layouts` array (on top, by default
+it's `layouts=("us" "de")`).
+
 ### Snippets and one-liners
 Really tiny helper scripts, or one-liner, cheats, etc..
 
