@@ -95,11 +95,7 @@ echo " >> Changed mode of $dirs directories and $files files (so $total in total
 [[ $ign -gt 0 ]] && echo " >> With $ign ignored items (of '$ignore').."
 
 if [[ $err -gt 0 ]]; then
-	echo -e " >> With $err errors.. as follows:\n\n" >&2
-	errFiles="${errFiles:1}"
-	IFS=$'\n'
-	for i in $errFiles; do
-		echo "    $i"
-	done
+	echo -en " >> With $err errors.. as follows:"
+	echo "$errFiles" >&2
 fi
 
