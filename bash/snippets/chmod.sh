@@ -4,6 +4,9 @@
 # 
 # Without at least two parameters a tiny syntax helping error will be shown.
 # If third parameter is not defined, we search in the current directory.
+# 
+# Warning: changing all files means that also scripts which need +x will change!
+# (TODO!)
 #
 
 if [[ -z $1 || -z $2 ]]; then
