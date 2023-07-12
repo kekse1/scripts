@@ -9,6 +9,7 @@ Atm only [Bash](#bash) shell scripts. May grow..
 	* [`up2date`.sh](#up2datesh)
     * [`layout`.sh](#layoutsh)
     * [Snippets and one-liners](#bash/snippets-and-one-liners)
+        * [`chmod`.sh](#chmodsh)
         * [`count-all-lines`.sh](#count-all-linessh)
         * [`fresh`.sh](#freshsh)
         * [`qemu`.sh](#qemush)
@@ -43,6 +44,10 @@ it's `layouts=("us" "de")`).
 
 ### Snippets and one-liners
 Really tiny helper scripts, or one-liner, cheats, etc..
+
+#### [`chmod`.sh](bash/snippets/chmod.sh)
+For recursive `chmod`, with different types for directories and files.
+After this you'll see how many items were changed, and how many errors occured (if any).
 
 #### [`count-all-lines`.sh](bash/snippets/count-all-lines.sh)
 Define a glob and search for them (only _real_ files), then print their line counts (sorted, ascending),
