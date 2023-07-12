@@ -36,13 +36,13 @@ err=0
 IFS=$'\n'
 
 for i in `find "$path" -type d`; do
-	#chmod $dir "$i"
+	chmod $dir "$i"
 	[[ $? -ne 0 ]] && let err=$err+1
 	let dirs=$dirs+1
 done
 
 for i in `find "$path" -type f`; do
-	#chmod $file "$i"
+	chmod $file "$i"
 	[[ $? -ne 0 ]] && let err=$err+1
 	let files=$files+1
 done
