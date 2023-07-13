@@ -1,8 +1,5 @@
 <img src="https://kekse.biz/php/count.php?draw&override=github:scripts&text=`scripts`" />
 
-# scripts/
-Atm only [Bash](#bash) shell scripts. May grow..
-
 ## Index
 1. [Bash](#bash)
 	* [`prompt`.sh](#promptsh)
