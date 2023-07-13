@@ -1,4 +1,4 @@
-<img src="https://kekse.biz/php/count.php?draw&override=github:scripts&text=kuchen@kekse.biz&font=SourceCodePro" />
+<img src="https://kekse.biz/php/count.php?draw&override=github:scripts&text=kuchen@kekse.biz&font=IntelOneMono" />
 
 # scripts/
 Atm only [Bash](#bash) shell scripts. May grow..
