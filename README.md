@@ -47,7 +47,12 @@ Really tiny helper scripts, or one-liner, cheats, etc..
 
 #### [`chmod`.sh](bash/snippets/chmod.sh)
 For recursive `chmod`, with different types for directories and files.
-After this you'll see how many items were changed, and how many errors occured (if any).
+
+After this you'll see how many items were changed, and how many errors occured (if any), and how many files were
+ignored (due to '$ignore' list; the one setting of two, together with '$hidden').
+
+The erroneous files will be printed as list, so you can check them manually (otherwise just redirect the STDERR
+by appending ` 2>/dev/null` to the cmdline).
 
 #### [`count-all-lines`.sh](bash/snippets/count-all-lines.sh)
 Define a glob and search for them (only _real_ files), then print their line counts (sorted, ascending),

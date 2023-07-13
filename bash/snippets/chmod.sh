@@ -7,10 +7,11 @@
 # 
 # Warning: changing all files means that also scripts which need +x will change!
 # So you can define one or many file extensions to '$ignore'!
+# Additionally, set "hidden=yes" to also match hidden dot-files ('.' prefixed ones).
 #
 
-ignore=".js .sh .php"
-ignore_git="yes"
+ignore=".git"
+hidden="yes"
 
 if [[ -z $1 || -z $2 ]]; then
 	echo " >> Syntax: `basename $0` < dir mode > < file mode > [ directory ]" >&2
@@ -30,67 +31,71 @@ else
 	path="`realpath .`"
 fi
 
+if [[ "$hidden" = "yes" ]]; then
+	shopt -s dotglob
+fi
+
 dir=$1
 file=$2
 dirs=0
 files=0
 err=0
+errFiles=""
 ign=0
 
-IFS=$'\n'
+recursive_chmod()
+{
+	local res=-1
+	local path="$1"
+	local next=0
 
-for i in `find "$path" -type d`; do
-	next=0
+	[[ -z "$path" ]] && return
+	[[ ! -e "$path" ]] && return
 
-	if [[ $next -eq 0 && -n $ignore ]]; then
-		IFS=' '
-		for j in $ignore; do
-			[[ -z $j ]] && continue
-			if [[ "$j" = "${i: -${#j}}" ]]; then
-				next=1
-				break
-			fi
-		done
-		IFS=$'\n'
-	fi
+	[[ -n "$ignore" ]] && for j in $ignore; do
+		if [[ -z "$j" ]]; then
+			continue
+		elif [[ "`basename "$path"`" = "$j" ]]; then
+			next=1
+			break;
+		elif [[ "$j" = "${i: -${#j}}" ]]; then
+			next=1
+			break
+		fi
+	done
 
-	if [[ $next -ne 0 ]]; then
-		let ign=$ign+1
+	[[ $next -ne 0 ]] && return
+	local res=-1
+
+	if [[ -d "$path" ]]; then
+		let dirs=$dirs+1
+		chmod $dir "$path"
+		res=$?
 	else
-		chmod $dir "$i"
-		[[ $? -ne 0 ]] && let err=$err+1
+		let files=$files+1
+		chmod $file "$path"
+		res=$?
 	fi
 
-	let dirs=$dirs+1
-done
-
-for i in `find "$path" -type f`; do
-	next=0
-
-	if [[ -n $ignore ]]; then
-		IFS=' '
-		for j in $ignore; do
-			[[ -z $j ]] && continue
-			if [[ "$j" = "${i: -${#j}}" ]]; then
-				next=1
-				break
-			fi
-		done
-		IFS=$'\n'
+	if [[ $res -gt 0 ]]; then
+		let err=$err+1
+		errFiles="$errFiles
+$path"
 	fi
 
-	if [[ $next -ne 0 ]]; then
-		let ign=$ign+1
-	else
-		chmod $file "$i"
-		[[ $? -ne 0 ]] && let err=$err+1
-	fi
+	[[ -d "$path" ]] && for i in "$path"/*; do
+		recursive_chmod "$i"
+	done
+}
 
-	let files=$files+1
-done
+recursive_chmod "$path"
 
 total="$(($dirs+$files))"
 echo " >> Changed mode of $dirs directories and $files files (so $total in total)."
-[[ $err -gt 0 ]] && echo " >> With $err errors.. :-/" >&2
-[[ $ign -gt 0 ]] && echo " >> Ignored $ign items.."
+[[ $ign -gt 0 ]] && echo " >> With $ign ignored items (of '$ignore').."
+
+if [[ $err -gt 0 ]]; then
+	echo -en " >> With $err errors.. as follows:"
+	echo "$errFiles" >&2
+fi
 
