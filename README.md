@@ -41,8 +41,8 @@ switch to it directly. Or call it with a single `-`, so it'll traverse through t
 it's `layouts=("us" "de")`).
 
 ### [`make-nodejs`.sh](bash/make-nodejs.sh)
-For amd64 and arm64 (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in the command
-line, with target path `/opt/node.js/${version}` and a symbolic link `0` pointing to there.
+For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
+the command line, with target path `/opt/node.js/${version}` and a symbolic link `0` pointing to there.
 
 So you can manage multiple version.. the only thing left to do, _just once_, is to merge the fs structure under the
 symlink path `/opt/node.js/0` into the `/usr/` hierarchy.
