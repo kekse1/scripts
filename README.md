@@ -53,6 +53,9 @@ therefore the `0` symlink will point to the newest version - and as you've merge
 the `/usr` hierarchy), there's no need to change anything else. Just `rm -rf` the older version if the newest one
 works! :)~
 
+> **Note**
+> Just call it via `make-nodejs.sh 20.4.0`, e.g.!
+
 ### Snippets and one-liners
 Really tiny helper scripts, or one-liner, cheats, etc..
 
