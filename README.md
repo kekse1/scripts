@@ -5,6 +5,7 @@
 	* [`prompt`.sh](#promptsh)
 	* [`up2date`.sh](#up2datesh)
     * [`layout`.sh](#layoutsh)
+    * [`make-nodejs`.sh](#make-nodejssh)
     * [Snippets and one-liners](#bash/snippets-and-one-liners)
         * [`chmod`.sh](#chmodsh)
         * [`count-all-lines`.sh](#count-all-linessh)
@@ -38,6 +39,15 @@ Here's an example screenshot:
 So either call it without arguments, so it'll show you the currently used layout. Call it with a concrete layout, to
 switch to it directly. Or call it with a single `-`, so it'll traverse through the `layouts` array (on top, by default
 it's `layouts=("us" "de")`).
+
+### [`make-nodejs`.sh](bash/make-nodejs.sh)
+For amd64 and arm64 (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in the command
+line, with target path `/opt/node.js/${version}` and a symbolic link `0` pointing to there.
+
+So you can manage multiple version.. the only thing left to do, _just once_, is to merge the fs structure under the
+symlink path `/opt/node.js/0` into the `/usr/` hierarchy.
+
+I'm using this script on every new Node.js version, on my Linux desktop/workstation and on my Termux smartphone app.
 
 ### Snippets and one-liners
 Really tiny helper scripts, or one-liner, cheats, etc..
