@@ -42,12 +42,15 @@ it's `layouts=("us" "de")`).
 
 ### [`make-nodejs`.sh](bash/make-nodejs.sh)
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
-the command line, with target path `/opt/node.js/${version}` and a symbolic link `0` pointing to there.
+the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there.
 
-So you can manage multiple version.. the only thing left to do, _just once_, is to merge the fs structure under the
-symlink path `/opt/node.js/0` into the `/usr/` hierarchy.
+So you can also manage multiple versions, or just check if the newest installation really works, before removing the
+old one.. the only thing left to do, _just once_, is to merge the fs structure under the symlink path `/opt/node.js/0`
+into the `/usr/` hierarchy.
 
-I'm using this script on every new Node.js version, on my Linux desktop/workstation and on my Termux smartphone app.
+I'm using this script on every new Node.js version, on my Linux desktop/workstation and on my Termux smartphone app;
+therefore the `0` symlink will point to the newest version - and as you've merged everything _under it_ before (into
+the `/usr` hierarchy), there's no need to change anything else. Just `rm -rf` the older version, if the newest one works! :)~
 
 ### Snippets and one-liners
 Really tiny helper scripts, or one-liner, cheats, etc..
