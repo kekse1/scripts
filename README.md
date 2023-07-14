@@ -50,7 +50,7 @@ into the `/usr/` hierarchy.
 
 I'm using this script on every new Node.js version, on my Linux desktop/workstation and on my Termux smartphone app;
 therefore the `0` symlink will point to the newest version - and as you've merged everything _under it before_ (into
-the `/usr` hierarchy), there's no need to change anything else. Just `rm -rf` the older version, if the newest one
+the `/usr` hierarchy), there's no need to change anything else. Just `rm -rf` the older version if the newest one
 works! :)~
 
 ### Snippets and one-liners
