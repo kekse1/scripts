@@ -6,7 +6,7 @@
 
 fresh()
 {
-	_txt="`date +'%s%N'`"
+	_txt="`date +'[%s%N] %A, %Y-%m-%d (%H:%M:%S)'`"
 	[ $# -gt 0 ] && _txt="$_txt ($*)"
 
 	git pull
