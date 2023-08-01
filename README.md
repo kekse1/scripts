@@ -1,4 +1,4 @@
-<img src="https://kekse.biz/php/count.php?draw&override=github:scripts&text=`scripts`" />
+<img src="https://kekse.biz/php/count.php?draw&override=github:scripts&text=`scripts`&draw" />
 
 ## Index
 1. [Bash](#bash)
