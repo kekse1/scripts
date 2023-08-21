@@ -1,7 +1,8 @@
 <img src="https://kekse.biz/php/count.php?draw&override=github:scripts&text=`scripts`&draw" />
 
 ## Index
-1. [Bash](#bash)
+1. [News](#news)
+2. [Bash](#bash)
 	* [`prompt`.sh](#promptsh)
 	* [`up2date`.sh](#up2datesh)
     * [`layout`.sh](#layoutsh)
@@ -14,11 +15,16 @@
         * [`substring`.sh](#substringsh)
 3. [Copyright and License](#copyright-and-license)
 
+## News
+* Just increased the minor version of the `prompt.sh`, to v1.1.0. Changed the first 'arrow' and it's color. :)~
+
 ## [Bash](bash/)
 
 ### [`prompt`.sh](bash/prompt.sh)
 Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS1` prompt.
 Uses the `$PROMPT_COMMAND` variable to dynamically change the prompt.
+
+Version 1.1.0.
 
 #### Screenshot
 ![$PS1](docs/prompt.sh.png)
