@@ -16,7 +16,7 @@
 3. [Copyright and License](#copyright-and-license)
 
 ## News
-* Just increased the minor version of the `prompt.sh`, to v1.1.0. Changed the first 'arrow' and it's color. :)~
+* Just increased the minor version of the [**`prompt.sh`**](#promptsh), to v1.1.0. Changed the first arrow and it's color.
 
 ## [Bash](bash/)
 
