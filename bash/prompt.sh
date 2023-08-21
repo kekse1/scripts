@@ -108,7 +108,9 @@ ps1Prompt()
 	PS1=""
 
 	#
-	write ' ➜ '
+	startFG 180 115 25
+	write ' » '
+	ansiReset
 	user_host=0
 
 	#
