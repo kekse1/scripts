@@ -1,5 +1,6 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
+# v1.1.0
 #
 # Just copy this script to '/etc/profile.d/'.
 #
