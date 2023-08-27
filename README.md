@@ -17,6 +17,7 @@
 3. [Copyright and License](#copyright-and-license)
 
 ## News
+* New [`copy`.sh`](#copysh) bash shell script; not really worth to mention..
 * Just increased the minor version of the [**`prompt.sh`**](#promptsh), to v1.1.0. Changed the first arrow and it's color.
 
 ## [Bash](bash/)
