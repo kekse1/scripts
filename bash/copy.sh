@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-# v0.1.0
+# v0.1.1
 #
 # A little helper to `scp` files, with only the remote file path as argument.
 #
 # I'm using this to copy backups from my server, most because on errors this
 # is going to repeat the copy (as long you define in the 'loops' variable).
 # So just set your server {user,host,port} and copy securely.
-# 
+#
 # BTW: yes, I had an unstable line when I created this.. via mobile phone.
 #
 
@@ -19,6 +19,7 @@ port="22"
 
 timeout=30	# set to 0 or lower to disable...
 loops=8		# set to 0 or lower to disable this feature.
+existsWarn=1	# warning if file already exists; otherwise will be deleted.
 
 #
 if [[ -z "$user" ]]; then
@@ -79,6 +80,14 @@ fi
 
 #
 base="$(basename "$file")"
+
+#
+if [[ $existsWarn -ne 0 && -e $base ]]; then
+	echo " >> As you configured me to warn you: the file '$base' already exists!" >&2
+	exit 100
+else
+	rm "$base" 2>/dev/null
+fi
 
 #
 echo " >> Command: '$cmd'"
