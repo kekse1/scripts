@@ -6,6 +6,7 @@
 	* [`prompt`.sh](#promptsh)
 	* [`up2date`.sh](#up2datesh)
     * [`layout`.sh](#layoutsh)
+    * [`copy`.sh](#copysh)
     * [`make-nodejs`.sh](#make-nodejssh)
     * [Snippets and one-liners](#bash/snippets-and-one-liners)
         * [`chmod`.sh](#chmodsh)
@@ -45,6 +46,15 @@ Here's an example screenshot:
 So either call it without arguments, so it'll show you the currently used layout. Call it with a concrete layout, to
 switch to it directly. Or call it with a single `-`, so it'll traverse through the `layouts` array (on top, by default
 it's `layouts=("us" "de")`).
+
+### [`copy`.sh](bash/copy.sh)
+A little helper to `scp` files, with only the remote file path as argument.
+
+I'm using this to copy backups from my server, most because on errors this
+is going to repeat the copy (as long you define in the 'loops' variable).
+So just set your server {user,host,port} and copy securely.
+
+BTW: yes, I had an unstable line when I created this.. via mobile phone.
 
 ### [`make-nodejs`.sh](bash/make-nodejs.sh)
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
