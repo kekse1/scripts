@@ -1,20 +1,23 @@
-<img src="https://kekse.biz/php/count.php?draw&override=github:scripts&text=`scripts`&draw" />
+<img src="https://kekse.biz/github.php?draw&override=github:scripts&text=`scripts`&draw" />
 
 ## Index
 1. [News](#news)
 2. [Bash](#bash)
 	* [`prompt`.sh](#promptsh)
 	* [`up2date`.sh](#up2datesh)
-    * [`layout`.sh](#layoutsh)
-    * [`copy`.sh](#copysh)
-    * [`make-nodejs`.sh](#make-nodejssh)
-    * [Snippets and one-liners](#bash/snippets-and-one-liners)
-        * [`chmod`.sh](#chmodsh)
-        * [`count-all-lines`.sh](#count-all-linessh)
-        * [`fresh`.sh](#freshsh)
-        * [`qemu`.sh](#qemush)
-        * [`substring`.sh](#substringsh)
-3. [Copyright and License](#copyright-and-license)
+	* [`layout`.sh](#layoutsh)
+	* [`copy`.sh](#copysh)
+	* [`make-nodejs`.sh](#make-nodejssh)
+	* [Snippets and one-liners](#bash/snippets-and-one-liners)
+        	* [`chmod`.sh](#chmodsh)
+	        * [`count-all-lines`.sh](#count-all-linessh)
+        	* [`fresh`.sh](#freshsh)
+	        * [`qemu`.sh](#qemush)
+        	* [`substring`.sh](#substringsh)
+3. [JavaScript](#javascript)
+	* [`fold.css.js`](#fold-css-js)
+    * [`clone.js`](#clone-js)
+4. [Copyright and License](#copyright-and-license)
 
 ## News
 * New [`copy`.sh`](#copysh) bash shell script; not really worth to mention..
@@ -100,7 +103,23 @@ Short overview over the string substitutions supported by the `bash`.. dug it ou
 so really not worth to mention here, but maybe a help if you need to write a shell script quickly (I don't
 like it when using the `bash` but doing such things with external commands...).
 
+## JavaScript
+My favorite language.. ^\_^
+
+### [`fold.css.js`](js/fold.css.js)
+**Early version, so only the real basics are covered.**
+
+'Folds' CSS style code. Earlier I used the `fold` (Linux) command, but that didn't work that well for what
+I needed the resulting code: had to filter out CSS classes in `.html` code and `grep` for them in many
+`.css` files - since `grep` is for lines, and `cut` is too stupid, .. I couldn't find the CSS styles in
+stylesheets without newlines, etc. ..
+
+>> *Warning*
+>> A tiny but left in there.. /TODO/
+
+### [`clone.js`](js/clone.js)
+Just my own `Reflect.clone()` version, since JavaScript doesn't include it natively..
+
 ## Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
 and it's licensed under the [MIT](./LICENSE.txt) (also known as 'X' or 'X11' license).
-
