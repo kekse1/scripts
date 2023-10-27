@@ -41,4 +41,12 @@ Reflect.defineProperty(Function, 'isNative', { value: (... _args) => {
 Function.isNative.compareString = '() { [native code] }';
 
 //
+Reflect.defineProperty(Object, 'isNull', { value: (... _args) => {
+	if(_args.length === 0) return null;
+	else for(var i = 0; i < _args.length; ++i) {
+		if(typeof _args[i] !== 'object' || _args[i] === null) return false;
+		else if(Reflect.getPrototypeOf(_args[i]) !== null) return false; }
+	return true;
+}});
 
+//
