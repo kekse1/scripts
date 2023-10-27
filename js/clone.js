@@ -1,15 +1,14 @@
 // 
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
+// v0.2.1
 // 
 // Just a tiny function to *really* clone objects (etc.); .. with all types, not only JSON supported ones
 // or so (sometimes the web referes to just `JSON.parse(JSON.stringify({}))`);
 // 
 // If you really start with an own `Map` instance (2nd parameter), you can even define to replace any
 // occurence of some object with your own values.
-// Functions are also cloned, if not native ones (see 2nd implementation below), including all of their
-// members, if any additional are defined.
+// Functions are also cloned, if not native ones, including all of their members, if any additional exist.
 //
-// v0.2.0
 
 //
 Reflect.defineProperty(Reflect, 'clone', { value: (_object, _map = null) => {
