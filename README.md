@@ -111,3 +111,5 @@ Just my own `Reflect.clone()` version, since JavaScript doesn't include it nativ
 ## Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
 and it's licensed under the [MIT](./LICENSE.txt) (also known as 'X' or 'X11' license).
+
+![kekse.biz](favicon.png)
