@@ -108,7 +108,7 @@ stylesheets without newlines, etc. ..
 ### [`clone.js`](js/clone.js)
 Just my own `Reflect.clone()` version, since JavaScript doesn't include it natively..
 
-## Copyright and License
+# Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
 and it's licensed under the [MIT](./LICENSE.txt) (also known as 'X' or 'X11' license).
 
