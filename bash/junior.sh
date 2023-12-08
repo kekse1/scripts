@@ -18,7 +18,7 @@
 #
 
 #
-default_context="4096"
+default_context="2048"
 
 #
 real="$(realpath "$0")"
@@ -113,7 +113,7 @@ echo -e "\n< https://kekse.biz/#~nlp >\n"
 echo -e "Context size: $context\n       Model: \`$model\`\n      Prompt: \`$prompt\`\n\n"
 
 #
-npx --no node-llama-cpp chat \
+cd "$prefix" && npx --no node-llama-cpp chat \
 	--systemPrompt "$promptData" \
 	--model "$modelPath" \
 	--threads $threads \
