@@ -4,7 +4,7 @@
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # < https://kekse.biz/#~nlp > ... December 2023.
 #
-# Handling the `llama.cpp` (or rather the node/npm .js module) better.
+# Handling the `llama.cpp` (or rather `node-llama-cpp`) better.
 #
 # Put your prompts into './prompts/*txt'.
 #
