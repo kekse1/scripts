@@ -117,8 +117,7 @@ cd "$prefix" && npx --no node-llama-cpp chat \
 	--systemPrompt "$promptData" \
 	--model "$modelPath" \
 	--threads $threads \
-	--contextSize $context \
-	--prompt "Using the model \`$model\` and the prompt \`$prompt\` for you. Context size is ${context}. ... < https://kekse.biz/#~nlp >."
+	--contextSize $context
 
 # 
 # and see the node_examples, and also compare the models/..!!!
