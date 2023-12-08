@@ -115,6 +115,7 @@ echo -e "Context size: $context\n       Model: \`$model\`\n      Prompt: \`$prom
 #
 cd "$prefix" && npx --no node-llama-cpp chat \
 	--systemPrompt "$promptData" \
+	--prompt "$promptData" \
 	--model "$modelPath" \
 	--threads $threads \
 	--contextSize $context
