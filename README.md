@@ -22,6 +22,12 @@ Version **1.1.0**.
 #### Screenshot
 ![$PS1](docs/prompt.sh.png)
 
+### [`junior`.sh](bash/junior.sh)
+Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/) or rather the [`node-llama-cpp`](https://github.com/withcatai/node-llama-cpp),
+I just wrote a short script to handle your models and prompts better.
+
+Syntax: `$0 <model> <prompt> [ <context size> ]`.
+
 ### [`up2date`.sh](bash/up2date.sh)
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
 I'm using it to do all steps to keep your packages `up2date`, in just one step!
