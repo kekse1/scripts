@@ -22,8 +22,9 @@ Version **1.1.0**.
 ![$PS1](docs/prompt.sh.png)
 
 ### [`junior`.sh](bash/junior.sh)
-Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/) or rather the [`node-llama-cpp`](https://github.com/withcatai/node-llama-cpp),
-I just wrote a short script to handle your models and prompts better.
+Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/), or rather the
+[`node-llama-cpp`](https://github.com/withcatai/node-llama-cpp), I just wrote a short
+shell script to handle multiple models and prompts better.
 
 Syntax: `$0 <model> <prompt> [ <context size> ]`.
 
