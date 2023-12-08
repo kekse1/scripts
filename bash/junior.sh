@@ -18,7 +18,7 @@
 #
 
 #
-default_context="2048"
+default_context="4096"
 
 #
 real="$(realpath "$0")"
@@ -67,6 +67,7 @@ fi
 
 #
 model="$1"
+modelPath=""
 
 if [[ -z "$model" ]]; then
 	invalidArguments
@@ -74,6 +75,8 @@ if [[ -z "$model" ]]; then
 elif [[ ! -f "${prefix}/models/${model}.gguf" ]]; then
 	echo " >> The model \`$model\` couldn't be found!" >&2
 	exit 3
+else
+	modelPath="${prefix}/models/${model}.gguf"
 fi
 
 #
@@ -98,13 +101,21 @@ if [[ -z "$context" ]]; then
 fi
 
 #
+_npx="`which npx 2>/dev/null`"
+
+if [[ -z "$_npx" ]]; then
+	echo " >> Unable to determine your \`npx\` (of Node.js).." >&2
+	exit 6
+fi
+
+#
 echo -e "\n< https://kekse.biz/#~nlp >\n"
 echo -e "Context size: $context\n       Model: \`$model\`\n      Prompt: \`$prompt\`\n\n"
 
 #
 npx --no node-llama-cpp chat \
 	--systemPrompt "$promptData" \
-	--model "$model" \
+	--model "$modelPath" \
 	--threads $threads \
 	--contextSize $context \
 	--prompt "Using the model \`$model\` and the prompt \`$prompt\` for you. Context size is ${context}. ... < https://kekse.biz/#~nlp >."
