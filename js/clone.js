@@ -1,6 +1,6 @@
 // 
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-// v0.3.0
+// v0.3.1
 // 
 // Just a tiny function to *really* clone objects (etc.); .. with all types, not only JSON supported ones
 // or so (sometimes the web referes to just `JSON.parse(JSON.stringify({}))`);

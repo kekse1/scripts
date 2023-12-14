@@ -8,7 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2023-12-14**\] _New version **0.3.0**_ of [`clone.js`](#clonejs)
+* \[**2023-12-14**\] _New version **0.3.1**_ of [`clone.js`](#clonejs)
 
 ## [Bash](bash/)
 
