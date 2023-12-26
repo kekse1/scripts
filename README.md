@@ -9,6 +9,7 @@
 
 ## News
 * \[**2023-12-14**\] _New version **0.3.1**_ of [`clone.js`](#clonejs)
+* \[**2023-12-26**\] Update in the [`junior.sh`](#juniorsh)
 
 ## [Bash](bash/)
 
