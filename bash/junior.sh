@@ -2,7 +2,6 @@
 
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-# < https://kekse.biz/#~nlp > ... December 2023.
 #
 # Handling the `llama.cpp` (or rather `node-llama-cpp`) better.
 #
@@ -18,7 +17,7 @@
 #
 
 #
-default_context="2048"
+default_context="16384"
 
 #
 real="$(realpath "$0")"
@@ -43,7 +42,7 @@ invalidArguments()
 listModels()
 {
 	echo -e "\n >> Available models:\n" >&2
-	for i in $prefix/models/*.gguf; do
+	for i in $prefix/models/*; do
 		[[ ! -L $i ]] && continue
 		echo " >> \`$(basename "$i" .gguf)\`"
 	done
@@ -59,6 +58,7 @@ listPrompts()
 
 #
 threads="`nproc 2>/dev/null`"
+threads="4"
 
 if [[ -z "$threads" ]]; then
 	echo " >> Unable to determine number of CPU threads." >&2
@@ -115,10 +115,10 @@ echo -e "Context size: $context\n       Model: \`$model\`\n      Prompt: \`$prom
 #
 cd "$prefix" && npx --no node-llama-cpp chat \
 	--systemPrompt "$promptData" \
-	--prompt "$promptData" \
 	--model "$modelPath" \
 	--threads $threads \
 	--contextSize $context
+	#--prompt "$promptData"
 
 # 
 # and see the node_examples, and also compare the models/..!!!
