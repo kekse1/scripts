@@ -72,11 +72,11 @@ modelPath=""
 if [[ -z "$model" ]]; then
 	invalidArguments
 	exit 2
-elif [[ ! -f "${prefix}/models/${model}.gguf" ]]; then
+elif [[ ! -f "${prefix}/models/${model}" ]]; then
 	echo " >> The model \`$model\` couldn't be found!" >&2
 	exit 3
 else
-	modelPath="${prefix}/models/${model}.gguf"
+	modelPath="${prefix}/models/${model}"
 fi
 
 #
