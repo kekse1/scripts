@@ -55,6 +55,9 @@ So just set your server {user,host,port} and copy securely.
 
 BTW: yes, I had an unstable line when I created this.. via mobile phone.
 
+### [`move-by-ext`.sh](bash/move-by-ext.sh)
+Another tiny helper... really nothing special.
+
 ### [`make-nodejs`.sh](bash/make-nodejs.sh)
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there.
