@@ -59,7 +59,7 @@ BTW: yes, I had an unstable line when I created this.. via mobile phone.
 ### [`move-by-ext`.sh](sh/move-by-ext.sh)
 Another tiny helper... really nothing special.
 
-### [`list-ext`.sh](sh/list-ext.sh)
+### [`find-ext`.sh](sh/find-ext.sh)
 Something similar to the [`move-by-ext`.sh](#move-by-extsh) helper, but here without write operations,
 only counting all different extensions available under the current working directory. And it's possible
 to limit the `find` recursion depth via optional first argument (needs to be positive integer).

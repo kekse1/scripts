@@ -8,18 +8,26 @@
 # Creates a list of all found extensions. Searching below the current working directory.
 # If called with numerical parameter, this is limiting the maximum recursion depth (`find -maxdepth`).
 #
-# Syntax: `$0 [ <maxdepth> ]`
+# Syntax: `$0 [ <maxdepth> ] [ -raw / -r ]`
+#
+# The '-raw / -r' parameter will prevent any other output (but the list of different extensions itself).
 #
 
 result=""
 count=0
-max="$1"
+raw=0
+max=""
 
-if [[ $max =~ ^[0-9]+$ ]]; then
+for i in "$@"; do
+	if [[ "$i" = "--raw" || "$i" = "-r" ]]; then
+		raw=1
+	elif [[ "$i" =~ ^[0-9]+$ ]]; then
+		max="-maxdepth $i"
+	fi
+done
+
+if [[ ! -z "$max" && $raw -eq 0 ]]; then
 	echo -e " >> Depth limit is set to $max.\n" >&2
-	max="-maxdepth $max"
-else
-	max=""
 fi
 
 getExtension()
@@ -55,5 +63,4 @@ for i in $result; do
 	echo $i
 done
 
-echo -e "\n >> Found $count different extensions." >&2
-
+[[ $raw -eq 0 ]] && echo -e "\n >> Found $count different extensions." >&2
