@@ -8,7 +8,7 @@
 # Creates a list of all found extensions. Searching below the current working directory.
 # If called with numerical parameter, this is limiting the maximum recursion depth (`find -maxdepth`).
 #
-# Syntax: `$0 [ <maxdepth> ] [ -raw / -r ]`
+# Syntax: `$0 [ <maxdepth> ] [ --raw / -r ]`
 #
 # The '-raw / -r' parameter will prevent any other output (but the list of different extensions itself).
 #
