@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/
-# v0.0.2
+# v0.0.3
 #
 # Creates a list of all found extensions. Searching below the current working directory.
 # If called with numerical parameter, this is limiting the maximum recursion depth (`find -maxdepth`).
