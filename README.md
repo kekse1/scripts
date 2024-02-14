@@ -8,12 +8,13 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-02-14**\] Two new bash scripts (to handle file extensions)
 * \[**2023-12-14**\] _New version **0.4.0**_ of [`clone.js`](#clonejs)
 * \[**2023-12-26**\] Update in the [`junior.sh`](#juniorsh)
 
-## [Bash](bash/)
+## [Bash](sh/)
 
-### [`prompt`.sh](bash/prompt.sh)
+### [`prompt`.sh](sh/prompt.sh)
 Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS1` prompt.
 Uses the `$PROMPT_COMMAND` variable to dynamically change the prompt.
 
@@ -22,20 +23,20 @@ Version **1.1.0**.
 #### Screenshot
 ![$PS1](docs/prompt.sh.png)
 
-### [`junior`.sh](bash/junior.sh)
+### [`junior`.sh](sh/junior.sh)
 Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/), or rather the
 [`node-llama-cpp`](https://github.com/withcatai/node-llama-cpp), I just wrote a short
 shell script to handle multiple models and prompts better.
 
 Syntax: `$0 <model> <prompt> [ <context size> ]`.
 
-### [`up2date`.sh](bash/up2date.sh)
+### [`up2date`.sh](sh/up2date.sh)
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
 I'm using it to do all steps to keep your packages `up2date`, in just one step!
 
 Also, just copy it to `/etc/profile.d/up2date.sh`
 
-### [`layout`.sh](bash/layout.sh)
+### [`layout`.sh](sh/layout.sh)
 The most important thing for me was to switch between keyboard layouts - easily with a shortcut I've set up in XFCE
 (Settings -> Keyboard): calling this script with '-' argument only (so traversing, *not* setting..)!
 
@@ -46,7 +47,7 @@ So either call it without arguments, so it'll show you the currently used layout
 switch to it directly. Or call it with a single `-`, so it'll traverse through the `layouts` array (on top, by default
 it's `layouts=("us" "de")`).
 
-### [`copy`.sh](bash/copy.sh)
+### [`copy`.sh](sh/copy.sh)
 A little helper to `scp` files, with only the remote file path as argument.
 
 I'm using this to copy backups from my server, most because on errors this
@@ -55,10 +56,15 @@ So just set your server {user,host,port} and copy securely.
 
 BTW: yes, I had an unstable line when I created this.. via mobile phone.
 
-### [`move-by-ext`.sh](bash/move-by-ext.sh)
+### [`move-by-ext`.sh](sh/move-by-ext.sh)
 Another tiny helper... really nothing special.
 
-### [`make-nodejs`.sh](bash/make-nodejs.sh)
+### [`list-ext`.sh](sh/list-ext.sh)
+Something similar to the [`move-by-ext`.sh](#move-by-extsh) helper, but here without write operations,
+only counting all different extensions available under the current working directory. And it's possible
+to limit the `find` recursion depth via optional first argument (needs to be positive integer).
+
+### [`make-nodejs`.sh](sh/make-nodejs.sh)
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there.
 
@@ -77,7 +83,7 @@ works! :)~
 ### Snippets and one-liners
 Really tiny helper scripts, or one-liner, cheats, etc..
 
-#### [`chmod`.sh](bash/snippets/chmod.sh)
+#### [`chmod`.sh](sh/snippets/chmod.sh)
 For recursive `chmod`, with different types for directories and files.
 
 After this you'll see how many items were changed, and how many errors occured (if any), and how many files were
@@ -86,17 +92,17 @@ ignored (due to '$ignore' list; the one setting of two, together with '$hidden')
 The erroneous files will be printed as list, so you can check them manually (otherwise just redirect the STDERR
 by appending ` 2>/dev/null` to the cmdline).
 
-#### [`count-all-lines`.sh](bash/snippets/count-all-lines.sh)
+#### [`count-all-lines`.sh](sh/snippets/count-all-lines.sh)
 Define a glob and search for them (only _real_ files), then print their line counts (sorted, ascending),
 plus the total count in the last line.
 
-#### [`fresh`.sh](bash/snippets/fresh.sh)
+#### [`fresh`.sh](sh/snippets/fresh.sh)
 One command to 'fresh up' the current git repository.. mentioned to be in `/etc/profile.d/`.
 
-#### [`qemu`.sh](bash/snippets/qemu.sh)
+#### [`qemu`.sh](sh/snippets/qemu.sh)
 Starting `qemu` with some most common, configurable parameters (as I like them).. really nothing special!
 
-#### [`substring`.sh](bash/dunno/substring.sh)
+#### [`substring`.sh](sh/dunno/substring.sh)
 Short overview over the string substitutions supported by the `bash`.. dug it out under my `~/git/knowledge/`,
 so really not worth to mention here, but maybe a help if you need to write a shell script quickly (I don't
 like it when using the `bash` but doing such things with external commands...).
