@@ -6,11 +6,15 @@
 # v0.0.3
 #
 # Creates a list of all found extensions. Searching below the current working directory.
+#
 # If called with numerical parameter, this is limiting the maximum recursion depth (`find -maxdepth`).
+# Needs to be a positive integer.
 #
 # Syntax: `$0 [ <maxdepth> ] [ --raw / -r ]`
 #
-# The '-raw / -r' parameter will prevent any other output (but the list of different extensions itself).
+# The '--raw / -r' parameter will prevent any other output (but the list of different extensions itself).
+#
+# Doesn't matter which argv indices the parameters got.
 #
 
 result=""
