@@ -4,7 +4,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.4
+# v0.1.5
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
@@ -35,22 +35,22 @@ changed=n
 
 for i in "$@"; do
 	case "$i" in
-		-f|--force)
+		'-f'|'--force')
 			echo " >> -f/--force will start \`rsync\` without asking user to confirm it."
 			force=y
 			changed=y
 			;;
-		-v|--verbose)
+		'-v'|'--verbose')
 			echo " >> -v/--verbose enables verbose \`rsync\` output."
 			verbose=y
 			changed=y
 			;;
-		-l|--linux)
+		'-l'|'--linux')
 			echo " >> -l/--linux enables file permissions, attributes and symlinks.. otherwise ignored."
 			linux=y
 			changed=y
 			;;
-		-?|--help)
+		'-?'|'--help')
 			echo "    Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>"
 			echo -e "\n >> Syntax: \$0 [ -f / --force // -v / --verbose // -l / --linux ]"
 			exit
