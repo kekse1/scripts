@@ -8,6 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-02-18**\] New bash shell script [**`unexify.sh`**](#unexifysh)
 * \[**2024-02-14**\] Two new bash scripts (to handle file extensions)
 * \[**2023-12-14**\] _New version **0.4.0**_ of [`clone.js`](#clonejs)
 * \[**2023-12-26**\] Update in the [`junior.sh`](#juniorsh)
@@ -23,12 +24,18 @@ Version **1.1.0**.
 #### Screenshot
 ![$PS1](docs/prompt.sh.png)
 
-### [`junior`.sh](sh/junior.sh)
-Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/), or rather the
-[`node-llama-cpp`](https://github.com/withcatai/node-llama-cpp), I just wrote a short
-shell script to handle multiple models and prompts better.
+### [`unexify`.sh](sh/unexify.sh)
+Really tiny helper script to recursively remove all headers from images.
 
-Syntax: `$0 <model> <prompt> [ <context size> ]`.
+The primary intention is to secure images *all* in your web root.
+So e.g. when you take photos with your smartphone, they'll no longer
+contain the GPS coordinates, etc. ;-)
+
+Call with `-?` or `--help` to get to know a bit more.. the help text is encoded
+in a variable on the file's top.
+
+_JFYI_: Dependency is the [**`exiftool`**](https://exiftool.org), which is the
+repository `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
 
 ### [`up2date`.sh](sh/up2date.sh)
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
@@ -79,6 +86,13 @@ works! :)~
 
 > **Note**
 > Just call it via `make-nodejs.sh 20.4.0`, e.g.!
+
+### [`junior`.sh](sh/junior.sh)
+Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/), or rather the
+[`node-llama-cpp`](https://github.com/withcatai/node-llama-cpp), I just wrote a short
+shell script to handle multiple models and prompts better.
+
+Syntax: `$0 <model> <prompt> [ <context size> ]`.
 
 ### Snippets and one-liners
 Really tiny helper scripts, or one-liner, cheats, etc..
