@@ -14,7 +14,7 @@ help="${header}
   contain the GPS coordinates, etc. ;-)
 
   Dependencies: The \`exiftool\` <https://exiftool.org/>
-  Debian Linux repository is \`libimage-exiftool-perl\`.
+  Debian Linux packet is \`libimage-exiftool-perl\`.
 
   This script will also check if the tool is available/installed on your system.
 

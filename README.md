@@ -35,7 +35,7 @@ Call with `-?` or `--help` to get to know a bit more.. the help text is encoded
 in a variable on the file's top.
 
 _JFYI_: Dependency is the [**`exiftool`**](https://exiftool.org), which is the
-repository `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
+packet `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
 
 ### [`up2date`.sh](sh/up2date.sh)
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
