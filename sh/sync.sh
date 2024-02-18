@@ -23,7 +23,8 @@ PORT="22"
 
 # check the current command line for this script..
 force=n
-verbose=y
+verbose=n
+
 changed=n
 
 for i in "$@"; do
