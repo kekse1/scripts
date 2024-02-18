@@ -40,12 +40,10 @@ packet `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
 
 ### [`sync`.sh](sh/sync.sh)
 Another helping hand which became required since I'm managing some archive on my server,
-which needs to be synchronized with an USB stick (on a Linux system..).
+which needs to be synchronized with an (windows) USB stick.
 
 > **Warning**
-> This should be the correct `rsync` command line for such a case, but please **check it
-> and try it out**, since I've not really tested the `rsync` call itself.. I only selected
-> the command line parameters until now! ...
+> PLEASE CHECK the **FIRST BOTH** configuration parts, relatively on top of the file..
 
 ### [`up2date`.sh](sh/up2date.sh)
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.

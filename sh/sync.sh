@@ -4,13 +4,20 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.0.8
+# v0.1.0
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
 #
 ######################################################################
 #
+
+# _important_ config: from which path the relative $DIR path (see below)?
+# => 0 for this script's directory, 1 for current working directory
+# IF $DIR IS NO ABSOLUTE PATH OR BEGINS WITH './' OR '../'!!
+# important since e.g. cronjobs would not have to be called with
+# special current working directory.. etc. ;-)
+FROM=0
 
 # first configuration
 DIR="sync"
@@ -45,7 +52,7 @@ for i in "$@"; do
 			;;
 		-?|--help)
 			echo "    Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>"
-			echo -e "\n >> Syntax: \$0 [ -f / --force / -v / --verbose ]"
+			echo -e "\n >> Syntax: \$0 [ -f / --force // -v / --verbose // -p / --perms ]"
 			exit
 			;;
 	esac
@@ -71,24 +78,35 @@ dir="$(dirname "$real")"
 [[ "${DIR:(-1)}" == "/" ]] || DIR="${DIR}/"
 [[ "${SRC:(-1)}" == "/" ]] || SRC="${SRC}/"
 
+# check $FROM.. and $DIR.. to resolve to one $TRGT
+TRGT=
+
+if [[ "${DIR::1}" == "/" || "${DIR::2}" == "./" || "${DIR::3}" == "../" ]]; then
+	TRGT="$(realpath "$DIR")"
+elif [[ "$FROM" -eq 0 ]]; then
+	TRGT="${dir}/${DIR}"
+else
+	TRGT="$(realpath "$DIR")"
+fi
+
 # paths appended to command line
-CMD="${CMD} ${USER}@${SRV}:${SRC} ${dir}/${DIR}"
+CMD="${CMD} ${USER}@${SRV}:${SRC} ${TRGT}"
 
 # check if target directory exists (or if it's a directory),
 # or create this one here.
-if [[ -e "${dir}/${DIR}" ]]; then
-	if [[ ! -d "${dir}/${DIR}" ]]; then
+if [[ -e "$TRGT" ]]; then
+	if [[ ! -d "$TRGT" ]]; then
 		echo " >> Target directory exists, but ain't a directory! Exiting.." >&2
 		exit 1
 	else
-		touch "${dir}/${DIR}/.keep"
+		touch "${TRGT}/.keep"
 	fi
 else
-	mkdir -p "${dir}/${DIR}"
+	mkdir -p "$TRGT"
 
 	if [[ $? -eq 0 ]]; then
 		echo " >> Target directory has just been created!"
-		touch "${dir}/${DIR}/.keep"
+		touch "${TRGT}/.keep"
 	else
 		echo " >> Target directory could NOT be created! Exiting.." >&2
 		exit 2
