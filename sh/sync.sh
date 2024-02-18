@@ -1,25 +1,28 @@
 #!/usr/bin/env bash
 
-###############################################################
+######################################################################
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-# v0.0.7
+# https://kekse.biz/ https://github.com/kekse1/scripts/
+# v0.0.8
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
 #
-###############################################################
+######################################################################
+#
 
 # first configuration
 DIR="sync"
 USER="sync"
 SRC="/home/sync/"
-SRV="sync.ssh.server"
+SRV="ssh.rsync.server.host"
 PORT="22"
 
 # check the current command line for this script..
 force=n
 verbose=n
+perms=n
 
 changed=n
 
@@ -35,6 +38,11 @@ for i in "$@"; do
 			verbose=y
 			changed=y
 			;;
+		-p|--perms)
+			echo " >> -p/--perms enables file permissions, otherwise ignored."
+			perms=y
+			changed=y
+			;;
 		-?|--help)
 			echo "    Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>"
 			echo -e "\n >> Syntax: \$0 [ -f / --force / -v / --verbose ]"
@@ -48,6 +56,9 @@ done
 
 # the `rsync` command line to use (without paths; see below)
 CMD="rsync --archive --checksum --recursive --relative --rsh='ssh -p${PORT}' --progress --fsync"
+
+# --perms/-p option..
+[[ "$perms" == "y" ]] && CMD="${CMD} --no-owner --no-group --no-perms"
 
 # append --verbose rsync parameter, if wished by user (via cmdline, see above)
 [[ "$verbose" == "y" ]] && CMD="${CMD} --verbose"
