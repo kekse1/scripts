@@ -39,8 +39,8 @@ for i in "$@"; do
 			changed=y
 			;;
 		-?|--help)
-			echo "    Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>" >&2
-			echo " >> Want some help? Please.. read the fucking source! xD~" >&2
+			echo "    Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>"
+			echo -e "\n >> Syntax: \$0 [ -f / --force / -v / --verbose ]"
 			exit
 			;;
 	esac
