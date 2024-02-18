@@ -133,5 +133,5 @@ fi
 eval "$CMD"
 ret=$?
 echo -en "\n\n.. returned ($ret). "
-[[ $ret -eq 0 ]] && echo ':-)' || echo ':-('
+[[ $ret -eq 0 ]] && echo -e "\033[1m:-)\033[0m" || echo -e "\033[1m:-(\033[0m"
 
