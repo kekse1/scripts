@@ -8,6 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-02-18**\] Second new shell script [**`sync.sh`**](#syncsh)
 * \[**2024-02-18**\] New bash shell script [**`unexify.sh`**](#unexifysh)
 * \[**2024-02-14**\] Two new bash scripts (to handle file extensions)
 * \[**2023-12-14**\] _New version **0.4.0**_ of [`clone.js`](#clonejs)
@@ -36,6 +37,14 @@ in a variable on the file's top.
 
 _JFYI_: Dependency is the [**`exiftool`**](https://exiftool.org), which is the
 packet `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
+
+### [`sync`.sh](sh/sync.sh)
+Another helping hand which became required since I'm managing some archive on my server,
+which needs to be synchronized with an USB stick (on a Linux system..).
+
+This should be the correct `rsync` command line for such a case, but please **check it
+and try it out**, by replacing the final `echo` output of the `$CMD` with an `eval`
+command or so.. which means, you have to 'enable' the script if you want to use it.. **;-)**
 
 ### [`up2date`.sh](sh/up2date.sh)
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
