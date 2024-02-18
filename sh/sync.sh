@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-######################################################################
+###############################################################
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # v0.0.7
@@ -8,11 +8,7 @@
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
 #
-######################################################################
-# To be exact @ my family: our archive will be synchronized right here
-# with my USB stick I leave there for you.. ^_^
-######################################################################
-#
+###############################################################
 
 # first configuration
 DIR="sync"
