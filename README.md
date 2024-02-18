@@ -40,7 +40,7 @@ packet `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
 
 ### [`sync`.sh](sh/sync.sh)
 Another helping hand which became required since I'm managing some archive on my server,
-which needs to be synchronized with an (windows) USB stick.
+which needs to be synchronized with an SB stick (using `crontab`, ..).
 
 > **Warning**
 > PLEASE CHECK the **FIRST BOTH** configuration parts, relatively on top of the file..
