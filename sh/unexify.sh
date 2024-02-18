@@ -9,7 +9,7 @@ help="${header}
 
   Little helper script to recursively remove all headers from images.
 
-  The primary intention is to secure images *all* in your web root.
+  The primary intention is to secure *all* images in your web root.
   So e.g. when you take photos with your smartphone, they'll no longer
   contain the GPS coordinates, etc. ;-)
 
