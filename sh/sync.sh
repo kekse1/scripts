@@ -72,6 +72,8 @@ if [[ -e "${dir}/${DIR}" ]]; then
 	if [[ ! -d "${dir}/${DIR}" ]]; then
 		echo " >> Target directory exists, but ain't a directory! Exiting.." >&2
 		exit 1
+	else
+		touch "${dir}/${DIR}/.keep"
 	fi
 else
 	mkdir -p "${dir}/${DIR}"
