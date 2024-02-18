@@ -45,6 +45,9 @@ which needs to be synchronized with an (windows) USB stick.
 > **Warning**
 > PLEASE CHECK the **FIRST BOTH** configuration parts, relatively on top of the file..
 
+> **Note**
+> As usual, `-?` or `--help` will give you more inf0.
+
 ### [`up2date`.sh](sh/up2date.sh)
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
 I'm using it to do all steps to keep your packages `up2date`, in just one step!
