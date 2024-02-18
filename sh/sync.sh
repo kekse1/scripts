@@ -4,7 +4,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.5
+# v0.2.0
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
@@ -20,10 +20,10 @@
 FROM=0
 
 # first configuration
-DIR="sync"
+DIR="SYNC"
 USER="sync"
 SRC="/home/sync/"
-SRV="ssh.rsync.server.hostname"
+SRV="ssh.server"
 PORT="22"
 
 # check the current command line for this script..
@@ -90,7 +90,7 @@ else
 fi
 
 # paths appended to command line
-CMD="${CMD} ${USER}@${SRV}:${SRC} ${TRGT}"
+CMD="${CMD} ${USER}@${SRV}:\"${SRC}\" \"${TRGT}\""
 
 # check if target directory exists (or if it's a directory),
 # or create this one here.
