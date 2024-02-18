@@ -7,7 +7,7 @@ version="v0.0.7"
 help="${header}
   ${version}
 
-  Really tiny helper script to recursively remove all headers from images.
+  Little helper script to recursively remove all headers from images.
 
   The primary intention is to secure images *all* in your web root.
   So e.g. when you take photos with your smartphone, they'll no longer
