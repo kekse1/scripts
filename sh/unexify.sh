@@ -3,7 +3,7 @@
 header="  Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
     https://kekse.biz/
     https://github.com/kekse1/scripts/"
-version="v0.0.7"
+version="v0.1.0"
 help="${header}
   ${version}
 
