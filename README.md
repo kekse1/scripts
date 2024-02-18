@@ -45,8 +45,13 @@ which needs to be synchronized with an SB stick (using `crontab`, ..).
 > **Warning**
 > PLEASE CHECK the **FIRST BOTH** configuration parts, relatively on top of the file..
 
+_BTW_: My target USB stick is formatted as `ExFAT` file system, so not all linux
+file permissions and attributes are supported. So I decided to disable all these
+by default. If you want/need them, use the `-p` or `--perms` cmdline argument of
+this script. **;-)**
+
 > **Note**
-> As usual, `-?` or `--help` will give you more inf0.
+> As usual, you can also use `-?` or `--help`! **:-D**
 
 ### [`up2date`.sh](sh/up2date.sh)
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
