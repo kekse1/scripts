@@ -3,11 +3,14 @@
 ######################################################################
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-# v0.0.4
+# v0.0.7
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
 #
+######################################################################
+# To be exact @ my family: our archive will be synchronized right here
+# with my USB stick I leave there for you.. ^_^
 ######################################################################
 #
 
@@ -15,7 +18,7 @@
 DIR="sync"
 USER="sync"
 SRC="/home/sync/"
-SRV="sync.ssh.server.host.name"
+SRV="sync.ssh.server"
 PORT="22"
 
 # check the current command line for this script..
@@ -113,5 +116,9 @@ if [[ "$force" != "y" ]]; then
 	fi
 fi
 
-echo "'$CMD'"
+# DO IT!
+eval "$CMD"
+ret=$?
+echo -en "\n\n.. returned ($ret). "
+[[ $ret -eq 0 ]] && echo ':-)' || echo ':-('
 
