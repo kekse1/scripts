@@ -111,7 +111,7 @@ askToContinue()
 		case "${cont,,}" in
 			y*) return 0;;
 			n*) return 1;;
-			*) echo -e "\n >> Invalid input, please try again." >&2;;
+			*) echo -e "\n >> Invalid input, please try again (with 'y' or 'n')." >&2;;
 		esac
 	done
 }
@@ -134,3 +134,4 @@ eval "$CMD"
 ret=$?
 echo -en "\n\n.. returned ($ret). "
 [[ $ret -eq 0 ]] && echo ':-)' || echo ':-('
+
