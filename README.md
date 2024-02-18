@@ -46,9 +46,9 @@ which needs to be synchronized with an SB stick (using `crontab`, ..).
 > PLEASE CHECK the **FIRST BOTH** configuration parts, relatively on top of the file..
 
 _BTW_: My target USB stick is formatted as `ExFAT` file system, so not all linux
-file permissions and attributes are supported. So I decided to disable all these
-by default. If you want/need them, use the `-p` or `--perms` cmdline argument of
-this script. **;-)**
+file permissions and attributes are supported, and also no symbolic links. So I
+decided to disable all these by default. If you want/need them, use the `-l` or
+`--linux` cmdline argument. **;-)**
 
 > **Note**
 > As usual, you can also use `-?` or `--help`! **:-D**
