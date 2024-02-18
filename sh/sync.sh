@@ -75,6 +75,7 @@ else
 
 	if [[ $? -eq 0 ]]; then
 		echo " >> Target directory has just been created!"
+		touch "${dir}/${DIR}/.keep"
 	else
 		echo " >> Target directory could NOT be created! Exiting.." >&2
 		exit 2
