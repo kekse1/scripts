@@ -4,7 +4,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.0
+# v0.1.1
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
@@ -65,7 +65,7 @@ done
 CMD="rsync --archive --checksum --recursive --relative --rsh='ssh -p${PORT}' --progress --fsync"
 
 # --perms/-p option..
-[[ "$perms" == "y" ]] && CMD="${CMD} --no-owner --no-group --no-perms"
+[[ "$perms" == "y" ]] || CMD="${CMD} --no-owner --no-group --no-perms"
 
 # append --verbose rsync parameter, if wished by user (via cmdline, see above)
 [[ "$verbose" == "y" ]] && CMD="${CMD} --verbose"
