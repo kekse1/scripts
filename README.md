@@ -8,6 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-02-21**\] New shell script [**`count-all-lines.sh`**](#countalllinessh)
 * \[**2024-02-18**\] Second new shell script [**`sync.sh`**](#syncsh)
 * \[**2024-02-18**\] New bash shell script [**`unexify.sh`**](#unexifysh)
 * \[**2024-02-14**\] Two new bash scripts (to handle file extensions)
@@ -69,6 +70,11 @@ Here's an example screenshot:
 So either call it without arguments, so it'll show you the currently used layout. Call it with a concrete layout, to
 switch to it directly. Or call it with a single `-`, so it'll traverse through the `layouts` array (on top, by default
 it's `layouts=("us" "de")`).
+
+### [`count-all-lines`.sh](sh/count-all-lines.sh)
+Will traverse recursively through all sub directories (of current working directory) using one or more `find -iname`
+parameters, especially globs to define file extensions, and output a list of found ones with their line counts, sorted
+ascending, and ending with the line count sum of all line counts.
 
 ### [`copy`.sh](sh/copy.sh)
 A little helper to `scp` files, with only the remote file path as argument.
