@@ -1,14 +1,15 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
+# https://kekse.biz/ https://github.com/kekse1/scripts/
 #
-# Tiny helper.. copy to /etc/profile.d/.
+# Tiny helper; maybe copy it to /etc/profile.d/fresh.sh
 #
 
 fresh()
 {
-	_txt="`date +'[%s%N] %A, %Y-%m-%d (%H:%M:%S)'`"
-	[ $# -gt 0 ] && _txt="$_txt ($*)"
-
+	txt="`date +'[%s%N] %A, %Y-%m-%d (%H:%M:%S)'`"
+	[[ $# -gt 0 ]] && txt="$* ($txt)"
+	
 	git pull
 	git add --all
 	git commit -m "$_txt"
