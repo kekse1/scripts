@@ -2,12 +2,13 @@
 # 
 # tiny helper script (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.0
+# v0.2.1
 #
 # Syntax: $0 <-iname> [ ... ]
 #
 # Parameters especially to define filename globs (which are used case *in*sensitive).
-# You should escape any '*' or just quote them, like '*.js'.
+# You should escape any '*' or just quote them, like '*.js' (otherwise your shell
+# might try to resolve them).
 #
 # (TODO) .. would be interesting to count lines w/o comments; but for that
 # I've made another script (to extract various comments).
