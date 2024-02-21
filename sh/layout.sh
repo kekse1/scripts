@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 #
 # (c) Sebastian Kucharczyk <kuchen@kekse.biz>
+# https://kekse.biz/ https://github.com/kekse1/scripts/
+# v0.2
 #
 # Requirement: `apt install x11-xkb-utils`
 #
