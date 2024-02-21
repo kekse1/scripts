@@ -8,6 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-02-21**\] Plus [**`router.sh`**](#routersh); just dug it out
 * \[**2024-02-21**\] New shell script [**`count-all-lines.sh`**](#count-all-linessh)
 * \[**2024-02-18**\] Second new shell script [**`sync.sh`**](#syncsh)
 * \[**2024-02-18**\] New bash shell script [**`unexify.sh`**](#unexifysh)
