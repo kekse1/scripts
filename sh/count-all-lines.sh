@@ -4,9 +4,11 @@
 # https://kekse.biz/ https://github.com/kekse1/scripts/
 # v0.2.0
 #
-# Would be helpful to argue with quoted globals, so the shell doesn't resolve 'em!
-# Otherwise, just escape all '*' with '\'.
-# 
+# Syntax: $0 <-iname> [ ... ]
+#
+# Parameters especially to define filename globals (which are used case *in*sensitive).
+# You should escape any '*' or just quote them, like '*.js'.
+#
 # (TODO) .. would be interesting to count lines w/o comments; but for that
 # I've made another script (to extract various comments).
 #
