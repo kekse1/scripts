@@ -8,7 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-02-21**\] New shell script [**`count-all-lines.sh`**](#countalllinessh)
+* \[**2024-02-21**\] New shell script [**`count-all-lines.sh`**](#count-all-linessh)
 * \[**2024-02-18**\] Second new shell script [**`sync.sh`**](#syncsh)
 * \[**2024-02-18**\] New bash shell script [**`unexify.sh`**](#unexifysh)
 * \[**2024-02-14**\] Two new bash scripts (to handle file extensions)
