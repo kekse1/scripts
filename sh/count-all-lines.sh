@@ -6,7 +6,7 @@
 #
 # Syntax: $0 <-iname> [ ... ]
 #
-# Parameters especially to define filename globals (which are used case *in*sensitive).
+# Parameters especially to define filename globs (which are used case *in*sensitive).
 # You should escape any '*' or just quote them, like '*.js'.
 #
 # (TODO) .. would be interesting to count lines w/o comments; but for that
