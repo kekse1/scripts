@@ -73,8 +73,8 @@ it's `layouts=("us" "de")`).
 
 ### [`count-all-lines`.sh](sh/count-all-lines.sh)
 Will traverse recursively through all sub directories (of current working directory) using one or more `find -iname`
-parameters, especially globs to define file extensions, and output a list of found ones with their line counts, sorted
-ascending, and ending with the line count sum of all line counts.
+parameters (especially globs to define file extensions!), and output a list of found ones with their line counts,
+sorted ascending, and ending with the line count sum of all line counts.
 
 ### [`copy`.sh](sh/copy.sh)
 A little helper to `scp` files, with only the remote file path as argument.
