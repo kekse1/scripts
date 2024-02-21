@@ -123,32 +123,8 @@ shell script to handle multiple models and prompts better.
 
 Syntax: `$0 <model> <prompt> [ <context size> ]`.
 
-### Snippets and one-liners
-Really tiny helper scripts, or one-liner, cheats, etc..
-
-#### [`chmod`.sh](sh/snippets/chmod.sh)
-For recursive `chmod`, with different types for directories and files.
-
-After this you'll see how many items were changed, and how many errors occured (if any), and how many files were
-ignored (due to '$ignore' list; the one setting of two, together with '$hidden').
-
-The erroneous files will be printed as list, so you can check them manually (otherwise just redirect the STDERR
-by appending ` 2>/dev/null` to the cmdline).
-
-#### [`count-all-lines`.sh](sh/snippets/count-all-lines.sh)
-Define a glob and search for them (only _real_ files), then print their line counts (sorted, ascending),
-plus the total count in the last line.
-
-#### [`fresh`.sh](sh/snippets/fresh.sh)
-One command to 'fresh up' the current git repository.. mentioned to be in `/etc/profile.d/`.
-
-#### [`qemu`.sh](sh/snippets/qemu.sh)
-Starting `qemu` with some most common, configurable parameters (as I like them).. really nothing special!
-
-#### [`substring`.sh](sh/dunno/substring.sh)
-Short overview over the string substitutions supported by the `bash`.. dug it out under my `~/git/knowledge/`,
-so really not worth to mention here, but maybe a help if you need to write a shell script quickly (I don't
-like it when using the `bash` but doing such things with external commands...).
+### [`fresh`.sh](sh/fresh.sh)
+Helper to quickly update `git` repositories.. really tiny.
 
 ## JavaScript
 My favorite language.. ^\_^
