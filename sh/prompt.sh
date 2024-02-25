@@ -1,6 +1,6 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-# v1.1.0
+# v1.1.1
 #
 # Just copy this script to '/etc/profile.d/'.
 #
@@ -172,7 +172,7 @@ ps1Prompt()
 	write ' '
 	startBG 95 160 205
 	startFG 0 0 0
-	getBase $_SLASHES "$PWD"
+	getBase $_SLASHES "`pwd`"
 	ansiReset
 	write ' '
 

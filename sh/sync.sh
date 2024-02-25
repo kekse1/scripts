@@ -4,7 +4,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.0
+# v0.3.1
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
@@ -14,11 +14,8 @@
 
 # _important_ config: from which path the relative $DIR path (see below)?
 # => 0 for this script's directory, 1 for current working directory
-# IF $DIR IS NO ABSOLUTE PATH OR BEGINS WITH './' OR '../'!!
-# important since e.g. cronjobs would not have to be called with
-# special current working directory.. etc. ;-)
+# ALTERNATIVELY define your own directory prefix here..
 FROM=0
-
 # first configuration
 DIR="SYNC"
 USER="sync"
@@ -26,35 +23,60 @@ SRC="/home/sync/"
 SRV="ssh.server"
 PORT="22"
 
+# determine this path, so calling from anywhere is possible w/o using $PWD or so..
+real="$(realpath "$0")"
+dir="$(dirname "$real")"
+base="$(basename "$real")"
+
 # check the current command line for this script..
 force=n
 verbose=n
 linux=n
-
 changed=n
+short=fvlh
+long=force,verbose,linux,help
+opts="$(getopt -o "$short" -l "$long" -n "$base" -- "$@")"
 
-for i in "$@"; do
-	case "$i" in
+if [[ $? -ne 0 ]]; then
+	#echo -e " >> Unable to parse command line arguments (with \`getopt\`)!" >&2
+	exit 1
+else
+	eval set -- "$opts"
+fi
+
+while true; do
+	case "$1" in
 		'-f'|'--force')
 			echo " >> -f/--force will start \`rsync\` without asking user to confirm it."
 			force=y
 			changed=y
+			shift
 			;;
 		'-v'|'--verbose')
 			echo " >> -v/--verbose enables verbose \`rsync\` output."
 			verbose=y
 			changed=y
+			shift
 			;;
 		'-l'|'--linux')
 			echo " >> -l/--linux enables file permissions, attributes and symlinks.. otherwise ignored."
 			linux=y
 			changed=y
+			shift
 			;;
-		'-?'|'--help')
+		'-h'|'--help')
 			echo "    Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>"
-			echo -e "\n >> Syntax: \$0 [ -f / --force // -v / --verbose // -l / --linux ]"
+			echo " >> Syntax: $base [ -f / --force // -v / --verbose // -l / --linux ]"
 			exit
 			;;
+		'--')
+			shift
+			break
+			;;
+		#*)
+		#	echo " >> Invalid parameter '$1'!" >&2
+		#	exit 254
+		#	;;
 	esac
 done
 
@@ -70,34 +92,33 @@ CMD="rsync --archive --checksum --recursive --relative --rsh='ssh -p${PORT}' --p
 # append --verbose rsync parameter, if wished by user (via cmdline, see above)
 [[ "$verbose" == "y" ]] && CMD="${CMD} --verbose"
 
-# determine this path, so calling from anywhere is possible w/o using $PWD or so..
-real="$(realpath "$0")"
-dir="$(dirname "$real")"
-
 # be sure directories are ending with path separator.. not necessary, but beautiful. ^_^
 [[ "${DIR:(-1)}" == "/" ]] || DIR="${DIR}/"
 [[ "${SRC:(-1)}" == "/" ]] || SRC="${SRC}/"
 
 # check $FROM.. and $DIR.. to resolve to one $TRGT
+# => 0 for this script's directory, 1 for current working directory
 TRGT=
 
-if [[ "${DIR::1}" == "/" || "${DIR::2}" == "./" || "${DIR::3}" == "../" ]]; then
-	TRGT="$(realpath "$DIR")"
-elif [[ "$FROM" -eq 0 ]]; then
-	TRGT="${dir}/${DIR}"
+if [[ "$FROM" == "0" ]]; then
+	TRGT="${dir}"
+elif [[ "$FROM" == "1" ]]; then
+	TRGT="`pwd`"
+elif [[ ! -z "$FROM" ]]; then
+	TRGT="${FROM}"
 else
-	TRGT="$(realpath "$DIR")"
+	echo " >> Invalid '\$FROM' configuration!" >&2
+	exit 4
 fi
 
-# paths appended to command line
-CMD="${CMD} ${USER}@${SRV}:\"${SRC}\" \"${TRGT}\""
+TRGT="$(realpath "${TRGT}/${DIR}/")"
 
 # check if target directory exists (or if it's a directory),
 # or create this one here.
 if [[ -e "$TRGT" ]]; then
 	if [[ ! -d "$TRGT" ]]; then
 		echo " >> Target directory exists, but ain't a directory! Exiting.." >&2
-		exit 1
+		exit 2
 	else
 		touch "${TRGT}/.keep"
 	fi
@@ -109,9 +130,12 @@ else
 		touch "${TRGT}/.keep"
 	else
 		echo " >> Target directory could NOT be created! Exiting.." >&2
-		exit 2
+		exit 3
 	fi
 fi
+
+# paths appended to command line
+CMD="${CMD} ${USER}@${SRV}:\"${SRC}\" \"${TRGT}\""
 
 # show kinda summary, just to info..
 echo " >> Your command line is defined as follows:"

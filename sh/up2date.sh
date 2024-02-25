@@ -1,4 +1,6 @@
 # Copyright (c) 2018 Sebastian Kucharczyk <kuchen@kekse.biz>
+# https://kekse.biz/ https://github.com/kekse1/scripts/
+# v0.2.1
 # 
 # Copy this file to '/etc/profile.d/up2date.sh'!
 #

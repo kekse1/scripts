@@ -3,7 +3,7 @@
 header="  Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
     https://kekse.biz/
     https://github.com/kekse1/scripts/"
-version="v0.1.0"
+version="v0.1.1"
 help="${header}
   ${version}
 
@@ -19,7 +19,7 @@ help="${header}
   This script will also check if the tool is available/installed on your system.
 
         Usage: unexify.sh <directory> [ <optional exiftool parameters> ]
-                          -? / --help
+                          -h / --help
                           -V / --version
 
   So define *one* directory at first, then you *may* argue with all parameters
@@ -47,7 +47,7 @@ showVersion()
 # ask for help, etc..
 for i in "$@"; do
 	case "$i" in
-		'-?'|'--help') helpMe; exit;;
+		'-h'|'--help') helpMe; exit;;
 		'-V'|'--version') showVersion;;
 	esac
 done
@@ -72,7 +72,7 @@ if [[ -z "$zero" ]]; then
 	exit 1
 elif [[ -z "$1" ]]; then
 	echo " >> No valid directory to traverse for image files specified!" >&2
-	echo " >> Take a look at the output of \`-? / --help\` parameter, please!" >&2
+	echo " >> Take a look at the output of \`-h / --help\` parameter, please!" >&2
 	exit 2
 else
 	dir="$(realpath "$1")"

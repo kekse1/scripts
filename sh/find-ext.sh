@@ -1,33 +1,60 @@
 #!/usr/bin/env bash
 
-#
+# 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-# https://kekse.biz/
-# v0.0.3
-#
-# Creates a list of all found extensions. Searching below the current working directory.
-#
-# If called with numerical parameter, this is limiting the maximum recursion depth (`find -maxdepth`).
-# Needs to be a positive integer.
-#
-# Syntax: `$0 [ <maxdepth> ] [ --raw / -r ]`
-#
+# https://kekse.biz/ https://github.com/kekse1/scripts/
+# v0.1.2
+# 
+# Syntax: `$0 [ --depth / -d <depth> ] [ --raw / -r ]`
+# 
+# Creates a list of all found extensions. Searching within and below the current working directory (with optional max --depth/-d).
 # The '--raw / -r' parameter will prevent any other output (but the list of different extensions itself).
-#
-# Doesn't matter which argv indices the parameters got.
-#
+# 
 
+#
+real="$(realpath "$0")"
+dir="$(dirname "$real")"
+base="$(basename "$real")"
+
+#
 result=""
 count=0
 raw=0
 max=""
+short=hrd:
+long=help,raw,depth:
+opts="$(getopt -o "$short" -l "$long" -n "$base" -- "$@")"
 
-for i in "$@"; do
-	if [[ "$i" = "--raw" || "$i" = "-r" ]]; then
-		raw=1
-	elif [[ "$i" =~ ^[0-9]+$ ]]; then
-		max="-maxdepth $i"
-	fi
+if [[ $? -eq 0 ]]; then
+	eval set -- "$opts"
+else
+	exit 1
+fi
+
+while true; do
+	case "$1" in
+		'-d'|'--depth')
+			if [[ "$2" =~ ^[0-9]+$ ]]; then
+				max="-maxdepth $2"
+				shift 2
+			else
+				echo " >> Parameter for --depth / -d needs to be *numeric/integer*!" >&2
+				exit 2
+			fi
+			;;
+		'-r'|'--raw')
+			raw=1
+			shift
+			;;
+		'-h'|'--help')
+			echo "Syntax: $base [ --depth / -d <depth> ] [ --raw / -r ]"
+			exit
+			;;
+		'--')
+			shift
+			break
+			;;
+	esac
 done
 
 if [[ ! -z "$max" && $raw -eq 0 ]]; then

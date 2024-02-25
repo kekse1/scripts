@@ -2,7 +2,7 @@
 #
 # (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2
+# v0.2.0
 #
 # Requirement: `apt install x11-xkb-utils`
 #

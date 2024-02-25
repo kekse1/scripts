@@ -2,8 +2,8 @@
 
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-# https://kekse.biz/
-# v0.0.1
+# https://kekse.biz/ https://github.com/kekse1/scripts/
+# v0.0.2
 #
 # Copies all files with defined extension(s) to one target directory for all
 # (recursively searched source files, btw).

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-# v0.1.1
+# https://kekse.biz/ https://github.com/kekse1/scripts/
+# v0.1.2
 #
 # A little helper to `scp` files, with only the remote file path as argument.
 #
@@ -13,8 +14,8 @@
 #
 
 #
-user=""
-host=""
+user="USER"
+host="HOST"
 port="22"
 
 timeout=30	# set to 0 or lower to disable...

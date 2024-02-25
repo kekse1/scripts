@@ -2,6 +2,8 @@
 
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
+# https://kekse.biz/ https://github.com/kekse1/scripts/
+# v0.2.0
 #
 # ATM i don't really see where the temporary files are going to (maybe /opt/node.js/*);
 # that worked in the past, but now.. whatever, the rest works great.

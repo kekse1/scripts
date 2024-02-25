@@ -2,6 +2,8 @@
 
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
+# https://kekse.biz/ https://github.com/kekse1/scripts/
+# v0.2.0
 #
 # Handling the `llama.cpp` (or rather `node-llama-cpp`) better.
 #
