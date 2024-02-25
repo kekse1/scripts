@@ -8,19 +8,9 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-<<<<<<< HEAD
 * \[**2024-02-25**\] Shell scripts are using the 'builtin' `getopt` command now. **:-)**
 * \[**2024-02-25**\] The [`count-all-lines.sh`](#count-all-linessh) now worx correctly (with more than one -iname/glob/..)!
 * \[**2024-02-25**\] This news section is reduced to only the last changes.. jfyi: these days I added some new scripts.
-=======
-* \[**2024-02-21**\] Plus [**`router.sh`**](#routersh); just dug it out
-* \[**2024-02-21**\] New shell script [**`count-all-lines.sh`**](#count-all-linessh)
-* \[**2024-02-18**\] Second new shell script [**`sync.sh`**](#syncsh)
-* \[**2024-02-18**\] New bash shell script [**`unexify.sh`**](#unexifysh)
-* \[**2024-02-14**\] Two new bash scripts (to handle file extensions)
-* \[**2023-12-14**\] _New version **0.4.0**_ of [`clone.js`](#clonejs)
-* \[**2023-12-26**\] Update in the [`junior.sh`](#juniorsh)
->>>>>>> ddddd3634f72498588d1c71b3022587b449a0e64
 
 ## [Bash](sh/)
 
@@ -28,7 +18,7 @@
 Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS1` prompt.
 Uses the `$PROMPT_COMMAND` variable to dynamically change the prompt.
 
-Version **1.1.1** (updated **2024-02-25**).
+* [Version **v1.1.1**](sh/prompt.sh) (updated **2024-02-25**)
 
 #### Screenshot
 ![$PS1](docs/prompt.sh.png)
@@ -153,6 +143,8 @@ Syntax: `$0 <model> <prompt> [ <context size> ]`.
 
 ### [`fresh`.sh](sh/fresh.sh)
 Helper to quickly update `git` repositories.. really tiny.
+
+* [Version **v0.0.2**](sh/fresh.sh) (updated **2024-02-25**)
 
 ## JavaScript
 My favorite language.. ^\_^
