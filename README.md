@@ -42,7 +42,7 @@ packet `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
 Another helping hand which became required since I'm managing some archive on my server,
 which needs to be synchronized with an SB stick (using `crontab`, ..).
 
-* [Version **v0.3.1**](sh/sync.sh) (updated **2024-02-25**)
+* [Version **v0.3.2**](sh/sync.sh) (updated **2024-02-25**)
 
 > **Warning**
 > PLEASE CHECK the **FIRST BOTH** configuration parts, relatively on top of the file..

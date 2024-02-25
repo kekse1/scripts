@@ -4,7 +4,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.1
+# v0.3.2
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
@@ -104,11 +104,8 @@ if [[ "$FROM" == "0" ]]; then
 	TRGT="${dir}"
 elif [[ "$FROM" == "1" ]]; then
 	TRGT="`pwd`"
-elif [[ ! -z "$FROM" ]]; then
-	TRGT="${FROM}"
 else
-	echo " >> Invalid '\$FROM' configuration!" >&2
-	exit 4
+	TRGT=""
 fi
 
 TRGT="$(realpath "${TRGT}/${DIR}/")"
