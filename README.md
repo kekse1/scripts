@@ -8,7 +8,6 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-03-04**\] New [`index.js`](#indexjs), which is STILL UNDER DEVELOPMENT
 * \[**2024-02-25**\] Shell scripts are using the 'builtin' `getopt` command now. **:-)**
 * \[**2024-02-25**\] The [`count-all-lines.sh`](#count-all-linessh) now worx correctly (with more than one -iname/glob/..)!
 * \[**2024-02-25**\] This news section is reduced to only the last changes.. jfyi: these days I added some new scripts.
@@ -167,24 +166,6 @@ stylesheets without newlines, etc. ..
 
 >> *Warning*
 >> TODO!
-
-### [`index.js`](js/index.js)
-Helper script for [my v4 project](https://github.com/kekse1/v4/).
-
-* [Version **0.4.0**](js/index.js) (created **2024-03-04**)
-
-Will generate (at least) two .json output files from the state of my
-JavaScript web/ and lib/ (w/ globals/) state. I'm using it to publish
-this index on [my private website/homepage](https://kekse.biz/) (look
-into the `Source Code` menu item).
-
-The INDEX is being encoded into `stdout`, the SUMMARY into `stderr`.
-Please use a shell stream pipeline to write to two .json files, just
-like this: `./index.js >index.json 2>summary.json`.
-
-But this only holds if called this script withOUT arguments. With two
-file paths these are used, so we're using my `console.confirm()` before
-writing to any file..
 
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
