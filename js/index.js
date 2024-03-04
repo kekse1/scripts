@@ -3,7 +3,7 @@
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // https://kekse.biz/
-// v0.2.0
+// v0.3.0
 //
 // Helper script for my v4 project @ https://github.com/kekse1/v4/.
 //
@@ -12,30 +12,49 @@
 // this index on my private website/homepage https://kekse.biz/
 // (see the `Source Code` menu item).
 //
+// The INDEX is being encoded into `stdout`, the SUMMARY into `stderr`.
+// Please use a shell stream pipeline to write to two .json files, just
+// like this: `./index.js >index.json 2>summary.json`.
+//
+// But this only holds if called this script withOUT arguments. With two
+// file paths these are used, so we're using my `console.confirm()` before
+// writing to any file..
+//
 // It's currently under development, so stay tuned (currently working on
 // TWO projects, this night, next day, ...)! ;-)
-//
-// BTW: The plan was TWO .json output files.. but I'm thinking about using
-// both [ stdout, stderr ] streams to relay such output to files (via shell
-// `>` and `2>` stream relays). THEN there'd be no need to use my
-// `console.confirm()` or so?! etc.. l8rs.
 //
 
 //
 const PATH_SUB = [ 'lib', 'web' ];
-const INDEX = 'index.json';
-const SUMMARY = 'summary.json';
-
-//
 var PATH = '../js/';
 var PATH_INDEX, PATH_SUMMARY;
+
+//
+var withFiles = (process.argv.length > 2);
+var INDEX = process.argv[2];
+var SUMMARY = process.argv[3];
 
 //
 import { ready } from '../js/lib.js';
 ready(() => {
 
 	//
-	console.info('Will create .json output for JavaScript code in % directories.', PATH_SUB.length);
+	if(withFiles)
+	{
+		if(path.isValid(INDEX) && path.isValid(SUMMARY))
+		{
+			INDEX = path.resolve(INDEX);
+			SUMMARY = path.resolve(SUMMARY);
+		}
+		else
+		{
+			console.error('Invalid file name(s), please correct one or both.');
+			process.exit(1);
+		}
+	}
+
+	//
+	console.info('Will create .json output for JavaScript code of % directories.', PATH_SUB.length);
 	console.log();
 
 	//
@@ -44,30 +63,34 @@ ready(() => {
 	for(var i = 0; i < PATH_SUB.length; ++i)
 		PATH_SUB[i] = path.join(PATH, PATH_SUB[i]);
 
-	PATH_INDEX = path.resolve(INDEX);
-	PATH_SUMMARY = path.resolve(SUMMARY);
-
 	//
 	console.info('Using following input paths:');
 	for(const sub of PATH_SUB)
 		console.info(' # ' + sub.quote(`'`));
 	console.log();
-	console.info('Using following output paths (for .json):');
-	console.info('  Index: ' + PATH_INDEX.quote(`'`));
-	console.info('Summary: ' + PATH_SUMMARY.quote(`'`));
-	console.log();
-	console.confirm(proceed);
+
+	if(withFiles)
+	{
+		console.info('Using following output paths (for .json code):');
+		console.info('  Index: ' + INDEX.quote());
+		console.info('Summary: ' + SUMMARY.quote());
+		console.log();
+
+		console.confirm(proceed);
+	}
+	else proceed(null);
 });
 
 //
-const proceed = (_bool, _answer) => { if(!_bool) { console.log('Goodbye!'); process.exit(); }
+const proceed = (_bool = null, _answer) => { if(_bool === false) { console.log('Goodbye!'); process.exit(); }
 	var amount = (PATH_SUB.length * 2); const cb = () => { if(--amount <= 0) return handle(result); };
 	const result = Object.create(null); for(const sub of PATH_SUB) fs.readdir(sub, {
 		encoding: 'utf8', withFileTypes: true, recursive: true }, (_err, _files) => {
 			if(_err) return error(_err); for(var i = 0; i < _files.length; ++i) {
-				if(_files[i].name[0] !== '.' && _files[i].isFile() && _files[i].name.endsWith('.js')) {
+				if(_files[i].name[0] !== '.' && /*_files[i].isFile() &&*/ _files[i].name.endsWith('.js')) {
 					const p = path.join(_files[i].path, _files[i].name); result[p] = {
-						name: _files[i].name, key: path.join(_files[i].path, _files[i].name).split(path.sep).slice(-2) };
+						base: _files[i].name, name: path.join(_files[i].path, _files[i].name)
+							.split(path.sep).slice(-2).join(path.sep) };
 					fs.stat(p, { bigint: false }, (_err, _stats) => {
 						if(_err) return error(_err); else cb();
 						result[p].size = _stats.size; }); }} cb(); }); };
@@ -75,7 +98,7 @@ const proceed = (_bool, _answer) => { if(!_bool) { console.log('Goodbye!'); proc
 const handle = (_result) => {
 	var rest = Object.keys(_result).length; const cb = (_path, _full, _real) => {
 		_result[_path].full = _full; _result[_path].real = _real;
-		if(--rest <= 0) return finish(_result); };
+		if(--rest <= 0) return prepare(_result); };
 	for(const p in _result) countLines(p, cb); };
 
 const countLines = (_path, _callback) => { var full = 0, real = 0, last;
@@ -83,6 +106,11 @@ const countLines = (_path, _callback) => { var full = 0, real = 0, last;
 	stream.on('data', (_chunk) => { for(var i = 0; i < _chunk.length; ++i) {
 		if(_chunk[i] === 10) { ++full; if(last !== 10) ++real; } last = _chunk[i]; }});
 	stream.on('end', (... _a) => _callback(_path, full, real)); return stream; };
+
+//
+const prepare = (_result) => { const keys = Object.keys(_result);
+	const result = new Array(keys.length); for(var i = 0; i < keys.length; ++i)
+		result[i] = _result[keys[i]]; return finish(result); };
 
 //
 const finish = (_result) => {
