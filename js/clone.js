@@ -1,6 +1,7 @@
 // 
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-// v0.4.0
+// https://kekse.biz/ https://github.com/kekse1/scripts/
+// v0.4.1
 // 
 // Just a tiny function to *really* clone objects (etc.); .. with all types, not only JSON supported ones
 // or so (sometimes the web referes to just `JSON.parse(JSON.stringify({}))`);

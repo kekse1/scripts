@@ -153,6 +153,8 @@ My favorite language.. ^\_^
 ### [`clone.js`](js/clone.js)
 Just my own `Reflect.clone()` version, since JavaScript doesn't include it natively..
 
+* [Version **0.4.1**](js/clone.js) (updated **2024-03-04**)
+
 ### [`fold.css.js`](js/fold.css.js)
 **Early version, so only the real basics are covered.**
 
