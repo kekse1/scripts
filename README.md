@@ -8,6 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-03-04**\] New [`index.js`](#indexjs), which is STILL UNDER DEVELOPMENT
 * \[**2024-02-25**\] Shell scripts are using the 'builtin' `getopt` command now. **:-)**
 * \[**2024-02-25**\] The [`count-all-lines.sh`](#count-all-linessh) now worx correctly (with more than one -iname/glob/..)!
 * \[**2024-02-25**\] This news section is reduced to only the last changes.. jfyi: these days I added some new scripts.
@@ -149,6 +150,9 @@ Helper to quickly update `git` repositories.. really tiny.
 ## JavaScript
 My favorite language.. ^\_^
 
+### [`clone.js`](js/clone.js)
+Just my own `Reflect.clone()` version, since JavaScript doesn't include it natively..
+
 ### [`fold.css.js`](js/fold.css.js)
 **Early version, so only the real basics are covered.**
 
@@ -160,8 +164,20 @@ stylesheets without newlines, etc. ..
 >> *Warning*
 >> TODO!
 
-### [`clone.js`](js/clone.js)
-Just my own `Reflect.clone()` version, since JavaScript doesn't include it natively..
+### [`index.js`](js/index.js)
+Helper script for my [**v4 project**](https://github.com/kekse1/v4/).
+
+Will generate (at least) two .json output files from the state of my
+JavaScript web/ and lib/ (w/ globals/) state. I'm using it to publish
+this index on [my private website/homepage](https://kekse.biz/) (see
+the `Source Code` menu item over there).
+
+It's currently under development, so stay tuned (currently working on
+TWO projects, this night, next day, ...)! ;-)
+
+BTW: The plan was TWO .json output files.. but I'm thinking about using
+both `[ stdout, stderr ]` streams to relay such output to files. THEN
+there'd be no need to use my `console.confirm()` or so?! etc.. l8rs.
 
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
