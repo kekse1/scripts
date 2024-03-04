@@ -167,6 +167,27 @@ stylesheets without newlines, etc. ..
 >> *Warning*
 >> TODO!
 
+<<<<<<< HEAD
+=======
+### [`index.js`](js/index.js)
+Helper script for [my v4 project](https://github.com/kekse1/v4/).
+
+* [Version **0.6.2**](js/index.js) (updated **2024-03-04**)
+
+Will generate (at least) two .json output files from the state of my
+JavaScript web/ and lib/ (w/ globals/) state. I'm using it to publish
+this index on [my private website/homepage](https://kekse.biz/) (look
+into the `Source Code` menu item).
+
+The INDEX is being encoded into `stdout`, the SUMMARY into `stderr`.
+Please use a shell stream pipeline to write to two .json files, just
+like this: `./index.js >index.json 2>summary.json`.
+
+But this only holds if called this script withOUT arguments. With two
+file paths these are used, so we're using my `console.confirm()` before
+writing to any file..
+
+>>>>>>> b62f9ec6fb6971b9ad0a637226ef450b2a9ef578
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
 and it's licensed under the [MIT](./LICENSE.txt) (also known as 'X' or 'X11' license).
