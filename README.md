@@ -161,23 +161,28 @@ I needed the resulting code: had to filter out CSS classes in `.html` code and `
 `.css` files - since `grep` is for lines, and `cut` is too stupid, .. I couldn't find the CSS styles in
 stylesheets without newlines, etc. ..
 
+* [Version **0.1.0**](js/fold.css.js) (updated **2024-03-04**)
+
 >> *Warning*
 >> TODO!
 
 ### [`index.js`](js/index.js)
-Helper script for my [**v4 project**](https://github.com/kekse1/v4/).
+Helper script for [my v4 project](https://github.com/kekse1/v4/).
+
+* [Version **0.4.0**](js/index.js) (created **2024-03-04**)
 
 Will generate (at least) two .json output files from the state of my
 JavaScript web/ and lib/ (w/ globals/) state. I'm using it to publish
-this index on [my private website/homepage](https://kekse.biz/) (see
-the `Source Code` menu item over there).
+this index on [my private website/homepage](https://kekse.biz/) (look
+into the `Source Code` menu item).
 
-It's currently under development, so stay tuned (currently working on
-TWO projects, this night, next day, ...)! ;-)
+The INDEX is being encoded into `stdout`, the SUMMARY into `stderr`.
+Please use a shell stream pipeline to write to two .json files, just
+like this: `./index.js >index.json 2>summary.json`.
 
-BTW: The plan was TWO .json output files.. but I'm thinking about using
-both `[ stdout, stderr ]` streams to relay such output to files. THEN
-there'd be no need to use my `console.confirm()` or so?! etc.. l8rs.
+But this only holds if called this script withOUT arguments. With two
+file paths these are used, so we're using my `console.confirm()` before
+writing to any file..
 
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),

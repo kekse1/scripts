@@ -2,7 +2,8 @@
 
 // 
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-// v0.1.0	https://github.com/kekse1/scripts/
+// https://kekse.biz/ https://github.com/kekse1/scripts/
+// v0.1.0
 // 
 // **Early version, so only the real basics are covered.**
 // 
