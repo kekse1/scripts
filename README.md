@@ -171,7 +171,7 @@ stylesheets without newlines, etc. ..
 ### [`index.js`](js/index.js)
 Helper script for [my v4 project](https://github.com/kekse1/v4/).
 
-* [Version **0.4.0**](js/index.js) (created **2024-03-04**)
+* [Version **0.6.2**](js/index.js) (updated **2024-03-04**)
 
 Will generate (at least) two .json output files from the state of my
 JavaScript web/ and lib/ (w/ globals/) state. I'm using it to publish

@@ -1,13 +1,9 @@
 #!/usr/bin/env node
 
 //
-//is TODO atm./!!
-//
-
-//
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // https://kekse.biz/
-// v0.4.0
+// v0.6.2
 //
 // Helper script for my v4 project @ https://github.com/kekse1/v4/.
 //
@@ -34,13 +30,27 @@ const DEFAULT_MODE_DIR = 0o700;
 const DEFAULT_MODE_FILE = 0o600;
 
 //
-var withFiles = (process.argv.length > 2);
-var INDEX = process.argv[2];
-var SUMMARY = process.argv[3];
+var DEBUG = false;
+var withFiles = null, INDEX = null, SUMMARY = null;
 
 //
 import { ready } from '../js/lib.js';
 ready(() => {
+
+	//
+	const args = getopt({
+		debug: {},
+		help: { short: '?' } });
+	if(args.help) {
+		console.log('Syntax: $0 [ <index.json> <summary.json> ]');
+		console.log('           [ -d / --debug ]');
+		console.log('           [ -? / --help ]');
+		process.exit();
+	} else if(args.debug) DEBUG = true;
+	
+	if(withFiles = (args.length > 2)) {
+		INDEX = args[2];
+		SUMMARY = args[3]; }
 
 	//
 	if(withFiles)
@@ -164,21 +174,41 @@ const prepare = (_result) => { const keys = Object.keys(_result);
 		result[i] = _result[keys[i]]; result.sort('bytes', false); return finish(result); };
 
 const prepareSummary = (_result) => {
-	//TODO/!!
-	return {}; };
+	const result = Object.create(null); result.files = 0;
+	for(const item of _result) { ++result.files; for(const idx in item) {
+		const e = item[idx]; if(typeof e !== 'number') continue;
+		else if(!(idx in result)) result[idx] = 0;
+		result[idx] += e; }}
+	result.size = Math.size.render(result.bytes).toString(); return result; };
 
 //
-const finish = (_result) => { //index(_result); summary(_result);
-console.dir(_result);
-	if(!withFiles) console.debug(4, 'Success with % files!', _result.length); };
+const finish = (_result) => { if(withFiles) console.log();
+	if(DEBUG) {
+		console.dir(_result);
+		console.log(4);
+		console.dir(prepareSummary(_result));
+		return process.exit(); }
+	var length = 0; length += index(_result); length += summary(_result);
+	if(withFiles) console.log(1, 'Successfully wrote % bytes to 2 files', length);
+	process.exit(); };
 
-const index = (_result) => { if(!withFiles) return process.stdout.write(JSON.stringify(_result));
-	//TODO/write file(s)!
-};
+const index = (_result) => { const data = JSON.stringify(_result);
+	if(!withFiles) { process.stdout.write(data); return data; }
+	fs.writeFileSync(INDEX, data, {
+		encoding: 'utf8',
+		mode: DEFAULT_MODE_FILE,
+		flush: true })
+	console.log('% bytes written to INDEX \'%\'', data.length, INDEX);
+	return data.length; };
 
-const summary = (_result) => { if(!withFiles) return process.stderr.write(JSON.stringify(prepareSummary(_result)));
-	//TODO/!!write file(s)!!
-};
+const summary = (_result) => { const data = JSON.stringify(prepareSummary(_result));
+	if(!withFiles) { process.stderr.write(data); return data; }
+	fs.writeFileSync(SUMMARY, data, {
+		encoding: 'utf8',
+		mode: DEFAULT_MODE_FILE,
+		flush: true });
+	console.log('% bytes written to SUMMARY \'%\'', data.length, SUMMARY);
+	return data.length; };
 
 //
 
