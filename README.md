@@ -62,9 +62,6 @@ Starting with a shell script (to be `source`d) for ANSI escape sequences.
 
 * [Version **v0.0.2**](sh/ansi.sh) (created **2024-03-05**)
 
-Not much in here, but maybe a base for more? But one can nevertheless use it
-right now, in this way: `echo "ein \`bold\`test\`none\`; \`fg 150 240 0\`worx\`none\`."`.
-
 You either need to manually `source` or `.` in your shell (it's NOT executable),
 or copy it to `/etc/profile.d/ansi.sh`.
 
