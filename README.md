@@ -8,7 +8,8 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-03-05**\] **New version (v2.0.1) of my `prompt.sh` (including new screenshot here)! :-D**
+* \[**2024-03-05**\] **Started** the [**`ansi.sh`**](#ansish), to be `source`d/`.` (maybe at `/etc/profile.d/` or in your shell)
+* \[**2024-03-05**\] **New version (v2.0.1) of my [`prompt.sh`](#promptsh) (including new screenshot here)! :-D**
 * \[**2024-02-25**\] Shell scripts are using the 'builtin' `getopt` command now. **:-)**
 * \[**2024-02-25**\] The [`count-all-lines.sh`](#count-all-linessh) now worx correctly (with more than one -iname/glob/..)!
 * \[**2024-02-25**\] This news section is reduced to only the last changes.. jfyi: these days I added some new scripts.
@@ -55,6 +56,17 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 
 > **Note**
 > As usual, you can also use `-h` or `--help`! **:-D**
+
+### [`ansi`.sh](sh/ansi.sh)
+Starting with a shell script (to be `source`d) for ANSI escape sequences.
+
+* [Version **v0.0.2**](sh/ansi.sh) (created **2024-03-05**)
+
+Not much in here, but maybe a base for more? But one can nevertheless use it
+right now, in this way: `echo "ein `bold`test`none`; `fg 150 240 0`worx`none`."`.
+
+You either need to manually `source` or `.` in your shell (it's NOT executable),
+or copy it to `/etc/profile.d/ansi.sh`.
 
 ### [`up2date`.sh](sh/up2date.sh)
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
