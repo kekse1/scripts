@@ -19,7 +19,7 @@
 Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS1` prompt.
 Uses the `$PROMPT_COMMAND` variable to dynamically change the prompt.
 
-* [Version **v1.1.1**](sh/prompt.sh) (updated **2024-02-25**)
+* [Version **v2.0.0**](sh/prompt.sh) (updated **2024-03-05**)
 
 #### Screenshot
 ![$PS1](docs/prompt.sh.png)
