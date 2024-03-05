@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v2.0.1
+# v2.0.2
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 #
@@ -168,7 +168,7 @@ ps1Prompt()
 	fi
 	
 	#
-	if [[ $_WITH_LOAD_AVG -ne 0 ]]; then
+	if [[ $_WITH_LOAD_AVG -ne 0 && -r /proc/loadavg ]]; then
 		read one five fifteen rest </proc/loadavg
 		startFG 180 250 0
 		write "$one $five $fifteen "
@@ -183,7 +183,7 @@ ps1Prompt()
 		startFG 200 220 20
 		write '/'
 		startFG 250 60 180
-		write "`find -maxdepth 1 -type d | wc -l` "
+		write "$((`find -maxdepth 1 -type d | wc -l`-1)) "
 		ansiReset
 	fi
 	
