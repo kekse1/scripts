@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v2.0.0
+# v2.0.1
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 #
@@ -26,6 +26,7 @@ if [[ $_TERMUX -ne 0 ]]; then
 	_WITH_HOSTNAME=0
 	_WITH_USERNAME=0
 	_WITH_LOAD_AVG=0
+	#_WITH_FILES=0
 fi
 
 #
@@ -159,7 +160,7 @@ ps1Prompt()
 	if [[ $_WITH_DATE -ne 0 && -n "$_DATE_FORMAT_ONE" ]]; then
 		startFG 110 200 255
 		write "`date +"$_DATE_FORMAT_ONE"` "
-		if [[ ! -z "$_DATE_FORMAT_TWO" ]]; then
+		if [[ -n "$_DATE_FORMAT_TWO" ]]; then
 			startFG 210 140 30
 			write "`date +"$_DATE_FORMAT_TWO"` "
 		fi

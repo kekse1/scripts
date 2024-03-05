@@ -8,7 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-03-05**\] **New version (v2.0.0) of my `prompt.sh` (including new screenshot here)! :-D**
+* \[**2024-03-05**\] **New version (v2.0.1) of my `prompt.sh` (including new screenshot here)! :-D**
 * \[**2024-02-25**\] Shell scripts are using the 'builtin' `getopt` command now. **:-)**
 * \[**2024-02-25**\] The [`count-all-lines.sh`](#count-all-linessh) now worx correctly (with more than one -iname/glob/..)!
 * \[**2024-02-25**\] This news section is reduced to only the last changes.. jfyi: these days I added some new scripts.
@@ -19,7 +19,7 @@
 Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS1` prompt.
 Uses the `$PROMPT_COMMAND` variable to dynamically change the prompt.
 
-* [Version **v2.0.0**](sh/prompt.sh) (updated **2024-03-05**)
+* [Version **v2.0.1**](sh/prompt.sh) (updated **2024-03-05**)
 
 #### Screenshot
 ![$PS1](img/prompt.sh.png)
