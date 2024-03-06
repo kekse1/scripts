@@ -9,7 +9,7 @@
 
 ## News
 * \[**2024-03-05**\] **Started** the [**`ansi.sh`**](#ansish), to be `source`d/`.` (maybe at `/etc/profile.d/` or in your shell)
-* \[**2024-03-05**\] **New version (v2.0.3) of my [`prompt.sh`](#promptsh) (including new screenshot here)! :-D**
+* \[**2024-03-05**\] **New version (v2.0.4) of my [`prompt.sh`](#promptsh) (including new screenshot here)! :-D**
 * \[**2024-02-25**\] Shell scripts are using the 'builtin' `getopt` command now. **:-)**
 * \[**2024-02-25**\] The [`count-all-lines.sh`](#count-all-linessh) now worx correctly (with more than one -iname/glob/..)!
 * \[**2024-02-25**\] This news section is reduced to only the last changes.. jfyi: these days I added some new scripts.
@@ -20,7 +20,10 @@
 Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS1` prompt.
 Uses the `$PROMPT_COMMAND` variable to dynamically change the prompt.
 
-* [Version **v2.0.3**](sh/prompt.sh) (updated **2024-03-06**)
+The following screenshot is still **v2.0.3** - I just updated it to **v2.0.4**
+w/ new default setting `_MULTI_LINE=1`!
+
+* [Version **v2.0.4**](sh/prompt.sh) (updated **2024-03-06**)
 
 #### Screenshot
 ![$PS1](img/prompt.sh.png)

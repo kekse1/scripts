@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v2.0.3
+# v2.0.4
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -13,7 +13,7 @@
 
 #
 _TERMUX=0
-_MULTI_LINE=0
+_MULTI_LINE=1
 _SLASHES=4
 _REST_STRING="..."
 _WITH_FILES=1
