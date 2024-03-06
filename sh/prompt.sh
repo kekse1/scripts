@@ -1,9 +1,14 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v2.0.2
+# v2.0.3
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
+# 
+# BUT MAYBE other scripts or so override this `$PS1`
+# configuration ('/etc/profile', '/etc/bash.bashrc',
+# maybe '~/.bashrc' or '~/.profile') .. in this case
+# try to find and remove 'em, using `grep`. ok?
 #
 
 #
@@ -149,7 +154,8 @@ ps1Prompt()
 	if [[ $_WITH_HOSTNAME -ne 0 ]]; then
 		write '@'
 		startFG 245 195 65
-		write "$HOSTNAME"
+		#write "$HOSTNAME"
+		write "`hostname`"
 		ansiReset
 		user_host=1
 	fi
