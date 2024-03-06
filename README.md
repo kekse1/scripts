@@ -22,11 +22,8 @@ Uses the `$PROMPT_COMMAND` variable to dynamically change the prompt.
 
 * [Version **v2.0.4**](sh/prompt.sh) (updated **2024-03-06**)
 
-The following screenshot is still **v2.0.3** - I just updated it to **v2.0.4**
-w/ new default setting `_MULTI_LINE=1`!
-
 #### Screenshot
-![$PS1](img/prompt.sh.png)
+![$PS1](img/prompt.png)
 
 ### [`unexify`.sh](sh/unexify.sh)
 Little helper script to recursively remove all headers from images.
@@ -83,7 +80,7 @@ The most important thing for me was to switch between keyboard layouts - easily 
 * [Version **v0.2.0**](sh/layout.sh)
 
 Here's an example screenshot:
-![layout.sh](img/layout.sh.png)
+![layout.sh](img/layout.png)
 
 So either call it without arguments, so it'll show you the currently used layout. Call it with a concrete layout, to
 switch to it directly. Or call it with a single `-`, so it'll traverse through the `layouts` array (on top, by default
