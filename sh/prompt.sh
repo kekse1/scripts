@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v2.0.4
+# v2.1.0
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -185,7 +185,7 @@ ps1Prompt()
 	if [[ $_WITH_FILES -ne 0 ]]; then
 		#
 		startFG 190 60 250
-		write "`find -maxdepth 1 -type f -o -type l | wc -l`"
+		write "`find -maxdepth 1 -type f | wc -l`"
 		startFG 200 220 20
 		write '/'
 		startFG 250 60 180
@@ -201,13 +201,13 @@ ps1Prompt()
 		startBG 170 230 70
 		startFG 0 0 0
 		write ' ✔ '
-		ansiReset
 	else
 		startBG 210 45 25
 		startFG 255 255 255
 		write ' ✘ '
-		ansiReset
 	fi
+
+	ansiReset
 
 	#
 	jc=`jobs -p | wc -l`
