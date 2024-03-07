@@ -8,6 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-03-07**\] [**`prompt.sh`**](#promptsh) **v2.1.0**;
 * \[**2024-03-05**\] **Started** the [**`ansi.sh`**](#ansish), to be `source`d/`.` (maybe at `/etc/profile.d/` or in your shell)
 * \[**2024-03-05**\] **New version (v2.0.4) of my [`prompt.sh`](#promptsh) (including new screenshot here)! :-D**
 * \[**2024-02-25**\] Shell scripts are using the 'builtin' `getopt` command now. **:-)**
@@ -20,7 +21,7 @@
 Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS1` prompt.
 Uses the `$PROMPT_COMMAND` variable to dynamically change the prompt.
 
-* [Version **v2.0.4**](sh/prompt.sh) (updated **2024-03-06**)
+* [Version **v2.1.0**](sh/prompt.sh) (updated **2024-03-07**)
 
 #### Screenshot
 ![$PS1](img/prompt.png)
