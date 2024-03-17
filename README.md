@@ -8,6 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-03-17**\] Since someone recommended me to not be **that** lazy when using `git`, I updated the [`fresh.sh`](#freshsh);
 * \[**2024-03-07**\] [**`prompt.sh`**](#promptsh) **v2.1.0**;
 * \[**2024-03-05**\] **Started** the [**`ansi.sh`**](#ansish), to be `source`d/`.` (maybe at `/etc/profile.d/` or in your shell)
 * \[**2024-03-05**\] **New version (v2.0.4) of my [`prompt.sh`](#promptsh) (including new screenshot here)! :-D**
@@ -155,7 +156,7 @@ Syntax: `$0 <model> <prompt> [ <context size> ]`.
 ### [`fresh`.sh](sh/fresh.sh)
 Helper to quickly update `git` repositories.. really tiny.
 
-* [Version **v0.0.2**](sh/fresh.sh) (updated **2024-02-25**)
+* [Version **v0.1.2**](sh/fresh.sh) (updated **2024-03-17**)
 
 ## JavaScript
 My favorite language.. ^\_^
