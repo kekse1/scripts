@@ -12,14 +12,14 @@ _DATE_FORMAT='%s%N'
 fresh()
 {
 	if [[ $# -eq 0 ]]; then
-		echo " >> Please specify a description for this commit!" >&2
+		echo " >> Please specify a description for this \`git\` commit!" >&2
 		return
 	fi
 
 	_txt="`date +"$_DATE_FORMAT"`"
 	_txt="$* [$_txt]"
 
-	echo -e " >> Running commit \`$_txt\`.\n"
+	echo -e " >> Running \`git\` commit \`$_txt\`.\n"
 
 	git pull
 	git add --all
