@@ -156,7 +156,7 @@ Syntax: `$0 <model> <prompt> [ <context size> ]`.
 ### [`fresh`.sh](sh/fresh.sh)
 Helper to quickly update `git` repositories.. really tiny.
 
-* [Version **v0.1.2**](sh/fresh.sh) (updated **2024-03-17**)
+* [Version **v0.1.3**](sh/fresh.sh) (updated **2024-03-17**)
 
 ## JavaScript
 My favorite language.. ^\_^
