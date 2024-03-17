@@ -1,4 +1,4 @@
-<img src="https://kekse.biz/github.php?draw&override=github:scripts&text=`scripts`&draw" />
+![https://kekse.biz/github.php?draw&override=github:scripts](scripts)
 
 ## Index
 1. [News](#news)
