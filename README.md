@@ -8,7 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-03-18**\] Updated [`sync.sh`](#syncsh) to **v0.4.0**.
+* \[**2024-03-18**\] Updated [`sync.sh`](#syncsh) to **v0.4.1**.
 * \[**2024-03-17**\] Since someone recommended me to not be **that** lazy when using `git`, I updated the [`fresh.sh`](#freshsh);
 * \[**2024-03-07**\] [**`prompt.sh`**](#promptsh) **v2.1.0**;
 * \[**2024-03-05**\] **Started** the [**`ansi.sh`**](#ansish), to be `source`d/`.` (maybe at `/etc/profile.d/` or in your shell)
@@ -47,7 +47,7 @@ packet `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
 Another helping hand which became required since I'm managing some archive on my server,
 which needs to be synchronized with an SB stick (using `crontab`, ..).
 
-* [Version **v0.4.0**](sh/sync.sh) (updated **2024-03-18**)
+* [Version **v0.4.1**](sh/sync.sh) (updated **2024-03-18**)
 
 > **Warning**
 > PLEASE CHECK the **FIRST BOTH** configuration parts, relatively on top of the file..

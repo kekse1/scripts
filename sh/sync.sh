@@ -4,7 +4,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.0
+# v0.4.1
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
@@ -15,12 +15,12 @@
 # _important_ config: from which path the relative $DIR path (see below)?
 # => 0 for this script's directory, 1 for current working directory
 # ALTERNATIVELY define your own directory prefix here..
-FROM=0
+FROM="0"
 # first configuration
-DIR="SYNC"
-USER="sync"
+DIR="sync"
+USER="user"
 SRC="/home/sync/"
-SRV="ssh.server"
+SRV="host"
 PORT="22"
 
 # determine this path, so calling from anywhere is possible w/o using $PWD or so..
@@ -100,7 +100,7 @@ CMD="rsync --archive --checksum --recursive --relative --rsh='ssh -p${PORT}' --p
 [[ $dereference -ne 0 ]] && CMD="${CMD} --copy-links"
 
 # append --verbose rsync parameter, if wished by user (via cmdline, see above)
-[[ "$verbose" == "y" ]] && CMD="${CMD} --verbose"
+[[ $verbose -ne 0 ]] && CMD="${CMD} --verbose"
 
 # be sure directories are ending with path separator.. not necessary, but beautiful. ^_^
 [[ "${DIR:(-1)}" == "/" ]] || DIR="${DIR}/"
@@ -164,7 +164,7 @@ askUser()
 }
 
 # call the function above only if not defined -f/--force for this script
-if [[ "$force" != "y" ]]; then
+if [[ $force -eq 0 ]]; then
 	askUser
 
 	if [[ $? -eq 0 ]]; then
