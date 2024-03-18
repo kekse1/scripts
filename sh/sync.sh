@@ -4,7 +4,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.2
+# v0.4.0
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
@@ -29,12 +29,13 @@ dir="$(dirname "$real")"
 base="$(basename "$real")"
 
 # check the current command line for this script..
-force=n
-verbose=n
-linux=n
-changed=n
-short=fvlh
-long=force,verbose,linux,help
+force=0
+verbose=0
+linux=0
+dereference=0
+changed=0
+short=fvldh
+long=force,verbose,linux,dereference,help
 opts="$(getopt -o "$short" -l "$long" -n "$base" -- "$@")"
 
 if [[ $? -ne 0 ]]; then
@@ -48,20 +49,25 @@ while true; do
 	case "$1" in
 		'-f'|'--force')
 			echo " >> -f/--force will start \`rsync\` without asking user to confirm it."
-			force=y
-			changed=y
+			force=1
+			changed=1
 			shift
 			;;
 		'-v'|'--verbose')
 			echo " >> -v/--verbose enables verbose \`rsync\` output."
-			verbose=y
-			changed=y
+			verbose=1
+			changed=1
 			shift
 			;;
 		'-l'|'--linux')
 			echo " >> -l/--linux enables file permissions, attributes and symlinks.. otherwise ignored."
-			linux=y
-			changed=y
+			linux=1
+			changed=1
+			shift
+			;;
+		'-d'|'--dereference')
+			dereference=1
+			changed=1
 			shift
 			;;
 		'-h'|'--help')
@@ -81,13 +87,16 @@ while true; do
 done
 
 # after changing smth. via command line, please add empty line after the state outputs (above)
-[[ "$changed" == "y" ]] && echo
+[[ $changed -ne 0 ]] && echo
 
 # the `rsync` command line to use (without paths; see below)
 CMD="rsync --archive --checksum --recursive --relative --rsh='ssh -p${PORT}' --progress --fsync --compress"
 
 # --linux/-l option..
-[[ "$linux" == "y" ]] || CMD="${CMD} --no-owner --no-group --no-perms --no-acls --no-xattrs --no-links"
+[[ $linux -eq 0 ]] && CMD="${CMD} --no-owner --no-group --no-perms --no-acls --no-xattrs --no-links"
+
+# --dereference/-d will resolve symlinks and copy real targets themselves
+[[ $dereference -ne 0 ]] && CMD="${CMD} --copy-links"
 
 # append --verbose rsync parameter, if wished by user (via cmdline, see above)
 [[ "$verbose" == "y" ]] && CMD="${CMD} --verbose"
