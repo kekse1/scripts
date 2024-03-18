@@ -66,6 +66,7 @@ while true; do
 			shift
 			;;
 		'-d'|'--dereference')
+			echo " >> -d/--dereference will resolve symbolic links."
 			dereference=1
 			changed=1
 			shift
