@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.0
+# v0.1.1
 #
 
 _regex="$*"
@@ -25,8 +25,8 @@ traverse()
 		elif [[ -d "$p" ]]; then
 			traverse "$p"
 		elif [[ -f "$i" ]]; then
-			sed "$_regex" "$p" >replace.sh.tmp
-			mv replace.sh.tmp "$p"
+			sed "$_regex" "$p" >._replace.sh.tmp
+			mv ._replace.sh.tmp "$p"
 			echo "$p"
 		fi
 	done
