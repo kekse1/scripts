@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.3
+# v0.1.4
 #
 # Tiny helper; maybe copy it to /etc/profile.d/fresh.sh
 #
@@ -17,7 +17,7 @@ fresh()
 	fi
 
 	_txt="`date +"$_DATE_FORMAT"`"
-	_txt="$* [$_txt]"
+	_txt="[$_txt] $*"
 
 	echo -e " >> Applying \`git\` commit:\n   \`$_txt\`.\n"
 
