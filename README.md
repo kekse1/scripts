@@ -146,15 +146,6 @@ Some time ago I needed to setup my computer as a router (using `iptables`).
 This was created very quickly, without much features or tests.
 Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/wiki/Home_router) for more.
 
-### [`junior`.sh](sh/junior.sh)
-Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/), or rather the
-[`node-llama-cpp`](https://github.com/withcatai/node-llama-cpp), I just wrote a short
-shell script to handle multiple models and prompts better.
-
-* [Version **v0.2.0**](sh/junior.sh) (updated **2024-02-25**)
-
-Syntax: `$0 <model> <prompt> [ <context size> ]`.
-
 ### [`fresh`.sh](sh/fresh.sh)
 Helper to quickly update `git` repositories.. really tiny.
 
@@ -174,6 +165,15 @@ line, or just wait to get asked via `stdin`.
 
 For many fonts see [this link](http://www.jave.de/figlet/fonts/overview.html); and here are the
 websites of [`toilet`](http://caca.zoy.org/wiki/toilet) and [`figlet`](http://www.figlet.org/).
+
+### [`junior`.sh](sh/junior.sh)
+Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/), or rather the
+[`node-llama-cpp`](https://github.com/withcatai/node-llama-cpp), I just wrote a short
+shell script to handle multiple models and prompts better.
+
+* [Version **v0.2.0**](sh/junior.sh) (updated **2024-02-25**)
+
+Syntax: `$0 <model> <prompt> [ <context size> ]`. Even if I'm using another LLM tool now..
 
 ## JavaScript
 My favorite language.. ^\_^
