@@ -8,6 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-03-19**\] New script **`replace.sh`**..
 * \[**2024-03-18**\] Updated [`sync.sh`](#syncsh) to **v0.4.1**.
 * \[**2024-03-17**\] Since someone recommended me to not be **that** lazy when using `git`, I updated the [`fresh.sh`](#freshsh);
 * \[**2024-03-07**\] [**`prompt.sh`**](#promptsh) **v2.1.0**;
@@ -158,6 +159,11 @@ Syntax: `$0 <model> <prompt> [ <context size> ]`.
 Helper to quickly update `git` repositories.. really tiny.
 
 * [Version **v0.1.4**](sh/fresh.sh) (updated **2024-03-19**)
+
+### [`replace.sh`](sh/replace.sh)
+Recursive (really!) `sed` (regular expression) replacement in (only real!) files.
+
+* [Version **v0.1.0**](sh/replace.sh) (created **2024-03-19**)
 
 ## JavaScript
 My favorite language.. ^\_^
