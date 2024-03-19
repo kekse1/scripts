@@ -8,7 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-03-19**\] New script **`replace.sh` v0.1.1**..
+* \[**2024-03-19**\] New script **[`replace.sh`](#replacesh) v0.1.1**, plus new **[`toilets.sh`](#toiletssh) v0.0.2**
 * \[**2024-03-18**\] Updated [`sync.sh`](#syncsh) to **v0.4.1**.
 * \[**2024-03-17**\] Since someone recommended me to not be **that** lazy when using `git`, I updated the [`fresh.sh`](#freshsh);
 * \[**2024-03-07**\] [**`prompt.sh`**](#promptsh) **v2.1.0**;
@@ -164,6 +164,16 @@ Helper to quickly update `git` repositories.. really tiny.
 Recursive (really!) `sed` (regular expression) replacement in (only real!) files.
 
 * [Version **v0.1.1**](sh/replace.sh) (created **2024-03-19**)
+
+### [`toilets.sh`](sh/toilets.sh)
+Easily compare `toilet` (or `figlet`) outputs for a list of fonts in a file (each line another font).
+Command line switches are passed through to the tool itself. Input texts can also be set via command
+line, or just wait to get asked via `stdin`.
+
+* [Version **v0.0.2**](sh/figlets.sh) (created **2024-03-19**)
+
+For many fonts see [this link](http://www.jave.de/figlet/fonts/overview.html); and here are the
+websites of [`toilet`](http://caca.zoy.org/wiki/toilet) and [`figlet`](http://www.figlet.org/).
 
 ## JavaScript
 My favorite language.. ^\_^
