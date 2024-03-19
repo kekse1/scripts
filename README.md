@@ -166,6 +166,9 @@ line, or just wait to get asked via `stdin`.
 For many fonts see [this link](http://www.jave.de/figlet/fonts/overview.html); and here are the
 websites of [`toilet`](http://caca.zoy.org/wiki/toilet) and [`figlet`](http://www.figlet.org/).
 
+The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), or rather it's
+`fonts/` directory itself.
+
 ### [`junior`.sh](sh/junior.sh)
 Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/), or rather the
 [`node-llama-cpp`](https://github.com/withcatai/node-llama-cpp), I just wrote a short
