@@ -10,7 +10,7 @@ _GIT_DATE_FORMAT='%s'
 
 fresh()
 {
-	dir="`git rev-parse --git-dir 2>/dev/null`"
+	_dir="`git rev-parse --git-dir 2>/dev/null`"
 
 	if [[ $? -ne 0 ]]; then
 		echo " >> Not inside a git repository!" >&2
@@ -18,12 +18,15 @@ fresh()
 	elif [[ $# -eq 0 ]]; then
 		echo " >> Please specify a description for this \`git\` commit!" >&2
 		return 2
+	else
+		_dir="$(realpath "$_dir")"
+		_dir="${_dir::-5}"
 	fi
 
 	_txt="`date +"$_GIT_DATE_FORMAT"`"
 	_txt="[$_txt] $*"
 
-	echo -e " >> Git path:\n   \`$(realpath "$dir")\`"
+	echo -e " >> Repository path:\n   \`$_dir\`"
 	echo -e " >> Applying \`git\` commit:\n   \`$_txt\`\n"
 
 	git pull
