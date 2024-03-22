@@ -8,10 +8,9 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-03-20**\] Updated the [**`fresh.sh`**](#freshsh) to **v0.2.0**
+* \[**2024-03-22**\] Updated the [**`fresh.sh`**](#freshsh) to **v0.2.1**
 * \[**2024-03-19**\] New script **[`replace.sh`](#replacesh) v0.1.1**, plus new **[`toilets.sh`](#toiletssh) v0.0.2**
 * \[**2024-03-18**\] Updated [`sync.sh`](#syncsh) to **v0.4.1**.
-* \[**2024-03-17**\] Since someone recommended me to not be **that** lazy when using `git`, I updated the [`fresh.sh`](#freshsh);
 * \[**2024-03-07**\] [**`prompt.sh`**](#promptsh) **v2.1.0**;
 * \[**2024-03-05**\] **Started** the [**`ansi.sh`**](#ansish), to be `source`d/`.` (maybe at `/etc/profile.d/` or in your shell)
 * \[**2024-03-05**\] **New version (v2.0.4) of my [`prompt.sh`](#promptsh) (including new screenshot here)! :-D**
@@ -150,7 +149,7 @@ Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/w
 ### [`fresh`.sh](sh/fresh.sh)
 Helper to quickly update `git` repositories.. really tiny.
 
-* [Version **v0.2.0**](sh/fresh.sh) (updated **2024-03-20**)
+* [Version **v0.2.1**](sh/fresh.sh) (updated **2024-03-22**)
 
 Now with check if you're inside a git repository, and also a commit message is now required (because
 I was too lazy before..).

@@ -1,14 +1,12 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.0
+# v0.2.1
 #
 # Tiny helper; maybe copy it to /etc/profile.d/fresh.sh
 #
 
-_DATE_FORMAT='%s'
-#_DATE_FORMAT='%s%N'
-#_DATE_FORMAT_WITHOUT='%s%N // %Y-%m-%d / %H:%M:%S'
+_GIT_DATE_FORMAT='%s'
 
 fresh()
 {
@@ -22,10 +20,11 @@ fresh()
 		return 2
 	fi
 
-	_txt="`date +"$_DATE_FORMAT"`"
+	_txt="`date +"$_GIT_DATE_FORMAT"`"
 	_txt="[$_txt] $*"
 
-	echo -e " >> Applying \`git\` commit:\n   \`$_txt\`.\n"
+	echo -e " >> Git path:\n   \`$dir\`"
+	echo -e " >> Applying \`git\` commit:\n   \`$_txt\`\n"
 
 	git pull
 	git add --all
