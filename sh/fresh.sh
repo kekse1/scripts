@@ -23,7 +23,7 @@ fresh()
 	_txt="`date +"$_GIT_DATE_FORMAT"`"
 	_txt="[$_txt] $*"
 
-	echo -e " >> Git path:\n   \`$dir\`"
+	echo -e " >> Git path:\n   \`$(realpath "$dir")\`"
 	echo -e " >> Applying \`git\` commit:\n   \`$_txt\`\n"
 
 	git pull
