@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.0
+# v0.3.1
 #
 # Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
 # since it is *not* executable (but `source` or `.`).
@@ -90,7 +90,7 @@ keep()
 	}
 
 	_orig="`pwd`"
-	traverse "$_orig"
+	traverse "$_orig" 1
 
 	if [[ $_created -gt 0 ]]; then
 		echo -e " >> Just created \e[1m${_created}\e[0m \e[4m.keep\e[0m files."
@@ -100,7 +100,7 @@ keep()
 
 	[[ $_existed -gt 0 ]] && echo -e " >> \e[1m${_existed}\e[0m files already existed."
 	[[ $_erroneous -ne 0 ]] && echo -e " >> FAILED to create \e[1m${_erroneous}\e[0m files!" >&2
-	[[ $_depth -gt 0 ]] && echo -e " >> Traversed recursively up to a maximum depth of \e[1m${_depth}\e[0m."
+	[[ $_depth -gt 1 ]] && echo -e " >> Traversed recursively up to a maximum depth of \e[1m${_depth}\e[0m."
 
 	cd "$_orig"
 	
