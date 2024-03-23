@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.0
+# v0.4.1
 #
 # Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
 # since it is *not* executable (but `source` or `.`).
@@ -74,6 +74,7 @@ keep()
 			let _erroneous=$_erroneous+1
 			return 1
 		fi
+echo -e "'$1'"
 
 		if [[ -e "$1/.keep" ]]; then
 			let _existed=$_existed+1
@@ -93,7 +94,7 @@ keep()
 			if [[ -L "$p" ]]; then
 				continue
 			elif [[ -d "$p" ]]; then
-				traverse "$p" $(($_depth+1))
+				traverse "$p" $(($2+1))
 			fi
 		done
 	}
