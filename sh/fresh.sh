@@ -74,7 +74,6 @@ keep()
 			let _erroneous=$_erroneous+1
 			return 1
 		fi
-echo -e "'$1'"
 
 		if [[ -e "$1/.keep" ]]; then
 			let _existed=$_existed+1
