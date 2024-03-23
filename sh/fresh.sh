@@ -1,9 +1,17 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.1
+# v0.3.0
 #
-# Tiny helper; maybe copy it to /etc/profile.d/fresh.sh
+# Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
+# since it is *not* executable (but `source` or `.`).
+#
+# You should see what the `fresh` function does.
+#
+# The `keep` will create new (empty) '.keep' files if
+# not already existing; it'll traverse recursively
+# through all directories below your `pwd` (and it'll
+# ignore all hidden (dot) directories (like '.git')!
 #
 
 _GIT_DATE_FORMAT='%s'
@@ -23,15 +31,80 @@ fresh()
 		_dir="${_dir::-5}"
 	fi
 
+	_orig="`pwd`"
+	cd "$_dir"
+
 	_txt="`date +"$_GIT_DATE_FORMAT"`"
 	_txt="[$_txt] $*"
 
-	echo -e " >> Repository path:\n   \`$_dir\`"
-	echo -e " >> Applying \`git\` commit:\n   \`$_txt\`\n"
+	echo -e " >> Repository path:\n   \`\e[1m${_dir}\e[0m\`"
+	echo -e " >> Applying commit:\n   \`\e[1m${_txt}\e[0m\`\n"
 
 	git pull
 	git add --all
 	git commit -m "$_txt"
 	git push
+
+	cd "$_orig"
+}
+
+keep()
+{
+	_created=0
+	_existed=0
+	_erroneous=0
+	_depth=0
+
+	traverse()
+	{
+		cd "$1"
+
+		if [[ $? -eq 0 ]]; then
+			[[ $2 -gt $_depth ]] && _depth=$2
+		else
+			let _erroneous=$_erroneous+1
+			return 1
+		fi
+
+		if [[ -e "$1/.keep" ]]; then
+			let _existed=$_existed+1
+		else
+			touch "$1/.keep"
+
+			if [[ $? -eq 0 ]]; then
+				let _created=$_created+1
+			else
+				let _erroneous=$_erroneous+1
+			fi
+		fi
+
+		for i in *; do
+			p="$1/$i"
+
+			if [[ -L "$p" ]]; then
+				continue
+			elif [[ -d "$p" ]]; then
+				traverse "$p" $(($_depth+1))
+			fi
+		done
+	}
+
+	_orig="`pwd`"
+	traverse "$_orig"
+
+	if [[ $_created -gt 0 ]]; then
+		echo -e " >> Just created \e[1m${_created}\e[0m \e[4m.keep\e[0m files."
+	else
+		echo -e " >> \e[1mNO\e[0m \e[4m.keep\e[0m files created."
+	fi
+
+	[[ $_existed -gt 0 ]] && echo -e " >> \e[1m${_existed}\e[0m files already existed."
+	[[ $_erroneous -ne 0 ]] && echo -e " >> FAILED to create \e[1m${_erroneous}\e[0m files!" >&2
+	[[ $_depth -gt 0 ]] && echo -e " >> Traversed recursively up to a maximum depth of \e[1m${_depth}\e[0m."
+
+	cd "$_orig"
+	
+	[[ $_erroneous -ne 0 ]] && return 1
+	return 0
 }
 
