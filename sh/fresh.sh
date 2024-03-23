@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.1
+# v0.4.0
 #
 # Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
 # since it is *not* executable (but `source` or `.`).
@@ -23,27 +23,36 @@ fresh()
 	if [[ $? -ne 0 ]]; then
 		echo " >> Not inside a git repository!" >&2
 		return 1
-	elif [[ $# -eq 0 ]]; then
-		echo " >> Please specify a description for this \`git\` commit!" >&2
-		return 2
 	else
 		_dir="$(realpath "$_dir")"
 		_dir="${_dir::-5}"
 	fi
 
+	_add=0
+	[[ $# -gt 0 ]] && _add=1
+	
 	_orig="`pwd`"
 	cd "$_dir"
 
-	_txt="`date +"$_GIT_DATE_FORMAT"`"
-	_txt="[$_txt] $*"
+	_txt=
 
-	echo -e " >> Repository path:\n   \`\e[1m${_dir}\e[0m\`"
-	echo -e " >> Applying commit:\n   \`\e[1m${_txt}\e[0m\`\n"
+	if [[ $_add -eq 0 ]]; then
+		echo -e " >> Fetching latest repository state."
+	else
+		_txt="`date +"$_GIT_DATE_FORMAT"`"
+		_txt="[$_txt] $*"
+
+		echo -e " >> Repository path:\n   \`\e[1m${_dir}\e[0m\`"
+		echo -e " >> Applying commit:\n   \`\e[1m${_txt}\e[0m\`\n"
+	fi
 
 	git pull
-	git add --all
-	git commit -m "$_txt"
-	git push
+
+	if [[ $_add -ne 0 ]]; then
+		git add --all
+		git commit -m "$_txt"
+		git push
+	fi
 
 	cd "$_orig"
 }

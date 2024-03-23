@@ -8,7 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-03-23**\] Updated the [**`fresh.sh`**](#freshsh) to **v0.3.1**
+* \[**2024-03-23**\] Updated the [**`fresh.sh`**](#freshsh) to **v0.4.0**
 * \[**2024-03-19**\] New script **[`replace.sh`](#replacesh) v0.1.1**, plus new **[`toilets.sh`](#toiletssh) v0.0.2**
 * \[**2024-03-18**\] Updated [`sync.sh`](#syncsh) to **v0.4.1**.
 * \[**2024-03-07**\] [**`prompt.sh`**](#promptsh) **v2.1.0**;
@@ -149,12 +149,12 @@ Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/w
 ### [`fresh`.sh](sh/fresh.sh)
 Helper to quickly update `git` repositories.. really tiny.
 
-* [Version **v0.3.1**](sh/fresh.sh) (updated **2024-03-23**)
+* [Version **v0.4.0**](sh/fresh.sh) (updated **2024-03-23**)
 
 Now with check if you're inside a git repository, and also a commit message
 is now required (because I was too lazy before..).
 
-**Now** (**v0.3.0**) w/ new **`keep`** function (because, e.g., `git` won't see empty directories).
+**Now** (**v0.3.0**) w/ new **`keep`** function (inter alia because `git` won't see empty directories).
 
 ### [`replace.sh`](sh/replace.sh)
 Recursive (really!) `sed` (regular expression) replacement in (only real!) files.
