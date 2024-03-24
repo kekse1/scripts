@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.1
+# v0.4.2
 #
 # Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
 # since it is *not* executable (but `source` or `.`).
@@ -37,7 +37,8 @@ fresh()
 	_txt=
 
 	if [[ $_add -eq 0 ]]; then
-		echo -e " >> Fetching latest repository state (to upload your changes, define a commit message)."
+		echo -e " >> Only fetching latest repository state."
+		echo -e " >> To upload your changes, argue with commit message."
 	else
 		_txt="`date +"$_GIT_DATE_FORMAT"`"
 		_txt="[$_txt] $*"
