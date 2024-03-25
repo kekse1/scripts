@@ -43,8 +43,8 @@ fresh()
 		_txt="`date +"$_GIT_DATE_FORMAT"`"
 		_txt="[$_txt] $*"
 
-		echo -e " >> Repository path:\n     \e[1m${_dir}\e[0m"
-		echo -e " >> Applying commit:\n     \e[1m${_txt}\e[0m\n"
+		echo -e " >> Repository path:\n    \e[1m${_dir}\e[0m"
+		echo -e " >> Applying commit:\n    \e[1m${_txt}\e[0m\n"
 	fi
 
 	git pull
