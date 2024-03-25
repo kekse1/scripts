@@ -38,7 +38,7 @@ fresh()
 
 	if [[ $_add -eq 0 ]]; then
 		echo -e " >> Only fetching latest repository state."
-		echo -e " >> To upload your changes, argue with commit message."
+		echo -e " >> To also upload your changes, argue with commit message."
 	else
 		_txt="`date +"$_GIT_DATE_FORMAT"`"
 		_txt="[$_txt] $*"
