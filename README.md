@@ -8,10 +8,10 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-11**\] Updated [**`sync.sh`**] to **v0.4.2**
 * \[**2024-04-10**\] Updated [**`prompt.sh`**] to **v2.1.1**
 * \[**2024-03-23**\] Updated the [**`fresh.sh`**](#freshsh) to **v0.4.2**
 * \[**2024-03-19**\] New script **[`replace.sh`](#replacesh) v0.1.1**, plus new **[`toilets.sh`](#toiletssh) v0.0.2**
-* \[**2024-03-18**\] Updated [`sync.sh`](#syncsh) to **v0.4.1**.
 * \[**2024-03-05**\] **Started** the [**`ansi.sh`**](#ansish), to be `source`d/`.` (maybe at `/etc/profile.d/` or in your shell)
 * \[**2024-02-25**\] Shell scripts are using the 'builtin' `getopt` command now. **:-)**
 * \[**2024-02-25**\] The [`count-all-lines.sh`](#count-all-linessh) now worx correctly (with more than one -iname/glob/..)!
@@ -50,7 +50,7 @@ packet `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
 Another helping hand which became required since I'm managing some archive on my server,
 which needs to be synchronized with an SB stick (using `crontab`, ..).
 
-* [Version **v0.4.1**](sh/sync.sh) (updated **2024-03-18**)
+* [Version **v0.4.2**](sh/sync.sh) (updated **2024-04-11**)
 
 > **Warning**
 > PLEASE CHECK the **FIRST BOTH** configuration parts, relatively on top of the file..
@@ -58,7 +58,7 @@ which needs to be synchronized with an SB stick (using `crontab`, ..).
 _BTW_: My target USB stick is formatted as `ExFAT` file system, so not all linux
 file permissions and attributes are supported, and also no symbolic links. So I
 decided to disable all these by default. If you want/need them, use the `-l` or
-`--linux` cmdline argument. **;-)**
+`--linux` cmdline argument. Additionally see `-d` or `--dereference`. **;-)**
 
 > **Note**
 > As usual, you can also use `-h` or `--help`! **:-D**
