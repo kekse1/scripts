@@ -287,26 +287,6 @@ firstname()
 	echo "${p%%/*}"
 }
 
-mkcd()
-{
-	if [ $# -eq 0 ]; then
-		echo "Syntax: mkcd <directory>" >&2
-		return 1
-	fi
-
-	mkdir -pv "$*"
-	_res=$?
-
-	if [ $_res -ne 0 ]; then
-		echo "ERROR ($_res).." >&2
-		return $_res
-	fi
-
-	cd "$*"
-
-	echo -e "Switched to new directory '$*' (`pwd`)\n"
-}
-
 abs()
 {
 	if [ $# -eq 0 ]; then
