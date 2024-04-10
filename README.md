@@ -8,14 +8,9 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-04-11**\] Updated [**`sync.sh`**] to **v0.4.2**
-* \[**2024-04-10**\] Updated [**`prompt.sh`**] to **v2.1.1**
-* \[**2024-03-23**\] Updated the [**`fresh.sh`**](#freshsh) to **v0.4.2**
-* \[**2024-03-19**\] New script **[`replace.sh`](#replacesh) v0.1.1**, plus new **[`toilets.sh`](#toiletssh) v0.0.2**
-* \[**2024-03-05**\] **Started** the [**`ansi.sh`**](#ansish), to be `source`d/`.` (maybe at `/etc/profile.d/` or in your shell)
-* \[**2024-02-25**\] Shell scripts are using the 'builtin' `getopt` command now. **:-)**
-* \[**2024-02-25**\] The [`count-all-lines.sh`](#count-all-linessh) now worx correctly (with more than one -iname/glob/..)!
-* \[**2024-02-25**\] This news section is reduced to only the last changes.. jfyi: these days I added some new scripts.
+* \[**2024-04-11**\] Created (first version of) [**`baseutils.sh`**](#baseutilssh)
+* \[**2024-04-11**\] Updated [**`sync.sh`**](#syncsh) to **v0.4.2**
+* \[**2024-04-10**\] Updated [**`prompt.sh`**](#promptsh) to **v2.1.1**
 
 ## [Bash](sh/)
 
@@ -176,6 +171,18 @@ websites of [`toilet`](http://caca.zoy.org/wiki/toilet) and [`figlet`](http://ww
 
 The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), or rather it's
 `fonts/` directory itself.
+
+### [`baseutils.sh`](sh/baseutils.sh)
+This is just the beginning of more bash functions.
+
+The project began with [`baseutils.org`](https://baseutils.org/), which was planned as regular
+code (either C or JavaScript). Some first tools had been finished then.. they were planned for
+my `Any/Linux` project (with still much, much TODO).. BUT I began to take over some old functions
+from my `/etc/profile.d/` scripts, and now here we are..
+
+* [Version **v0.1.2**](sh/baseutils.sh) (created **2024-04-11**)
+
+Still _much_ **TODO**, but the first functions are declared and I'm going to implement them very soon!
 
 ### [`junior`.sh](sh/junior.sh)
 Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/), or rather the
