@@ -8,12 +8,11 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-10**\] Updated [**`prompt.sh`**] to **v2.1.1**
 * \[**2024-03-23**\] Updated the [**`fresh.sh`**](#freshsh) to **v0.4.2**
 * \[**2024-03-19**\] New script **[`replace.sh`](#replacesh) v0.1.1**, plus new **[`toilets.sh`](#toiletssh) v0.0.2**
 * \[**2024-03-18**\] Updated [`sync.sh`](#syncsh) to **v0.4.1**.
-* \[**2024-03-07**\] [**`prompt.sh`**](#promptsh) **v2.1.0**;
 * \[**2024-03-05**\] **Started** the [**`ansi.sh`**](#ansish), to be `source`d/`.` (maybe at `/etc/profile.d/` or in your shell)
-* \[**2024-03-05**\] **New version (v2.0.4) of my [`prompt.sh`](#promptsh) (including new screenshot here)! :-D**
 * \[**2024-02-25**\] Shell scripts are using the 'builtin' `getopt` command now. **:-)**
 * \[**2024-02-25**\] The [`count-all-lines.sh`](#count-all-linessh) now worx correctly (with more than one -iname/glob/..)!
 * \[**2024-02-25**\] This news section is reduced to only the last changes.. jfyi: these days I added some new scripts.
@@ -24,7 +23,10 @@
 Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS1` prompt.
 Uses the `$PROMPT_COMMAND` variable to dynamically change the prompt.
 
-* [Version **v2.1.0**](sh/prompt.sh) (updated **2024-03-07**)
+* [Version **v2.1.1**](sh/prompt.sh) (updated **2024-04-10**)
+
+Last update to **v2.1.1** is maybe important, since the **initial** deletion of `PS1`
+let the `source` hang up (I think it could be caused by the `/etc/bash.bashrc`? maybe..).
 
 #### Screenshot
 ![$PS1](img/prompt.png)

@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v2.1.0
+# v2.1.1
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -231,6 +231,5 @@ ps1Prompt()
 	export PS1
 }
 
-export PS1=''
 export PROMPT_COMMAND=ps1Prompt
 
