@@ -378,6 +378,7 @@ begin()
 
 cleanup()
 {
+	cd
 	rm -vrf "$tmpdir"
 
 	if [[ $? -ne 0 ]]; then
