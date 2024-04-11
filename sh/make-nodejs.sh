@@ -368,19 +368,11 @@ infos()
 
 begin()
 {
-	#
 	echo
 
-	#
 	download
-
-	#
 	build
-
-	#
 	cleanup
-
-	#
 	check
 }
 
