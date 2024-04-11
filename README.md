@@ -8,7 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-04-11**\] Updated my old [**`make-nodejs.sh`**](#make-nodejssh) today: **v0.3.0**!
+* \[**2024-04-11**\] Updated my old [**`make-nodejs.sh`**](#make-nodejssh) today: **v0.3.1**!
 * \[**2024-04-11**\] Created (first version of) [**`baseutils.sh`**](#baseutilssh)
 * \[**2024-04-11**\] Updated [**`sync.sh`**](#syncsh) to **v0.4.2**
 * \[**2024-04-10**\] Updated [**`prompt.sh`**](#promptsh) to **v2.1.1**
@@ -125,7 +125,7 @@ can also manage multiple versions, or just check if the newest installation real
 the only thing left to do, _just once_, is to merge the fs structure under the symlink path `/opt/node.js/0` into
 the `/usr/` hierarchy.
 
-* [Version **v0.3.0**](sh/make-nodejs.sh) (updated **2024-04-11**)
+* [Version **v0.3.1**](sh/make-nodejs.sh) (updated **2024-04-11**)
 
 > [!NOTE]
 > Just call it via `make-nodejs.sh 21.7.3`, e.g.!

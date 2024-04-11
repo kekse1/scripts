@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.0
+# v0.3.1
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -24,6 +24,11 @@
 # # use `getopt`; and also --help/-h, etc..!!
 # # timer (how long to compile, etc.?);
 # # better design, etc..!
+#
+# BUGS #
+# # EVTL. --target w/o $version ganz unten!? jedenfalls
+# 	wurde das hier so installiert, trotz korrektem
+# 	'./configure [...]'!??!
 #
 
 #for termux:
@@ -93,10 +98,11 @@ fi
 #
 [[ -z "$j" ]] && j=1
 
-[[ -n "$os" ]] && termux_args="$termux_args --dest-os=$os"
-[[ -n "$cpu" ]] && termux_args="$termux_args --dest-cpu=$cpu"
+termux_args=""
+[[ -n "$os" ]] && termux_args="${termux_args} --dest-os='$os'"
+[[ -n "$cpu" ]] && termux_args="$termux_args --dest-cpu='$cpu'"
 
-termux_args="$termux_args --shared-cares --shared-openssl --shared-zlib" #--with-intl=system-icu
+termux_args="${termux_args} --shared-cares --shared-openssl --shared-zlib" #--with-intl=system-icu
 
 #
 if [[ -z "$version" ]]; then
@@ -118,7 +124,7 @@ fi
 
 #
 if [[ "$termux" = "yes" ]]; then
-	args="$args $termux_args"
+	args="${args} ${termux_args}"
 
 	target="/data/data/com.termux/files/usr/${target}/"
 	tmpdir="/data/data/com.termux/files/home/${tmpdir}/"
@@ -164,7 +170,7 @@ else
 	target="${target}/"
 fi
 
-args="--prefix=\"${target}\" ${args}"
+args="--prefix='${target}' ${args}"
 
 #
 if [[ "$noFlags" = "yes" ]]; then
@@ -250,6 +256,11 @@ download()
 		exit 13
 	}
 
+	if [[ -e "$file" ]]; then
+		echo " >> File seems to be downloaded already.. old one will be deleted here!" >&2
+		rm -rfv "$file"
+	fi
+
 	if [[ "$dl" = "wget" ]]; then
 		useWget
 	elif [[ "$dl" = "curl" ]]; then
@@ -279,9 +290,12 @@ untar()
 
 configure()
 {
-	echo " >> './configure $args'"
+	cmd="./configure ${args}"
+echo "$cmd"
+exit 123
+	echo " >> '$cmd'"
 	echo
-	eval "./configure $args"
+	eval "$cmd"
 }
 
 compile()
