@@ -1,7 +1,7 @@
 // 
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // https://kekse.biz/ https://github.com/kekse1/scripts/
-// v0.4.1
+// v0.4.2
 // 
 // Just a tiny function to *really* clone objects (etc.); .. with all types, not only JSON supported ones
 // or so (sometimes the web referes to just `JSON.parse(JSON.stringify({}))`);
@@ -13,6 +13,9 @@
 // If an object got an own `.clone()` function, it will be used; and the same for the well-known `.cloneNode()`
 // function of any `Node` in the browser.
 //
+
+//
+const DEFAULT_CLONE_FUNCTION = false;
 
 //
 Reflect.defineProperty(Reflect, 'clone', { value: (_object, _map = null, _function = DEFAULT_CLONE_FUNCTION, ... _clone_args) => {

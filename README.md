@@ -1,13 +1,35 @@
 <img src="https://kekse.biz/github.php?draw&override=github:scripts" />
 
+# **Scripts**
+Every script is made by myself, arose out of necessity.. (most?) without any dependency.
+
 ## Index
 1. [News](#news)
 2. [Bash](#bash)
-	* [`prompt`.sh](#promptsh)
+	* [`prompt.sh`](#promptsh)
+	* [`unexify.sh`](#unexifysh)
+	* [`sync.sh`](#syncsh)
+	* [`ansi.sh`](#ansish)
+	* [`up2date.sh`](#up2datesh)
+	* [`layout.sh`](#layoutsh)
+	* [`count-all-lines.sh`](#count-all-linessh)
+	* [`copy.sh`](#copysh)
+	* [`move-by-ext.sh`](#move-by-extsh)
+	* [`find-ext.sh`](#find-extsh)
+	* [`make-nodejs.sh`](#make-nodejssh)
+	* [`fresh.sh`](#freshsh)
+	* [`replace.sh`](#replacesh)
+	* [`toilets.sh`](#toiletssh)
+	* [`baseutils.sh`](#baseutilssh)
+	* [`router.sh`](#routersh)
+	* [`junior.sh`](#juniorsh)
 3. [JavaScript](#javascript)
+	* [`clone.js`](#clonejs)
+	* [`fold.css.js`](#foldcssjs)
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-11**\] Really tiny 'bugfix' in [`clone.js`](#clonejs); so new **v0.4.2**..
 * \[**2024-04-11**\] Updated my old [**`make-nodejs.sh`**](#make-nodejssh) today: **v0.3.1**!
 * \[**2024-04-11**\] Created (first version of) [**`baseutils.sh`**](#baseutilssh)
 * \[**2024-04-11**\] Updated [**`sync.sh`**](#syncsh) to **v0.4.2**
@@ -133,14 +155,6 @@ the `/usr/` hierarchy.
 There's a tiny //**TODO**/ (on top of the file), since this script is really old,
 and could maybe be improved in some ways.. **yet to come**!!
 
-### [`router`.sh](sh/router.sh)
-Some time ago I needed to setup my computer as a router (using `iptables`).
-
-* [Version **v0.1.0**](sh/router.sh)
-
-This was created very quickly, without much features or tests.
-Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/wiki/Home_router) for more.
-
 ### [`fresh`.sh](sh/fresh.sh)
 Helper to quickly update `git` repositories.. really tiny.
 
@@ -182,6 +196,14 @@ from my `/etc/profile.d/` scripts, and now here we are..
 
 Still _much_ **TODO**, but the first functions are declared and I'm going to implement them very soon!
 
+### [`router`.sh](sh/router.sh)
+Some time ago I needed to setup my computer as a router (using `iptables`).
+
+* [Version **v0.1.0**](sh/router.sh)
+
+This was created very quickly, without much features or tests.
+Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/wiki/Home_router) for more.
+
 ### [`junior`.sh](sh/junior.sh)
 Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/), or rather the
 [`node-llama-cpp`](https://github.com/withcatai/node-llama-cpp), I just wrote a short
@@ -192,12 +214,20 @@ shell script to handle multiple models and prompts better.
 Syntax: `$0 <model> <prompt> [ <context size> ]`. Even if I'm using another LLM tool now..
 
 ## JavaScript
-My favorite language.. ^\_^
+My favorite language.. absolutely. **^\_^**
+
+Many, many years ago I just laughed about JavaScript, because it was just some 'browser scripting language'..
+TODAY, in the times of [`Node.js`](https://nodejs.org/), it's a great language, even for the server side! **;-)**
 
 ### [`clone.js`](js/clone.js)
-Just my own `Reflect.clone()` version, since JavaScript doesn't include it natively..
+Just my own `Reflect.clone()` version (because JavaScript doesn't include it natively)..
 
-* [Version **0.4.1**](js/clone.js) (updated **2024-03-04**)
+* [Version **0.4.2**](js/clone.js) (updated **2024-04-11**)
+
+.. and it works great, really! **:-)** Also checks `Reflect.isExtensible()`, so even functions with
+extensions are being fully cloned. And even the functions themselves (if `_function === true`; see also
+`DEFAULT_CLONE_FUNCTION`).. and - utilizing a `Map` - every instance will only get cloned **once**, so
+**no circular dependencies** occure! **;-)**
 
 ### [`fold.css.js`](js/fold.css.js)
 **Early version, so only the real basics are covered.**
@@ -209,8 +239,12 @@ stylesheets without newlines, etc. ..
 
 * [Version **0.1.0**](js/fold.css.js) (updated **2024-03-04**)
 
->> *Warning*
->> TODO!
+The reason for this script was: I wanted to 'import' GitHub's markdown `.css` code, since [my website](https://kekse.biz/)
+[provides all **my GitHub repositories**](https://kekse.biz/?~projects), and I needed only some parts out of there..
+but the code is/was a mess!
+
+>> [!WARNING]
+>> Still **TODO**! I _began_ this script, but never finished it..
 
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
