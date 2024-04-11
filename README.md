@@ -8,6 +8,7 @@
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-11**\] Updated my old [**`make-nodejs.sh`**](#make-nodejssh) today: **v0.3.0**!
 * \[**2024-04-11**\] Created (first version of) [**`baseutils.sh`**](#baseutilssh)
 * \[**2024-04-11**\] Updated [**`sync.sh`**](#syncsh) to **v0.4.2**
 * \[**2024-04-10**\] Updated [**`prompt.sh`**](#promptsh) to **v2.1.1**
@@ -47,7 +48,7 @@ which needs to be synchronized with an SB stick (using `crontab`, ..).
 
 * [Version **v0.4.2**](sh/sync.sh) (updated **2024-04-11**)
 
-> **Warning**
+> [!WARNING]
 > PLEASE CHECK the **FIRST BOTH** configuration parts, relatively on top of the file..
 
 _BTW_: My target USB stick is formatted as `ExFAT` file system, so not all linux
@@ -55,7 +56,7 @@ file permissions and attributes are supported, and also no symbolic links. So I
 decided to disable all these by default. If you want/need them, use the `-l` or
 `--linux` cmdline argument. Additionally see `-d` or `--dereference`. **;-)**
 
-> **Note**
+> [!TOP]
 > As usual, you can also use `-h` or `--help`! **:-D**
 
 ### [`ansi`.sh](sh/ansi.sh)
@@ -119,21 +120,18 @@ to limit the `find` recursion depth via optional first argument (needs to be pos
 
 ### [`make-nodejs`.sh](sh/make-nodejs.sh)
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
-the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there.
+the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
+can also manage multiple versions, or just check if the newest installation really works, before removing the old one..
+the only thing left to do, _just once_, is to merge the fs structure under the symlink path `/opt/node.js/0` into
+the `/usr/` hierarchy.
 
-* [Version **v0.2.0**](sh/make-nodejs.sh) (updated **2024-02-25**)
+* [Version **v0.3.0**](sh/make-nodejs.sh) (updated **2024-04-11**)
 
-So you can also manage multiple versions, or just check if the newest installation really works, before removing the
-old one.. the only thing left to do, _just once_, is to merge the fs structure under the symlink path `/opt/node.js/0`
-into the `/usr/` hierarchy.
+> [!NOTE]
+> Just call it via `make-nodejs.sh 21.7.3`, e.g.!
 
-I'm using this script on every new Node.js version, on my Linux desktop/workstation and on my Termux smartphone app;
-therefore the `0` symlink will point to the newest version - and as you've merged everything _under it before_ (into
-the `/usr` hierarchy), there's no need to change anything else. Just `rm -rf` the older version if the newest one
-works! :)~
-
-> **Note**
-> Just call it via `make-nodejs.sh 21.6.2`, e.g.!
+There's a tiny //**TODO**/ (on top of the file), since this script is really old,
+and could maybe be improved in some ways.. **yet to come**!!
 
 ### [`router`.sh](sh/router.sh)
 Some time ago I needed to setup my computer as a router (using `iptables`).
