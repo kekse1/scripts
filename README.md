@@ -29,9 +29,9 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-11**\] Prepared the [`baseutils.sh`](#baseutilssh), and added (at least) one new function; in **v0.2.0**!
 * \[**2024-04-11**\] Really tiny 'bugfix' in [`clone.js`](#clonejs); so new **v0.4.2**..
 * \[**2024-04-11**\] Updated my old [**`make-nodejs.sh`**](#make-nodejssh) today: **v0.3.1**!
-* \[**2024-04-11**\] Created (first version of) [**`baseutils.sh`**](#baseutilssh)
 * \[**2024-04-11**\] Updated [**`sync.sh`**](#syncsh) to **v0.4.2**
 * \[**2024-04-10**\] Updated [**`prompt.sh`**](#promptsh) to **v2.1.1**
 
@@ -192,9 +192,9 @@ code (either C or JavaScript). Some first tools had been finished then.. they we
 my `Any/Linux` project (with still much, much TODO).. BUT I began to take over some old functions
 from my `/etc/profile.d/` scripts, and now here we are..
 
-* [Version **v0.1.2**](sh/baseutils.sh) (created **2024-04-11**)
+* [Version **v0.2.0**](sh/baseutils.sh) (updated **2024-04-11**)
 
-Still _much_ **TODO**, but the first functions are declared and I'm going to implement them very soon!
+Still _much_ **TODO**, but the first functions are declared and I'm going to implement everything soon!
 
 ### [`router`.sh](sh/router.sh)
 Some time ago I needed to setup my computer as a router (using `iptables`).

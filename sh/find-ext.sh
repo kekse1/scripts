@@ -38,7 +38,7 @@ while true; do
 				max="-maxdepth $2"
 				shift 2
 			else
-				echo " >> Parameter for --depth / -d needs to be *numeric/integer*!" >&2
+				echo " >> Parameter for --depth / -d needs to be a positive integer!" >&2
 				exit 2
 			fi
 			;;
