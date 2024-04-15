@@ -32,7 +32,7 @@ _1000=( Bytes KB MB GB TB PB EB ZB YB )
 bytes()
 {
 	if [[ $# -eq 0 ]]; then
-		echo " >> Syntax: bytes <bytes> [ <base=$_BASE | <unit> [ <prec=$_PREC> ] ]" >&2
+		echo " >> Syntax: bytes <value> [ <base=$_BASE | <unit> [ <prec=$_PREC> ] ]" >&2
 		return 1
 	elif [[ ! "$1" =~ ^[0-9]+$ ]]; then
 		echo " >> Invalid byte count (expecting a positive Integer)" >&2

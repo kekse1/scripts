@@ -167,8 +167,8 @@ Look at the source to get to know more..
 
 > [!TIP]
 > You can **e.g.** render an amount of bytes to `GiB`, etc.. base 1024 and 1000 support,
-> and direct conversion to a specific target unit, or it'll automatically detect which suites
-> the best.
+> and direct conversion to a specific target unit, or it'll automatically detect which suites best:
+> ` >> Syntax: bytes <value> [ <base=1024 | <unit> [ <prec=2> ] ]`
 
 ### [`baseutils.sh`](sh/baseutils.sh)
 This is just the beginning of more bash functions.
