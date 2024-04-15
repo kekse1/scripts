@@ -33,7 +33,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 
 ## News
 * \[**2024-04-15**\] New section [**C/C++**](#ccpp) with first [**`nproc.c`**](#nprocc) **v0.2.2**;
-* \[**2024-04-15**\] Initialized new [`unit.sh`](#unitsh); some size/date conversions;
+* \[**2024-04-15**\] Initialized new [`unit.sh`](#unitsh): size conversion;
 * \[**2024-04-15**\] Prepared the [`baseutils.sh`](#baseutilssh); and now (tiny) update to **v0.2.1**!
 * \[**2024-04-11**\] Really tiny 'bugfix' in [`clone.js`](#clonejs); so new **v0.4.2**..
 * \[**2024-04-11**\] Updated my old [**`make-nodejs.sh`**](#make-nodejssh) today: **v0.3.1**!
@@ -163,15 +163,15 @@ The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), o
 `fonts/` directory itself.
 
 ### [`unit`.sh](sh/unit.sh)
-* [Version **v0.1.1**](sh/unit.sh) (created **2024-04-15**)
+* [Version **v0.1.2**](sh/unit.sh) (created **2024-04-15**)
 
-Functions to be `source`d (so copy to `/etc/profile.d/`) providing conversions for size and time.
-Look at the source to get to know more..
+Function(s) to be `source`d (so copy to `/etc/profile.d/`) providing conversions
+for size.
 
-> [!TIP]
-> You can **e.g.** render an amount of bytes to `GiB`, etc.. base 1024 and 1000 support,
-> and direct conversion to a specific target unit, or it'll automatically detect which suites best:
-> ` >> Syntax: bytes <value> [ <base=1024 | <unit> [ <prec=2> ] ]`
+You crender an amount of bytes to `GiB`, etc.. base 1024 and 1000 support,
+and direct conversion to a specific target unit, or it'll automatically
+detect which suites best:
+* ` >> Syntax: bytes <value> [ <base=1024 | <unit> [ <prec=2> ] ]`
 
 ### [`baseutils`.sh](sh/baseutils.sh)
 * [Version **v0.2.1**](sh/baseutils.sh) (updated **2024-04-15**)

@@ -1,13 +1,12 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.1
+# v0.1.2
 #
 # Copy to '/etc/profile.d/` to automatically include
 # the following functions .. read the source 4 info!
 #
 
-# size
 _PREC=2
 _BASE=1024
 _1024=( Bytes KiB MiB GiB TiB PiB EiB ZiB YiB )
@@ -111,109 +110,3 @@ bytes()
 	LANG=C printf "%.${prec}f ${unit}\n" $rest
 }
 
-#
-parseSeconds()
-{
-	if [[ $# -ne 1 || ! "$1" =~ ^[0-9]+$ ]]; then
-		echo " >> Invalid parameter (expecting positive integer)!" >&2
-		return 1
-	fi
-	
-	s=$(($1%60))
-	m="$(bc <<<"$1/60%60")"
-	m=${m%%.*}
-	h=$(bc <<<"$1/3600")
-	h=${h%%.*}
-	
-	printf "%02d:%02d:%02d\n" $h $m $s
-}
-
-getDay()
-{
-	h=0
-	m=0
-	s=0
-
-	if [[ $# -eq 1 ]]; then
-		if [[ "$1" =~ ":" ]]; then
-			h=`echo $1 | cut -d: -f1`
-			m=`echo $1 | cut -d: -f2`
-			s=`echo $1 | cut -d: -f3`
-		elif [[ "$1" =~ ^[0-9]+$ ]]; then
-			s=$(($1%60))
-			m="$(bc <<<"$1/60%60")"
-			m=${m%%.*}
-			h=$(bc <<<"$1/3600")
-			h=${h%%.*}
-		else
-			echo " >> Invalid parameters!" >&2
-			return 1
-		fi
-	else
-		h=$1
-		m=$2
-		s=$3
-	fi
-
-	ch=`date +%H`
-	cm=`date +%M`
-	cs=`date +%S`
-
-	while [[ "${ch::1}" == "0" && ${#ch} -gt 1 ]]; do ch="${ch:1}"; done
-	while [[ "${cm::1}" == "0" && ${#cm} -gt 1 ]]; do cm="${cm:1}"; done
-	while [[ "${cs::1}" == "0" && ${#cs} -gt 1 ]]; do cs="${cs:1}"; done
-	
-	while [[ "${h::1}" == "0" && ${#h} -gt 1 ]]; do h="${h:1}"; done
-	while [[ "${m::1}" == "0" && ${#m} -gt 1 ]]; do m="${m:1}"; done
-	while [[ "${s::1}" == "0" && ${#s} -gt 1 ]]; do s="${s:1}"; done
-
-	[[ -z "$h" ]] && h=$ch
-	[[ -z "$m" ]] && m=$cm
-	[[ -z "$s" ]] && s=$cs
-
-	while [[ "${h::1}" == "0" && ${#h} -gt 1 ]]; do h="${h:1}"; done
-	while [[ "${m::1}" == "0" && ${#m} -gt 1 ]]; do m="${m:1}"; done
-	while [[ "${s::1}" == "0" && ${#s} -gt 1 ]]; do s="${s:1}"; done
-
-	if [[ $h -eq $ch && $m -eq $cm && $s -eq $cs ]]; then
-		h=$ch
-		m=$cm
-		s=$cs
-	fi
-
-	if [[ ! "$h" =~ ^[0-9]+$ ]]; then
-		echo " >> Hour component is invalid (no positive Integer)" >&2
-		return 2
-	elif [[ ! "$m" =~ ^[0-9]+$ ]]; then
-		echo " >> Minute component is invalid (no positive Integer)" >&2
-		return 3
-	elif [[ ! "$s" =~ ^[0-9]+$ ]]; then
-		echo " >> Hour component is invalid (no positive Integer)" >&2
-		return 4
-	else
-		h=$(($h%24))
-		m=$(($m%60))
-		s=$(($s%60))
-	fi
-	
-	seconds=$((($h*60*60)+($m*60)+$s))
-	printf "%02d:%02d:%02d\n%ds\n" $h $m $s $seconds
-}
-
-getTime()
-{
-	res="getDay"; for i in "$@"; do res="${res} '$i'"; done
-	res="$(eval "$res")"
-	res="`echo \"$res\" | cut -d$'\n' -f1`"
-	echo "$res"
-}
-
-getSeconds()
-{
-	res="getDay"; for i in "$@"; do res="${res} '$i'"; done
-	res="$(eval "$res")"
-	res="`echo \"$res\" | cut -d$'\n' -f2`"
-	echo "${res:: -1}"
-}
-
-#
