@@ -27,7 +27,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 3. [JavaScript](#javascript)
 	* [`clone.js`](#clonejs)
 	* [`fold.css.js`](#foldcssjs)
-4. [C/C++](#ccpp)
+4. [C/C++](#cc)
     * [`nproc.c`](#nprocc)
 5. [Copyright and License](#copyright-and-license)
 
