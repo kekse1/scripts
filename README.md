@@ -14,13 +14,14 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 	* [`layout.sh`](#layoutsh)
 	* [`count-all-lines.sh`](#count-all-linessh)
 	* [`copy.sh`](#copysh)
-	* [`move-by-ext.sh`](#move-by-extsh)
-	* [`find-ext.sh`](#find-extsh)
-	* [`make-nodejs.sh`](#make-nodejssh)
 	* [`fresh.sh`](#freshsh)
 	* [`replace.sh`](#replacesh)
 	* [`toilets.sh`](#toiletssh)
+	* [`unit.sh`](#unitsh)
 	* [`baseutils.sh`](#baseutilssh)
+	* [`move-by-ext.sh`](#move-by-extsh)
+	* [`find-ext.sh`](#find-extsh)
+	* [`make-nodejs.sh`](#make-nodejssh)
 	* [`router.sh`](#routersh)
 	* [`junior.sh`](#juniorsh)
 3. [JavaScript](#javascript)
@@ -129,33 +130,6 @@ So just set your server {user,host,port} and copy securely.
 
 BTW: yes, I had an unstable line when I created this.. via mobile phone.
 
-### [`move-by-ext`.sh](sh/move-by-ext.sh)
-Another tiny helper... really nothing special.
-
-* [Version **v0.0.2**](sh/move-by-ext.sh) (updated **2024-02-25**)
-
-### [`find-ext`.sh](sh/find-ext.sh)
-Something similar to the [`move-by-ext`.sh](#move-by-extsh) helper, but here without write operations,
-only counting all different extensions available under the current working directory. And it's possible
-to limit the `find` recursion depth via optional first argument (needs to be positive integer).
-
-* [Version **v0.1.2**](sh/find-ext.sh) (updated **2024-02-25**)
-
-### [`make-nodejs`.sh](sh/make-nodejs.sh)
-For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
-the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
-can also manage multiple versions, or just check if the newest installation really works, before removing the old one..
-the only thing left to do, _just once_, is to merge the fs structure under the symlink path `/opt/node.js/0` into
-the `/usr/` hierarchy.
-
-* [Version **v0.3.1**](sh/make-nodejs.sh) (updated **2024-04-11**)
-
-> [!NOTE]
-> Just call it via `make-nodejs.sh 21.7.3`, e.g.!
-
-There's a tiny //**TODO**/ (on top of the file), since this script is really old,
-and could maybe be improved in some ways.. **yet to come**!!
-
 ### [`fresh`.sh](sh/fresh.sh)
 Helper to quickly update `git` repositories.. really tiny.
 
@@ -208,8 +182,36 @@ from my `/etc/profile.d/` scripts, and now here we are..
 
 Still _much_ **TODO**, but the first functions are declared and I'm going to implement everything soon!
 
+### [`move-by-ext`.sh](sh/move-by-ext.sh)
+Another tiny helper... really nothing special.
+
+* [Version **v0.0.2**](sh/move-by-ext.sh) (updated **2024-02-25**)
+
+### [`find-ext`.sh](sh/find-ext.sh)
+Something similar to the [`move-by-ext`.sh](#move-by-extsh) helper, but here without write operations,
+only counting all different extensions available under the current working directory. And it's possible
+to limit the `find` recursion depth via optional first argument (needs to be positive integer).
+
+* [Version **v0.1.2**](sh/find-ext.sh) (updated **2024-02-25**)
+
+### [`make-nodejs`.sh](sh/make-nodejs.sh)
+For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
+the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
+can also manage multiple versions, or just check if the newest installation really works, before removing the old one..
+the only thing left to do, _just once_, is to merge the fs structure under the symlink path `/opt/node.js/0` into
+the `/usr/` hierarchy.
+
+* [Version **v0.3.1**](sh/make-nodejs.sh) (updated **2024-04-11**)
+
+> [!NOTE]
+> Just call it via `make-nodejs.sh 21.7.3`, e.g.!
+
+There's a tiny //**TODO**/ (on top of the file), since this script is really old,
+and could maybe be improved in some ways.. **yet to come**!!
+
 ### [`router`.sh](sh/router.sh)
 Some time ago I needed to setup my computer as a router (using `iptables`).
+
 
 * [Version **v0.1.0**](sh/router.sh)
 
