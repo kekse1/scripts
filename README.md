@@ -27,9 +27,12 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 3. [JavaScript](#javascript)
 	* [`clone.js`](#clonejs)
 	* [`fold.css.js`](#foldcssjs)
-4. [Copyright and License](#copyright-and-license)
+4. [C/C++](#ccpp)
+    * [`nproc.c`](#nprocc)
+5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-15**\] New section [**C/C++**](#ccpp) with first [**`nproc.c`**](#nprocc);
 * \[**2024-04-15**\] Initialized new [`unit.sh`](#unitsh); some size/date conversions;
 * \[**2024-04-15**\] Prepared the [`baseutils.sh`](#baseutilssh); and now (tiny) update to **v0.2.1**!
 * \[**2024-04-11**\] Really tiny 'bugfix' in [`clone.js`](#clonejs); so new **v0.4.2**..
@@ -141,12 +144,12 @@ is now required (because I was too lazy before..).
 **Now** (**v0.3.0**) w/ new **`keep`** function (inter alia because `git`
 won't see empty directories).
 
-### [`replace.sh`](sh/replace.sh)
+### [`replace`.sh](sh/replace.sh)
 Recursive (really!) `sed` (regular expression) replacement in (only real!) files.
 
 * [Version **v0.1.1**](sh/replace.sh) (created **2024-03-19**)
 
-### [`toilets.sh`](sh/toilets.sh)
+### [`toilets`.sh](sh/toilets.sh)
 Easily compare `toilet` (or `figlet`) outputs for a list of fonts in a file (each line another font).
 Command line switches are passed through to the tool itself. Input texts can also be set via command
 line, or just wait to get asked via `stdin`.
@@ -159,7 +162,7 @@ websites of [`toilet`](http://caca.zoy.org/wiki/toilet) and [`figlet`](http://ww
 The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), or rather it's
 `fonts/` directory itself.
 
-### [`unit.sh`](sh/unit.sh)
+### [`unit`.sh](sh/unit.sh)
 Functions to be `source`d (so copy to `/etc/profile.d/`) providing conversions for size and time.
 Look at the source to get to know more..
 
@@ -170,7 +173,7 @@ Look at the source to get to know more..
 > and direct conversion to a specific target unit, or it'll automatically detect which suites best:
 > ` >> Syntax: bytes <value> [ <base=1024 | <unit> [ <prec=2> ] ]`
 
-### [`baseutils.sh`](sh/baseutils.sh)
+### [`baseutils`.sh](sh/baseutils.sh)
 This is just the beginning of more bash functions.
 
 The project began with [`baseutils.org`](https://baseutils.org/), which was planned as regular
@@ -233,7 +236,7 @@ My favorite language.. absolutely. **^\_^**
 Many, many years ago I just laughed about JavaScript, because it was just some 'browser scripting language'..
 TODAY, in the times of [`Node.js`](https://nodejs.org/), it's a great language, even for the server side! **;-)**
 
-### [`clone.js`](js/clone.js)
+### [`clone`.js](js/clone.js)
 Just my own `Reflect.clone()` version (because JavaScript doesn't include it natively)..
 
 * [Version **0.4.2**](js/clone.js) (updated **2024-04-11**)
@@ -243,7 +246,7 @@ extensions are being fully cloned. And even the functions themselves (if `_funct
 `DEFAULT_CLONE_FUNCTION`).. and - utilizing a `Map` - every instance will only get cloned **once**, so
 **no circular dependencies** occure! **;-)**
 
-### [`fold.css.js`](js/fold.css.js)
+### [`fold.css`.js](js/fold.css.js)
 **Early version, so only the real basics are covered.**
 
 'Folds' CSS style code. Earlier I used the `fold` (Linux) command, but that didn't work that well for what
@@ -259,6 +262,21 @@ but the code is/was a mess!
 
 >> [!WARNING]
 >> Still **TODO**! I _began_ this script, but never finished it..
+
+## C/C++
+//TODO/
+
+### [`nproc`.c](c-cpp/nproc.c)
+Modificated `nproc`, to optionally set the `NPROC` environment variable, which
+can hold an arbitrary number of cores/threads to output.
+
+If not defined or below 1, this piece of code will try to get the real value;
+first via `sysconf(_SC_NPROCESSORS_ONLN);` from `unistd.h`, otherwise the
+`get_nprocs();` from `sys/sysinfo.h`.
+
+If no success, `1` is returned.
+
+* [Version **v0.2.0**](c-cpp/nproc.c) (created **2024-04-15**)
 
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
