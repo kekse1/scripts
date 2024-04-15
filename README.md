@@ -163,7 +163,7 @@ The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), o
 `fonts/` directory itself.
 
 ### [`unit`.sh](sh/unit.sh)
-* [Version **v0.1.2**](sh/unit.sh) (created **2024-04-15**)
+* [Version **v0.1.3**](sh/unit.sh) (created **2024-04-15**)
 
 Function(s) to be `source`d (so copy to `/etc/profile.d/`) providing conversions
 for size.

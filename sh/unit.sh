@@ -1,7 +1,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.2
+# v0.1.3
 #
 # Copy to '/etc/profile.d/` to automatically include
 # the following functions .. read the source 4 info!
@@ -105,6 +105,9 @@ bytes()
 	else
 		unit="${_1024[$index]}"
 	fi
+
+	#
+	[[ $index -eq 0 ]] && prec=0
 	
 	#
 	LANG=C printf "%.${prec}f ${unit}\n" $rest
