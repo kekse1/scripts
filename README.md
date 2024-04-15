@@ -32,7 +32,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-04-15**\] New section [**C/C++**](#ccpp) with first [**`nproc.c`**](#nprocc) **v0.2.1**;
+* \[**2024-04-15**\] New section [**C/C++**](#ccpp) with first [**`nproc.c`**](#nprocc) **v0.2.2**;
 * \[**2024-04-15**\] Initialized new [`unit.sh`](#unitsh); some size/date conversions;
 * \[**2024-04-15**\] Prepared the [`baseutils.sh`](#baseutilssh); and now (tiny) update to **v0.2.1**!
 * \[**2024-04-11**\] Really tiny 'bugfix' in [`clone.js`](#clonejs); so new **v0.4.2**..
@@ -263,7 +263,7 @@ but the code is/was a mess!
 ## C/C++
 
 ### [`nproc`.c](c-cpp/nproc.c)
-* [Version **v0.2.1**](c-cpp/nproc.c) (created **2024-04-15**)
+* [Version **v0.2.2**](c-cpp/nproc.c) (created **2024-04-15**)
 
 Modificated `/usr/bin/nproc`, to optionally set the `NPROC` environment variable,
 which can be an arbitrary number of cores/threads to output.

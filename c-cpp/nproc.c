@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.2.1
+ * v0.2.2
  *
  * `cp /usr/bin/nproc /usr/bin/nproc.ORIG \
  * 	&& gcc -o /usr/bin/nproc nproc.c \
@@ -21,7 +21,7 @@ int main(void)
 
 	if(env)
 	{
-		unsigned short len = (unsigned short)strnlen(env, 16);
+		const unsigned short len = (unsigned short)strnlen(env, 16);
 
 		if(len > 0 && len < 16)
 		{
