@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://baseutils.org/
-# v0.2.0
+# v0.2.1
 #
 
 mkcd()
@@ -43,6 +43,35 @@ from()
 	cat "$file" | tail -n$((`cat "$file" | wc -l`-$from+1))
 }
 
+integer()
+{
+	# TODO is also here: to handle multiple input values
+	# logik ist blosz "${value%%.*}", ohne jede rundung (int-cast styles eben! ;-)
+	# rundungen
+	echo TODO >&2
+	return 255
+}
+
+round()
+{
+	#prec=0 (default)
+	# LANG=C printf "%.${prec}f" "$value"
+	echo TODO >&2
+	return 255
+}
+
+ceil()
+{
+	echo TODO >&2
+	return 255
+}
+
+floor()
+{
+	echo TODO >&2
+	return 255
+}
+
 abs()
 {
 	# bitte MIT (below) "isNumber()" test!
@@ -64,6 +93,7 @@ isNegative()
 	# TODO # bitte MIT isNumber() test!
 	# danach nur check if [0]=='-'! ^_^
 	# EVTL. auch blosz [[ $var -lt 0 ]];
+	# mit '-' string check direkt *alle* initialen '+' und '-'..
 	echo TODO >&2
 	return 255
 }
@@ -73,6 +103,7 @@ isPositive()
 	# TODO # bitte MIT isNumber() test!
 	# danach nur check if [0]!='-'! ^_^
 	# EVTL. auch blosz [[ $var -ge 0 ]];
+	# mit '-' string check direkt *alle* initialen '+' und '-'...
 	echo TODO >&2
 }
 
@@ -181,5 +212,15 @@ radix()
 	echo TODO >&2
 	return 255
 	# radix conversion for the shell! ^_^
+}
+
+lower()
+{
+	echo "${*,,}"
+}
+
+upper()
+{
+	echo "${*^^}"
 }
 

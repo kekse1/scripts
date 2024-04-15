@@ -29,7 +29,8 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-04-11**\] Prepared the [`baseutils.sh`](#baseutilssh), and added (at least) one new function; in **v0.2.0**!
+* \[**2024-04-15**\] Initialized new [`unit.sh`](#unitsh); some size/date conversions;
+* \[**2024-04-15**\] Prepared the [`baseutils.sh`](#baseutilssh); and now (tiny) update to **v0.2.1**!
 * \[**2024-04-11**\] Really tiny 'bugfix' in [`clone.js`](#clonejs); so new **v0.4.2**..
 * \[**2024-04-11**\] Updated my old [**`make-nodejs.sh`**](#make-nodejssh) today: **v0.3.1**!
 * \[**2024-04-11**\] Updated [**`sync.sh`**](#syncsh) to **v0.4.2**
@@ -184,6 +185,17 @@ websites of [`toilet`](http://caca.zoy.org/wiki/toilet) and [`figlet`](http://ww
 The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), or rather it's
 `fonts/` directory itself.
 
+### [`unit.sh`](sh/unit.sh)
+Functions to be `source`d (so copy to `/etc/profile.d/`) providing conversions for size and time.
+Look at the source to get to know more..
+
+* [Version **v0.1.1**](sh/unit.sh) (created **2024-04-15**)
+
+> [!TIP]
+> You can **e.g.** render an amount of bytes to `GiB`, etc.. base 1024 and 1000 support,
+> and direct conversion to a specific target unit, or it'll automatically detect which suites
+> the best.
+
 ### [`baseutils.sh`](sh/baseutils.sh)
 This is just the beginning of more bash functions.
 
@@ -192,7 +204,7 @@ code (either C or JavaScript). Some first tools had been finished then.. they we
 my `Any/Linux` project (with still much, much TODO).. BUT I began to take over some old functions
 from my `/etc/profile.d/` scripts, and now here we are..
 
-* [Version **v0.2.0**](sh/baseutils.sh) (updated **2024-04-11**)
+* [Version **v0.2.1**](sh/baseutils.sh) (updated **2024-04-15**)
 
 Still _much_ **TODO**, but the first functions are declared and I'm going to implement everything soon!
 
