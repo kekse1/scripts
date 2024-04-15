@@ -264,7 +264,6 @@ but the code is/was a mess!
 >> Still **TODO**! I _began_ this script, but never finished it..
 
 ## C/C++
-//TODO/
 
 ### [`nproc`.c](c-cpp/nproc.c)
 Modificated `nproc`, to optionally set the `NPROC` environment variable, which
