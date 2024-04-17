@@ -1,7 +1,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.1
+# v0.2.2
 #
 # Copy to '/etc/profile.d/` to automatically include
 # the following functions .. read the source 4 info!
@@ -45,6 +45,11 @@ bytes()
 	if [[ $# -ge 2 && -n "$2" ]]; then
 		getParams()
 		{
+			if [[ "${1,,}" == "b" || "${1,,}" == "byte" || "${1,,}" == "bytes" ]]; then
+				unit=0
+				return
+			fi
+
 			for i in ${!_1024[@]}; do
 				if [[ "${_1024[$i],,}" == "${1,,}" ]]; then
 					unit=$i
