@@ -1,13 +1,16 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
+<<<<<<< HEAD:sh/math.sh
 # v0.2.0
+=======
+# v0.1.3
+>>>>>>> 58df5af3dc48be2ce4f741a569b06d37ed582dd3:sh/unit.sh
 #
 # Copy to '/etc/profile.d/` to automatically include
 # the following functions .. read the source 4 info!
 #
 
-# size
 _PREC=2
 _BASE=1024
 _1024=( Bytes KiB MiB GiB TiB PiB EiB ZiB YiB )
@@ -106,11 +109,15 @@ bytes()
 	else
 		unit="${_1024[$index]}"
 	fi
+
+	#
+	[[ $index -eq 0 ]] && prec=0
 	
 	#
 	LANG=C printf "%.${prec}f ${unit}\n" $rest
 }
 
+<<<<<<< HEAD:sh/math.sh
 #
 parseSeconds()
 {
@@ -315,3 +322,5 @@ radix()
 }
 
 #
+=======
+>>>>>>> 58df5af3dc48be2ce4f741a569b06d37ed582dd3:sh/unit.sh
