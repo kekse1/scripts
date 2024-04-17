@@ -1,9 +1,10 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://baseutils.org/
-# v0.2.1
+# v0.2.2
 #
 
+#
 mkcd()
 {
 	if [ $# -eq 0 ]; then
@@ -43,106 +44,12 @@ from()
 	cat "$file" | tail -n$((`cat "$file" | wc -l`-$from+1))
 }
 
-integer()
-{
-	# TODO is also here: to handle multiple input values
-	# logik ist blosz "${value%%.*}", ohne jede rundung (int-cast styles eben! ;-)
-	# rundungen
-	echo TODO >&2
-	return 255
-}
-
-round()
-{
-	#prec=0 (default)
-	# LANG=C printf "%.${prec}f" "$value"
-	echo TODO >&2
-	return 255
-}
-
-ceil()
-{
-	echo TODO >&2
-	return 255
-}
-
-floor()
-{
-	echo TODO >&2
-	return 255
-}
-
-abs()
-{
-	# bitte MIT (below) "isNumber()" test!
-	echo TODO >&2
-	return 255
-	# nur leading '-' entfernen; von einer liste am besten!?
-}
-
-round()
-{
-	# bitte MIT (below) "isNumber()" test!
-	echo TODO >&2
-	return 255
-	# `printf "%.${prec}f" $val
-}
-
-isNegative()
-{
-	# TODO # bitte MIT isNumber() test!
-	# danach nur check if [0]=='-'! ^_^
-	# EVTL. auch blosz [[ $var -lt 0 ]];
-	# mit '-' string check direkt *alle* initialen '+' und '-'..
-	echo TODO >&2
-	return 255
-}
-
-isPositive()
-{
-	# TODO # bitte MIT isNumber() test!
-	# danach nur check if [0]!='-'! ^_^
-	# EVTL. auch blosz [[ $var -ge 0 ]];
-	# mit '-' string check direkt *alle* initialen '+' und '-'...
-	echo TODO >&2
-}
-
-isNumber()
-{
-	echo TODO >&2
-	return 255
-	# [[ "$testing" =~ ^[-]?[0-9]+[.]?[0-9]+$ ]];
-	# [[ "$testing" =~ ^[-+]*[0-9]+[.]?[0-9]+$ ]];
-}
-
-isInt()
-{
-	echo TODO >&2
-	return 255
-	# [[ "$var" =~ ^[-]?[0-9]+$ ]];
-	# [[ "$var" =~ ^[-+]*[0-9]+$ ]];
-}
-
-isFloat()
-{
-	echo TODO >&2
-	return 255
-	# [[ "$var" =~ ^[-]?[0-9]+[.][0-9]+$ ]];
-	# [[ "$var" =~ ^[-+]*[0-9]+[.][0-9]+$ ]];
-}
-
+#
 extname()
 {
+	# my own version w/ $count argument, see lib/v4/..!
 	echo TODO >&2
 	return 255
-	# my own version w/ $count argument
-}
-
-random()
-{
-	echo TODO >&2
-	return 255
-	# $RANDOM w/ $radix..
 }
 
 eol()
@@ -200,20 +107,6 @@ yesno()
 	# ask as long as no real "y[es]/n[o]"!
 }
 
-random()
-{
-	echo TODO >&2
-	return 255
-	# <max> <min> <radix> // even a list possible via 4th <count>?!
-}
-
-radix()
-{
-	echo TODO >&2
-	return 255
-	# radix conversion for the shell! ^_^
-}
-
 lower()
 {
 	echo "${*,,}"
@@ -224,3 +117,4 @@ upper()
 	echo "${*^^}"
 }
 
+#

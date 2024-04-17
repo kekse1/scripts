@@ -1,7 +1,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.1
+# v0.2.0
 #
 # Copy to '/etc/profile.d/` to automatically include
 # the following functions .. read the source 4 info!
@@ -214,6 +214,104 @@ getSeconds()
 	res="$(eval "$res")"
 	res="`echo \"$res\" | cut -d$'\n' -f2`"
 	echo "${res:: -1}"
+}
+
+#
+integer()
+{
+	# TODO is also here: to handle multiple input values
+	# logik ist blosz "${value%%.*}", ohne jede rundung (int-cast styles eben! ;-)
+	# rundungen
+	echo TODO >&2
+	return 255
+}
+
+round()
+{
+	#prec=0 (default)
+	# LANG=C printf "%.${prec}f" "$value"
+	echo TODO >&2
+	return 255
+}
+
+ceil()
+{
+	echo TODO >&2
+	return 255
+}
+
+floor()
+{
+	echo TODO >&2
+	return 255
+}
+
+abs()
+{
+	# bitte MIT (below) "isNumber()" test!
+	echo TODO >&2
+	return 255
+	# nur leading '-' entfernen; von einer liste am besten!?
+}
+
+isNegative()
+{
+	# TODO # bitte MIT isNumber() test!
+	# danach nur check if [0]=='-'! ^_^
+	# EVTL. auch blosz [[ $var -lt 0 ]];
+	# mit '-' string check direkt *alle* initialen '+' und '-'..
+	echo TODO >&2
+	return 255
+}
+
+isPositive()
+{
+	# TODO # bitte MIT isNumber() test!
+	# danach nur check if [0]!='-'! ^_^
+	# EVTL. auch blosz [[ $var -ge 0 ]];
+	# mit '-' string check direkt *alle* initialen '+' und '-'...
+	echo TODO >&2
+}
+
+isNumber()
+{
+	echo TODO >&2
+	return 255
+	# [[ "$testing" =~ ^[-]?[0-9]+[.]?[0-9]+$ ]];
+	# [[ "$testing" =~ ^[-+]*[0-9]+[.]?[0-9]+$ ]];
+}
+
+isInt()
+{
+	echo TODO >&2
+	return 255
+	# [[ "$var" =~ ^[-]?[0-9]+$ ]];
+	# [[ "$var" =~ ^[-+]*[0-9]+$ ]];
+}
+
+isFloat()
+{
+	echo TODO >&2
+	return 255
+	# [[ "$var" =~ ^[-]?[0-9]+[.][0-9]+$ ]];
+	# [[ "$var" =~ ^[-+]*[0-9]+[.][0-9]+$ ]];
+}
+
+#
+random()
+{
+	echo TODO >&2
+	return 255
+	# use ${RANDOM}
+	# <max> <min> <radix> // even a list possible via 4th <count>?!
+}
+
+#
+radix()
+{
+	echo TODO >&2
+	return 255
+	# radix conversion for the shell! ^_^
 }
 
 #

@@ -17,7 +17,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 	* [`fresh.sh`](#freshsh)
 	* [`replace.sh`](#replacesh)
 	* [`toilets.sh`](#toiletssh)
-	* [`unit.sh`](#unitsh)
+	* [`math.sh`](#mathsh)
 	* [`baseutils.sh`](#baseutilssh)
 	* [`move-by-ext.sh`](#move-by-extsh)
 	* [`find-ext.sh`](#find-extsh)
@@ -32,8 +32,8 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-17**\] Renamed `unit.sh` => [**`math.sh`**](#mathsh); and changed it and also [`baseutils.sh`](#baseutilssh) a bit..
 * \[**2024-04-15**\] New section [**C/C++**](#ccpp) with first [**`nproc.c`**](#nprocc) **v0.2.2**;
-* \[**2024-04-15**\] Initialized new [`unit.sh`](#unitsh); some size/date conversions;
 * \[**2024-04-15**\] Prepared the [`baseutils.sh`](#baseutilssh); and now (tiny) update to **v0.2.1**!
 * \[**2024-04-11**\] Really tiny 'bugfix' in [`clone.js`](#clonejs); so new **v0.4.2**..
 * \[**2024-04-11**\] Updated my old [**`make-nodejs.sh`**](#make-nodejssh) today: **v0.3.1**!
@@ -162,11 +162,11 @@ websites of [`toilet`](http://caca.zoy.org/wiki/toilet) and [`figlet`](http://ww
 The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), or rather it's
 `fonts/` directory itself.
 
-### [`unit`.sh](sh/unit.sh)
-* [Version **v0.1.1**](sh/unit.sh) (created **2024-04-15**)
+### [`math`.sh](sh/math.sh)
+* [Version **v0.2.0**](sh/math.sh) (updated **2024-04-17**)
 
-Functions to be `source`d (so copy to `/etc/profile.d/`) providing conversions for size and time.
-Look at the source to get to know more..
+Functions to be `source`d (so copy to `/etc/profile.d/`) providing conversions for size, and in
+the future also some more math related functions.. for now, look at the source to get to know more.
 
 > [!TIP]
 > You can **e.g.** render an amount of bytes to `GiB`, etc.. base 1024 and 1000 support,
@@ -174,7 +174,7 @@ Look at the source to get to know more..
 > ` >> Syntax: bytes <value> [ <base=1024 | <unit> [ <prec=2> ] ]`
 
 ### [`baseutils`.sh](sh/baseutils.sh)
-* [Version **v0.2.1**](sh/baseutils.sh) (updated **2024-04-15**)
+* [Version **v0.2.2**](sh/baseutils.sh) (updated **2024-04-17**)
 
 This is just the beginning of more bash functions.
 
