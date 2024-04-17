@@ -1,7 +1,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.0
+# v0.2.1
 #
 # Copy to '/etc/profile.d/` to automatically include
 # the following functions .. read the source 4 info!
@@ -89,28 +89,65 @@ bytes()
 	fi
 
 	#
+	max=0
+
+	if [[ $base -eq 1024 ]]; then
+		max=$((${#_1024[@]}-1))
+	elif [[ $base -eq 1000 ]]; then
+		max=$((${#_1000[@]}-1))
+	else
+		max=0
+	fi
+
+	#
 	rest=$1
 	index=0
 	int=${rest%%.*}
 	
 	while [[ $int -ge $base ]]; do
+		[[ $index -ge $max ]] && break
 		[[ $unit -eq $index ]] && break
 		rest="$(bc -l <<<"$rest/$base")"
 		int=${rest%%.*}
 		let index=$index+1
 	done
 	
-	if [[ $base -eq 1000 ]]; then
+	if [[ $base -eq 1024 ]]; then
+		unit="${_1024[$index]}"
+	elif [[ $base -eq 1000 ]]; then
 		unit="${_1000[$index]}"
 	else
-		unit="${_1024[$index]}"
+		unit="Bytes"
 	fi
 
 	#
 	[[ $index -eq 0 ]] && prec=0
 	
 	#
-	LANG=C printf "%.${prec}f ${unit}\n" $rest
+	result="$(LANG=C printf "%.${prec}f" $rest)"
+	result="`tryInteger $result`"
+
+	#
+	echo "$result $unit"
+}
+
+#
+tryInteger()
+{
+	result="$1"
+	
+	if [[ "$result" != *.* ]]; then
+		echo "$result"
+		return 1
+	fi
+	
+	while [[ "${result: -1}" == "0" ]]; do
+		result="${result::-1}"
+	done
+	
+	[[ "${result: -1}" == "." ]] && result="${result::-1}"
+	
+	echo "$result"
 }
 
 #
