@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.0
+# v0.1.1
 #
 # Easily use the `hfdownloader` tool, from:
 # https://github.com/bodaay/HuggingFaceModelDownloader
@@ -13,13 +13,16 @@
 # The first $MODEL will be set by your arguments. Or
 # just use the default one, you can even set it below.
 #
+# And see the following link for `.gguf` conversion:
+# https://github.com/ggerganov/llama.cpp/discussions/2948
+#
 
 #
 MODEL="" #mistralai/Mixtral-8x22B-v0.1"
 PARAM="" # e.g. "q4_0,q5_0"
 CONCURRENT=8
 TOKEN="token.txt"
-TOOL="hfdownloader"
+TOOL="./hfdownloader"
 
 #
 DEFAULT="mistralai/Mixtral-8x22B-v0.1"
@@ -51,8 +54,10 @@ else
 	TOKEN="`cat ${TOKEN}`"
 fi
 
+[[ "${TOOL::1}" != "." && "${TOOL::1}" != "/" ]] && TOOL="./${TOOL}"
+
 #
-cmd="./${TOOL} -t '$TOKEN' -c${CONCURRENT} -m '${MODEL}:${PARAM}'"
+cmd="${TOOL} -t '$TOKEN' -c${CONCURRENT} -m '${MODEL}:${PARAM}'"
 eval "$cmd"
 
 #
