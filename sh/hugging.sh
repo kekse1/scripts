@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.1
+# v0.1.2
 #
 # Easily use the `hfdownloader` tool, from:
 # https://github.com/bodaay/HuggingFaceModelDownloader
@@ -18,29 +18,19 @@
 #
 
 #
-PARAM="" # e.g. "q4_0,q5_0"
 CONCURRENT=8
 TOKEN="token.txt"
 TOOL="./hfdownloader"
 
 #
-DEFAULT="mistralai/Mixtral-8x22B-v0.1"
+DEFAULT_MODEL="mistralai/Mixtral-8x22B-v0.1"
+DEFAULT_PARAM="" #e.g. "q4_0,q5_0"
 
 #
 orig="`pwd`"
 real="$(realpath "$0")"
 dir="$(dirname "$real")"
-
 cd "$dir"
-
-#
-MODEL=''
-
-if [[ $# -gt 0 ]]; then
-	MODEL="$*"
-elif [[ -z "$MODEL" ]]; then
-	MODEL="$DEFAULT"
-fi
 
 #
 if [[ ! -x "${TOOL}" ]]; then
@@ -58,8 +48,24 @@ fi
 [[ "${TOOL::1}" != "." && "${TOOL::1}" != "/" ]] && TOOL="./${TOOL}"
 
 #
-cmd="${TOOL} -t '$TOKEN' -c${CONCURRENT} -m '${MODEL}:${PARAM}'"
-eval "$cmd"
+MODEL=''
 
+if [[ $# -gt 0 ]]; then
+	MODEL="$1"
+elif [[ -z "$MODEL" ]]; then
+	MODEL="${DEFAULT_MODEL}"
+fi
+
+if [[ "$MODEL" != *:* ]]; then
+	if [[ $# -gt 1 ]]; then
+		MODEL="${MODEL}:$2"
+	elif [[ -n "$DEFAULT_PARAM" ]]; then
+		MODEL="${MODEL}:${DEFAULT_PARAM}"
+	fi
+else
+
+#
+cmd="${TOOL} -t '$TOKEN' -c${CONCURRENT} -m '${MODEL}'"
+eval "$cmd"
 #
 cd "$orig"

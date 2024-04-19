@@ -232,7 +232,7 @@ shell script to handle multiple models and prompts better.
 Syntax: `$0 <model> <prompt> [ <context size> ]`. Even if I'm using another LLM tool now..
 
 ### [`hugging`.sh](sh/hugging.sh)
-* [Version **v0.1.1**](sh/hugging.sh) (updated **2024-04-19**)
+* [Version **v0.1.2**](sh/hugging.sh) (updated **2024-04-19**)
 
 Easily use the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) tool, to download
 full models from [Hugging Face](https://huggingface.co/), a community for Large Language Models, etc.
