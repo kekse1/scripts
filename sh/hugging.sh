@@ -18,7 +18,6 @@
 #
 
 #
-MODEL="" #mistralai/Mixtral-8x22B-v0.1"
 PARAM="" # e.g. "q4_0,q5_0"
 CONCURRENT=8
 TOKEN="token.txt"
@@ -35,6 +34,8 @@ dir="$(dirname "$real")"
 cd "$dir"
 
 #
+MODEL=''
+
 if [[ $# -gt 0 ]]; then
 	MODEL="$*"
 elif [[ -z "$MODEL" ]]; then
