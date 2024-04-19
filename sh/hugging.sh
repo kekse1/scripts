@@ -47,7 +47,7 @@ if [[ ! -x "${TOOL}" ]]; then
 	exit 1
 fi
 
-if [[ ! -f "${TOKEN}" ]]; then
+if [[ ! -r "${TOKEN}" ]]; then
 	echo " >> Invalid token file." >&2
 	exit 2
 else
