@@ -60,11 +60,9 @@ if [[ "$MODEL" != *:* ]]; then
 	if [[ $# -gt 0 ]]; then
 		MODEL="${MODEL}:$1"
 		shift
-		if [[ $# -gt 0 ]]; then
-			for i in "$@"; do
-				MODEL="${MODEL},$i"
-			done
-		fi
+		for i in "$@"; do
+			MODEL="${MODEL},$i"
+		done
 	elif [[ -n "$DEFAULT_PARAM" ]]; then
 		MODEL="${MODEL}:${DEFAULT_PARAM}"
 	fi
