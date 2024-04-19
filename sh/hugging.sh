@@ -2,14 +2,14 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.2
+# v0.2.0
 #
 # Easily use the `hfdownloader` tool, from:
 # https://github.com/bodaay/HuggingFaceModelDownloader
 # You can download it via:
 # bash <(curl -sSL https://g.bodaay.io/hfd) -h
 #
-# Syntax: $0 [ <model> [ <params> ] ]
+# Syntax: $0 [ <model> [ <params> [ ... ] ] ]
 #
 # Please adapt the following variables to your needs.
 # And see the following link for `.gguf` conversion:
@@ -51,20 +51,29 @@ MODEL=''
 
 if [[ $# -gt 0 ]]; then
 	MODEL="$1"
+	shift
 elif [[ -z "$MODEL" ]]; then
 	MODEL="${DEFAULT_MODEL}"
 fi
 
 if [[ "$MODEL" != *:* ]]; then
-	if [[ $# -gt 1 ]]; then
-		MODEL="${MODEL}:$2"
+	if [[ $# -gt 0 ]]; then
+		MODEL="${MODEL}:$1"
+		shift
+		if [[ $# -gt 0 ]]; then
+			for i in "$@"; do
+				MODEL="${MODEL},$i"
+			done
+		fi
 	elif [[ -n "$DEFAULT_PARAM" ]]; then
 		MODEL="${MODEL}:${DEFAULT_PARAM}"
 	fi
-else
+fi
 
 #
 cmd="${TOOL} -t '$TOKEN' -c${CONCURRENT} -m '${MODEL}'"
+echo -e "Command: '$cmd'\n\n"
 eval "$cmd"
 #
 cd "$orig"
+
