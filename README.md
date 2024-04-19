@@ -238,7 +238,7 @@ Easily use the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownlo
 full models from [Hugging Face](https://huggingface.co/), a community for Large Language Models, etc.
 
 You don't really need this script, since the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownloader)
-tool is easy enough.. but my own version of this script also handles the whole conversion, etc.
+tool is easy enough; it's rather kinda reminder' for myself..
 
 For the model conversion to the **`.gguf`** format see [this GitHub link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
 And for some more things about **Artificial Intelligence** see [**~intelligence** at my private website](https://kekse.biz/?~intelligence).
