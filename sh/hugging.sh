@@ -9,10 +9,9 @@
 # You can download it via:
 # bash <(curl -sSL https://g.bodaay.io/hfd) -h
 #
-# Please adapt the following variables to your needs.
-# The first $MODEL will be set by your arguments. Or
-# just use the default one, you can even set it below.
+# Syntax: $0 [ <model> [ <params> ] ]
 #
+# Please adapt the following variables to your needs.
 # And see the following link for `.gguf` conversion:
 # https://github.com/ggerganov/llama.cpp/discussions/2948
 #
