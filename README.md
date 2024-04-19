@@ -24,6 +24,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 	* [`make-nodejs.sh`](#make-nodejssh)
 	* [`router.sh`](#routersh)
 	* [`junior.sh`](#juniorsh)
+	* [`hugging.sh`](#huggingsh)
 3. [JavaScript](#javascript)
 	* [`clone.js`](#clonejs)
 	* [`fold.css.js`](#foldcssjs)
@@ -32,6 +33,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-19**\] Created the [`hugging.sh`](#huggingsh), a tool for the tool `hfdownloader` (Hugging Face Model downloader);
 * \[**2024-04-17**\] Renamed `unit.sh` => [**`math.sh`**](#mathsh); and changed it and also [`baseutils.sh`](#baseutilssh) a bit..
 * \[**2024-04-15**\] New section [**C/C++**](#ccpp) with first [**`nproc.c`**](#nprocc) **v0.2.2**;
 * \[**2024-04-15**\] Prepared the [`baseutils.sh`](#baseutilssh); and now (tiny) update to **v0.2.1**!
@@ -228,6 +230,18 @@ Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/), or r
 shell script to handle multiple models and prompts better.
 
 Syntax: `$0 <model> <prompt> [ <context size> ]`. Even if I'm using another LLM tool now..
+
+### [`hugging`.sh](sh/hugging.sh)
+* [Version **v0.1.0**](sh/hugging.sh) (created **2024-04-19**)
+
+Easily use the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) tool, to download
+full models from [Hugging Face](https://huggingface.co/), a community for Large Language Models, etc.
+
+You don't really need this script, since the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownloader)
+tool is easy enough.. but my own version of this script also handles the whole conversion, etc.
+
+For the model conversion to the **`.gguf`** format see [this GitHub link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
+And for some more things about **Artificial Intelligence** see [**~intelligence** at my private website](https://kekse.biz/?~intelligence).
 
 ## JavaScript
 My favorite language.. absolutely. **^\_^**
