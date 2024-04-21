@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.0.2
+# v0.0.3
 #
 # Starting with a shell script (to be `source`d) for
 # ANSI escape sequences.
@@ -23,6 +23,41 @@ none()
 bold()
 {
 	echo -en "\e[1m"
+}
+
+faint()
+{
+	echo -en "\e[2m"
+}
+
+italic()
+{
+	echo -en "\e[3m"
+}
+
+underline()
+{
+	echo -en "\e[4m"
+}
+
+blink()
+{
+	echo -en "\e[5m"
+}
+
+inverse()
+{
+	echo -en "\e[7m"
+}
+
+hidden()
+{
+	echo -en "\e[8m"
+}
+
+strike()
+{
+	echo -en "\e[9m"
 }
 
 fg()

@@ -33,6 +33,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-21**\] Updated [`ansi.sh`](#ansish) to **v0.0.3**.. tiny change (as I recently needed it);
 * \[**2024-04-19**\] Created the [`hugging.sh`](#huggingsh), a tool for the tool `hfdownloader` (Hugging Face Model downloader);
 * \[**2024-04-17**\] Renamed `unit.sh` => [**`math.sh`**](#mathsh); and changed it and also [`baseutils.sh`](#baseutilssh) a bit..
 * \[**2024-04-15**\] New section [**C/C++**](#ccpp) with first [**`nproc.c`**](#nprocc) **v0.2.2**;
@@ -89,7 +90,7 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 > As usual, you can also use `-h` or `--help`! **:-D**
 
 ### [`ansi`.sh](sh/ansi.sh)
-* [Version **v0.0.2**](sh/ansi.sh) (created **2024-03-05**)
+* [Version **v0.0.3**](sh/ansi.sh) (updated **2024-04-21**)
 
 Starting with a shell script (to be `source`d) for ANSI escape sequences.
 
