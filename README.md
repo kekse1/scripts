@@ -137,7 +137,7 @@ So just set your server {user,host,port} and copy securely.
 BTW: yes, I had an unstable line when I created this.. via mobile phone.
 
 ### [`fresh`.sh](sh/fresh.sh)
-* [Version **v0.4.2**](sh/fresh.sh) (updated **2024-03-24**)
+* [Version **v0.4.3**](sh/fresh.sh) (updated **2024-04-22**)
 
 Helper to quickly update `git` repositories.. really tiny.
 

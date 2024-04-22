@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.2
+# v0.4.3
 #
 # Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
 # since it is *not* executable (but `source` or `.`).
@@ -103,7 +103,7 @@ keep()
 	traverse "$_orig" 1
 
 	if [[ $_created -gt 0 ]]; then
-		echo -e " >> Just created \e[1m${_created}\e[0m \e[4m.keep\e[0m files."
+		echo -e " >> Created \e[1m${_created}\e[0m \e[4m.keep\e[0m files."
 	else
 		echo -e " >> \e[1mNO\e[0m \e[4m.keep\e[0m files created."
 	fi
