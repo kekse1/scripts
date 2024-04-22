@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.0
+# v0.2.1
 #
 # Easily use the `hfdownloader` tool, from:
 # https://github.com/bodaay/HuggingFaceModelDownloader
@@ -18,7 +18,7 @@
 
 #
 CONCURRENT=8
-TOKEN="token.txt"
+TOKEN="" #token.txt #a file!
 TOOL="./hfdownloader"
 
 #
@@ -37,11 +37,21 @@ if [[ ! -x "${TOOL}" ]]; then
 	exit 1
 fi
 
-if [[ ! -r "${TOKEN}" ]]; then
-	echo " >> Invalid token file." >&2
-	exit 2
-else
-	TOKEN="`cat ${TOKEN}`"
+if [[ -n "$TOKEN" ]]; then
+	if [[ ! -r "$TOKEN" ]]; then
+		echo " >> Invalid token file '$TOKEN'." >&2
+		exit 2
+	fi
+
+	ORIG="$TOKEN"
+	TOKEN="`cat $TOKEN`"
+
+	if [[ -z "$TOKEN" ]]; then
+		echo " >> Token file '$ORIG' was empty." >&2
+		exit 3
+	else
+		TOKEN="-t '$TOKEN'"
+	fi
 fi
 
 [[ "${TOOL::1}" != "." && "${TOOL::1}" != "/" ]] && TOOL="./${TOOL}"
@@ -69,7 +79,7 @@ if [[ "$MODEL" != *:* ]]; then
 fi
 
 #
-cmd="${TOOL} -t '$TOKEN' -c${CONCURRENT} -m '${MODEL}'"
+cmd="${TOOL} $TOKEN -c${CONCURRENT} -m '${MODEL}'"
 echo -e "Command: '$cmd'\n\n"
 eval "$cmd"
 #

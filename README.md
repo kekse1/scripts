@@ -33,8 +33,8 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-22**\] Updated [`hugging.sh`](#huggingsh) to **v0.2.1**..
 * \[**2024-04-21**\] Updated [`ansi.sh`](#ansish) to **v0.0.3**.. tiny change (as I recently needed it);
-* \[**2024-04-19**\] Created the [`hugging.sh`](#huggingsh), a tool for the tool `hfdownloader` (Hugging Face Model downloader);
 * \[**2024-04-17**\] Renamed `unit.sh` => [**`math.sh`**](#mathsh); and changed it and also [`baseutils.sh`](#baseutilssh) a bit..
 * \[**2024-04-15**\] New section [**C/C++**](#ccpp) with first [**`nproc.c`**](#nprocc) **v0.2.2**;
 * \[**2024-04-15**\] Prepared the [`baseutils.sh`](#baseutilssh); and now (tiny) update to **v0.2.1**!
@@ -233,7 +233,7 @@ shell script to handle multiple models and prompts better.
 Syntax: `$0 <model> <prompt> [ <context size> ]`. Even if I'm using another LLM tool now..
 
 ### [`hugging`.sh](sh/hugging.sh)
-* [Version **v0.2.0**](sh/hugging.sh) (updated **2024-04-19**)
+* [Version **v0.2.1**](sh/hugging.sh) (updated **2024-04-22**)
 
 Easily use the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) tool, to download
 full models from [Hugging Face](https://huggingface.co/), a community for Large Language Models, etc.
