@@ -241,7 +241,7 @@ And for some more things about **Artificial Intelligence** see [**~intelligence*
 ### [`convert-to-gguf`.sh](sh/convert-to-gguf.sh)
 * [Version **v0.0.3**](sh/convert-to-gguf.sh) (created **2024-04-23**)
 
-> [!INFO]
+> [!IMPORTANT]
 > Dependencies: **Python 3** (w/ `pip`) and [`llama.cpp`](https://github.com/ggerganov/llama.cpp/);
 
 This script helps you converting hugging face models (see [**huggingface.co**](https://huggingface.co/))
