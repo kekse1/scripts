@@ -4,7 +4,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.2
+# v0.4.3
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
@@ -187,5 +187,5 @@ fi
 eval "$CMD"
 ret=$?
 echo -en "\n\n.. returned ($ret). "
-[[ $ret -eq 0 ]] && echo -e "\033[1m:-)\033[0m" || echo -e "\033[1m:-(\033[0m"
+[[ $ret -eq 0 ]] && echo -e "... (0) \033[1m:-)\033[0m" || echo -e "... ($ret) \033[1m:-(\033[0m"
 

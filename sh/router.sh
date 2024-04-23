@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.0
+# v0.1.1
 #
 # Some time ago I needed to setup my computer as a router (using `iptables`).
 #
@@ -109,5 +109,5 @@ dropUnprivileged
 nat
 informKernel
 
-echo " >> DONE. :-)"
+echo -e " >> DONE. \e[1m:-)\e[0m"
 

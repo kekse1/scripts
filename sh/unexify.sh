@@ -3,7 +3,7 @@
 header="  Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
     https://kekse.biz/
     https://github.com/kekse1/scripts/"
-version="v0.1.1"
+version="v0.1.2"
 help="${header}
   ${version}
 
@@ -133,5 +133,5 @@ fi
 eval "$CMD"
 ret=$?
 echo -en "\n\n.. returned ($ret). "
-[[ $ret -eq 0 ]] && echo -e "\033[1m:-)\033[0m" || echo -e "\033[1m:-(\033[0m"
+[[ $ret -eq 0 ]] && echo -e "... (0) \033[1m:-)\033[0m" || echo -e "... ($ret) \033[1m:-(\033[0m"
 

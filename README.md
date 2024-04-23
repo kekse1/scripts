@@ -41,7 +41,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 * \[**2024-04-15**\] Prepared the [`baseutils.sh`](#baseutilssh); and now (tiny) update to **v0.2.1**!
 * \[**2024-04-11**\] Really tiny 'bugfix' in [`clone.js`](#clonejs); so new **v0.4.2**..
 * \[**2024-04-11**\] Updated my old [**`make-nodejs.sh`**](#make-nodejssh) today: **v0.3.1**!
-* \[**2024-04-11**\] Updated [**`sync.sh`**](#syncsh) to **v0.4.2**
+* \[**2024-04-11**\] Updated [**`sync.sh`**](#syncsh) to **v0.4.3**
 * \[**2024-04-10**\] Updated [**`prompt.sh`**](#promptsh) to **v2.1.1**
 
 ## [Bash](sh/)
@@ -59,7 +59,7 @@ let the `source` hang up (I think it could be caused by the `/etc/bash.bashrc`? 
 ![$PS1](img/prompt.png)
 
 ### [`unexify`.sh](sh/unexify.sh)
-* [Version **v0.1.1**](sh/unexify.sh) (updated **2024-02-25**)
+* [Version **v0.1.2**](sh/unexify.sh) (updated **2024-04-23**)
 
 Little helper script to recursively remove all headers from images.
 
@@ -74,7 +74,7 @@ _JFYI_: Dependency is the [**`exiftool`**](https://exiftool.org), which is the
 packet `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
 
 ### [`sync`.sh](sh/sync.sh)
-* [Version **v0.4.2**](sh/sync.sh) (updated **2024-04-11**)
+* [Version **v0.4.3**](sh/sync.sh) (updated **2024-04-23**)
 
 Another helping hand which became required since I'm managing some archive on my server,
 which needs to be synchronized with an SB stick (using `crontab`, ..).
@@ -202,7 +202,7 @@ only counting all different extensions available under the current working direc
 to limit the `find` recursion depth via optional first argument (needs to be positive integer).
 
 ### [`make-nodejs`.sh](sh/make-nodejs.sh)
-* [Version **v0.3.1**](sh/make-nodejs.sh) (updated **2024-04-11**)
+* [Version **v0.3.2**](sh/make-nodejs.sh) (updated **2024-04-23**)
 
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
@@ -217,7 +217,7 @@ There's a tiny //**TODO**/ (on top of the file), since this script is really old
 and could maybe be improved in some ways.. **yet to come**!!
 
 ### [`router`.sh](sh/router.sh)
-* [Version **v0.1.0**](sh/router.sh)
+* [Version **v0.1.1**](sh/router.sh) (updated **2024-04-23**)
 
 Some time ago I needed to setup my computer as a router (using `iptables`).
 

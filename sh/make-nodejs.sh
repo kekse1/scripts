@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.1
+# v0.3.2
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -405,12 +405,12 @@ check()
 {
 	echo
 	if [[ -d "$target" ]]; then
-		echo " >> SUCCESS (v${version} => '${target}')! :-)"
+		echo -e " >> SUCCESS (v${version} => '${target}')! \e[1m:-)\e[0m"
 		createSymlink
 		#mergeSymlinks
 		echo " >> You can now \`cd\` to '${originalTarget}' and \`rm -rf\` old version(s) [this is 'v${version}', btw ;-]."
 	else
-		echo " >> FAILED (v${version})! :-("
+		echo " >> FAILED (v${version})! \e[1m:-(\e[0m"
 		exit 14
 	fi
 }
