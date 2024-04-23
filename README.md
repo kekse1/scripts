@@ -35,7 +35,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 
 ## News
 * \[**2024-04-23**\] New [`convert-to-gguf.sh`](#convert-to-ggufsh) script, **v0.0.4**
-* \[**2024-04-23**\] Created the [`nightlounge.sh`](#nightloungesh) script, **v0.2.1**
+* \[**2024-04-23**\] Created the [`nightlounge.sh`](#nightloungesh) script, **v0.2.2**
 * \[**2024-04-22**\] Updated [`hugging.sh`](#huggingsh) to **v0.2.4**..
 * \[**2024-04-21**\] Updated [`ansi.sh`](#ansish) to **v0.0.3**.. tiny change (as I recently needed it);
 * \[**2024-04-17**\] Renamed `unit.sh` => [**`math.sh`**](#mathsh); and changed it and also [`baseutils.sh`](#baseutilssh) a bit..
@@ -260,7 +260,7 @@ See also [this link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
 > `python llama.cpp/convert.py -h`
 
 ### [`nightlounge`.sh](sh/nightlounge.sh)
-* [Version **v0.2.1**](sh/nightlounge.sh) (created **2024-04-23**)
+* [Version **v0.2.2**](sh/nightlounge.sh) (updated **2024-04-24**)
 
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
 I use this script for my daily download of the 'BigFM Nightlounge' podcast.

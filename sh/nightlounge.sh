@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.1
+# v0.2.2
 #
 # Start streaming.. I use it for the "BigFM Nightlounge".
 # You can add this to your /etc/crontab. :-)
@@ -11,6 +11,7 @@
 
 #
 URL="https://streams.bigfm.de/bigfm-deutschland-128-mp3"
+NAME="Nightlounge"
 EXT=".mp3"
 DURATION="130m"
 DATE="%A, %F"
@@ -25,6 +26,7 @@ elif [[ "${EXT::1}" != "." ]]; then
 fi
 
 OUT="`date +\"$DATE\"`"
+[[ -n "$NAME" ]] && OUT="${NAME} (${OUT})"
 ORIG="$OUT"
 count=0
 
