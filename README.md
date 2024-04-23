@@ -24,6 +24,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 	* [`make-nodejs`.sh](#make-nodejssh)
 	* [`router`.sh](#routersh)
 	* [`hugging`.sh](#huggingsh)
+	* [`convert-to-gguf`.sh](#convert-to-ggufsh)
 	* [`nightlounge`.sh](#nightloungesh)
 3. [JavaScript](#javascript)
 	* [`clone.js`](#clonejs)
@@ -33,7 +34,8 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-04-23**\] Created the [`nightlounge.sh`](#nightloungesh) script
+* \[**2024-04-23**\] New [`convert-to-gguf.sh`](#convert-to-ggufsh) script, **v0.0.3**
+* \[**2024-04-23**\] Created the [`nightlounge.sh`](#nightloungesh) script, **v0.2.1**
 * \[**2024-04-22**\] Updated [`hugging.sh`](#huggingsh) to **v0.2.1**..
 * \[**2024-04-21**\] Updated [`ansi.sh`](#ansish) to **v0.0.3**.. tiny change (as I recently needed it);
 * \[**2024-04-17**\] Renamed `unit.sh` => [**`math.sh`**](#mathsh); and changed it and also [`baseutils.sh`](#baseutilssh) a bit..
@@ -235,6 +237,26 @@ tool is easy enough; it's rather kinda reminder' for myself..
 
 For the model conversion to the **`.gguf`** format see [this GitHub link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
 And for some more things about **Artificial Intelligence** see [**~intelligence** at my private website](https://kekse.biz/?~intelligence).
+
+### [`convert-to-gguf`.sh](sh/convert-to-gguf.sh)
+* [Version **v0.0.3**](sh/convert-to-gguf.sh) (created **2024-04-23**)
+
+> [!INFO]
+> Dependencies: **Python 3** (w/ `pip`) and [`llama.cpp`](https://github.com/ggerganov/llama.cpp/);
+
+This script helps you converting hugging face models (see [**huggingface.co**](https://huggingface.co/))
+to **GGUF format `.gguf`**, which is necessary for the transformers I listed
+on **my website @ [`~intelligence`](https://kekse.biz/?~intelligence)**.
+
+See also [this link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
+
+> [!TIP]
+> Preparations:
+> `python3 -m venv venv`
+> `cd venv && source bin/activate`
+> `git clone https://github.com/ggerganov/llama.cpp.git`
+> `./bin/pip install -r llama.cpp/requirements.txt`
+> `python llama.cpp/convert.py -h`
 
 ### [`nightlounge`.sh](sh/nightlounge.sh)
 * [Version **v0.2.1**](sh/nightlounge.sh) (created **2024-04-23**)
