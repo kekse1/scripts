@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.1
+# v0.2.3
 #
 # Easily use the `hfdownloader` tool, from:
 # https://github.com/bodaay/HuggingFaceModelDownloader
@@ -26,7 +26,6 @@ DEFAULT_MODEL="mistralai/Mixtral-8x22B-v0.1"
 DEFAULT_PARAM="" #e.g. "q4_0,q5_0"
 
 #
-orig="`pwd`"
 real="$(realpath "$0")"
 dir="$(dirname "$real")"
 cd "$dir"
@@ -82,6 +81,7 @@ fi
 cmd="${TOOL} $TOKEN -c${CONCURRENT} -m '${MODEL}'"
 echo -e "Command: '$cmd'\n\n"
 eval "$cmd"
-#
-cd "$orig"
+ret=$?
+echo -e "\n\n"
+[[ $ret -eq 0 ]] && echo -e " ... (0) \e[1m:-)\e[0m" || echo -e " ... ($ret) \e[1m:-(\e[0m"
 
