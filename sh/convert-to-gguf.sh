@@ -30,7 +30,7 @@
 # $ cd venv
 # $ source bin/activate
 # $ git clone https://github.com/ggerganov/llama.cpp.git
-# $ ./bin/pip install -r llama.cpp/requirements.txt
+# $ ./bin/python3 ./bin/pip install -r llama.cpp/requirements.txt
 # $ python llama.cpp/convert.py -h
 #
 
