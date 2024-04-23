@@ -37,14 +37,6 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 * \[**2024-04-23**\] New [`convert-to-gguf.sh`](#convert-to-ggufsh) script, **v0.0.4**
 * \[**2024-04-23**\] Created the [`nightlounge.sh`](#nightloungesh) script, **v0.2.1**
 * \[**2024-04-22**\] Updated [`hugging.sh`](#huggingsh) to **v0.2.4**..
-* \[**2024-04-21**\] Updated [`ansi.sh`](#ansish) to **v0.0.3**.. tiny change (as I recently needed it);
-* \[**2024-04-17**\] Renamed `unit.sh` => [**`math.sh`**](#mathsh); and changed it and also [`baseutils.sh`](#baseutilssh) a bit..
-* \[**2024-04-15**\] New section [**C/C++**](#ccpp) with first [**`nproc.c`**](#nprocc) **v0.2.2**;
-* \[**2024-04-15**\] Prepared the [`baseutils.sh`](#baseutilssh); and now (tiny) update to **v0.2.1**!
-* \[**2024-04-11**\] Really tiny 'bugfix' in [`clone.js`](#clonejs); so new **v0.4.2**..
-* \[**2024-04-11**\] Updated my old [**`make-nodejs.sh`**](#make-nodejssh) today: **v0.3.1**!
-* \[**2024-04-11**\] Updated [**`sync.sh`**](#syncsh) to **v0.4.3**
-* \[**2024-04-10**\] Updated [**`prompt.sh`**](#promptsh) to **v2.1.1**
 
 ## [Bash](sh/)
 
@@ -180,7 +172,7 @@ detect which suites best:
 * ` >> Syntax: bytes <value> [ <base=1024 | <unit> [ <prec=2> ] ]`
 
 ### [`baseutils`.sh](sh/baseutils.sh)
-* [Version **v0.2.3**](sh/baseutils.sh) (updated **2024-04-23**)
+* [Version **v0.2.4**](sh/baseutils.sh) (updated **2024-04-24**)
 
 This is just the beginning of more bash functions.
 

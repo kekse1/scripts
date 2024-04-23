@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://baseutils.org/
-# v0.2.3
+# v0.2.4
 #
 
 #
@@ -14,6 +14,18 @@ mkcd()
 	mkdir -pv "$*" || return $?
 	cd "$*"
 	pwd
+}
+
+# like `Date.now()`: milliseconds
+now()
+{
+	echo "$((`date +%s%N`/1000000))"
+}
+
+# nanoseconds (you could also perfectly `alias` this)
+nano()
+{
+	echo "`date +%s%N`"
 }
 
 from()
