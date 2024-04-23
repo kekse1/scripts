@@ -178,7 +178,7 @@ detect which suites best:
 * ` >> Syntax: bytes <value> [ <base=1024 | <unit> [ <prec=2> ] ]`
 
 ### [`baseutils`.sh](sh/baseutils.sh)
-* [Version **v0.2.2**](sh/baseutils.sh) (updated **2024-04-17**)
+* [Version **v0.2.3**](sh/baseutils.sh) (updated **2024-04-23**)
 
 This is just the beginning of more bash functions.
 

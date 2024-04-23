@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://baseutils.org/
-# v0.2.2
+# v0.2.3
 #
 
 #
@@ -50,6 +50,19 @@ extname()
 	# my own version w/ $count argument, see lib/v4/..!
 	echo TODO >&2
 	return 255
+}
+
+relative()
+{
+	# relative path $from $to
+	echo TODO >&2
+	return 255
+}
+
+absolute()
+{
+	[[ "${1::1}" == "/" ]] && return 0
+	return 1
 }
 
 eol()
