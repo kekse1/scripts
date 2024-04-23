@@ -130,14 +130,14 @@ bytes()
 	
 	#
 	result="$(LANG=C printf "%.${prec}f" $rest)"
-	result="`tryInteger $result`"
+	result="`tryCast $result`"
 
 	#
 	echo "$result $unit"
 }
 
 #
-tryInteger()
+tryCast()
 {
 	result="$1"
 	
