@@ -253,7 +253,8 @@ See also [this link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
 > [!TIP]
 > Preparations:
 > `python3 -m venv venv`
-> `cd venv && source bin/activate`
+> `cd venv`
+> `source bin/activate`
 > `git clone https://github.com/ggerganov/llama.cpp.git`
 > `./bin/pip install -r llama.cpp/requirements.txt`
 > `python llama.cpp/convert.py -h`
