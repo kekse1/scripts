@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.3
+# v0.2.4
 #
 # Easily use the `hfdownloader` tool, from:
 # https://github.com/bodaay/HuggingFaceModelDownloader
@@ -20,6 +20,7 @@
 CONCURRENT=8
 TOKEN="" #token.txt #a file!
 TOOL="./hfdownloader"
+ARGS=""
 
 #
 DEFAULT_MODEL="mistralai/Mixtral-8x22B-v0.1"
@@ -79,7 +80,10 @@ fi
 
 #
 cmd="${TOOL} $TOKEN -c${CONCURRENT} -m '${MODEL}'"
-echo -e "Command: '$cmd'\n\n"
+[[ -n "$ARGS" ]] && CMD="${CMD} ${ARGS}"
+
+#
+echo -e "Command: "$cmd"\n\n"
 eval "$cmd"
 ret=$?
 echo -e "\n\n"

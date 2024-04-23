@@ -36,7 +36,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 ## News
 * \[**2024-04-23**\] New [`convert-to-gguf.sh`](#convert-to-ggufsh) script, **v0.0.4**
 * \[**2024-04-23**\] Created the [`nightlounge.sh`](#nightloungesh) script, **v0.2.1**
-* \[**2024-04-22**\] Updated [`hugging.sh`](#huggingsh) to **v0.2.3**..
+* \[**2024-04-22**\] Updated [`hugging.sh`](#huggingsh) to **v0.2.4**..
 * \[**2024-04-21**\] Updated [`ansi.sh`](#ansish) to **v0.0.3**.. tiny change (as I recently needed it);
 * \[**2024-04-17**\] Renamed `unit.sh` => [**`math.sh`**](#mathsh); and changed it and also [`baseutils.sh`](#baseutilssh) a bit..
 * \[**2024-04-15**\] New section [**C/C++**](#ccpp) with first [**`nproc.c`**](#nprocc) **v0.2.2**;
@@ -227,7 +227,7 @@ This was created very quickly, without much features or tests.
 Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/wiki/Home_router) for more.
 
 ### [`hugging`.sh](sh/hugging.sh)
-* [Version **v0.2.3**](sh/hugging.sh) (updated **2024-04-23**)
+* [Version **v0.2.4**](sh/hugging.sh) (updated **2024-04-23**)
 
 Easily use the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) tool, to download
 full models from [Hugging Face](https://huggingface.co/), a community for Large Language Models, etc.
