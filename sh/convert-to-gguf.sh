@@ -12,10 +12,17 @@
 # necessary for the transformers I listed on my website @
 # https://kekse.biz/?~intelligence ...
 #
+# Syntax: $0 [ <model> ]
+#
+# If called without parameter, you'll see a list of the
+# available models.
+#
+# And check the configuration variables below this comment!
+#
 # Dependencies:
 #
-# # Python (witn `pip`)
-# # llama.cpp (seebelow)
+# # Python 3 (with `pip`)
+# # llama.cpp (see below)
 #
 # Preparations:
 #
