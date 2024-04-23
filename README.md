@@ -6,25 +6,25 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 ## Index
 1. [News](#news)
 2. [Bash](#bash)
-	* [`prompt.sh`](#promptsh)
-	* [`unexify.sh`](#unexifysh)
-	* [`sync.sh`](#syncsh)
-	* [`ansi.sh`](#ansish)
-	* [`up2date.sh`](#up2datesh)
-	* [`layout.sh`](#layoutsh)
-	* [`count-all-lines.sh`](#count-all-linessh)
-	* [`copy.sh`](#copysh)
-	* [`fresh.sh`](#freshsh)
-	* [`replace.sh`](#replacesh)
-	* [`toilets.sh`](#toiletssh)
-	* [`math.sh`](#mathsh)
-	* [`baseutils.sh`](#baseutilssh)
-	* [`move-by-ext.sh`](#move-by-extsh)
-	* [`find-ext.sh`](#find-extsh)
-	* [`make-nodejs.sh`](#make-nodejssh)
-	* [`router.sh`](#routersh)
-	* [`junior.sh`](#juniorsh)
-	* [`hugging.sh`](#huggingsh)
+	* [`prompt`.sh](#promptsh)
+	* [`unexify`.sh](#unexifysh)
+	* [`sync`.sh](#syncsh)
+	* [`ansi`.sh](#ansish)
+	* [`up2date`.sh](#up2datesh)
+	* [`layout`.sh](#layoutsh)
+	* [`count-all-lines`.sh](#count-all-linessh)
+	* [`copy`.sh](#copysh)
+	* [`fresh`.sh](#freshsh)
+	* [`replace`.sh](#replacesh)
+	* [`toilets`.sh](#toiletssh)
+	* [`math`.sh](#mathsh)
+	* [`baseutils`.sh](#baseutilssh)
+	* [`move-by-ext`.sh](#move-by-extsh)
+	* [`find-ext`.sh](#find-extsh)
+	* [`make-nodejs`.sh](#make-nodejssh)
+	* [`router`.sh](#routersh)
+	* [`hugging`.sh](#huggingsh)
+	* [`nightlounge`.sh](#nightloungesh)
 3. [JavaScript](#javascript)
 	* [`clone.js`](#clonejs)
 	* [`fold.css.js`](#foldcssjs)
@@ -33,6 +33,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-23**\] Created the [`nightlounge.sh`](#nightloungesh) script
 * \[**2024-04-22**\] Updated [`hugging.sh`](#huggingsh) to **v0.2.1**..
 * \[**2024-04-21**\] Updated [`ansi.sh`](#ansish) to **v0.0.3**.. tiny change (as I recently needed it);
 * \[**2024-04-17**\] Renamed `unit.sh` => [**`math.sh`**](#mathsh); and changed it and also [`baseutils.sh`](#baseutilssh) a bit..
@@ -223,15 +224,6 @@ Some time ago I needed to setup my computer as a router (using `iptables`).
 This was created very quickly, without much features or tests.
 Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/wiki/Home_router) for more.
 
-### [`junior`.sh](sh/junior.sh)
-* [Version **v0.2.0**](sh/junior.sh) (updated **2024-02-25**)
-
-Since I'm using the [`llama.cpp`](https://github.com/ggerganov/llama.cpp/), or rather the
-[`node-llama-cpp`](https://github.com/withcatai/node-llama-cpp), I just wrote a short
-shell script to handle multiple models and prompts better.
-
-Syntax: `$0 <model> <prompt> [ <context size> ]`. Even if I'm using another LLM tool now..
-
 ### [`hugging`.sh](sh/hugging.sh)
 * [Version **v0.2.1**](sh/hugging.sh) (updated **2024-04-22**)
 
@@ -243,6 +235,15 @@ tool is easy enough; it's rather kinda reminder' for myself..
 
 For the model conversion to the **`.gguf`** format see [this GitHub link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
 And for some more things about **Artificial Intelligence** see [**~intelligence** at my private website](https://kekse.biz/?~intelligence).
+
+### [`nightlounge`.sh](sh/nightlounge.sh)
+* [Version **v0.2.1**](sh/nightlounge.sh) (created **2024-04-23**)
+
+Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
+I use this script for my daily download of the 'BigFM Nightlounge' podcast.
+
+> [!TIP]
+> You can add this to your '/etc/crontab'. ;-)
 
 ## JavaScript
 My favorite language.. absolutely. **^\_^**
