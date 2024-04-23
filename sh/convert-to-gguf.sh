@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/
-# v0.0.3
+# v0.0.4
 #
 # https://github.com/ggerganov/llama.cpp/discussions/2948
 #
@@ -33,6 +33,10 @@
 # $ ./bin/python3 ./bin/pip install -r llama.cpp/requirements.txt
 # $ python llama.cpp/convert.py -h
 #
+# Quantization:
+#
+# ./llama.cpp/quantize my_fp32_file.gguf my_output_file.gguf
+#
 
 #
 TYPE="f32" # f32, f16, q8_0, .. # 'f' preserve original quali
@@ -40,6 +44,8 @@ MODELS="downloads"
 FORMAT="gguf"
 LLAMA="venv/llama.cpp"
 PYTHON="python3"
+VOCAB="bpe" # necessary for llama3, etc..
+ARGS=""
 
 #
 real="$(realpath "$0")"
@@ -112,6 +118,9 @@ fi
 
 #
 CMD="'$PYTHON' '$CONVERT' '${MODEL}' --outtype ${TYPE} --outfile='${MODEL}${FORMAT}'"
+[[ -n "$VOCAB" ]] && CMD="${CMD} --vocab-type '${VOCAB}'"
+[[ -n "$ARGS" ]] && CMD="${CMD} ${ARGS}"
+
 echo -e " >> Command: \"$CMD\"\n"
 eval "$CMD"
 res="$?"

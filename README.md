@@ -34,7 +34,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-04-23**\] New [`convert-to-gguf.sh`](#convert-to-ggufsh) script, **v0.0.3**
+* \[**2024-04-23**\] New [`convert-to-gguf.sh`](#convert-to-ggufsh) script, **v0.0.4**
 * \[**2024-04-23**\] Created the [`nightlounge.sh`](#nightloungesh) script, **v0.2.1**
 * \[**2024-04-22**\] Updated [`hugging.sh`](#huggingsh) to **v0.2.3**..
 * \[**2024-04-21**\] Updated [`ansi.sh`](#ansish) to **v0.0.3**.. tiny change (as I recently needed it);
@@ -239,7 +239,7 @@ For the model conversion to the **`.gguf`** format see [this GitHub link](https:
 And for some more things about **Artificial Intelligence** see [**~intelligence** at my private website](https://kekse.biz/?~intelligence).
 
 ### [`convert-to-gguf`.sh](sh/convert-to-gguf.sh)
-* [Version **v0.0.3**](sh/convert-to-gguf.sh) (created **2024-04-23**)
+* [Version **v0.0.4**](sh/convert-to-gguf.sh) (updated **2024-04-23**)
 
 > [!IMPORTANT]
 > Dependencies: **Python 3** (w/ `pip`) and [`llama.cpp`](https://github.com/ggerganov/llama.cpp/);
