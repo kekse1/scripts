@@ -39,12 +39,12 @@
 #
 
 #
-TYPE="f32" # f32, f16, q8_0, .. # 'f' preserve original quali
+TYPE="f32" # f32, f16, q8_0, .. # 'f*' preserves original quality
 MODELS="downloads"
 FORMAT="gguf"
 LLAMA="venv/llama.cpp"
 PYTHON="python3"
-VOCAB="bpe" # necessary for llama3, etc..
+VOCAB="" # 'bpe' necessary for llama3..
 ARGS=""
 
 #
