@@ -162,7 +162,7 @@ class Links
 	{
 		if(_chunk === null)
 		{
-			return this.finish(this.links);
+			return this.finish();
 		}
 
 		const attribs = Links.attribs;
