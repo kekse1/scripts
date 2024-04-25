@@ -51,7 +51,7 @@ class Links
 		}
 
 		this.scheme = scheme;
-		this.source = _source;
+		this.source = source;
 		this.links = [];
 		this.reset();
 	}
