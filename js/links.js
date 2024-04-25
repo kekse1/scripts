@@ -1,25 +1,31 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.2.2
+ * v0.3.0
  */
 
 //
 const DEFAULT_ENCODING = 'utf8';
 const DEFAULT_ATTRIBS = [ 'href', 'src' ];
 const DEFAULT_FILTER = [ 'http:', 'https:' ];
+const DEFAULT_UNIQUE = null; //TODO/
 
 //
 class Links
 {
 	constructor(_source, ... _args)
 	{
+		var unique = null;
 		var source = null;
 		var filter = [];
 
 		for(var i = 0; i < _args.length; ++i)
 		{
-			if(typeof _args[i] === 'string')
+			if(typeof _args[i] === 'boolean')
+			{
+				unique = _args.splice(i--, 1)[0];
+			}
+			else if(typeof _args[i] === 'string')
 			{
 				source = _args.splice(i--, 1)[0];
 			}
@@ -36,6 +42,11 @@ class Links
 		if(typeof source === 'string')
 		{
 			source = new URL(source);
+		}
+
+		if(unique !== null)
+		{
+			this._unique = unique;
 		}
 
 		if(filter.length > 0)
@@ -139,6 +150,31 @@ class Links
 		return result;
 	}
 
+	static unique(_array)
+	{
+throw new Error('TODO');
+	}
+
+	get unique()
+	{
+		if(typeof this._unique === 'boolean')
+		{
+			return this._unique;
+		}
+
+		return DEFAULT_UNIQUE;
+	}
+
+	set unique(_value)
+	{
+		if(typeof _value === 'boolean')
+		{
+			return this._unique = _value;
+		}
+
+		return this.unique;
+	}
+
 	reset()
 	{
 		this.openLink = false;
@@ -165,17 +201,39 @@ class Links
 			return this.finish();
 		}
 
+		const str = (typeof _chunk === 'string');
 		const attribs = Links.attribs;
 		var byte, char;
 
+		const atString = (_index, _needle) => {
+			if(_needle.length > (_chunk.length - _index))
+				return false;
+			const cmp = _chunk.substr(_index, _needle.length).toLowerCase();
+			return (cmp === _needle.toLowerCase());
+		};
+
+		const atArray = (_index, _needle) => {
+			throw new Error('TODO');
+		};
+
+		const at = (_index, _needle) => {
+			if(str) return atString(_index, _needle);
+			return atArray(_index, _needle);
+		};
+
 		chunkLoop: for(var i = 0; i < _chunk.length; ++i)
 		{
-			byte = (char = _chunk[i]).charCodeAt(0);
+			if(str) byte = _chunk.charCodeAt(i);
+			else byte = _chunk[i];
 
 			if(byte < 32 || byte === 127)
 			{
 				byte = 32;
 				char = ' ';
+			}
+			else
+			{
+				char = String.fromCharCode(byte);
 			}
 			
 			if(!this.openTag)
@@ -215,7 +273,7 @@ class Links
 				}
 				else for(const a of attribs)
 				{
-					if(_chunk.at(i, a, false))
+					if(at(i, a))
 					{
 						this.openLink = true;
 						i += a.length - 1;
@@ -272,6 +330,11 @@ class Links
 		if(this.filter)
 		{
 			this.links = Links.filter(this.links, null, this.source);
+		}
+
+		if(this.unique)
+		{
+			this.links = Links.unique(this.links);
 		}
 		
 		return this.links;

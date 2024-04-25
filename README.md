@@ -35,7 +35,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-04-25**\] Made my [`links.js`](#linksjs) public here, **v0.2.2**
+* \[**2024-04-25**\] My [`links.js`](#linksjs) with some (untested..) updates now; **v0.3.0**
 * \[**2024-04-23**\] New [`convert-to-gguf.sh`](#convert-to-ggufsh) script, **v0.0.4**
 * \[**2024-04-23**\] Created the [`nightlounge.sh`](#nightloungesh) script, **v0.2.2**
 * \[**2024-04-22**\] Updated [`hugging.sh`](#huggingsh) to **v0.2.4**..
@@ -279,7 +279,7 @@ extensions are being fully cloned. And even the functions themselves (if `_funct
 **no circular dependencies** occure! **;-)**
 
 ### [`links`.js](js/links.js)
-* [Version **v0.2.2**](js/links.js) (created **2024-04-25**)
+* [Version **v0.3.0**](js/links.js) (updated **2024-04-25**)
 
 This class extracts all links from `.html` files. It should work better than regular expressions, since it
 covers many possible codes. Also see the `DEFAULT_ATTRIBS = [ 'href', 'src' ];`, and _jfyi_: this is to be
@@ -288,6 +288,9 @@ instanciated, so it also works with file chunks; this way, the input data does n
 You also can define: a filter, so only [ 'http:', 'https:' ] links will be in the result array (by default),
 and you can also instanciate with a `source` from which URL this HTML document comes from, so the links are
 adapted to it (relative links could be a problem otherwise).
+
+> [!WARNING]
+> Version **v0.3.0** is merely untested, after some important updates..!
 
 Nice one.
 
