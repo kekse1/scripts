@@ -1,13 +1,12 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.2.0
+ * v0.2.1
  */
 
 //
-const DEFAULT_THROW = true;
-
 const DEFAULT_ENCODING = 'utf8';
+const DEFAULT_TAGS = [ 'href', 'src' ];
 const DEFAULT_FILTER = [ 'http:', 'https:' ];
 
 //
@@ -154,9 +153,9 @@ class Links
 		this.reset();
 	}
 
-	static get links()
+	static get tags()
 	{
-		return [ 'href', 'src' ];
+		return DEFAULT_TAGS;
 	}
 
 	onData(_chunk)
@@ -166,8 +165,8 @@ class Links
 			return this.finish(this.links);
 		}
 
+		const links = Links.tags;
 		var byte, char;
-		const links = Links.links;
 
 		chunkLoop: for(var i = 0; i < _chunk.length; ++i)
 		{
