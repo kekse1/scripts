@@ -215,12 +215,12 @@ class Links
 				}
 				else
 				{
-					for(const l of attribs)
+					for(const a of attribs)
 					{
-						if(_chunk.at(i, l, false))
+						if(_chunk.at(i, a, false))
 						{
 							this.openLink = true;
-							i += l.length - 1;
+							i += a.length - 1;
 							continue chunkLoop;
 						}
 					}
