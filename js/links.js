@@ -1,14 +1,14 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.3.1
+ * v0.4.0
  */
 
 //
 const DEFAULT_ENCODING = 'utf8';
 const DEFAULT_ATTRIBS = [ 'href', 'src' ];
 const DEFAULT_SCHEME = [ 'http:', 'https:' ];
-const DEFAULT_UNIQUE = null; //TODO/
+const DEFAULT_UNIQUE = true;
 
 //
 class Links
@@ -50,7 +50,15 @@ class Links
 			this._unique = unique;
 		}
 
-		this.scheme = scheme;
+		if(scheme !== null)
+		{
+			this.scheme = scheme;
+		}
+		else
+		{
+			this.scheme = DEFAULT_SCHEME;
+		}
+
 		this.source = source;
 		this.links = [];
 		this.reset();
@@ -74,11 +82,15 @@ class Links
 		{
 			if(res = this.url(_array[i], _source))
 			{
-				if(_scheme.includes(res.protocol))
+				if(typeof res === 'string')
+				{
+					result[j++] = _array[i];
+				}
+				else if(_scheme.includes(res.protocol))
 				{
 					if(typeof _array[i] === 'string')
 					{
-						res = this.href(res);
+						res = _array[i];//original form
 					}
 
 					result[j++] = res;
@@ -97,7 +109,14 @@ class Links
 		}
 		else if(typeof _url_array === 'string')
 		{
-			return new URL(_url_array, _source);
+			try
+			{
+				return new URL(_url_array, _source);
+			}
+			catch(_error)
+			{
+				return _url_array;
+			}
 		}
 		else if(!Array.isArray(_url_array))
 		{
@@ -147,9 +166,57 @@ class Links
 		return result;
 	}
 
-	static unique(_array)
+	static unique(_array, _source)
 	{
-throw new Error('TODO');
+		const cmp = (_a, _b, _cast = !!_source) => {
+			if(_cast)
+			{
+				if(typeof _a === 'string')
+					_a = this.url(_a, _source);
+				if(typeof _b === 'string')
+					_b = this.url(_b, _source);
+			}
+
+			if(typeof _a === 'string')
+			{
+				if(typeof _b === 'string')
+				{
+					return (_a === _b);
+				}
+
+				return (_a === _b.href);
+			}
+			else if(typeof _b === 'string')
+			{
+				return (_a.href === _b);
+			}
+
+			return (_a.href === _b.href);
+		};
+
+		const result = [];
+		var inc;
+
+		for(var i = 0, j = 0; i < _array.length; ++i)
+		{
+			inc = false;
+
+			for(const r of result)
+			{
+				if(cmp(_array[i], r))
+				{
+					inc = true;
+					break;
+				}
+			}
+
+			if(!inc)
+			{
+				result[j++] = _array[i];//original form
+			}
+		}
+
+		return result;
 	}
 
 	get unique()
@@ -189,6 +256,13 @@ throw new Error('TODO');
 	static get attribs()
 	{
 		return DEFAULT_ATTRIBS;
+	}
+
+	extract(_data)
+	{
+		var result = this.onData(_data);
+		if(_data !== null) result = this.finish();
+		return result;
 	}
 
 	onData(_chunk)
