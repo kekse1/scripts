@@ -282,7 +282,7 @@ extensions are being fully cloned. And even the functions themselves (if `_funct
 * [Version **v0.2.1**](js/links.js) (created **2024-04-25**)
 
 This class extracts all links from `.html` files. It should work better than regular expressions, since it
-covers many possible codes. Also see the `DEFAULT_LINKS = [ 'href', 'src' ];`, and _jfyi_: this is to be
+covers many possible codes. Also see the `DEFAULT_ATTRIBS = [ 'href', 'src' ];`, and _jfyi_: this is to be
 instanciated, so it also works with file chunks; this way, the input data does not have to be complete.
 
 You also can define: a filter, so only [ 'http:', 'https:' ] links will be in the result array (by default),

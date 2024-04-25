@@ -6,7 +6,7 @@
 
 //
 const DEFAULT_ENCODING = 'utf8';
-const DEFAULT_TAGS = [ 'href', 'src' ];
+const DEFAULT_ATTRIBS = [ 'href', 'src' ];
 const DEFAULT_FILTER = [ 'http:', 'https:' ];
 
 //
@@ -153,9 +153,9 @@ class Links
 		this.reset();
 	}
 
-	static get tags()
+	static get attribs()
 	{
-		return DEFAULT_TAGS;
+		return DEFAULT_ATTRIBS;
 	}
 
 	onData(_chunk)
@@ -165,7 +165,7 @@ class Links
 			return this.finish(this.links);
 		}
 
-		const links = Links.tags;
+		const links = Links.attribs;
 		var byte, char;
 
 		chunkLoop: for(var i = 0; i < _chunk.length; ++i)
