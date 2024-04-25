@@ -283,7 +283,7 @@ extensions are being fully cloned. And even the functions themselves (if `_funct
 
 This class extracts all links from `.html` files. It should work better than regular expressions, since it
 covers many possible codes. Also see the `static get links()` [ 'href', 'src' ]; and jfyi: this is to be
-instanciated, so it also works with file chunks, so see data does not have to be complete.
+instanciated, so it also works with file chunks; this way, the input data does not have to be complete.
 
 You also can define: a filter, so only [ 'http:', 'https:' ] links will be in the result array (by default),
 and you can also instanciate with a `source` from which URL this HTML document comes from, so the links are
