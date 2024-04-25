@@ -292,9 +292,9 @@ remain in the result array; you can also instanciate with a `source` param
 or attrib: from which URL this HTML document comes from, so the links are
 adapted to it (relative links could be a problem otherwise).
 
-Since **v0.4.0** also with `DEFAULT_UNIQUE = true`, `source` support, extra
-`.extract()` function (original `.onData()` was meant for stream events), and
-some improvements and bugs fixed.
+Since **v0.4.0** also with `DEFAULT_UNIQUE = true`; extra `.extract()` function
+(original `.onData()` was meant for stream events); plus some improvements and
+bugs fixed.
 
 Nice one; have phun.
 
