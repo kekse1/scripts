@@ -47,7 +47,7 @@ class Links
 			this.filter = null;
 		}
 
-		this.source = _source || null;
+		this.source = _source;
 		this.links = [];
 		this.reset();
 	}
