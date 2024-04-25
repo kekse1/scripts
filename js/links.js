@@ -213,16 +213,13 @@ class Links
 						this.value = '';
 					}
 				}
-				else
+				else for(const a of attribs)
 				{
-					for(const a of attribs)
+					if(_chunk.at(i, a, false))
 					{
-						if(_chunk.at(i, a, false))
-						{
-							this.openLink = true;
-							i += a.length - 1;
-							continue chunkLoop;
-						}
+						this.openLink = true;
+						i += a.length - 1;
+						continue chunkLoop;
 					}
 				}
 			}
