@@ -223,7 +223,7 @@ throw new Error('TODO');
 			if(str) byte = _chunk.charCodeAt(i);
 			else byte = _chunk[i];
 
-			if(byte < 32 || byte === 127)
+			if(byte <= 32 || byte === 127)
 			{
 				byte = 32;
 				char = ' ';
