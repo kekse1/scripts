@@ -285,8 +285,9 @@ This class extracts all links from `.html` files. It should work better than reg
 covers many possible codes. Also see the `DEFAULT_ATTRIBS = [ 'href', 'src' ];`, and _jfyi_: this is to be
 instanciated, so it also works with file chunks; this way, the input data does not have to be complete.
 
-You also can define: a filter, so only [ 'http:', 'https:' ] links will be in the result array (by default),
-and you can also instanciate with a `source` from which URL this HTML document comes from, so the links are
+You also can define: a filter, see `DEFAULT_FILTER = [ 'http:', 'https:' ]`, so
+only these links will remain in the result array, and you can also instanciate
+with a `source` from which URL this HTML document comes from, so the links are
 adapted to it (relative links could be a problem otherwise).
 
 > [!WARNING]
