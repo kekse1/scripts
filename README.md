@@ -288,7 +288,7 @@ not have to be complete, which is great for streams; also to save memory, etc.).
 
 And see the `DEFAULT_ATTRIBS = [ 'href', 'src' ];`; or maybe define a filter,
 like the `DEFAULT_SCHEME = [ 'http:', 'https:' ]`, so only these links will
-remain in the result array; also you can also instanciate with a `source` param
+remain in the result array; you can also instanciate with a `source` param
 or attrib: from which URL this HTML document comes from, so the links are
 adapted to it (relative links could be a problem otherwise).
 
