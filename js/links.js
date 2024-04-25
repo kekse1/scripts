@@ -165,7 +165,7 @@ class Links
 			return this.finish(this.links);
 		}
 
-		const links = Links.attribs;
+		const attribs = Links.attribs;
 		var byte, char;
 
 		chunkLoop: for(var i = 0; i < _chunk.length; ++i)
@@ -215,7 +215,7 @@ class Links
 				}
 				else
 				{
-					for(const l of links)
+					for(const l of attribs)
 					{
 						if(_chunk.at(i, l, false))
 						{
