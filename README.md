@@ -286,7 +286,7 @@ regular expressions, since it covers many possible codes. And this class should
 be instanciated, so it also works with file chunks (this way, the input data does
 not have to be complete, which is great for streams; also to save memory, etc.).
 
-Also see the `DEFAULT_ATTRIBS = [ 'href', 'src' ];`; or maybe define a filter,
+And see the `DEFAULT_ATTRIBS = [ 'href', 'src' ];`; or maybe define a filter,
 like the `DEFAULT_SCHEME = [ 'http:', 'https:' ]`, so only these links will
 remain in the result array; also you can also instanciate with a `source` param
 or attrib: from which URL this HTML document comes from, so the links are
