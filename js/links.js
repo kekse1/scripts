@@ -1,23 +1,23 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.3.0
+ * v0.3.1
  */
 
 //
 const DEFAULT_ENCODING = 'utf8';
 const DEFAULT_ATTRIBS = [ 'href', 'src' ];
-const DEFAULT_FILTER = [ 'http:', 'https:' ];
+const DEFAULT_SCHEME = [ 'http:', 'https:' ];
 const DEFAULT_UNIQUE = null; //TODO/
 
 //
 class Links
 {
-	constructor(_source, ... _args)
+	constructor(... _args)
 	{
 		var unique = null;
 		var source = null;
-		var filter = [];
+		var scheme = null;
 
 		for(var i = 0; i < _args.length; ++i)
 		{
@@ -29,9 +29,10 @@ class Links
 			{
 				source = _args.splice(i--, 1)[0];
 			}
-			else if(array(_args[i]))
+			else if(Array.isArray(_args[i]))
 			{
-				filter.push(... _args.splice(i--, 1)[0]);
+				if(scheme === null) scheme = [];
+				scheme.push(... _args.splice(i--, 1)[0]);
 			}
 			else if(_args[i] instanceof URL)
 			{
@@ -49,25 +50,21 @@ class Links
 			this._unique = unique;
 		}
 
-		if(filter.length > 0)
-		{
-			this.filter = filter;
-		}
-		else
-		{
-			this.filter = null;
-		}
-
+		this.scheme = scheme;
 		this.source = _source;
 		this.links = [];
 		this.reset();
 	}
 
-	static filter(_array, _filter, _source)
+	static filter(_array, _scheme, _source)
 	{
-		if(!Array.isArray(_filter) || _filter.length === 0)
+		if(!Array.isArray(_scheme))
 		{
-			_filter = DEFAULT_FILTER;
+			_scheme = DEFAULT_SCHEME;
+		}
+		else if(_scheme.length === 0)
+		{
+			return [ ... _array ];
 		}
 		
 		const result = [];
@@ -77,7 +74,7 @@ class Links
 		{
 			if(res = this.url(_array[i], _source))
 			{
-				if(_filter.includes(res.protocol))
+				if(_scheme.includes(res.protocol))
 				{
 					if(typeof _array[i] === 'string')
 					{
@@ -327,9 +324,9 @@ throw new Error('TODO');
 			this.links = Links.url(this.links, this.source);
 		}
 
-		if(this.filter)
+		if(this.scheme)
 		{
-			this.links = Links.filter(this.links, null, this.source);
+			this.links = Lithis.schemefilter(this.links, this.scheme, this.source);
 		}
 
 		if(this.unique)
