@@ -282,15 +282,14 @@ extensions are being fully cloned. And even the functions themselves (if `_funct
 * [Version **v0.4.0**](js/links.js) (updated **2024-04-25**)
 
 This class extracts all links from `.html` files. It should work better than
-regular expressions, since it covers many possible codes.
-
-Also see the `DEFAULT_ATTRIBS = [ 'href', 'src' ];`. And this class should be
-instanciated, so it also works with file chunks (this way, the input data does
+regular expressions, since it covers many possible codes. And this class should
+be instanciated, so it also works with file chunks (this way, the input data does
 not have to be complete, which is great for streams; also to save memory, etc.).
 
-You also can define: a filter, see `DEFAULT_SCHEME = [ 'http:', 'https:' ]`, so
-only these links will remain in the result array, and you can also instanciate
-with a `source` from which URL this HTML document comes from, so the links are
+Also see the `DEFAULT_ATTRIBS = [ 'href', 'src' ];`; or maybe define a filter,
+like the `DEFAULT_SCHEME = [ 'http:', 'https:' ]`, so only these links will
+remain in the result array; also you can also instanciate with a `source` param
+or attrib: from which URL this HTML document comes from, so the links are
 adapted to it (relative links could be a problem otherwise).
 
 Since **v0.4.0** also with `DEFAULT_UNIQUE = true`, `source` support, extra
