@@ -9,7 +9,6 @@ const DEFAULT_ENCODING = 'utf8';
 const DEFAULT_ATTRIBS = [ 'href', 'src' ];
 const DEFAULT_SCHEME = [ 'http:', 'https:' ];
 const DEFAULT_UNIQUE = true;
-const DEFAULT_ENCODE = true;
 
 //
 class Links
@@ -306,12 +305,8 @@ class Links
 			{
 				return false;
 			}
-			else if(DEFAULT_ENCODE)
-			{
-				_link = encodeURI(_link);
-			}
 
-			this.links.push(_link);
+			this.links.push(encodeURI(_link));
 			return true;
 		};
 
