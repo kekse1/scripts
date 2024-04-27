@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.4.0
+ * v0.4.1
  */
 
 //
@@ -9,6 +9,7 @@ const DEFAULT_ENCODING = 'utf8';
 const DEFAULT_ATTRIBS = [ 'href', 'src' ];
 const DEFAULT_SCHEME = [ 'http:', 'https:' ];
 const DEFAULT_UNIQUE = true;
+const DEFAULT_ENCODE = true;
 
 //
 class Links
@@ -292,6 +293,20 @@ class Links
 			return atArray(_index, _needle);
 		};
 
+		const push = (_link) => {
+			if(!_link)
+			{
+				return false;
+			}
+			else if(DEFAULT_ENCODE)
+			{
+				_link = encodeURI(_link);
+			}
+
+			this.links.push(_link);
+			return true;
+		};
+
 		chunkLoop: for(var i = 0; i < _chunk.length; ++i)
 		{
 			if(str) byte = _chunk.charCodeAt(i);
@@ -317,12 +332,7 @@ class Links
 			else if(this.openLink === char)
 			{
 				this.openLink = false;
-
-				if(this.value)
-				{
-					this.links.push(this.value);
-				}
-
+				push(this.value);
 				this.value = null;
 			}
 			else if(this.value === null)
@@ -373,12 +383,7 @@ class Links
 			{
 				this.openLink = false;
 				this.openTag = false;
-
-				if(this.value)
-				{
-					this.links.push(this.value);
-				}
-
+				push(this.value);
 				this.value = null;
 			}
 			else
