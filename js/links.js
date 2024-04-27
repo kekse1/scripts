@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.4.2
+ * v0.4.3
  */
 
 //
@@ -302,7 +302,12 @@ class Links
 
 		const push = (_link) => {
 			if(!_link) return false;
-			this.links.push(encodeURI(_link));
+			_link = encodeURI(_link);
+			
+			if(this.unique && this.links.includes(_link))
+				return false;
+			
+			this.links.push(_link);
 			return true;
 		};
 
