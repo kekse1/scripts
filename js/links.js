@@ -301,11 +301,7 @@ class Links
 		};
 
 		const push = (_link) => {
-			if(!_link)
-			{
-				return false;
-			}
-
+			if(!_link) return false;
 			this.links.push(encodeURI(_link));
 			return true;
 		};
