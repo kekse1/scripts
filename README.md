@@ -29,14 +29,14 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 3. [JavaScript](#javascript)
 	* [`clone`.js](#clonejs)
 	* [`links`.js](#linksjs)
-    * [`typeof`.js](#typeofjs)
+    * [`reflection`.js](#reflectionjs)
 	* [`fold.css`.js](#foldcssjs)
 4. [C/C++](#cc)
     * [`nproc.c`](#nprocc)
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-04-28**\] New [`typeof`.js](#typeofjs) **v2.0.0** (already used a long time by myself);
+* \[**2024-04-28**\] New [`reflection`.js](#reflectionjs) **v2.0.1**;
 * \[**2024-04-28**\] Updated [`links`.js](#linksjs) to **v0.5.0**.
 * \[**2024-04-23**\] New [`convert-to-gguf`.sh](#convert-to-ggufsh) script, **v0.0.4**
 * \[**2024-04-23**\] Created the [`nightlounge`.sh](#nightloungesh) script, **v0.2.2**
@@ -300,8 +300,8 @@ bugs fixed. And more **big changes** since **v0.5.0**.
 
 Nice one; have phun.
 
-### [`typeof`.js](js/typeof.js)
-* [Version **v2.0.0**](js/typeof.js) (created **2024-04-28**)
+### [`reflection`.js](js/reflection.js)
+* [Version **v2.0.0**](js/reflection.js) (updated **2024-04-29**)
 
 My solution for JavaScript's `instanceof` problem, so when in multiple environments
 the classes are initialized/declared not once. In this case, comparing two environments,
@@ -309,7 +309,7 @@ it's like `Array !== Array`, e.g.. and I don't mean only the instances, the base
 are being created multiple times in multiple environments..
 
 So I'm using `[Reflect.]is()` and `[Reflect.]was()` (for a long time, so it's well tested,
-and works great). You'll find _more description_ in this [`typeof`.js](js/typeof.js), in
+and works great). You'll find _more description_ in this [`reflection`.js](js/reflection.js), in
 the starting comment on top of the file.
 
 ### [`fold.css`.js](js/fold.css.js)
