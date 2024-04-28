@@ -3,16 +3,6 @@
 // https://kekse.biz/ https://github.com/kekse1/scripts/
 // v2.0.0
 //
-// The problem is described below. My solution extends the `Reflect` class, and also
-// sets two global functions, like:
-//
-// # `[Reflect.]is()`: concrete/last class/instance name (returns String/Boolean)
-// # `[Reflect.]was()`: List of all class names, including super's (returns Array/Boolean)
-//
-// Either you call them just with an object/item, to show their names,
-// or you define one or many strings, to compare them with your params
-// (which will result a Boolean type, not a String or an Array of Strings).
-//
 // The problem was: depending on your JavaScript *environment*, which also changes
 // e.g. when using <iframe> or so, the base classes are being initialized/declared/..
 // not only once, but multiple times, depending on your environments.
@@ -20,6 +10,16 @@
 // In this case a regular `instanceof` won't match, since there are other references,
 // etc.. so check your items (instances, mostly) this way, maybe defining at least one
 // string to be checked (as name of the class).
+//
+// My solution extends the `Reflect` class, and also sets two global functions, so you
+// can compare by their name(s); it's like:
+//
+// # `[Reflect.]is()`: concrete/last class/instance name (returns String/Boolean)
+// # `[Reflect.]was()`: List of all class names, including super's (returns Array/Boolean)
+//
+// Either you call them just with an object/item, to show their names,
+// or you define one or many strings, to compare them with your params
+// (which will result a Boolean type, not a String or an Array of Strings).
 //
 
 //
