@@ -304,7 +304,7 @@ Nice one; have phun.
 * [Version **v2.0.0**](js/typeof.js) (created **2024-04-28**)
 
 My solution for JavaScript's `instanceof` problem, so when in multiple environments
-the classes are initialized/declared not once. In this case comparing two environments
+the classes are initialized/declared not once. In this case, comparing two environments,
 it's like `Array !== Array`, e.g.. and I don't mean only the instances, the base classes
 are being created multiple times in multiple environments..
 
