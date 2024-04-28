@@ -35,7 +35,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-04-27**\] Updated [`links.js`](#linksjs) to **v0.5.0**.
+* \[**2024-04-28**\] Updated [`links.js`](#linksjs) to **v0.5.0**.
 * \[**2024-04-23**\] New [`convert-to-gguf.sh`](#convert-to-ggufsh) script, **v0.0.4**
 * \[**2024-04-23**\] Created the [`nightlounge.sh`](#nightloungesh) script, **v0.2.2**
 * \[**2024-04-22**\] Updated [`hugging.sh`](#huggingsh) to **v0.2.4**..
