@@ -35,7 +35,7 @@
 #
 # Quantization:
 #
-# ./llama.cpp/quantize my_fp32_file.gguf my_output_file.gguf
+# `./llama.cpp/quantize source.gguf target.gguf Q8_0`
 #
 
 #
