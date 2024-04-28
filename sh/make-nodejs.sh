@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.2
+# v0.3.3
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -291,8 +291,6 @@ untar()
 configure()
 {
 	cmd="./configure ${args}"
-echo "$cmd"
-exit 123
 	echo " >> '$cmd'"
 	echo
 	eval "$cmd"

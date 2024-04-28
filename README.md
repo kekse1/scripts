@@ -200,7 +200,7 @@ only counting all different extensions available under the current working direc
 to limit the `find` recursion depth via optional first argument (needs to be positive integer).
 
 ### [`make-nodejs`.sh](sh/make-nodejs.sh)
-* [Version **v0.3.2**](sh/make-nodejs.sh) (updated **2024-04-23**)
+* [Version **v0.3.3**](sh/make-nodejs.sh) (updated **2024-04-28**)
 
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
