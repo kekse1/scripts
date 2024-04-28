@@ -6,7 +6,7 @@
 // The problem is described below. My solution extends the `Reflect` class, and also
 // sets two global functions, like:
 //
-// # `[Reflect.]is()`: concrete/last class/instance names (returns String/Boolean)
+// # `[Reflect.]is()`: concrete/last class/instance name (returns String/Boolean)
 // # `[Reflect.]was()`: List of all class names, including super's (returns Array/Boolean)
 //
 // Either you call them just with an object/item, to show their names,
