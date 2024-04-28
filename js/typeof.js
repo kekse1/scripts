@@ -21,6 +21,9 @@
 // or you define one or many strings, to compare them with your params
 // (which will result a Boolean type, not a String or an Array of Strings).
 //
+// I'm using it for a long time now, and it really works great. No problems occured,
+// and I recommend you to always use this instead of `instanceof` or smth. like it.
+//
 
 //
 Reflect.defineProperty(Reflect, 'getPrototypesOf', { value: (_item) => {
