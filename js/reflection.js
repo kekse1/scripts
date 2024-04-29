@@ -1,7 +1,7 @@
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // https://kekse.biz/ https://github.com/kekse1/scripts/
-// v2.0.0
+// v2.0.1
 //
 // The problem was: depending on your JavaScript *environment*, which also changes
 // e.g. when using <iframe> or so, the base classes are being initialized/declared/..
