@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.8.0
+ * v0.8.1
  */
 
 //
@@ -166,7 +166,7 @@ class Links
 
 	reset()
 	{
-		this.open = '';
+		this.open = false;
 		this.openLink = false;
 		this.openTag = false;
 		this.value = null;
@@ -342,9 +342,9 @@ class Links
 			{
 				if(this.open)
 				{
-					if(char === this.open)
+					if(char !== encodeURI(char))
 					{
-						this.open = '';
+						this.open = false;
 						this.push(this.value);
 						this.value = '';
 					}
@@ -357,7 +357,7 @@ class Links
 				{
 					if(at(i, s))
 					{
-						this.open = ' ';
+						this.open = true;
 						i += s.length - 1;
 						continue chunkLoop;
 					}
