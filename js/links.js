@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.6.0
+ * v0.7.0
  */
 
 //
@@ -12,6 +12,7 @@ const DEFAULT_UNIQUE = true;
 const DEFAULT_THROW = true;
 const DEFAULT_CUT_SEARCH = false;
 const DEFAULT_CUT_HASH = true;
+const DEFAULT_FILTER = true;
 
 //
 class Links
@@ -63,6 +64,18 @@ class Links
 		this.source = source;
 		this.links = [];
 		this.reset();
+	}
+
+	get filter()
+	{
+		if(typeof this._filter === 'boolean') return this._filter;
+		return DEFAULT_FILTER;
+	}
+
+	set filter(_value)
+	{
+		if(typeof _value === 'boolean') return this._filter = _value;
+		return this.filter;
 	}
 
 	get cutHash()
@@ -215,6 +228,11 @@ class Links
 		}
 		catch(_error)
 		{
+			if(this.filter)
+			{
+				return false;
+			}
+
 			if(this.cutSearch)
 			{
 				_value = Links.tryCutSearch(_value);
