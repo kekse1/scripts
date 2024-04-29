@@ -201,8 +201,11 @@ class Links
 
 	push(_value)
 	{
-		if(!_value) return false; _value = encodeURI(_value);
-		if(this.unique && this.links.includes(_value)) return false;
+		if(!_value) return false;
+		_value = encodeURI(_value);
+
+		if(this.unique && this.links.includes(_value))
+			return false;
 		
 		try
 		{
