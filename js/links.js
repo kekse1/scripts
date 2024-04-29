@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.5.0
+ * v0.6.0
  */
 
 //
@@ -10,6 +10,8 @@ const DEFAULT_ATTRIBS = [ 'href', 'src' ];
 const DEFAULT_SCHEME = [ 'http:', 'https:' ];
 const DEFAULT_UNIQUE = true;
 const DEFAULT_THROW = true;
+const DEFAULT_CUT_SEARCH = false;
+const DEFAULT_CUT_HASH = true;
 
 //
 class Links
@@ -17,16 +19,11 @@ class Links
 	constructor(... _args)
 	{
 		var source = undefined;
-		var unique = null;
 		var scheme = null;
 
 		for(var i = 0; i < _args.length; ++i)
 		{
-			if(typeof _args[i] === 'boolean')
-			{
-				unique = _args.splice(i--, 1)[0];
-			}
-			else if(typeof _args[i] === 'string')
+			if(typeof _args[i] === 'string')
 			{
 				source = _args.splice(i--, 1)[0];
 			}
@@ -39,11 +36,6 @@ class Links
 			{
 				source = _args.splice(i--, 1)[0];
 			}
-		}
-
-		if(unique !== null)
-		{
-			this._unique = unique;
 		}
 
 		if(scheme !== null)
@@ -71,6 +63,30 @@ class Links
 		this.source = source;
 		this.links = [];
 		this.reset();
+	}
+
+	get cutHash()
+	{
+		if(typeof this._cutHash === 'boolean') return this._cutHash;
+		return DEFAULT_CUT_HASH;
+	}
+	
+	set cutHash(_value)
+	{
+		if(typeof _value === 'boolean') return this._cutHash = _value;
+		return this.cutHash;
+	}
+
+	get cutSearch()
+	{
+		if(typeof this._cutSearch === 'boolean') return this._cutSearch;
+		return DEFAULT_CUT_SEARCH;
+	}
+
+	set cutSearch(_value)
+	{
+		if(typeof _value === 'boolean') return this._cutSearch = _value;
+		return DEFAULT_CUT_SEARCH;
 	}
 
 	get scheme()
@@ -139,6 +155,37 @@ class Links
 		return result;
 	}
 
+	static tryCutSearch(_link)
+	{
+		const idx = _link.indexOf('?');
+
+		if(idx === -1)
+		{
+			return _link;
+		}
+
+		const idx2 = _link.indexOf('#');
+
+		if(idx2 === -1)
+		{
+			return _link.substr(0, idx);
+		}
+
+		return (_link.substr(0, idx) + _link.substr(idx2));
+	}
+
+	static tryCutHash(_link)
+	{
+		const idx = _link.indexOf('#');
+
+		if(idx === -1)
+		{
+			return _link;
+		}
+
+		return _link.substr(0, idx);
+	}
+
 	push(_value)
 	{
 		if(!_value) return false; _value = encodeURI(_value);
@@ -153,13 +200,34 @@ class Links
 				if(!this.scheme.includes(_value.protocol))
 					return false;
 			}
+
+			if(this.cutSearch)
+			{
+				_value.search = '';
+			}
+
+			if(this.cutHash)
+			{
+				_value.hash = '';
+			}
 			
 			_value = _value.href;
-			
-			if(this.unique && this.links.includes(_value))
-				return false;
 		}
-		catch(_err) {}
+		catch(_error)
+		{
+			if(this.cutSearch)
+			{
+				_value = Links.tryCutSearch(_value);
+			}
+
+			if(this.cutHash)
+			{
+				_value = Links.tryCutHash(_value);
+			}
+		}
+			
+		if(this.unique && this.links.includes(_value))
+			return false;
 
 		this.links.push(_value);
 		return true;

@@ -36,8 +36,8 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-29**\] Updated [`links`.js](#linksjs) to **v0.6.0**.
 * \[**2024-04-28**\] New [`typeof`.js](#typeofjs) **v2.0.0** (already used a long time by myself);
-* \[**2024-04-28**\] Updated [`links`.js](#linksjs) to **v0.5.0**.
 * \[**2024-04-23**\] New [`convert-to-gguf`.sh](#convert-to-ggufsh) script, **v0.0.4**
 * \[**2024-04-23**\] Created the [`nightlounge`.sh](#nightloungesh) script, **v0.2.2**
 * \[**2024-04-22**\] Updated [`hugging`.sh](#huggingsh) to **v0.2.4**..
@@ -281,7 +281,7 @@ extensions are being fully cloned. And even the functions themselves (if `_funct
 **no circular dependencies** occure! **;-)**
 
 ### [`links`.js](js/links.js)
-* [Version **v0.5.0**](js/links.js) (updated **2024-04-28**)
+* [Version **v0.6.0**](js/links.js) (updated **2024-04-29**)
 
 This class extracts all links from `.html` files. It should work better than
 regular expressions, since it covers many possible codes. And this class should
