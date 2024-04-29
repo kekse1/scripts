@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.7.0
+ * v0.8.0
  */
 
 //
@@ -13,6 +13,7 @@ const DEFAULT_THROW = true;
 const DEFAULT_CUT_SEARCH = false;
 const DEFAULT_CUT_HASH = true;
 const DEFAULT_FILTER = true;
+const DEFAULT_ALL = false;
 
 //
 class Links
@@ -21,10 +22,15 @@ class Links
 	{
 		var source = undefined;
 		var scheme = null;
+		var all = null;
 
 		for(var i = 0; i < _args.length; ++i)
 		{
-			if(typeof _args[i] === 'string')
+			if(typeof _args[i] === 'boolean')
+			{
+				all = _args.splice(i--, 1)[0];
+			}
+			else if(typeof _args[i] === 'string')
 			{
 				source = _args.splice(i--, 1)[0];
 			}
@@ -37,6 +43,11 @@ class Links
 			{
 				source = _args.splice(i--, 1)[0];
 			}
+		}
+
+		if(all !== null)
+		{
+			this._all = all;
 		}
 
 		if(scheme !== null)
@@ -64,6 +75,25 @@ class Links
 		this.source = source;
 		this.links = [];
 		this.reset();
+	}
+
+	get all()
+	{
+		var result;
+		
+		if(typeof this._all === 'boolean')
+			result = this._all;
+		else
+			result = DEFAULT_ALL;
+		
+		if(result) return (this.scheme.length > 0);
+		return false;
+	}
+
+	set all(_value)
+	{
+		if(typeof _value === 'boolean') return this._all = _value;
+		return this.all;
 	}
 
 	get filter()
@@ -136,6 +166,7 @@ class Links
 
 	reset()
 	{
+		this.open = '';
 		this.openLink = false;
 		this.openTag = false;
 		this.value = null;
@@ -156,8 +187,14 @@ class Links
 
 	finish()
 	{
+		if(this.open && this.value)
+		{
+			this.push(this.value);
+		}
+
 		//this.emit('finish', this.links, this);
 		this.fin = true;
+		this.value = null;
 		return this.links;
 	}
 	
@@ -202,7 +239,7 @@ class Links
 	push(_value)
 	{
 		if(!_value) return false;
-		_value = encodeURI(_value);
+		_value = encodeURI(_value.trim());
 
 		if(this.unique && this.links.includes(_value))
 			return false;
@@ -260,6 +297,10 @@ class Links
 		{
 			return this.finish();
 		}
+		else if(this.value === null && this.all)
+		{
+			this.value = '';
+		}
 
 		const str = (typeof _chunk === 'string');
 		const attribs = Links.attribs;
@@ -297,7 +338,32 @@ class Links
 				char = String.fromCharCode(byte);
 			}
 			
-			if(!this.openTag)
+			if(this.all)
+			{
+				if(this.open)
+				{
+					if(char === this.open)
+					{
+						this.open = '';
+						this.push(this.value);
+						this.value = '';
+					}
+					else
+					{
+						this.value += char;
+					}
+				}
+				else for(const s of this.scheme)
+				{
+					if(at(i, s))
+					{
+						this.open = ' ';
+						i += s.length - 1;
+						continue chunkLoop;
+					}
+				}
+			}
+			else if(!this.openTag)
 			{
 				if(char === '<')
 				{
