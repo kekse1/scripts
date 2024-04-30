@@ -36,8 +36,8 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-30**\] [`reflection`.js](#reflectionjs) updated to **v2.1.0**: important update!
 * \[**2024-04-29**\] Updated [`links`.js](#linksjs) to **v0.8.2**.
-* \[**2024-04-28**\] New [`reflection`.js](#reflectionjs) **v2.0.1**;
 * \[**2024-04-23**\] New [`convert-to-gguf`.sh](#convert-to-ggufsh) script, **v0.0.4**
 * \[**2024-04-23**\] Created the [`nightlounge`.sh](#nightloungesh) script, **v0.2.2**
 * \[**2024-04-22**\] Updated [`hugging`.sh](#huggingsh) to **v0.2.4**..
@@ -305,7 +305,7 @@ one `.scheme[]` item..
 Nice one; have phun.
 
 ### [`reflection`.js](js/reflection.js)
-* [Version **v2.0.0**](js/reflection.js) (updated **2024-04-29**)
+* [Version **v2.1.0**](js/reflection.js) (updated **2024-04-30**)
 
 My solution for JavaScript's `instanceof` problem, so when in multiple environments
 the classes are initialized/declared not once. In this case, comparing two environments,
@@ -315,6 +315,10 @@ are being created multiple times in multiple environments..
 So I'm using `[Reflect.]is()` and `[Reflect.]was()` (for a long time, so it's well tested,
 and works great). You'll find _more description_ in this [`reflection`.js](js/reflection.js), in
 the starting comment on top of the file.
+
+> [!IMPORTANT]
+> Since **v2.1.0** the additional `was()` parameters (varargs) mean **AND**, **not** **OR** any longer..
+> But the `is()` stayed the same (**OR**);
 
 ### [`fold.css`.js](js/fold.css.js)
 * [Version **v0.1.0**](js/fold.css.js) (updated **2024-03-04**)

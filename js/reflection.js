@@ -1,7 +1,7 @@
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // https://kekse.biz/ https://github.com/kekse1/scripts/
-// v2.0.1
+// v2.1.0
 //
 // The problem was: depending on your JavaScript *environment*, which also changes
 // e.g. when using <iframe> or so, the base classes are being initialized/declared/..
@@ -20,6 +20,8 @@
 // Either you call them just with an object/item, to show their names,
 // or you define one or many strings, to compare them with your params
 // (which will result a Boolean type, not a String or an Array of Strings).
+//
+// NEW since v2.1.0: 'was()' arguments mean logical AND.. 'is()' still OR.
 //
 // I'm using it for a long time now, and it really works great. No problems occured,
 // and I recommend you to always use this instead of `instanceof` or smth. like it.
@@ -41,8 +43,9 @@ Reflect.defineProperty(Reflect, 'was', { value: (_item, ... _args) => {
 	var name; for(var i = 0, j = 0; i < prototypes.length; ++i)
 		if(typeof (name = Reflect.is(prototypes[i])) === 'string')
 			result[j++] = name;
-	if(_args.length === 0) return result; for(var i = 0; i < result.length; ++i)
-		if(_args.includes(result[i])) return true; return false;
+	if(_args.length === 0) return result; for(var i = 0; i < _args.length; ++i)
+		if(!result.includes(_args[i])) return false;
+	return true;
 }});
 
 Reflect.defineProperty(Reflect, 'is', { value: (_item, ... _args) => {
