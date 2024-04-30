@@ -227,7 +227,7 @@ This was created very quickly, without much features or tests.
 Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/wiki/Home_router) for more.
 
 ### [`hugging`.sh](sh/hugging.sh)
-* [Version **v0.2.4**](sh/hugging.sh) (updated **2024-04-23**)
+* [Version **v0.2.5**](sh/hugging.sh) (updated **2024-04-30**)
 
 Easily use the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) tool, to download
 full models from [Hugging Face](https://huggingface.co/), a community for Large Language Models, etc.
