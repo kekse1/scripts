@@ -336,7 +336,7 @@ binary search possible here).
 * [Version **v0.2.0**](js/multiset.js) (created **2024-04-30**)
 
 My `MultiSet` class: extends `Map`, but works like a `Set`, with the difference
-that it also counts the amount of all items in this set.
+that it also counts the amount of items in this set.
 
 ### [`fold.css`.js](js/fold.css.js)
 * [Version **v0.1.0**](js/fold.css.js) (updated **2024-03-04**)
