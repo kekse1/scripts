@@ -14,12 +14,12 @@ const DEFAULT_INC = 1;
 const DEFAULT_DEC = 1;
 
 //
-Math.int = (_value, _precision = 0, _inverse = false) => {
+Math.int = (_value, _inverse = false) => {
 	const a = (_value < 0);
 	const b = (!!_inverse);
 	return (((((a&&b)||!(a||b)) ?
 		Math.floor :
-		Math.ceil)(_value, _precision)) || 0); };
+		Math.ceil)(_value)) || 0); };
 
 //
 class MultiSet extends Map
