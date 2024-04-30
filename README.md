@@ -39,7 +39,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 
 ## News
 * \[**2024-04-30**\] New [`MultiSet`](#multisetjs) class, **v0.2.0**.
-* \[**2024-04-30**\] New [`intersection`.js](#intersectionjs) for arrays, **v0.2.0** (for any data type);
+* \[**2024-04-30**\] New [`intersection`.js](#intersectionjs) for arrays, **v0.2.1** (for any data type);
 * \[**2024-04-30**\] [`reflection`.js](#reflectionjs) updated to **v2.1.0**: **important update**!
 * \[**2024-04-29**\] Updated [`links`.js](#linksjs) to **v0.8.2**.
 * \[**2024-04-23**\] New [`convert-to-gguf`.sh](#convert-to-ggufsh) script, **v0.0.4**
@@ -325,10 +325,11 @@ the starting comment on top of the file.
 > But the `is()` stayed the same (**OR**);
 
 ### [`intersection`.js](js/intersection.js)
-* [Version **v0.2.0**](js/intersection.js) (created **2024-04-30**)
+* [Version **v0.2.1**](js/intersection.js) (created **2024-04-30**)
 
 Intersection for Arrays. Works with any data type (so no optimization like
-binary search possible here).
+binary search possible here), and respects multiple occurences (if no (true)
+is in your arguments).
 
 **Depends** on my [`multiset`.js](#multisetjs)!!
 
