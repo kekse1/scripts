@@ -333,7 +333,7 @@ binary search possible here).
 **Depends** on my [`multiset`.js](#multisetjs)!!
 
 ### [`multiset`.js](js/multiset.js)
-* [Version **v0.2.0**](js/multiset.js)
+* [Version **v0.2.0**](js/multiset.js) (created **2024-04-30**)
 
 My `MultiSet` class: extends `Map`, but works like a `Set`, with the difference
 that it also counts the amount of all items in this set.
