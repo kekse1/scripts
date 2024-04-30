@@ -30,13 +30,17 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 	* [`clone`.js](#clonejs)
 	* [`links`.js](#linksjs)
     * [`reflection`.js](#reflectionjs)
+    * [`intersection`.js](#intersectionjs)
+    * [`multiset`.js](#multisetjs)
 	* [`fold.css`.js](#foldcssjs)
 4. [C/C++](#cc)
     * [`nproc.c`](#nprocc)
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-04-30**\] [`reflection`.js](#reflectionjs) updated to **v2.1.0**: important update!
+* \[**2024-04-30**\] New [`MultiSet`](#multisetjs) class, **v0.2.0**.
+* \[**2024-04-30**\] New [`intersection`.js](#intersectionjs) for arrays, **v0.2.0** (for any data type);
+* \[**2024-04-30**\] [`reflection`.js](#reflectionjs) updated to **v2.1.0**: **important update**!
 * \[**2024-04-29**\] Updated [`links`.js](#linksjs) to **v0.8.2**.
 * \[**2024-04-23**\] New [`convert-to-gguf`.sh](#convert-to-ggufsh) script, **v0.0.4**
 * \[**2024-04-23**\] Created the [`nightlounge`.sh](#nightloungesh) script, **v0.2.2**
@@ -319,6 +323,20 @@ the starting comment on top of the file.
 > [!IMPORTANT]
 > Since **v2.1.0** the additional `was()` parameters (varargs) mean **AND**, **not** **OR** any longer..
 > But the `is()` stayed the same (**OR**);
+
+### [`intersection`.js](js/intersection.js)
+* [Version **v0.2.0**](js/intersection.js) (created **2024-04-30**)
+
+Intersection for Arrays. Works with any data type (so no optimization like
+binary search possible here).
+
+**Depends** on my [`multiset`.js](#multisetjs)!!
+
+### [`multiset`.js](js/multiset.js)
+* [Version **v0.2.0**](js/multiset.js)
+
+My `MultiSet` class: extends `Map`, but works like a `Set`, with the difference
+that it also counts the amount of all items in this set.
 
 ### [`fold.css`.js](js/fold.css.js)
 * [Version **v0.1.0**](js/fold.css.js) (updated **2024-03-04**)
