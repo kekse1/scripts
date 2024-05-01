@@ -76,7 +76,7 @@ _JFYI_: Dependency is the [**`exiftool`**](https://exiftool.org), which is the
 packet `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
 
 ### [`sync`.sh](sh/sync.sh)
-* [Version **v0.4.3**](sh/sync.sh) (updated **2024-04-23**)
+* [Version **v0.4.4**](sh/sync.sh) (updated **2024-05-01**)
 
 Another helping hand which became required since I'm managing some archive on my server,
 which needs to be synchronized with an SB stick (using `crontab`, ..).
