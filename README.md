@@ -38,11 +38,11 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-05-01**\] Updated [`convert-to-gguf`.sh](#convert-to-ggufsh) to **v0.0.5**
 * \[**2024-04-30**\] New [`MultiSet`](#multisetjs) class, **v0.2.0**.
 * \[**2024-04-30**\] New [`intersection`.js](#intersectionjs) for arrays, **v0.2.1** (for any data type);
 * \[**2024-04-30**\] [`reflection`.js](#reflectionjs) updated to **v2.1.0**: **important update**!
 * \[**2024-04-29**\] Updated [`links`.js](#linksjs) to **v0.8.2**.
-* \[**2024-04-23**\] New [`convert-to-gguf`.sh](#convert-to-ggufsh) script, **v0.0.4**
 * \[**2024-04-23**\] Created the [`nightlounge`.sh](#nightloungesh) script, **v0.2.2**
 * \[**2024-04-22**\] Updated [`hugging`.sh](#huggingsh) to **v0.2.4**..
 
@@ -239,7 +239,7 @@ For the model conversion to the **`.gguf`** format see [this GitHub link](https:
 And for some more things about **Artificial Intelligence** see [**~intelligence** at my private website](https://kekse.biz/?~intelligence).
 
 ### [`convert-to-gguf`.sh](sh/convert-to-gguf.sh)
-* [Version **v0.0.4**](sh/convert-to-gguf.sh) (updated **2024-04-23**)
+* [Version **v0.0.5**](sh/convert-to-gguf.sh) (updated **2024-05-01**)
 
 > [!IMPORTANT]
 > Dependencies: **Python 3** (w/ `pip`) and [`llama.cpp`](https://github.com/ggerganov/llama.cpp/);
