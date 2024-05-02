@@ -4,7 +4,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.3
+# v0.4.4
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
@@ -153,8 +153,8 @@ fi
 CMD="${CMD} ${USER}@${SRV}:\"${SRC}\" \"${TRGT}\""
 
 # show kinda summary, just to info..
-echo " >> Your command line is defined as follows:"
-echo "   '$CMD'"
+echo " >> Your command line is as follows:"
+echo "   \`$CMD\`"
 echo
 
 # function to repeatly ask user until y/n are his answer..

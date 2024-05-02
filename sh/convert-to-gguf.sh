@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/
-# v0.0.4
+# v0.0.5
 #
 # https://github.com/ggerganov/llama.cpp/discussions/2948
 #
@@ -12,7 +12,7 @@
 # necessary for the transformers I listed on my website @
 # https://kekse.biz/?~intelligence ...
 #
-# Syntax: $0 [ <model> ]
+# Syntax: <model> [ <type> [ ... ] ]
 #
 # If called without parameter, you'll see a list of the
 # available models.
@@ -64,12 +64,18 @@ MODEL=
 
 if [[ $# -gt 0 ]]; then
 	MODEL="$1"
+	shift
 	echo " >> Selected model: '$MODEL'"
 
-	if [[ $# -gt 1 ]]; then
-		TYPE="$2"
+	if [[ -n "$1" ]]; then
+		TYPE="$1"
+		shift
 		echo " >> Target type: '$TYPE'"
 	fi
+
+	for i in "$@"; do
+		ARGS="${ARGS} '$i'"
+	done
 else
 	cd "$MODELS" 2>/dev/null
 
