@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.8.2
+ * v0.8.3
  */
 
 //
@@ -185,14 +185,14 @@ class Links
 		return DEFAULT_ATTRIBS;
 	}
 
-	finish()
+	end()
 	{
 		if(this.open && this.value)
 		{
 			this.push(this.value);
 		}
 
-		//this.emit('finish', this.links, this);
+		//this.emit('end', this.links, this);
 		this.fin = true;
 		this.value = null;
 		return this.links;
@@ -201,7 +201,7 @@ class Links
 	extract(_data)
 	{
 		var result = this.onData(_data);
-		if(_data !== null) result = this.finish();
+		if(_data !== null) result = this.end();
 		return result;
 	}
 
@@ -295,7 +295,7 @@ class Links
 	{
 		if(_chunk === null)
 		{
-			return this.finish();
+			return this.end();
 		}
 		else if(this.value === null && this.all)
 		{
