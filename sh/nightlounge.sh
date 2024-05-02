@@ -3,10 +3,15 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.2
+# v0.2.3
 #
 # Start streaming.. I use it for the "BigFM Nightlounge".
 # You can add this to your /etc/crontab. :-)
+#
+# New since v0.2.3: you can optionally start this script
+# with a `sleep` parameter (e.g. "25m") to delay the stream
+# recording for a while.. so if you start this before
+# midnight, it'll wait until it'll finally start the stream.
 #
 
 #
@@ -48,6 +53,15 @@ cleanUp()
 	ls -al "$OUT"
 	echo -e "\n\n"
 }
+
+if [[ $# -gt 0 ]]; then
+	echo " >> Waiting for '$1' ..."
+	sleep "$1"
+	if [[ $? -ne 0 ]]; then
+		echo " >> Unable to \`sleep $1\`.. try again." >&2
+		exit 2
+	fi
+fi
 
 #
 wget -O "$OUT" "$URL" &

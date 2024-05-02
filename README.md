@@ -45,7 +45,6 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 * \[**2024-04-30**\] New [`MultiSet`](#multisetjs) class, **v0.2.0**.
 * \[**2024-04-30**\] New [`intersection`.js](#intersectionjs) for arrays, **v0.2.1** (for any data type);
 * \[**2024-04-30**\] [`reflection`.js](#reflectionjs) updated to **v2.1.0**: **important update**!
-* \[**2024-04-23**\] Created the [`nightlounge`.sh](#nightloungesh) script, **v0.2.2**
 * \[**2024-04-22**\] Updated [`hugging`.sh](#huggingsh) to **v0.2.4**..
 
 ## [Bash](sh/)
@@ -262,13 +261,17 @@ See also [this link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
 > `python llama.cpp/convert.py -h`
 
 ### [`nightlounge`.sh](sh/nightlounge.sh)
-* [Version **v0.2.2**](sh/nightlounge.sh) (updated **2024-04-24**)
+* [Version **v0.2.3**](sh/nightlounge.sh) (updated **2024-05-02**)
 
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
 I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 
 > [!TIP]
 > You can add this to your '/etc/crontab'. ;-)
+
+> [!NOTE]
+> Since **v0.2.3** you can additionally start the script with a `sleep` parameter,
+> to delay/wait for e.g. `20m`.
 
 ### [`lsblk`.sh](sh/lsblk.sh)
 * [Version **v0.2.0**](sh/lsblk.sh) (created **2024-05-02**)
