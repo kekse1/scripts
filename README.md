@@ -39,11 +39,8 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-<<<<<<< HEAD
 * \[**2024-05-02**\] New [`lsblk`.sh](#lsblksh) shell script, **v0.2.0**;
-=======
 * \[**2024-05-02**\] Updated [`links`.js](#linksjs) to **v0.8.3**.
->>>>>>> 7537d5c05d88ffbb31b9e2ef3f50c2076ee40a83
 * \[**2024-05-01**\] Updated [`convert-to-gguf`.sh](#convert-to-ggufsh) to **v0.0.5**
 * \[**2024-04-30**\] New [`MultiSet`](#multisetjs) class, **v0.2.0**.
 * \[**2024-04-30**\] New [`intersection`.js](#intersectionjs) for arrays, **v0.2.1** (for any data type);
