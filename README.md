@@ -26,6 +26,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 	* [`hugging`.sh](#huggingsh)
 	* [`convert-to-gguf`.sh](#convert-to-ggufsh)
 	* [`nightlounge`.sh](#nightloungesh)
+	* [`lsblk`.sh](#lsblksh)
 3. [JavaScript](#javascript)
 	* [`clone`.js](#clonejs)
 	* [`links`.js](#linksjs)
@@ -38,6 +39,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-05-02**\] New [`lsblk`.sh](#lsblksh) shell script, **v0.2.0**;
 * \[**2024-05-01**\] Updated [`convert-to-gguf`.sh](#convert-to-ggufsh) to **v0.0.5**
 * \[**2024-04-30**\] New [`MultiSet`](#multisetjs) class, **v0.2.0**.
 * \[**2024-04-30**\] New [`intersection`.js](#intersectionjs) for arrays, **v0.2.1** (for any data type);
@@ -267,6 +269,26 @@ I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 
 > [!TIP]
 > You can add this to your '/etc/crontab'. ;-)
+
+### [`lsblk`.sh](sh/lsblk.sh)
+* [Version **v0.2.0**](sh/lsblk.sh) (created **2024-05-02**)
+
+The main reason for this script was: my Node.js projects need to handle
+whole block devices oder partitions. But I wanted to configure them by
+their (PART)UUID, so there'd be no problems when regular '/dev/sdb' or
+so change (which can happen, and this is a big problem!).
+
+In Node.js there's no regular way to open devices/partitions by their
+(PART)UUID; additionally, I couldn't get the sizes of the partitions
+or drives via `fstat*()`..
+
+The second reason was: using bash arrays and a special syntax to split
+the `--pairs` output into key/value etc., I wanted to leave myself a
+hint for future shell scripts.. and for you! Note, that I marked out
+for you where to use `case`, if you'd like to manage the key/value pairs.
+
+> [!NOTE]
+> For a bit more infos about this, see the top of [the script](sh/lsblk.sh)!
 
 ## JavaScript
 My favorite language.. absolutely. **^\_^**
