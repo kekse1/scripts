@@ -30,15 +30,17 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 3. [JavaScript](#javascript)
 	* [`clone`.js](#clonejs)
 	* [`links`.js](#linksjs)
-    * [`reflection`.js](#reflectionjs)
-    * [`intersection`.js](#intersectionjs)
-    * [`multiset`.js](#multisetjs)
+	* [`reflection`.js](#reflectionjs)
+	* [`intersection`.js](#intersectionjs)
+	* [`multiset`.js](#multisetjs)
+	* [`animation`.js](#animationjs)
 	* [`fold.css`.js](#foldcssjs)
 4. [C/C++](#cc)
     * [`nproc.c`](#nprocc)
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-05-08**\] New link to my [`animation`.js](#animationjs), from my [v4 project](https://github.com/kekse1/v4/);
 * \[**2024-05-02**\] New [`lsblk`.sh](#lsblksh) shell script, **v0.2.0**;
 * \[**2024-05-02**\] Updated [`links`.js](#linksjs) to **v0.8.3**.
 * \[**2024-05-01**\] Updated [`convert-to-gguf`.sh](#convert-to-ggufsh) to **v0.0.5**
@@ -363,6 +365,16 @@ is in your arguments).
 
 My `MultiSet` class: extends `Map`, but works like a `Set`, with the difference
 that it also counts the amount of items in this set.
+
+### [`animation`.js](https://github.com/kekse1/v4/blob/git/src/web/animation.js)
+This is just a link to the only [`animation`.js](https://github.com/kekse1/v4/blob/git/src/web/animation.js) of my
+[v4 project](https://github.com/kekse1/v4/).
+
+Some extensions to the [**Web Animations API**](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API);
+**very** necessary for my special needs.. it's also the one with the most lines.
+
+Maybe useful for you? But you've to read the source for yourself; and some functions may be missing;
+then look at my [v4 source code](https://kekse.biz/?~sources)!
 
 ### [`fold.css`.js](js/fold.css.js)
 * [Version **v0.1.0**](js/fold.css.js) (updated **2024-03-04**)
