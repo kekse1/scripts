@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.3
+# v0.2.4
 #
 # Start streaming.. I use it for the "BigFM Nightlounge".
 # You can add this to your /etc/crontab. :-)
@@ -21,6 +21,15 @@ EXT=".mp3"
 DURATION="130m"
 DATE="%A, %F"
 PID="wget.pid"
+
+#
+echo " >> Your stream: '$URL'"
+
+#
+if [[ $# -gt 0 ]]; then
+	echo " >> Now we're waiting for the clock until we record the stream: '$1'..."
+	sleep "$1"
+fi
 
 #
 if [[ -f "$PID" ]]; then

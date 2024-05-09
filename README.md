@@ -40,6 +40,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-05-09**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.4**
 * \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3** (fixed `Array._isArray` - it's not here, only in my lib..);
 * \[**2024-05-08**\] New link to my [`animation`.js](#animationjs), from my [v4 project](https://github.com/kekse1/v4/);
 * \[**2024-05-02**\] New [`lsblk`.sh](#lsblksh) shell script, **v0.2.0**;
@@ -264,7 +265,7 @@ See also [this link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
 > `python llama.cpp/convert.py -h`
 
 ### [`nightlounge`.sh](sh/nightlounge.sh)
-* [Version **v0.2.3**](sh/nightlounge.sh) (updated **2024-05-02**)
+* [Version **v0.2.4**](sh/nightlounge.sh) (updated **2024-05-09**)
 
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
 I use this script for my daily download of the 'BigFM Nightlounge' podcast.
@@ -273,8 +274,8 @@ I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 > You can add this to your '/etc/crontab'. ;-)
 
 > [!NOTE]
-> Since **v0.2.3** you can additionally start the script with a `sleep` parameter,
-> to delay/wait for e.g. `20m`.
+> Since **v0.2.3** and **v0.2.4** you can additionally start the script with
+> a `sleep` parameter, to delay/wait for e.g. `20m`.
 
 ### [`lsblk`.sh](sh/lsblk.sh)
 * [Version **v0.2.0**](sh/lsblk.sh) (created **2024-05-02**)
