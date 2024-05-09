@@ -26,12 +26,6 @@ PID="wget.pid"
 echo " >> Your stream: '$URL'"
 
 #
-if [[ $# -gt 0 ]]; then
-	echo " >> Now we're waiting for the clock until we record the stream: '$1'..."
-	sleep "$1"
-fi
-
-#
 if [[ -f "$PID" ]]; then
 	echo " >> Streaming is already running (PID = `cat \"$PID\"`)." >&2
 	exit 1
@@ -50,6 +44,14 @@ while [[ -f "${OUT}${EXT}" ]]; do
 done
 
 OUT="${OUT}${EXT}"
+echo " >> Output file: '$OUT'"
+
+#
+if [[ $# -gt 0 ]]; then
+	echo
+	echo " >> Now we're waiting for the clock until we record the stream: '$1'..."
+	sleep "$1"
+fi
 
 #
 cleanUp()
@@ -63,20 +65,11 @@ cleanUp()
 	echo -e "\n\n"
 }
 
-if [[ $# -gt 0 ]]; then
-	echo " >> Waiting for '$1' ..."
-	sleep "$1"
-	if [[ $? -ne 0 ]]; then
-		echo " >> Unable to \`sleep $1\`.. try again." >&2
-		exit 2
-	fi
-fi
-
 #
 wget -O "$OUT" "$URL" &
 pid="$!" #pid="`ps aux | grep wget | grep "$_out" | awk '{print $2}'`"
 echo -n "$pid" >"$PID"
-echo -e "\n\n\nGoing to \`kill -9 ${pid}\` in ${DURATION}!\n\n\n"
+echo -e "\n\n >> Going to \`kill -9 ${pid}\` in ${DURATION}!\n\n\n"
 
 trap "cleanUp $pid" INT
 sleep $DURATION && cleanUp $pid
