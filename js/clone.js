@@ -1,7 +1,7 @@
 // 
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // https://kekse.biz/ https://github.com/kekse1/scripts/
-// v0.4.2
+// v0.4.3
 // 
 // Just a tiny function to *really* clone objects (etc.); .. with all types, not only JSON supported ones
 // or so (sometimes the web referes to just `JSON.parse(JSON.stringify({}))`);
@@ -23,7 +23,7 @@ Reflect.defineProperty(Reflect, 'clone', { value: (_object, _map = null, _functi
 	else if(typeof _object === 'undefined' || _object === null) return _object; const keys = Reflect.ownKeys(_object);
 	var cloneFunc; if(typeof _object.clone === 'function') cloneFunc = _object.clone.bind(_object, ... _clone_args); else if(typeof _object.cloneNode === 'function')
 		cloneFunc = _object.cloneNode.bind(_object, true, ... _clone_args); else cloneFunc = null; if(cloneFunc === null && !Reflect.isExtensible(_object)) {
-			_map.set(_object, _object); return _object; } const isArray = (cloneFunc !== null ? -1 : (Array._isArray(_object) ?
+			_map.set(_object, _object); return _object; } const isArray = (cloneFunc !== null ? -1 : (Array.isArray(_object) ?
 			_object.length : -1)); var result; if(cloneFunc !== null) { result = cloneFunc(); _map.set(_object, result); return result; }
 	else if(isArray > -1) { result = new Array(isArray); for(var i = 0; i < _object.length; ++i) { keys.remove(i.toString()); result[i] = Reflect.clone(_object[i], _map, _function,
 		... _clone_args); keys.remove('length'); }} else if(typeof _object === 'function') { if(Function.isNative(_object) || !_function) result = _object;
