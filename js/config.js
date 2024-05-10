@@ -1,6 +1,6 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
- * https://kekse.biz/ https://github.com/kekse1/norbert/
+ * https://kekse.biz/ https://github.com/kekse1/scripts/
  * v0.2.1
  *
  * Using a regular `.json` file/structure. But with improved handling.
