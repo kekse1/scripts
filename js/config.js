@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.2.1
+ * v0.2.2
  *
  * Using a regular `.json` file/structure. But with improved handling.
  *
@@ -99,7 +99,7 @@ class Configuration
 		return null;
 	}
 
-	with(_path)
+	with(_path, _inverse = false)
 	{
 		if(!_path)
 		{
@@ -115,7 +115,7 @@ class Configuration
 
 		for(var i = 0; i < cfg.length; ++i)
 		{
-			if(cfg[i] === false)
+			if(cfg[i] === (_inverse ? true : false))
 			{
 				return false;
 			}

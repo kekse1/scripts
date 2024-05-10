@@ -41,7 +41,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-05-10**\] New [`config`.js](#configjs), **v0.2.1**!
+* \[**2024-05-10**\] New [`config`.js](#configjs), **v0.2.2**!
 * \[**2024-05-09**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.4**
 * \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3** (fixed `Array._isArray` - it's not here, only in my lib..);
 * \[**2024-05-08**\] New link to my [`animation`.js](#animationjs), from my [v4 project](https://github.com/kekse1/v4/);
@@ -340,7 +340,7 @@ one `.scheme[]` item..
 Nice one; have phun.
 
 ### [`config`.js](js/config.js)
-* [Version **v0.2.1**](js/config.js) (created **2024-05-10**)
+* [Version **v0.2.2**](js/config.js) (created **2024-05-10**)
 
 Using a regular `.json` file/structure. But with improved handling.
 
