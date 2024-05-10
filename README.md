@@ -30,6 +30,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 3. [JavaScript](#javascript)
 	* [`clone`.js](#clonejs)
 	* [`links`.js](#linksjs)
+	* [`config`.js](#configjs)
 	* [`reflection`.js](#reflectionjs)
 	* [`intersection`.js](#intersectionjs)
 	* [`multiset`.js](#multisetjs)
@@ -40,6 +41,7 @@ Every script is made by myself, arose out of necessity.. (most?) without any dep
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-05-10**\] New [`config`.js](#configjs), **v0.2.1**!
 * \[**2024-05-09**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.4**
 * \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3** (fixed `Array._isArray` - it's not here, only in my lib..);
 * \[**2024-05-08**\] New link to my [`animation`.js](#animationjs), from my [v4 project](https://github.com/kekse1/v4/);
@@ -336,6 +338,22 @@ e.g. `text/plain`; BUT you need (beneath `.all` or `DEFAULT_ALL`) also at least
 one `.scheme[]` item..
 
 Nice one; have phun.
+
+### [`config`.js](js/config.js)
+* [Version **v0.2.1**](js/config.js) (created **2024-05-10**)
+
+Using a regular `.json` file/structure. But with improved handling.
+
+Example given: { server: { host: 'localhost', { http: { port: 8080 } } } };
+You can `.get('server.http.host');` and nevertheless get the `host` above it.
+
+It's possible to receive an array with all upper definitions, and via `_index`
+argument to select one (-1 for the last, deepest one, e.g.). You can also FORCE
+a concrete item without parents, see '.force()'.
+
+The `.with()` function is meant for e.g. { enabled: (bool) }. It checks all upper
+occurencies, if there's at least one (false) value. So you can 'globally' disable
+smth., even if deeper occurencies enable smth. I needed/wanted this.
 
 ### [`reflection`.js](js/reflection.js)
 * [Version **v2.1.0**](js/reflection.js) (updated **2024-04-30**)
