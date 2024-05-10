@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.2.2
+ * v0.2.3
  *
  * Using a regular `.json` file/structure. But with improved handling.
  *
@@ -15,6 +15,7 @@
  * The `.with()` function is meant for e.g. { enabled: (bool) }. It checks all upper
  * occurencies, if there's at least one (false) value. So you can 'globally' disable
  * smth., even if deeper occurencies enable smth. I needed/wanted this.
+ * Now w/ `.enabled()` and `.disabled()`!
  *
  * The [delim] can be changed (defaults to `DEFAULT_DELIM`). On the bottom of this
  * file I also defined my `Math.getIndex(_index, _length)`, btw.
@@ -117,11 +118,21 @@ class Configuration
 		{
 			if(cfg[i] === (_inverse ? true : false))
 			{
-				return false;
+				return (_inverse ? true : false);
 			}
 		}
 
-		return true;
+		return (_inverse ? false : true);
+	}
+
+	enabled(_path)
+	{
+		return this.with(_path, false);
+	}
+
+	disabled(_path)
+	{
+		return this.with(_path, true);
 	}
 
 	get(_path, _index = -1)
