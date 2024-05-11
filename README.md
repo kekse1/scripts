@@ -1,7 +1,7 @@
 <img src="https://kekse.biz/github.php?draw&override=github:scripts" />
 
 # **Scripts**
-Every script is made by myself, arose out of necessity.. (most?) without any dependency.
+Every script is made by myself, arose out of necessity.. or because I found it interesting.
 
 ## Index
 1. [News](#news)
