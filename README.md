@@ -43,7 +43,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 ## News
 * \[**2024-05-10**\] New [`config`.js](#configjs), **v0.2.3**!
 * \[**2024-05-09**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.4**
-* \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3** (fixed `Array._isArray` - it's not here, only in my lib..);
+* \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3**
 * \[**2024-05-08**\] New link to my [`animation`.js](#animationjs), from my [v4 project](https://github.com/kekse1/v4/);
 * \[**2024-05-02**\] New [`lsblk`.sh](#lsblksh) shell script, **v0.2.0**;
 * \[**2024-05-02**\] Updated [`links`.js](#linksjs) to **v0.8.3**.
