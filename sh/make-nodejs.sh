@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.3
+# v0.3.4
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -391,7 +391,7 @@ begin()
 cleanup()
 {
 	cd
-	rm -vrf "$tmpdir"
+	rm -rf "$tmpdir"
 
 	if [[ $? -ne 0 ]]; then
 	  echo " >> Unable to remove the '$tmpdir'! Maybe a process is in there?" >&2

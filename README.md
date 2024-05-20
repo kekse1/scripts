@@ -211,7 +211,7 @@ only counting all different extensions available under the current working direc
 to limit the `find` recursion depth via optional first argument (needs to be positive integer).
 
 ### [`make-nodejs`.sh](sh/make-nodejs.sh)
-* [Version **v0.3.3**](sh/make-nodejs.sh) (updated **2024-04-28**)
+* [Version **v0.3.4**](sh/make-nodejs.sh) (updated **2024-05-20**)
 
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
@@ -220,7 +220,7 @@ the only thing left to do, _just once_, is to merge the fs structure under the s
 the `/usr/` hierarchy.
 
 > [!NOTE]
-> Just call it via `make-nodejs.sh 21.7.3`, e.g.!
+> Just call it via `make-nodejs.sh 22.2.0`, e.g.!
 
 There's a tiny //**TODO**/ (on top of the file), since this script is really old,
 and could maybe be improved in some ways.. **yet to come**!!
