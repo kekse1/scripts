@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.2.3
+ * v0.2.4
  *
  * Using a regular `.json` file/structure. But with improved handling.
  *
@@ -118,11 +118,11 @@ class Configuration
 		{
 			if(cfg[i] === (_inverse ? true : false))
 			{
-				return (_inverse ? true : false);
+				return false;
 			}
 		}
 
-		return (_inverse ? false : true);
+		return true;
 	}
 
 	enabled(_path)

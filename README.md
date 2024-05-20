@@ -41,7 +41,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-05-10**\] New [`config`.js](#configjs), **v0.2.3**!
+* \[**2024-05-20**\] Updated the [`config`.js](#configjs) to **v0.2.4** (important update!!)
 * \[**2024-05-09**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.4**
 * \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3**
 * \[**2024-05-08**\] New link to my [`animation`.js](#animationjs), from my [v4 project](https://github.com/kekse1/v4/);
@@ -340,7 +340,7 @@ one `.scheme[]` item..
 Nice one; have phun.
 
 ### [`config`.js](js/config.js)
-* [Version **v0.2.3**](js/config.js) (created **2024-05-10**)
+* [Version **v0.2.4**](js/config.js) (updated **2024-05-20**)
 
 Using a regular `.json` file/structure. But with improved handling.
 
@@ -355,6 +355,9 @@ The `.with()` function is meant for e.g. { enabled: (bool) }. It checks all uppe
 occurencies, if there's at least one (false) value. So you can 'globally' disable
 smth., even if deeper occurencies enable smth. I needed/wanted this; .. now with
 `.enabled()` and `.disabled()`.
+
+> [!IMPORTANT]
+> **Important update** in **v0.2.4**: `.disabled()` now returns the right boolean result
 
 ### [`reflection`.js](js/reflection.js)
 * [Version **v2.1.0**](js/reflection.js) (updated **2024-04-30**)
