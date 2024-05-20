@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.5
+# v0.2.6
 #
 # Easily use the `hfdownloader` tool, from:
 # https://github.com/bodaay/HuggingFaceModelDownloader
@@ -17,14 +17,10 @@
 #
 
 #
-CONCURRENT=6
-TOKEN="" #"token.txt" #a file!
+CONCURRENT=4
+TOKEN="" #a file!
 TOOL="./hfdownloader"
-ARGS=""
-
-#
-DEFAULT_MODEL="" #mistralai/Mixtral-8x22B-v0.1"
-DEFAULT_PARAM="" #e.g. "q4_0,q5_0"
+ARGS="--maxRetries 16 --retryInterval 20"
 
 #
 real="$(realpath "$0")"
@@ -62,9 +58,7 @@ MODEL=''
 if [[ $# -gt 0 ]]; then
 	MODEL="$1"
 	shift
-elif [[ -z "$MODEL" && -n "$DEFAULT_MODEL" ]]; then
-	MODEL="${DEFAULT_MODEL}"
-else
+elif [[ -z "$MODEL" ]]; then
 	echo " >> No model defined!" >&2
 	exit 4
 fi
@@ -76,8 +70,6 @@ if [[ "$MODEL" != *:* ]]; then
 		for i in "$@"; do
 			MODEL="${MODEL},$i"
 		done
-	elif [[ -n "$DEFAULT_PARAM" ]]; then
-		MODEL="${MODEL}:${DEFAULT_PARAM}"
 	fi
 fi
 
