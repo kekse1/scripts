@@ -42,7 +42,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-05-21**\] Created [`street-split`.js], see [**this discussion**](https://www.php.de/forum/webentwicklung/php-einsteiger/1614566-stra%C3%9Fe-und-hausnummer-korrekt-trennen);
+* \[**2024-05-21**\] Created [`street-split`.js](#street-splitjs), see [**this discussion**](https://www.php.de/forum/webentwicklung/php-einsteiger/1614566-stra%C3%9Fe-und-hausnummer-korrekt-trennen);
 * \[**2024-05-20**\] Updated the [`config`.js](#configjs) to **v0.2.4** (important update!!)
 * \[**2024-05-09**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.4**
 * \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3**
