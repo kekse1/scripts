@@ -5,7 +5,8 @@
  * https://kekse.biz/ https://github.com/kekse1/scripts/
  * v0.1.0
  *
- * https://www.php.de/forum/webentwicklung/php-einsteiger/1614566-stra%C3%9Fe-und-hausnummer-korrekt-trennen
+ * It's merely kinda proof of concept that state parsers can be as good as regular expressions, or even better; ;-D
+ * < https://www.php.de/forum/webentwicklung/php-einsteiger/1614566-stra%C3%9Fe-und-hausnummer-korrekt-trennen >
  * 
  */
 
