@@ -35,12 +35,14 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`intersection`.js](#intersectionjs)
 	* [`multiset`.js](#multisetjs)
 	* [`animation`.js](#animationjs)
+    * [`street-split`.js](#street-splitjs)
 	* [`fold.css`.js](#foldcssjs)
 4. [C/C++](#cc)
     * [`nproc.c`](#nprocc)
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-05-21**\] Created [`street-split`.js], see [**this discussion**](https://www.php.de/forum/webentwicklung/php-einsteiger/1614566-stra%C3%9Fe-und-hausnummer-korrekt-trennen);
 * \[**2024-05-20**\] Updated the [`config`.js](#configjs) to **v0.2.4** (important update!!)
 * \[**2024-05-09**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.4**
 * \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3**
@@ -399,6 +401,11 @@ Some extensions to the [**Web Animations API**](https://developer.mozilla.org/en
 
 Maybe useful for you? But you've to read the source for yourself; and some functions may be missing;
 then look at my [v4 source code](https://kekse.biz/?~sources)!
+
+### [`street-split`.js](js/street-split.js)
+* [Version **v0.1.0**](js/street-split.js) (created **2024-05-21**)
+
+It's merely kinda **proof of concept** that state parsers can be as good as regular expressions, or even better! **;-D**
 
 ### [`fold.css`.js](js/fold.css.js)
 * [Version **v0.1.0**](js/fold.css.js) (updated **2024-03-04**)
