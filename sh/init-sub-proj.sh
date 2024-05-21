@@ -37,7 +37,6 @@ root/netz/network/server/net
 run
 sh/copy-netz.sh
 sh/netz.sh
-test/
 URL.txt
 usr/bin/netz.sh
 usr/etc/norbert
