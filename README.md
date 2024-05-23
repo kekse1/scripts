@@ -43,7 +43,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-05-22**\] New [`init-sub-proj`.sh](#init-sub-projsh), **v0.3.0**;
+* \[**2024-05-22**\] New [`init-sub-proj`.sh](#init-sub-projsh), **v0.3.1**;
 * \[**2024-05-21**\] Created [`street-split`.js](#street-splitjs), see [**this discussion**](https://www.php.de/forum/webentwicklung/php-einsteiger/1614566-stra%C3%9Fe-und-hausnummer-korrekt-trennen);
 * \[**2024-05-20**\] Updated the [`config`.js](#configjs) to **v0.2.4** (important update!!)
 * \[**2024-05-09**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.4**
@@ -304,7 +304,7 @@ for you where to use `case`, if you'd like to manage the key/value pairs.
 > For a bit more infos about this, see the top of [the script](sh/lsblk.sh)!
 
 ### [`init-sub-proj`.sh](sh/init-sub-proj.sh)
-* [Version **v0.3.0**](sh/init-sub-proj.sh) (created **2024-05-22**)
+* [Version **v0.3.1**](sh/init-sub-proj.sh) (updated **2024-05-23**)
 
 I do initialize a sub part of my bigger project with
 the help of this script.

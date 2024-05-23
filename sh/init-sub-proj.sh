@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/norbert/
-# v0.3.0
+# v0.3.1
 #
 # I do initialize a sub part of my bigger project with
 # the help of this script.
@@ -144,7 +144,7 @@ for i in "${COPY[@]}"; do
 done
 
 #
-_keep_files()
+_keep()
 {
 	_created=0
 	_existed=0
@@ -190,8 +190,9 @@ _keep_files()
 }
 
 #
-_keep_files "$TARGET"
+_keep "$TARGET"
 [[ $? -ne 0 ]] && echo "Couldn't create all \`.keep\` files in target directories.. :-/" >&2
 
 #
 echo "Created a deep copy of ${#COPY[@]} items (recursions *not* counted). :-)"
+
