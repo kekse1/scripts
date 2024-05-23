@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.4
+# v0.2.5
 #
 # Start streaming.. I use it for the "BigFM Nightlounge".
 # You can add this to your /etc/crontab. :-)
@@ -51,6 +51,10 @@ if [[ $# -gt 0 ]]; then
 	echo
 	echo " >> Now we're waiting for the clock until we record the stream: '$1'..."
 	sleep "$1"
+	if [[ $? -ne 0 ]]; then
+		echo "Error!" >&2
+		exit 2
+	fi
 fi
 
 #

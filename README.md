@@ -43,10 +43,10 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-05-23**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.5**
 * \[**2024-05-22**\] New [`init-sub-proj`.sh](#init-sub-projsh), **v0.3.1**;
 * \[**2024-05-21**\] Created [`street-split`.js](#street-splitjs), see [**this discussion**](https://www.php.de/forum/webentwicklung/php-einsteiger/1614566-stra%C3%9Fe-und-hausnummer-korrekt-trennen);
 * \[**2024-05-20**\] Updated the [`config`.js](#configjs) to **v0.2.4** (important update!!)
-* \[**2024-05-09**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.4**
 * \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3**
 * \[**2024-05-08**\] New link to my [`animation`.js](#animationjs), from my [v4 project](https://github.com/kekse1/v4/);
 * \[**2024-05-02**\] New [`lsblk`.sh](#lsblksh) shell script, **v0.2.0**;
@@ -271,17 +271,13 @@ See also [this link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
 > `python llama.cpp/convert.py -h`
 
 ### [`nightlounge`.sh](sh/nightlounge.sh)
-* [Version **v0.2.4**](sh/nightlounge.sh) (updated **2024-05-09**)
+* [Version **v0.2.5**](sh/nightlounge.sh) (updated **2024-05-23**)
 
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
 I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 
 > [!TIP]
 > You can add this to your '/etc/crontab'. ;-)
-
-> [!NOTE]
-> Since **v0.2.3** and **v0.2.4** you can additionally start the script with
-> a `sleep` parameter, to delay/wait for e.g. `20m`.
 
 ### [`lsblk`.sh](sh/lsblk.sh)
 * [Version **v0.2.0**](sh/lsblk.sh) (created **2024-05-02**)
