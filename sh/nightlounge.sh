@@ -50,11 +50,7 @@ echo " >> Output file: '$OUT'"
 if [[ $# -gt 0 ]]; then
 	echo
 	echo " >> Now we're waiting for the clock until we record the stream: '$1'..."
-	sleep "$1"
-	if [[ $? -ne 0 ]]; then
-		echo "Error!" >&2
-		exit 2
-	fi
+	sleep "$1" || exit 2
 fi
 
 #
