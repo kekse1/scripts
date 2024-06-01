@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.2.4
+ * v0.3.0
  *
  * Using a regular `.json` file/structure. But with improved handling.
  *
@@ -25,19 +25,56 @@
 const DEFAULT_DELIM = '.';
 const DEFAULT_FORCE = false;
 const DEFAULT_ALL = true;
+const DEFAULT_THROW = true;
+const DEFAULT_RESET = false;
 
 //
 class Configuration
 {
 	constructor(... _args)
 	{
+		this.CONFIG = null;
+
 		for(var i = 0; i < _args.length; ++i)
 		{
 			if(typeof _args[i] === 'string' && _args[i].length > 0)
 			{
 				this._delim = _args.splice(i--, 1)[0];
 			}
+			else if(typeof _args[i] === 'object' && _args[i] !== null)
+			{
+				this.wrap(_args.splice(i--, 1)[0]);
+			}
 		}
+	}
+
+	static wrap(_object, ... _args)
+	{
+		if(typeof _object !== 'object' || _object === null)
+		{
+			if(DEFAULT_THROW)
+			{
+				throw new Error('Invalid _object argument');
+			}
+
+			return null;
+		}
+
+		return new Configuration(_object, ... _args);
+	}
+
+	wrap(_object, _reset = DEFAULT_RESET)
+	{
+		if(typeof _object !== 'object' || _object === null)
+		{
+			return null;
+		}
+		else if(_reset || typeof this.CONFIG !== 'object' || this.CONFIG === null)
+		{
+			this.CONFIG = Object.create(null);
+		}
+
+		return Object.assign(this.CONFIG, _object);
 	}
 	
 	get delim()

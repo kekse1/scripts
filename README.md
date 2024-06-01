@@ -43,10 +43,10 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-06-01**\] Updated [`config`.js](#configjs) to **v0.3.0**;
 * \[**2024-05-23**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.5**
 * \[**2024-05-22**\] New [`init-sub-proj`.sh](#init-sub-projsh), **v0.3.1**;
 * \[**2024-05-21**\] Created [`street-split`.js](#street-splitjs), see [**this discussion**](https://www.php.de/forum/webentwicklung/php-einsteiger/1614566-stra%C3%9Fe-und-hausnummer-korrekt-trennen);
-* \[**2024-05-20**\] Updated the [`config`.js](#configjs) to **v0.2.4** (important update!!)
 * \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3**
 * \[**2024-05-08**\] New link to my [`animation`.js](#animationjs), from my [v4 project](https://github.com/kekse1/v4/);
 * \[**2024-05-02**\] New [`lsblk`.sh](#lsblksh) shell script, **v0.2.0**;
@@ -351,7 +351,7 @@ one `.scheme[]` item..
 Nice one; have phun.
 
 ### [`config`.js](js/config.js)
-* [Version **v0.2.4**](js/config.js) (updated **2024-05-20**)
+* [Version **v0.3.0**](js/config.js) (updated **2024-06-01**)
 
 Using a regular `.json` file/structure. But with improved handling.
 
@@ -367,8 +367,8 @@ occurencies, if there's at least one (false) value. So you can 'globally' disabl
 smth., even if deeper occurencies enable smth. I needed/wanted this; .. now with
 `.enabled()` and `.disabled()`.
 
-> [!IMPORTANT]
-> **Important update** in **v0.2.4**: `.disabled()` now returns the right boolean result
+You can, btw., init with config object using `{,static} wrap(_object, ..)`;
+or just argue with such a base object in any constructor argument.
 
 ### [`reflection`.js](js/reflection.js)
 * [Version **v2.1.0**](js/reflection.js) (updated **2024-04-30**)
