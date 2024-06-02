@@ -43,6 +43,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-05-01**\] Updated [`convert-to-gguf`.sh](#convert-to-ggufsh) to **v0.0.6**
 * \[**2024-06-01**\] Updated [`config`.js](#configjs) to **v0.3.0**;
 * \[**2024-05-23**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.5**
 * \[**2024-05-22**\] New [`init-sub-proj`.sh](#init-sub-projsh), **v0.3.1**;
@@ -51,7 +52,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 * \[**2024-05-08**\] New link to my [`animation`.js](#animationjs), from my [v4 project](https://github.com/kekse1/v4/);
 * \[**2024-05-02**\] New [`lsblk`.sh](#lsblksh) shell script, **v0.2.0**;
 * \[**2024-05-02**\] Updated [`links`.js](#linksjs) to **v0.8.3**.
-* \[**2024-05-01**\] Updated [`convert-to-gguf`.sh](#convert-to-ggufsh) to **v0.0.5**
 * \[**2024-04-30**\] New [`MultiSet`](#multisetjs) class, **v0.2.0**.
 * \[**2024-04-30**\] New [`intersection`.js](#intersectionjs) for arrays, **v0.2.1** (for any data type);
 * \[**2024-04-30**\] [`reflection`.js](#reflectionjs) updated to **v2.1.0**: **important update**!
@@ -250,7 +250,7 @@ For the model conversion to the **`.gguf`** format see [this GitHub link](https:
 And for some more things about **Artificial Intelligence** see [**~intelligence** at my private website](https://kekse.biz/?~intelligence).
 
 ### [`convert-to-gguf`.sh](sh/convert-to-gguf.sh)
-* [Version **v0.0.5**](sh/convert-to-gguf.sh) (updated **2024-05-01**)
+* [Version **v0.0.6**](sh/convert-to-gguf.sh) (updated **2024-06-02**)
 
 > [!IMPORTANT]
 > Dependencies: **Python 3** (w/ `pip`) and [`llama.cpp`](https://github.com/ggerganov/llama.cpp/);
@@ -269,6 +269,11 @@ See also [this link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
 > `git clone https://github.com/ggerganov/llama.cpp.git`
 > `./bin/python3 ./bin/pip install -r llama.cpp/requirements.txt`
 > `python llama.cpp/convert.py -h`
+
+> [!TIP]
+> If this doesn't work, you could also try this (beneath trying with changed `$VOCAB`:
+> `cd venv/`
+> `./bin/python llama.cpp/convert-hf-to-gguf.py --outtype q8_0 --outfile ../models/model.gguf ../downloads/model
 
 ### [`nightlounge`.sh](sh/nightlounge.sh)
 * [Version **v0.2.5**](sh/nightlounge.sh) (updated **2024-05-23**)
