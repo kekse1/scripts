@@ -136,7 +136,7 @@ CMD="'$PYTHON' '$CONVERT' '${MODEL}' --outtype ${TYPE} --outfile='${MODEL}${FORM
 [[ -n "$VOCAB" ]] && CMD="${CMD} --vocab-type '${VOCAB}'"
 [[ -n "$ARGS" ]] && CMD="${CMD} ${ARGS}"
 
-echo -e " >> Command: \"$CMD\"\n"
+echo -e " >> Command: \`$CMD\`\n"
 eval "$CMD"
 res="$?"
 echo -e "\n\n"
