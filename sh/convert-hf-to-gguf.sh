@@ -29,7 +29,7 @@
 # $ source bin/activate
 # $ git clone https://github.com/ggerganov/llama.cpp.git
 # $ ./bin/python3 ./bin/pip install -r llama.cpp/requirements.txt
-# $ python llama.cpp/convert-hf-to-gguf.py -h
+# $ ./bin/python3 llama.cpp/convert-hf-to-gguf.py -h # to test it
 #
 # Quantization:
 #
