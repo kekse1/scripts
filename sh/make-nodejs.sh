@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.4
+# v0.3.5
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -73,9 +73,9 @@ fi
 
 if [[ -z "$static" ]]; then
 	static="no"
-elif [[ "$static" = "y" ]]; then
+elif [[ "$static" == "y" ]]; then
 	static="yes"
-elif [[ "$static" = "static" ]]; then
+elif [[ "$static" == "static" ]]; then
 	static="yes"
 elif [[ "$static" != "yes" ]]; then
 	static="no"
@@ -83,13 +83,13 @@ fi
 
 if [[ -z "$noFlags" ]]; then
 	noFlags="no"
-elif [[ "$noFlags" = "y" ]]; then
+elif [[ "$noFlags" == "y" ]]; then
 	noFlags="yes"
-elif [[ "$noFlags" = "yes" ]]; then
+elif [[ "$noFlags" == "yes" ]]; then
 	noFlags="yes"
-elif [[ "$noFlags" = "n" ]]; then
+elif [[ "$noFlags" == "n" ]]; then
 	noFlags="no"
-elif [[ "$noFlags" = "no" ]]; then
+elif [[ "$noFlags" == "no" ]]; then
 	noFlags="no"
 else
 	noFlags="no"
@@ -108,7 +108,7 @@ termux_args="${termux_args} --shared-cares --shared-openssl --shared-zlib" #--wi
 if [[ -z "$version" ]]; then
 	echo " >> Syntax: <version> [ <static> [ <no-flags> [ <target> ] ] ]" >&2
 	exit 1
-elif [[ "$version" = v* ]]; then
+elif [[ "$version" == v* ]]; then
 	version="${version:1}"
 
 	if [[ -z "$version" ]]; then
@@ -123,7 +123,7 @@ if [[ -z "$(which $dl 2>/dev/null)" ]]; then
 fi
 
 #
-if [[ "$termux" = "yes" ]]; then
+if [[ "$termux" == "yes" ]]; then
 	args="${args} ${termux_args}"
 
 	target="/data/data/com.termux/files/usr/${target}/"
@@ -163,7 +163,7 @@ if [[ -d "$target" ]]; then
 fi
 
 #
-if [[ "$static" = "yes" ]]; then
+if [[ "$static" == "yes" ]]; then
 	args="${args} --fully-static"
 	target="${target}-static/"
 else
@@ -173,7 +173,7 @@ fi
 args="--prefix='${target}' ${args}"
 
 #
-if [[ "$noFlags" = "yes" ]]; then
+if [[ "$noFlags" == "yes" ]]; then
 	unset MAKEFLAGS
 	unset CFLAGS
 	unset CXXFLAGS
@@ -261,11 +261,11 @@ download()
 		rm -rfv "$file"
 	fi
 
-	if [[ "$dl" = "wget" ]]; then
+	if [[ "$dl" == "wget" ]]; then
 		useWget
-	elif [[ "$dl" = "curl" ]]; then
+	elif [[ "$dl" == "curl" ]]; then
 		useCurl
-	elif [[ "$dl" = "netcut" ]]; then
+	elif [[ "$dl" == "netcut" ]]; then
 		useGet
 	else
 		invalidDl
@@ -359,7 +359,7 @@ infos()
 	printf "%16s: %s\n" "Static build" "${static}"
 	printf "%16s: %s\n" "Termux build" "${termux}"
 	printf "%16s: %s\n" "No flags buid" "${noFlags}"
-	if [[ "$termux" = "yes" ]]; then
+	if [[ "$termux" == "yes" ]]; then
 		[[ -n "$os" ]] && printf "%16s: %s\n" "OS" "$os"
 		[[ -n "$cpu" ]] && printf "%16s: %s\n" "CPU" "$cpu"
 	fi

@@ -2,7 +2,7 @@
 #
 # (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.0
+# v0.2.1
 #
 # Requirement: `apt install x11-xkb-utils`
 #
@@ -19,12 +19,12 @@ layouts=("us" "de")
 if [[ $# -eq 0 ]]; then
 	setxkbmap -query | tail -n1 | awk '{print $2}'
 elif [[ $# -eq 1 ]]; then
-	if [[ "$1" = "-" ]]; then
+	if [[ "$1" == "-" ]]; then
 		current="$(setxkbmap -query | tail -n1 | awk '{print $2}')"
 		next=""
 
 		for ((i=0; i<${#layouts[@]}; i++)); do
-			if [[ "${layouts[$i]}" = "$current" ]]; then
+			if [[ "${layouts[$i]}" == "$current" ]]; then
 				next="${layouts[$(((i+1)%${#layouts}))]}"
 				break
 			fi

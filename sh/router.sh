@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.1
+# v0.1.2
 #
 # Some time ago I needed to setup my computer as a router (using `iptables`).
 #
@@ -93,7 +93,7 @@ informKernel()
 }
 
 #
-if [[ "$1" = "flush" ]]; then
+if [[ "$1" == "flush" ]]; then
 	echo " >> Flushing rules..."
 	flushRules
 	exit

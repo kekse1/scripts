@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v2.1.1
+# v2.1.2
 #
 # Copy this script to '/etc/profile.d/prompt.sh'.
 # 
@@ -79,7 +79,7 @@ ps1Prompt()
 			return
 		fi
 
-		while [[ "${_dir: -1}" = "/" ]]; do
+		while [[ "${_dir: -1}" == "/" ]]; do
 			_dir="${_dir::-1}"
 		done
 
@@ -87,7 +87,7 @@ ps1Prompt()
 		
 		if [[ "$_dir" == "$HOME" ]]; then
 			_dir="~"
-		elif [[ "${_dir:0:$(($homeLen + 1))}" = "$HOME/" ]]; then
+		elif [[ "${_dir:0:$(($homeLen + 1))}" == "$HOME/" ]]; then
 			_dir="~${_dir:$homeLen}"
 		fi
 
