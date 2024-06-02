@@ -104,7 +104,7 @@ fi
 
 [[ "${FORMAT::1}" != "." ]] && FORMAT=".${FORMAT}"
 [[ "${LLAMA::1}" != "/" ]] && LLAMA="${dir}/${LLAMA}"
-CONVERT="${LLAMA}/convert.py"
+CONVERT="${LLAMA}/convert-hf-to-gguf.py"
 
 if [[ ! -r "$CONVERT" ]]; then
 	echo " >> Your \`convert.py\` isn't existing/readable!" >&2
