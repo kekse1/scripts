@@ -259,8 +259,6 @@ This script helps you converting hugging face models (see [**huggingface.co**](h
 to **GGUF format `.gguf`**, which is necessary for the transformers I listed
 on **my website @ [`~intelligence`](https://kekse.biz/?~intelligence)**.
 
-See also [this link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
-
 > [!TIP]
 > Preparations:
 > `python3 -m venv venv`
@@ -269,11 +267,6 @@ See also [this link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
 > `git clone https://github.com/ggerganov/llama.cpp.git`
 > `./bin/python3 ./bin/pip install -r llama.cpp/requirements.txt`
 > `python llama.cpp/convert.py -h`
-
-> [!TIP]
-> If this doesn't work, you could also try this (beneath trying with changed `$VOCAB`:
-> `cd venv/`
-> `./bin/python llama.cpp/convert-hf-to-gguf.py --outtype q8_0 --outfile ../models/model.gguf ../downloads/model
 
 ### [`nightlounge`.sh](sh/nightlounge.sh)
 * [Version **v0.2.5**](sh/nightlounge.sh) (updated **2024-05-23**)
