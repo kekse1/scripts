@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/
-# v0.0.6
+# v0.0.7
 #
 # This script helps you converting hugging face models (see
 # https://huggingface.co/) to GGUF format (.gguf), which is
@@ -22,14 +22,14 @@
 # # Python 3 (with `pip`)
 # # llama.cpp (see below)
 #
-# Preparations:
+# Preparations (if not using system's python, see $VENV below):
 #
 # $ python3 -m venv venv
 # $ cd venv
 # $ source bin/activate
 # $ git clone https://github.com/ggerganov/llama.cpp.git
 # $ ./bin/python3 ./bin/pip install -r llama.cpp/requirements.txt
-# $ python llama.cpp/convert.py -h
+# $ python llama.cpp/convert-hf-to-gguf.py -h
 #
 # Quantization:
 #
@@ -40,8 +40,9 @@
 TYPE="q8_0" # f32, f16, q8_0, .. # 'f*' preserves original quality
 MODELS="downloads"
 FORMAT="gguf"
-LLAMA="venv/llama.cpp"
+LLAMA="llama.cpp"
 PYTHON="python3"
+VENV="venv" # if empty, we use system's python installation
 VOCAB="" # 'bpe' necessary for llama3..
 ARGS=""
 
@@ -91,19 +92,39 @@ else
 	exit
 fi
 
+#
+if [[ -n "$VENV" ]]; then
+	if [[ "${VENV::1}" != "/" ]]; then
+		if [[ "${VENV::2}" == "./" || "${VENV::3}" == "../" ]]; then
+			VENV="`pwd`/${VENV}"
+		else
+			VENV="${dir}/${VENV}"
+		fi
+	fi
+	PYTHON="${VENV}/bin/$(basename "$PYTHON")"
+elif [[ "${PYTHON::1}" != "/" ]]; then
+	[[ -x "$PYTHON" ]] || PYTHON="`which $PYTHON 2>/dev/null`"
+	if [[ -z "$PYTHON" ]]; then
+		echo " >> Your python binary was not found." >&2
+		exit 4
+	fi
+fi
+
+#
+if [[ "${LLAMA::1}" != "/" ]]; then
+	if [[ -z "$VENV" ]]; then
+		LLAMA="${dir}/${LLAMA}"
+	else
+		LLAMA="${VENV}/${LLAMA}"
+	fi
+fi
+
 [[ "${FORMAT::1}" != "." ]] && FORMAT=".${FORMAT}"
-[[ "${LLAMA::1}" != "/" ]] && LLAMA="${dir}/${LLAMA}"
 CONVERT="${LLAMA}/convert-hf-to-gguf.py"
 
 if [[ ! -r "$CONVERT" ]]; then
 	echo " >> Your \`convert.py\` isn't existing/readable!" >&2
 	exit 3
-elif [[ "${PYTHON::1}" != "/" ]]; then
-	PYTHON="`which $PYTHON 2>/dev/null`"
-	if [[ -z "$PYTHON" ]]; then
-		echo " >> Your python binary was not found." >&2
-		exit 4
-	fi
 fi
 
 #
@@ -121,11 +142,12 @@ if [[ ! -d "$MODEL" ]]; then
 fi
 
 #
+[[ -n "$VENV" ]] && cd "$VENV"
 CMD="'$PYTHON' '$CONVERT' '${MODEL}' --outtype ${TYPE} --outfile='${MODEL}${FORMAT}'"
 [[ -n "$VOCAB" ]] && CMD="${CMD} --vocab-type '${VOCAB}'"
 [[ -n "$ARGS" ]] && CMD="${CMD} ${ARGS}"
 
-echo -e " >> Command: \`$CMD\`\n"
+echo -e "\`$CMD\`\n\n"
 eval "$CMD"
 res="$?"
 echo -e "\n\n"
