@@ -130,8 +130,8 @@ const splitStreet = (_string) => {
 		}
 	}
 
-	street = free(street);
-	number = free(number);
+	street = trim(street);
+	number = trim(number);
 
 	if(!number)
 	{
@@ -146,7 +146,7 @@ const splitStreet = (_string) => {
 	return [ street, number ];
 };
 
-const free = (_string) => {
+const trim = (_string) => {
 	const isTrash = (_char) => { const byte = _char.charCodeAt(0);
 		return (byte <= 32 || byte === 127); };
 
