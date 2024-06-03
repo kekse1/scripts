@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.1.0
+ * v0.1.1
  *
  * It's merely kinda proof of concept that state parsers can be as good as regular expressions, or even better; ;-D
  * < https://www.php.de/forum/webentwicklung/php-einsteiger/1614566-stra%C3%9Fe-und-hausnummer-korrekt-trennen >
@@ -126,6 +126,11 @@ const splitStreet = (_string) => {
 		{
 			street += _string[i];
 		}
+	}
+
+	if((number = number.trim()).length === 0)
+	{
+		return [ street.trim() ];
 	}
 
 	return [ street.trim(), number.trim() ];

@@ -413,7 +413,7 @@ Maybe useful for you? But you've to read the source for yourself; and some funct
 then look at my [v4 source code](https://kekse.biz/?~sources)!
 
 ### [`street-split`.js](js/street-split.js)
-* [Version **v0.1.0**](js/street-split.js) (created **2024-05-21**)
+* [Version **v0.1.1**](js/street-split.js) (updated **2024-06-03**)
 
 It's merely kinda **proof of concept** that state parsers can be as good as regular expressions, or even better! **;-D**
 
