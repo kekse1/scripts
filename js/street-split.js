@@ -136,10 +136,14 @@ const splitStreet = (_string) => {
 			return [];
 		}
 
-		return [ street.trim() ];
+		return [ street ];
+	}
+	else
+	{
+		street = street.trim();
 	}
 
-	return [ street.trim(), number.trim() ];
+	return [ street, number ];
 };
 
 console.dir(examples);
