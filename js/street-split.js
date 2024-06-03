@@ -11,6 +11,7 @@
  */
 
 const examples = [
+	'',
 	'Straße des',
 	'Straße des 17. Juni 113a',
 	'Straße des 17. Juni 113a-113z',
@@ -130,6 +131,11 @@ const splitStreet = (_string) => {
 
 	if((number = number.trim()).length === 0)
 	{
+		if((street = street.trim()).length === 0)
+		{
+			return [];
+		}
+
 		return [ street.trim() ];
 	}
 
