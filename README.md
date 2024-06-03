@@ -36,18 +36,18 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`intersection`.js](#intersectionjs)
 	* [`multiset`.js](#multisetjs)
 	* [`animation`.js](#animationjs)
-    * [`street-split`.js](#street-splitjs)
+	* [`street-split`.js](#street-splitjs)
 	* [`fold.css`.js](#foldcssjs)
 4. [C/C++](#cc)
     * [`nproc.c`](#nprocc)
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-06-03**\] Updated [`street-split`.js](#street-splitjs) to **v0.2.0**
 * \[**2024-05-01**\] Updated [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.0.7** (w/ **rename**!)
 * \[**2024-06-01**\] Updated [`config`.js](#configjs) to **v0.3.0**;
 * \[**2024-05-23**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.5**
 * \[**2024-05-22**\] New [`init-sub-proj`.sh](#init-sub-projsh), **v0.3.1**;
-* \[**2024-05-21**\] Created [`street-split`.js](#street-splitjs), see [**this discussion**](https://www.php.de/forum/webentwicklung/php-einsteiger/1614566-stra%C3%9Fe-und-hausnummer-korrekt-trennen);
 * \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3**
 * \[**2024-05-08**\] New link to my [`animation`.js](#animationjs), from my [v4 project](https://github.com/kekse1/v4/);
 * \[**2024-05-02**\] New [`lsblk`.sh](#lsblksh) shell script, **v0.2.0**;
@@ -413,9 +413,10 @@ Maybe useful for you? But you've to read the source for yourself; and some funct
 then look at my [v4 source code](https://kekse.biz/?~sources)!
 
 ### [`street-split`.js](js/street-split.js)
-* [Version **v0.1.1**](js/street-split.js) (updated **2024-06-03**)
+* [Version **v0.2.0**](js/street-split.js) (updated **2024-06-03**)
 
 It's merely kinda **proof of concept** that state parsers can be as good as regular expressions, or even better! **;-D**
+See also [**this discussion**](https://www.php.de/forum/webentwicklung/php-einsteiger/1614566-stra%C3%9Fe-und-hausnummer-korrekt-trennen);
 
 ### [`fold.css`.js](js/fold.css.js)
 * [Version **v0.1.0**](js/fold.css.js) (updated **2024-03-04**)

@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.1.1
+ * v0.2.0
  *
  * It's merely kinda proof of concept that state parsers can be as good as regular expressions, or even better; ;-D
  * < https://www.php.de/forum/webentwicklung/php-einsteiger/1614566-stra%C3%9Fe-und-hausnummer-korrekt-trennen >
@@ -13,7 +13,7 @@
 const examples = [
 	'',
 	'Straße',
-	'Straße 133 (Berlin)',
+	'  Straße   133  (Berlin)  ',
 	'Straße des 17. Juni 113a',
 	'Straße des 17. Juni 113a-113z',
 	'Straße des 17. Juni 113a - 113z',
@@ -130,22 +130,53 @@ const splitStreet = (_string) => {
 		}
 	}
 
-	if((number = number.trim()).length === 0)
+	street = free(street);
+	number = free(number);
+
+	if(!number)
 	{
-		if((street = street.trim()).length === 0)
+		if(street)
 		{
-			return [];
+			return [ street ];
 		}
 
-		return [ street ];
-	}
-	else
-	{
-		street = street.trim();
+		return [];
 	}
 
 	return [ street, number ];
 };
+
+const free = (_string) => {
+	const isTrash = (_char) => { const byte = _char.charCodeAt(0);
+		return (byte <= 32 || byte === 127); };
+
+	const proceed = (_string) => { var result = '', trash;
+
+		for(var i = 0; i < _string.length; ++i)
+		{
+			trash = isTrash(_string[i]);
+
+			if(!trash)
+			{
+				result += _string[i];
+			}
+			else if(result.length === 0 || isTrash(result[result.length - 1]))
+			{
+				continue;
+			}
+			else
+			{
+				result += _string[i];
+			}
+		}
+		
+		return result; };
+	
+	var result = proceed(_string);
+	return reverse(proceed(reverse(result)));
+};
+
+const reverse = (_string) => _string.split('').reverse().join('');
 
 console.dir(examples);
 console.log();
