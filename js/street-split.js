@@ -147,6 +147,7 @@ const splitStreet = (_string) => {
 };
 
 const trim = (_string) => {
+	const reverse = (_string) => _string.split('').reverse().join('');
 	const isTrash = (_char) => { const byte = _char.charCodeAt(0);
 		return (byte <= 32 || byte === 127); };
 
@@ -176,8 +177,7 @@ const trim = (_string) => {
 	return reverse(proceed(reverse(result)));
 };
 
-const reverse = (_string) => _string.split('').reverse().join('');
-
+//
 console.dir(examples);
 console.log();
 for(const e of examples)
