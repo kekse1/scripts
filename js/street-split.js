@@ -12,7 +12,8 @@
 
 const examples = [
 	'',
-	'Straße des',
+	'Straße',
+	'Straße 133 (Berlin)',
 	'Straße des 17. Juni 113a',
 	'Straße des 17. Juni 113a-113z',
 	'Straße des 17. Juni 113a - 113z',
