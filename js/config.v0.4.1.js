@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.4.0
+ * v0.4.1
  *
  * Using a regular `.json` file/structure. But with improved handling.
  *
@@ -21,6 +21,9 @@
  * file I also defined my `Math.getIndex(_index, _length)`, btw.
  *
  * NEW since v0.4.0: `.extend()`! :-D
+ *
+ * WARNING: Won't work stand-alone (without my own library extensions)! It's just
+ * here to show you more possible ways to handle `.json` as configuration.
  *
  */
 
@@ -271,6 +274,8 @@ class Configuration extends Quant
 
 	force(_path, _root = true)
 	{
+		const orig = _path;
+		
 		if(!(_path = this.getPath(_path, false, _root)))
 		{
 			return this.CONFIG;
@@ -299,12 +304,18 @@ class Configuration extends Quant
 		{
 			return ctx[last];
 		}
+		else if(_root)
+		{
+			return this.force(orig, false);
+		}
 
 		return null;
 	}
 
 	with(_path, _inverse = false, _root = true)
 	{
+		const orig = _path;
+		
 		if(!(_path = this.getPath(_path, false, _root)))
 		{
 			return undefined;
@@ -324,6 +335,11 @@ class Configuration extends Quant
 				return false;
 			}
 		}
+		
+		if(_root && this.with(orig, _inverse, false) === false)
+		{
+			return false;
+		}
 
 		return true;
 	}
@@ -340,6 +356,8 @@ class Configuration extends Quant
 
 	get(_path, _index = -1, _root = true)
 	{
+		const orig = _path;
+		
 		if(!(_path = this.getPath(_path, false, _root)))
 		{
 			return this.CONFIG;
@@ -379,6 +397,15 @@ class Configuration extends Quant
 		{
 			result.push(ctx[last]);
 		}
+		else if(_root)
+		{
+			const res = this.get(orig, _index, false);
+			
+			if(res !== null)
+			{
+				return res;
+			}
+		}
 
 		if(_index === null)
 		{
@@ -394,6 +421,8 @@ class Configuration extends Quant
 	
 	set(_path, _value, _force = DEFAULT_FORCE, _root = true)
 	{
+		const orig = _path;
+		
 		if(!(_path = this.getPath(_path, false, _root)))
 		{
 			return undefined;
@@ -415,6 +444,10 @@ class Configuration extends Quant
 				{
 					ctx = ctx[_path[i]] = {};
 				}
+				else if(_root)
+				{
+					return this.set(orig, _value, _force, false);
+				}
 				else
 				{
 					return false;
@@ -434,18 +467,15 @@ class Configuration extends Quant
 		return true;
 	}
 	
-	has(_path, _all = DEFAULT_ALL, _root = true)
+	has(_path, _root = true)
 	{
+		const orig = _path;
+		
 		if(!(_path = this.getPath(_path, false, _root)))
 		{
 			return undefined;
 		}
 		
-		if(_all)
-		{
-			return this.get(_path, null, _root).length;
-		}
-
 		const last = _path.pop();
 		var ctx = this.CONFIG;
 		
@@ -453,6 +483,11 @@ class Configuration extends Quant
 		{
 			if(!object(ctx[_path[i]]))
 			{
+				if(_root)
+				{
+					return this.has(orig, false);
+				}
+				
 				return false;
 			}
 			else if(_path[i] in ctx)
@@ -469,12 +504,18 @@ class Configuration extends Quant
 		{
 			return true;
 		}
+		else if(_root)
+		{
+			return this.has(orig, false);
+		}
 
 		return false;
 	}
 
 	unset(_path, _root = true)
 	{
+		const orig = _path;
+		
 		if(!(_path = this.getPath(_path, false, _root)))
 		{
 			return undefined;
@@ -487,11 +528,20 @@ class Configuration extends Quant
 		{
 			if(!object(ctx[_path[i]]))
 			{
+				if(_root)
+				{
+					return this.unset(orig, false);
+				}
+				
 				return false;
 			}
 			else if(_path[i] in ctx)
 			{
 				ctx = ctx[_path[i]];
+			}
+			else if(_root)
+			{
+				return this.unset(orig, false);
 			}
 			else
 			{
@@ -503,6 +553,10 @@ class Configuration extends Quant
 		{
 			delete ctx[last];
 			return true;
+		}
+		else if(_root)
+		{
+			return this.unset(orig, false);
 		}
 
 		return false;
