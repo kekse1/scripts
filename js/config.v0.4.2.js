@@ -68,6 +68,11 @@ class Configuration extends Quant
 		}
 		else if(Array.isArray(_path, true))
 		{
+			if(_path.length === 0)
+			{
+				return (_string ? '' : _path);
+			}
+
 			var p = '';
 
 			for(var i = 0; i < _path.length; ++i)
@@ -144,6 +149,20 @@ class Configuration extends Quant
 		return result;
 	}
 
+	tryRootPath(_value, _string = true)
+	{
+		if(bool(_value))
+		{
+			return (_value ? this.getRootPath(_string) : (_string ? '' : []));
+		}
+		else if(string(_value, true))
+		{
+			return Configuration.normalizePath(_value, _string);
+		}
+
+		return '';
+	}
+
 	getRootPath(_string = true)
 	{
 		const result = [];
@@ -167,9 +186,9 @@ class Configuration extends Quant
 		}
 		while(true);
 
-		if(!result)
+		if(result.length === 0)
 		{
-			return null;
+			return (_string ? '' : []);
 		}
 
 		return Configuration.normalizePath(result, _string);
@@ -283,7 +302,12 @@ class Configuration extends Quant
 		
 		if(!(_path = this.getPath(_path, false, _root)))
 		{
-			return this.force('', _root);
+			if(_root)
+			{
+				return this.force(this.tryRootPath(_root), false);
+			}
+
+			return this.CONFIG;
 		}
 		
 		const last = _path.pop();
@@ -365,7 +389,12 @@ class Configuration extends Quant
 		
 		if(!(_path = this.getPath(_path, false, _root)))
 		{
-			return this.force('', _root);
+			if(_root)
+			{
+				return this.force(this.tryRootPath(_root), false);
+			}
+
+			return this.CONFIG;
 		}
 		
 		if(!int(_index))
