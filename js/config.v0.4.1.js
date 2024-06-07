@@ -400,12 +400,8 @@ class Configuration extends Quant
 		else if(_root)
 		{
 			const res = this.get(orig, _index, false);
-			
-			if(Array.isArray(res, false))
-			{
-				return res;
-			}
-			else if(res !== null)
+
+			if(res !== null)
 			{
 				return res;
 			}
