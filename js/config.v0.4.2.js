@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.4.1
+ * v0.4.2
  *
  * Using a regular `.json` file/structure. But with improved handling.
  *
@@ -397,7 +397,8 @@ class Configuration extends Quant
 		{
 			result.push(ctx[last]);
 		}
-		else if(_root)
+		
+		if(result.length === 0 && _root)
 		{
 			const res = this.get(orig, _index, false);
 

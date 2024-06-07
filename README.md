@@ -43,7 +43,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-06-07**\] Updated [`config`.js](#configjs) to **v0.4.1** (see comments!)
+* \[**2024-06-07**\] Updated [`config`.js](#configjs) to **v0.4.2** (see comments!)
 * \[**2024-06-03**\] Updated [`street-split`.js](#street-splitjs) to **v0.2.0**
 * \[**2024-05-01**\] Updated [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.0.7** (w/ **rename**!)
 * \[**2024-05-23**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.5**
@@ -352,15 +352,15 @@ one `.scheme[]` item..
 Nice one; have phun.
 
 ### [`config`.js](js/config.js)
-* [Version **v0.4.1**](js/config.v0.4.0.js) (updated **2024-06-07**)
+* [Version **v0.4.2**](js/config.v0.4.2.js) (updated **2024-06-07**)
 * [Version **v0.3.0**](js/config.js) (updated **2024-06-01**)
 
 Using a regular `.json` file/structure. But with improved handling.
 
 > [!IMPORTANT]
-> Neither **v0.4.0** is tested in any form, nor is it runnable in a regular
-> JavaScript environment, because it's using extensions I've only got in
-> my own code. **But** the algorithms and structures should be correct and
+> The **v0.4.2** ain't runnable in a regular JavaScript environment,
+> because it's using extensions I've only got in my own code.
+> **But** the algorithms and structures should be correct and
 > clear when you are looking in the code for yourself.
 
 Example given: { server: { host: 'localhost', { http: { port: 8080 } } } };
