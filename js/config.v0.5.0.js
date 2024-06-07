@@ -198,7 +198,7 @@ class Configuration extends Quant
 		return '';
 	}
 
-	getPath(_path, _string = true, _root = true)
+	getPath(_path, _string = true, _chroot = true)
 	{
 		if(Array.isArray(_path, true))
 		{
@@ -207,13 +207,13 @@ class Configuration extends Quant
 
 		var result;
 
-		if(bool(_root))
+		if(bool(_chroot))
 		{
-			result = (_root ? this.getRootPath(true) : '');
+			result = (_chroot ? this.getRootPath(true) : '');
 		}
-		else if(string(_root, false))
+		else if(string(_chroot, false))
 		{
-			result = _root;
+			result = _chroot;
 		}
 		else
 		{
@@ -300,15 +300,15 @@ class Configuration extends Quant
 		return Configuration.load(callback, ... _args);
 	}
 
-	force(_path, _root = true)
+	force(_path, _chroot = true)
 	{
 		const orig = _path;
 
-		if(!(_path = this.getPath(_path, false, _root)))
+		if(!(_path = this.getPath(_path, false, _chroot)))
 		{
-			if(_root)
+			if(_chroot)
 			{
-				return this.force(this.tryRootPath(_root), false);
+				return this.force(this.tryRootPath(_chroot), false);
 			}
 
 			return this.CONFIG;
@@ -337,7 +337,7 @@ class Configuration extends Quant
 		{
 			return ctx[last];
 		}
-		else if(_root)
+		else if(_chroot)
 		{
 			return this.force(orig, false);
 		}
@@ -345,16 +345,16 @@ class Configuration extends Quant
 		return null;
 	}
 
-	with(_path, _inverse = false, _root = true)
+	with(_path, _inverse = false, _chroot = false)
 	{
 		const orig = _path;
 		
-		if(!(_path = this.getPath(_path, false, _root)))
+		if(!(_path = this.getPath(_path, false, _chroot)))
 		{
 			return undefined;
 		}
 
-		const cfg = this.get(_path, null, _root);
+		const cfg = this.get(_path, null, _chroot);
 
 		if(cfg.length === 0)
 		{
@@ -369,7 +369,7 @@ class Configuration extends Quant
 			}
 		}
 		
-		if(_root && this.with(orig, _inverse, false) === false)
+		if(_chroot && this.with(orig, _inverse, false) === false)
 		{
 			return false;
 		}
@@ -377,25 +377,25 @@ class Configuration extends Quant
 		return true;
 	}
 
-	enabled(_path, _root = true)
+	enabled(_path, _chroot = false)
 	{
-		return this.with(_path, false, _root);
+		return this.with(_path, false, _chroot);
 	}
 	
-	disabled(_path, _root = true)
+	disabled(_path, _chroot = false)
 	{
-		return this.with(_path, true, _root);
+		return this.with(_path, true, _chroot);
 	}
 
-	get(_path, _index = -1, _root = true)
+	get(_path, _index = -1, _chroot = true)
 	{
 		const orig = _path;
 
-		if(!(_path = this.getPath(_path, false, _root)))
+		if(!(_path = this.getPath(_path, false, _chroot)))
 		{
-			if(_root)
+			if(_chroot)
 			{
-				return this.force(this.tryRootPath(_root), false);
+				return this.force(this.tryRootPath(_chroot), false);
 			}
 
 			return this.CONFIG;
@@ -436,7 +436,7 @@ class Configuration extends Quant
 			result.push(ctx[last]);
 		}
 		
-		if(result.length === 0 && _root)
+		if(result.length === 0 && _chroot)
 		{
 			const res = this.get(orig, _index, false);
 
@@ -458,11 +458,11 @@ class Configuration extends Quant
 		return result[Math.getIndex(_index, result.length)];
 	}
 	
-	set(_path, _value, _force = DEFAULT_FORCE, _root = true)
+	set(_path, _value, _force = DEFAULT_FORCE, _chroot = true)
 	{
 		const orig = _path;
 		
-		if(!(_path = this.getPath(_path, false, _root)))
+		if(!(_path = this.getPath(_path, false, _chroot)))
 		{
 			return undefined;
 		}
@@ -483,7 +483,7 @@ class Configuration extends Quant
 				{
 					ctx = ctx[_path[i]] = {};
 				}
-				else if(_root)
+				else if(_chroot)
 				{
 					return this.set(orig, _value, _force, false);
 				}
@@ -506,11 +506,11 @@ class Configuration extends Quant
 		return true;
 	}
 	
-	has(_path, _root = true)
+	has(_path, _chroot = true)
 	{
 		const orig = _path;
 		
-		if(!(_path = this.getPath(_path, false, _root)))
+		if(!(_path = this.getPath(_path, false, _chroot)))
 		{
 			return undefined;
 		}
@@ -522,7 +522,7 @@ class Configuration extends Quant
 		{
 			if(!object(ctx[_path[i]]))
 			{
-				if(_root)
+				if(_chroot)
 				{
 					return this.has(orig, false);
 				}
@@ -543,7 +543,7 @@ class Configuration extends Quant
 		{
 			return true;
 		}
-		else if(_root)
+		else if(_chroot)
 		{
 			return this.has(orig, false);
 		}
@@ -551,11 +551,11 @@ class Configuration extends Quant
 		return false;
 	}
 
-	unset(_path, _root = true)
+	unset(_path, _chroot = true)
 	{
 		const orig = _path;
 		
-		if(!(_path = this.getPath(_path, false, _root)))
+		if(!(_path = this.getPath(_path, false, _chroot)))
 		{
 			return undefined;
 		}
@@ -567,7 +567,7 @@ class Configuration extends Quant
 		{
 			if(!object(ctx[_path[i]]))
 			{
-				if(_root)
+				if(_chroot)
 				{
 					return this.unset(orig, false);
 				}
@@ -578,7 +578,7 @@ class Configuration extends Quant
 			{
 				ctx = ctx[_path[i]];
 			}
-			else if(_root)
+			else if(_chroot)
 			{
 				return this.unset(orig, false);
 			}
@@ -593,7 +593,7 @@ class Configuration extends Quant
 			delete ctx[last];
 			return true;
 		}
-		else if(_root)
+		else if(_chroot)
 		{
 			return this.unset(orig, false);
 		}
