@@ -43,7 +43,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-06-07**\] Updated [`config`.js](#configjs) to **v0.4.2** (see comments!)
+* \[**2024-06-07**\] Updated [`config`.js](#configjs) to **v0.5.0** (see comments!)
 * \[**2024-06-03**\] Updated [`street-split`.js](#street-splitjs) to **v0.2.0**
 * \[**2024-05-01**\] Updated [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.0.7** (w/ **rename**!)
 * \[**2024-05-23**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.5**
@@ -352,13 +352,13 @@ one `.scheme[]` item..
 Nice one; have phun.
 
 ### [`config`.js](js/config.js)
-* [Version **v0.4.2**](js/config.v0.4.2.js) (updated **2024-06-07**)
+* [Version **v0.5.0**](js/config.v0.4.2.js) (updated **2024-06-07**)
 * [Version **v0.3.0**](js/config.js) (updated **2024-06-01**)
 
 Using a regular `.json` file/structure. But with improved handling.
 
 > [!IMPORTANT]
-> The **v0.4.2** ain't runnable in a regular JavaScript environment,
+> The **v0.5.0** ain't runnable in a regular JavaScript environment,
 > because it's using extensions I've only got in my own code.
 > **But** the algorithms and structures should be correct and
 > clear when you are looking in the code for yourself.
@@ -376,7 +376,10 @@ smth., even if deeper occurencies enable smth. I needed/wanted this; .. now with
 `.enabled()` and `.disabled()`.
 
 You can, btw., init with config object using `{,static} wrap(_object, ..)`;
-or just argue with such a base object in any constructor argument.
+or just argue with such a base object in any constructor argument. AND now
+you can also `.extend()` with kinda 'chroot' sub paths (so your query paths
+can start in a sub object).. last(?) **TODO**: not only query the root path
+as fallback, but also *every* parent path, step-by-step.
 
 ### [`reflection`.js](js/reflection.js)
 * [Version **v2.1.0**](js/reflection.js) (updated **2024-04-30**)
