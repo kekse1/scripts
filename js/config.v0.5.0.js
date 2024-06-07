@@ -345,7 +345,7 @@ class Configuration extends Quant
 		return null;
 	}
 
-	with(_path, _inverse = false, _chroot = false)
+	with(_path, _inverse = false, _chroot = true)
 	{
 		const orig = _path;
 		
@@ -377,12 +377,12 @@ class Configuration extends Quant
 		return true;
 	}
 
-	enabled(_path, _chroot = false)
+	enabled(_path, _chroot = true)
 	{
 		return this.with(_path, false, _chroot);
 	}
 	
-	disabled(_path, _chroot = false)
+	disabled(_path, _chroot = true)
 	{
 		return this.with(_path, true, _chroot);
 	}
