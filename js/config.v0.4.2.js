@@ -177,6 +177,11 @@ class Configuration extends Quant
 
 	getPath(_path, _string = true, _root = true)
 	{
+		if(Array.isArray(_path, true))
+		{
+			_path = _path.join(Configuration.delim);
+		}
+
 		var result;
 
 		if(bool(_root))
