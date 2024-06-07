@@ -283,7 +283,7 @@ class Configuration extends Quant
 		
 		if(!(_path = this.getPath(_path, false, _root)))
 		{
-			return this.CONFIG;
+			return this.force('', _root);
 		}
 		
 		const last = _path.pop();
@@ -365,7 +365,7 @@ class Configuration extends Quant
 		
 		if(!(_path = this.getPath(_path, false, _root)))
 		{
-			return this.CONFIG;
+			return this.force('', _root);
 		}
 		
 		if(!int(_index))
