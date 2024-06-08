@@ -20,7 +20,7 @@
 CONCURRENT=8
 TOKEN="" #a file!
 TOOL="./hfdownloader"
-ARGS="--maxRetries 32 --retryInterval 16"
+ARGS="--maxRetries 64 --retryInterval 16"
 
 #
 real="$(realpath "$0")"
