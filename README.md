@@ -43,9 +43,9 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-06-08**\] Updated [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.0.8**
 * \[**2024-06-07**\] Updated [`config`.js](#configjs) to **v0.5.0** (see comments!)
 * \[**2024-06-03**\] Updated [`street-split`.js](#street-splitjs) to **v0.2.0**
-* \[**2024-05-01**\] Updated [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.0.7** (w/ **rename**!)
 * \[**2024-05-23**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.5**
 * \[**2024-05-22**\] New [`init-sub-proj`.sh](#init-sub-projsh), **v0.3.1**;
 * \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3**
@@ -250,13 +250,10 @@ For the model conversion to the **`.gguf`** format see [this GitHub link](https:
 And for some more things about **Artificial Intelligence** see [**~intelligence** at my private website](https://kekse.biz/?~intelligence).
 
 ### [`convert-hf-to-gguf`.sh](sh/convert-hf-to-gguf.sh)
-* [Version **v0.0.7**](sh/convert-hf-to-gguf.sh) (updated **2024-06-02**)
+* [Version **v0.0.8**](sh/convert-hf-to-gguf.sh) (updated **2024-06-08**)
 
 > [!IMPORTANT]
 > Dependencies: **Python 3** (w/ `pip`) and [`llama.cpp`](https://github.com/ggerganov/llama.cpp/);
-
-> [!WARNING]
-> **Renamed** this script in **v0.0.7** (was `convert-to-gguf.sh`)!
 
 This script helps you converting hugging face models (see [**huggingface.co**](https://huggingface.co/))
 to **GGUF format `.gguf`**, which is necessary for the transformers I listed

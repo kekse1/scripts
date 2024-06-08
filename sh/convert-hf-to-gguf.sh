@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/
-# v0.0.7
+# v0.0.8
 #
 # This script helps you converting hugging face models (see
 # https://huggingface.co/) to GGUF format (.gguf), which is
@@ -29,7 +29,7 @@
 # $ source bin/activate
 # $ git clone https://github.com/ggerganov/llama.cpp.git
 # $ ./bin/python3 ./bin/pip install -r llama.cpp/requirements.txt
-# $ ./bin/python3 llama.cpp/convert-hf-to-gguf.py -h # to test it
+# $ python llama.cpp/convert-hf-to-gguf.py -h
 #
 # Quantization:
 #
@@ -142,7 +142,6 @@ if [[ ! -d "$MODEL" ]]; then
 fi
 
 #
-[[ -n "$VENV" ]] && cd "$VENV"
 CMD="'$PYTHON' '$CONVERT' '${MODEL}' --outtype ${TYPE} --outfile='${MODEL}${FORMAT}'"
 [[ -n "$VOCAB" ]] && CMD="${CMD} --vocab-type '${VOCAB}'"
 [[ -n "$ARGS" ]] && CMD="${CMD} ${ARGS}"
