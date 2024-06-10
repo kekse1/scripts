@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.7
+# v0.3.0
 #
 # Easily use the `hfdownloader` tool, from:
 # https://github.com/bodaay/HuggingFaceModelDownloader
@@ -12,8 +12,6 @@
 # Syntax: $0 [ <model> [ <params> [ ... ] ] ]
 #
 # Please adapt the following variables to your needs.
-# And see the following link for `.gguf` conversion:
-# https://github.com/ggerganov/llama.cpp/discussions/2948
 #
 
 #

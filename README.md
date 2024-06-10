@@ -23,7 +23,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`find-ext`.sh](#find-extsh)
 	* [`make-nodejs`.sh](#make-nodejssh)
 	* [`router`.sh](#routersh)
-	* [`hugging`.sh](#huggingsh)
+	* [`hfdownloader`.sh](#hfdownloadersh)
 	* [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh)
 	* [`nightlounge`.sh](#nightloungesh)
 	* [`lsblk`.sh](#lsblksh)
@@ -43,6 +43,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-04-22**\] Rename the `hugging.sh` to [`hfdownloader`.sh](#hfdownloadersh) (with new **v0.3.0**)!
 * \[**2024-06-08**\] Updated [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.0.9**
 * \[**2024-06-07**\] Updated [`config`.js](#configjs) to **v0.5.0** (see comments!)
 * \[**2024-06-03**\] Updated [`street-split`.js](#street-splitjs) to **v0.2.0**
@@ -55,7 +56,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 * \[**2024-04-30**\] New [`MultiSet`](#multisetjs) class, **v0.2.0**.
 * \[**2024-04-30**\] New [`intersection`.js](#intersectionjs) for arrays, **v0.2.1** (for any data type);
 * \[**2024-04-30**\] [`reflection`.js](#reflectionjs) updated to **v2.1.0**: **important update**!
-* \[**2024-04-22**\] Updated [`hugging`.sh](#huggingsh) to **v0.2.4**..
 
 ## [Bash](sh/)
 
@@ -237,8 +237,8 @@ Some time ago I needed to setup my computer as a router (using `iptables`).
 This was created very quickly, without much features or tests.
 Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/wiki/Home_router) for more.
 
-### [`hugging`.sh](sh/hugging.sh)
-* [Version **v0.2.7**](sh/hugging.sh) (updated **2024-06-01**)
+### [`hfdownloader`.sh](sh/hfdownloader.sh)
+* [Version **v0.3.0**](sh/hfdownloader.sh) (updated **2024-06-10**)
 
 Easily use the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) tool, to download
 full models from [Hugging Face](https://huggingface.co/), a community for Large Language Models, etc.
@@ -246,8 +246,9 @@ full models from [Hugging Face](https://huggingface.co/), a community for Large 
 You don't really need this script, since the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownloader)
 tool is easy enough; it's rather kinda reminder' for myself..
 
-For the model conversion to the **`.gguf`** format see [this GitHub link](https://github.com/ggerganov/llama.cpp/discussions/2948)!
-And for some more things about **Artificial Intelligence** see [**~intelligence** at my private website](https://kekse.biz/?~intelligence).
+> [!TIP]
+> For some more things about **Artificial Intelligence**, take a look at my private website,
+> concretely at the [**`~intelligence`** area](https://kekse.biz/?~intelligence).
 
 ### [`convert-hf-to-gguf`.sh](sh/convert-hf-to-gguf.sh)
 * [Version **v0.0.9**](sh/convert-hf-to-gguf.sh) (updated **2024-06-08**)
