@@ -43,7 +43,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-04-22**\] Rename the `hugging.sh` to [`hfdownloader`.sh](#hfdownloadersh) (with new **v0.3.0**)!
+* \[**2024-04-22**\] Renamed my `hugging.sh` to [`hfdownloader`.sh](#hfdownloadersh) (with new **v0.3.0**)!
 * \[**2024-06-08**\] Updated [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.0.9**
 * \[**2024-06-07**\] Updated [`config`.js](#configjs) to **v0.5.0** (see comments!)
 * \[**2024-06-03**\] Updated [`street-split`.js](#street-splitjs) to **v0.2.0**
