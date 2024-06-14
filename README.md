@@ -43,6 +43,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-06-14**\] Created it's own GitHub repository for the [`prompt`.sh](#promptsh)
 * \[**2024-04-22**\] Renamed my `hugging.sh` to [`hfdownloader`.sh](#hfdownloadersh) (with new **v0.3.0**)!
 * \[**2024-06-08**\] Updated [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.0.9**
 * \[**2024-06-07**\] Updated [`config`.js](#configjs) to **v0.5.0** (see comments!)
@@ -60,16 +61,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 ## [Bash](sh/)
 
 ### [`prompt`.sh](sh/prompt.sh)
-* [Version **v2.1.1**](sh/prompt.sh) (updated **2024-04-10**)
-
-Just copy this to `/etc/profile.d/prompt.sh`.. will change your `$PS1` prompt.
-Uses the `$PROMPT_COMMAND` variable to dynamically change the prompt.
-
-Last update to **v2.1.1** is maybe important, since the **initial** deletion of `PS1`
-let the `source` hang up (I think it could be caused by the `/etc/bash.bashrc`? maybe..).
-
-#### Screenshot
-![$PS1](img/prompt.png)
+It just got it's own [GitHub repository **`prompt`**](https://github.com/kekse1/prompt/).
 
 ### [`unexify`.sh](sh/unexify.sh)
 * [Version **v0.1.2**](sh/unexify.sh) (updated **2024-04-23**)
