@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/
-# v0.0.9
+# v0.1.0
 #
 # This script helps you converting hugging face models (see
 # https://huggingface.co/) to GGUF format (.gguf), which is
@@ -44,7 +44,6 @@ FORMAT="gguf"
 LLAMA="llama.cpp"
 PYTHON="python3"
 VENV="venv" # if empty, we use system's python installation
-VOCAB="" # 'bpe' necessary for llama3..
 ARGS=""
 
 #
@@ -141,7 +140,6 @@ fi
 
 #
 CMD="'$PYTHON' '$CONVERT' '${DOWNLOADS}/${MODEL}' --outtype ${TYPE} --outfile='${MODELS}/${MODEL}.${TYPE}${FORMAT}'"
-[[ -n "$VOCAB" ]] && CMD="${CMD} --vocab-type '${VOCAB}'"
 [[ -n "$ARGS" ]] && CMD="${CMD} ${ARGS}"
 
 echo -e "\`$CMD\`\n\n"
