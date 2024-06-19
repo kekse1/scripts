@@ -13,9 +13,9 @@
 # script without parameters!
 # 
 # Use the '-d' or '--delete' parameter to unlink all of this script's
-# backup files ('*.BACKUP', or see $BACKUP variable below); and use
-# '-r' or '--restore' to restore the original files from their backups.
-
+# backup files ('*.BACKUP', or see the only $BACKUP variable); and use
+# '-r' or '--restore' to restore the original files via backup files.
+# 
 # Both of the last parameters will only search for matching files,
 # so you *also* need to define your extension(s) and maybe the depth.
 #

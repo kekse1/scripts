@@ -220,8 +220,8 @@ script without parameters!
 
 > [!TIP]
 > Use the `-d` or `--delete` parameter to unlink all of this script's
-> backup files (`*.BACKUP`, or see `$BACKUP` variable below the comment);
-> and use `-r` or `--restore` to restore the original files from their backups.
+> backup files (`*.BACKUP`, or see the (only) `$BACKUP` variable), and
+> use `-r` or `--restore` to restore the original files via backups.
 
 ### [`make-nodejs`.sh](sh/make-nodejs.sh)
 * [Version **v0.3.4**](sh/make-nodejs.sh) (updated **2024-05-20**)
