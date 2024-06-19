@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.1
+# v0.2.2
 #
 # My source code needed my (copyright) header when I published it.
 # So I created this script, since more than just less files needed
@@ -70,16 +70,17 @@ fi
 #
 short=dr
 long=delete,restore
-opts="$(getopt -o "$short" -l "$long" -n "$(basename "$0")" -- "$@")"
+OPTS="$(getopt -o "$short" -l "$long" -n "$(basename "$0")" -- "$@")"
 
 if [[ $? -ne 0 ]]; then
 	exit 254
 else
-	eval set -- "$opts"
+	eval set -- "$OPTS"
 fi
 
 #
 OPTS=()
+DEPTH=1
 UNLINK=0
 RESTORE=0
 STOPPED=0
@@ -97,7 +98,11 @@ while [[ $# -gt 0 ]]; do
 				STOPPED=1
 				;;
 			*)
-				OPTS+=( "$1" )
+				if [[ "$1" =~ ^[0-9]+$ ]]; then
+					DEPTH=$1
+				else
+					OPTS+=( "$1" )
+				fi
 				;;
 		esac
 	else
@@ -115,26 +120,21 @@ elif [[ $RESTORE -ne 0 ]]; then
 	echo "You want to restore the changed files via the backup files."
 fi
 
-DEPTH=1
 INAMES=""
 EXT=0
 
 for i in "${OPTS[@]}"; do
-	if [[ "$i" =~ ^[0-9]+$ ]]; then
-		[[ $i -gt 0 ]] && DEPTH=$i
+	[[ "${i::1}" == "." ]] && i="${i:1}"
+	[[ ${#i} -eq 0 ]] && continue
+	in="-o -iname '*."
+	if [[ $UNLINK -eq 0 && $RESTORE -eq 0 ]]; then
+		in="${in}${i}"
 	else
-		[[ "${i::1}" == "." ]] && i="${i:1}"
-		[[ ${#i} -eq 0 ]] && continue
-		in="-o -iname '*."
-		if [[ $UNLINK -eq 0 && $RESTORE -eq 0 ]]; then
-			in="${in}${i}"
-		else
-			in="${in}${i}.${BACKUP}"
-		fi
-		in="${in}'"
-		INAMES="${INAMES} ${in}"
-		let EXT=$EXT+1
+		in="${in}${i}.${BACKUP}"
 	fi
+	in="${in}'"
+	INAMES="${INAMES} ${in}"
+	let EXT=$EXT+1
 done
 INAMES="${INAMES:4}"
 

@@ -44,7 +44,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.1**;
+* \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.2**;
 * \[**2024-06-14**\] Updated the [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.1.0**
 * \[**2024-06-14**\] Created it's own GitHub repository for the [`prompt`.sh](#promptsh)
 * \[**2024-04-22**\] Renamed my `hugging.sh` to [`hfdownloader`.sh](#hfdownloadersh) (with new **v0.3.0**)!
@@ -209,7 +209,7 @@ only counting all different extensions available under the current working direc
 to limit the `find` recursion depth via optional first argument (needs to be positive integer).
 
 ### [`insert-header`.sh](sh/insert-header.sh)
-* [Version **v0.2.1**](sh/insert-header.sh) (created **2024-06-19**)
+* [Version **v0.2.2**](sh/insert-header.sh) (created **2024-06-19**)
 
 My source code needed my (copyright) header when I published it.
 So I created this script, since more than just less files needed
