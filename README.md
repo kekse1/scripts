@@ -224,8 +224,8 @@ script without parameters!
 > use `-r` or `--restore` to restore the original files via backups.
 
 > [!NOTE]
-> My **TODO** is to replace the file extension argv-parameter by full globs
-> which would directly directed to the `find` command, kinda pass-thru!
+> My **TODO** is to replace the file extension argv-parameters by full
+> globs, to be pass-thru directed to the `find` command.
 
 ### [`make-nodejs`.sh](sh/make-nodejs.sh)
 * [Version **v0.3.4**](sh/make-nodejs.sh) (updated **2024-05-20**)
