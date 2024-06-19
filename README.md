@@ -223,7 +223,7 @@ script without parameters!
 > backup files (`*.BACKUP`, or see the (only) `$BACKUP` variable), and
 > use `-r` or `--restore` to restore the original files via backups.
 
-> [!INFO]
+> [!NOTE]
 > My **TODO** is to replace the file extension argv-parameter by full globs
 > which would directly directed to the `find` command, kinda pass-thru!
 
