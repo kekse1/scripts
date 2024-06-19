@@ -18,6 +18,11 @@
 # 
 # Both of the last parameters will only search for matching files,
 # so you *also* need to define your extension(s) and maybe the depth.
+# 
+
+#
+# TODO #
+# bitte statt nur extensions im argv direkt globs als passthru zu `find`!?!
 #
 
 #
