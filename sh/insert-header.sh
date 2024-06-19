@@ -9,7 +9,7 @@
 # So I created this script, since more than just less files needed
 # to be updated..
 #
-# The usage is merely easy, look at the output when calling this
+# The usage is merely simple, look at the output when calling this
 # script without parameters!
 # 
 # Use the '-d' or '--delete' parameter to unlink all of this script's
