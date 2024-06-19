@@ -244,7 +244,7 @@ else
 			data="${DATA}"
 			while read -r line; do
 				data="${data}
-	${line}"
+${line}"
 			done <"$i"
 			eval "cp '$i' '${i}.${BACKUP}'"
 			if [[ $? -ne 0 ]]; then
