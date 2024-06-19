@@ -215,7 +215,6 @@ errors=0
 
 if [[ $UNLINK -ne 0 ]]; then
 	for i in "${FILES[@]}"; do
-		echo "\`rm '$i'\`"
 		rm "$i" 2>/dev/null
 		if [[ $? -ne 0 ]]; then
 			let errors=$errors+1
