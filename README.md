@@ -21,6 +21,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`baseutils`.sh](#baseutilssh)
 	* [`move-by-ext`.sh](#move-by-extsh)
 	* [`find-ext`.sh](#find-extsh)
+	* [`insert-header`.sh](#insert-headersh)
 	* [`make-nodejs`.sh](#make-nodejssh)
 	* [`router`.sh](#routersh)
 	* [`hfdownloader`.sh](#hfdownloadersh)
@@ -43,6 +44,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.1**;
 * \[**2024-06-14**\] Updated the [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.1.0**
 * \[**2024-06-14**\] Created it's own GitHub repository for the [`prompt`.sh](#promptsh)
 * \[**2024-04-22**\] Renamed my `hugging.sh` to [`hfdownloader`.sh](#hfdownloadersh) (with new **v0.3.0**)!
@@ -205,6 +207,21 @@ Another tiny helper... really nothing special.
 Something similar to the [`move-by-ext`.sh](#move-by-extsh) helper, but here without write operations,
 only counting all different extensions available under the current working directory. And it's possible
 to limit the `find` recursion depth via optional first argument (needs to be positive integer).
+
+### [`insert-header`.sh](sh/insert-header.sh)
+* [Version **v0.2.1**](sh/insert-header.sh) (created **2024-06-19**)
+
+My source code needed my (copyright) header when I published it.
+So I created this script, since more than just less files needed
+to be updated..
+
+The usage is merely easy, look at the output when calling this
+script without parameters!
+
+> [!TIP]
+> Use the `-d` or `--delete` parameter to unlink all of this script's
+> backup files (`*.BACKUP`, or see `$BACKUP` variable below the comment);
+> and use `-r` or `--restore` to restore the original files from their backups.
 
 ### [`make-nodejs`.sh](sh/make-nodejs.sh)
 * [Version **v0.3.4**](sh/make-nodejs.sh) (updated **2024-05-20**)
