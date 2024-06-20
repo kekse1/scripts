@@ -2,7 +2,7 @@
 # 
 # tiny helper script (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.1
+# v0.3.2
 # 
 # Syntax: $0 <-iname> [ ... ]
 # 
@@ -33,7 +33,7 @@ inames=
 while true; do
 	case "$1" in
 		'-h'|'--help')
-			echo "Syntax: $base < iname/glob > [ ... ]" >&2
+			echo "Syntax: $(basename "$0") < iname/glob > [ ... ]" >&2
 			exit
 			;;
 		'--')

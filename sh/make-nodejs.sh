@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.5
+# v0.3.6
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -106,7 +106,7 @@ termux_args="${termux_args} --shared-cares --shared-openssl --shared-zlib" #--wi
 
 #
 if [[ -z "$version" ]]; then
-	echo " >> Syntax: <version> [ <static> [ <no-flags> [ <target> ] ] ]" >&2
+	echo " >> Syntax: $(basename "$0") <version> [ <static> [ <no-flags> [ <target> ] ] ]" >&2
 	exit 1
 elif [[ "$version" == v* ]]; then
 	version="${version:1}"

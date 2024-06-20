@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.3
+# v0.1.4
 # 
 # Syntax: `$0 [ --depth / -d <depth> ] [ --raw / -r ]`
 # 
@@ -47,7 +47,7 @@ while true; do
 			shift
 			;;
 		'-h'|'--help')
-			echo "Syntax: $base [ --depth / -d <depth> ] [ --raw / -r ]"
+			echo "Syntax: $(basename "$0") [ --depth / -d <depth> ] [ --raw / -r ]"
 			exit
 			;;
 		'--')

@@ -4,7 +4,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.4
+# v0.4.5
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
@@ -76,7 +76,7 @@ while true; do
 			echo "                  https://kekse.biz/"
 			echo "                  https://github.com/kekse1/scripts/"
 			echo
-			echo " >> Syntax: $base"
+			echo " >> Syntax: $(basename "$0")"
 			echo "    [ -f / --force ]"
 			echo "    [ -v / --verbose ]"
 			echo "    [ -l / --linux ]"

@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.0
+# v0.2.1
 #
 # The main reason for this script was: my Node.js projects need to handle
 # whole block devices oder partitions. But I wanted to configure them by
@@ -41,7 +41,7 @@ if [[ -z "$_lsblk" ]]; then
 	echo " >> The \`lsblk\` utility couldn't be found!" >&2
 	exit 1
 elif [[ $# -eq 0 ]]; then
-	echo " >> Syntax: \$0 <grep> [ <output parameter> [ ... ] ]" >&2
+	echo " >> Syntax: $(basename "$0") <grep> [ <output parameter> [ ... ] ]" >&2
 	exit 2
 fi
 

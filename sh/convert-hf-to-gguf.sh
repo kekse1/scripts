@@ -10,7 +10,7 @@
 # necessary for the transformers I listed on my website @
 # https://kekse.biz/?~intelligence ...
 #
-# Syntax: <model> [ <type> [ ... ] ]
+# Syntax: $0 <model> [ <type> [ ... ] ]
 #
 # If called without parameter, you'll see a list of the
 # available models.
