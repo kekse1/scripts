@@ -44,13 +44,13 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.6**
 * \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.3**;
 * \[**2024-06-14**\] Updated the [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.1.0**
 * \[**2024-06-14**\] Created it's own GitHub repository for the [`prompt`.sh](#promptsh)
 * \[**2024-04-22**\] Renamed my `hugging.sh` to [`hfdownloader`.sh](#hfdownloadersh) (with new **v0.3.0**)!
 * \[**2024-06-07**\] Updated [`config`.js](#configjs) to **v0.5.0** (see comments!)
 * \[**2024-06-03**\] Updated [`street-split`.js](#street-splitjs) to **v0.2.0**
-* \[**2024-05-23**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.5**
 * \[**2024-05-22**\] New [`init-sub-proj`.sh](#init-sub-projsh), **v0.3.1**;
 * \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3**
 * \[**2024-05-08**\] New link to my [`animation`.js](#animationjs), from my [v4 project](https://github.com/kekse1/v4/);
@@ -283,7 +283,7 @@ on **my website @ [`~intelligence`](https://kekse.biz/?~intelligence)**.
 > `./bin/python3 llama.cpp/convert-hf-to-gguf.py -h`
 
 ### [`nightlounge`.sh](sh/nightlounge.sh)
-* [Version **v0.2.5**](sh/nightlounge.sh) (updated **2024-05-23**)
+* [Version **v0.2.6**](sh/nightlounge.sh) (updated **2024-06-25**)
 
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
 I use this script for my daily download of the 'BigFM Nightlounge' podcast.

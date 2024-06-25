@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.5
+# v0.2.6
 #
 # Start streaming.. I use it for the "BigFM Nightlounge".
 # You can add this to your /etc/crontab. :-)
@@ -33,6 +33,14 @@ elif [[ "${EXT::1}" != "." ]]; then
        	EXT=".${EXT}"
 fi
 
+#
+if [[ $# -gt 0 ]]; then
+	echo
+	echo " >> Now we're waiting for the clock until we record the stream: '$1'..."
+	sleep "$1" || exit 2
+fi
+
+#
 OUT="`date +\"$DATE\"`"
 [[ -n "$NAME" ]] && OUT="${NAME} (${OUT})"
 ORIG="$OUT"
@@ -45,13 +53,6 @@ done
 
 OUT="${OUT}${EXT}"
 echo " >> Output file: '$OUT'"
-
-#
-if [[ $# -gt 0 ]]; then
-	echo
-	echo " >> Now we're waiting for the clock until we record the stream: '$1'..."
-	sleep "$1" || exit 2
-fi
 
 #
 cleanUp()
