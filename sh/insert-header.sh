@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# 
+#
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.2
+# v0.2.3
 #
 # My source code needed my (copyright) header when I published it.
 # So I created this script, since more than just less files needed
@@ -138,7 +138,7 @@ for i in "${OPTS[@]}"; do
 done
 INAMES="${INAMES:4}"
 
-if [[ -z "$INAMES" || $EXT -eq 0 ]]; then
+if [[ $EXT -eq 0 || -z "$INAMES" ]]; then
 	echo "Your extensions define *nothing* (counting ${EXT})!" >&2
 	exit 3
 else
