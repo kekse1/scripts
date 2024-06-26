@@ -49,7 +49,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 * \[**2024-06-14**\] Updated the [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.1.0**
 * \[**2024-06-14**\] Created it's own GitHub repository for the [`prompt`.sh](#promptsh)
 * \[**2024-04-22**\] Renamed my `hugging.sh` to [`hfdownloader`.sh](#hfdownloadersh) (with new **v0.3.0**)!
-* \[**2024-06-07**\] Updated [`config`.js](#configjs) to **v0.5.0** (see comments!)
 * \[**2024-06-03**\] Updated [`street-split`.js](#street-splitjs) to **v0.2.0**
 * \[**2024-05-22**\] New [`init-sub-proj`.sh](#init-sub-projsh), **v0.3.1**;
 * \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3**
@@ -364,7 +363,7 @@ Nice one; have phun.
 
 ### [`config`.js](js/config.js)
 * [Version **v0.5.0**](js/config.v0.4.2.js) (updated **2024-06-07**)
-* [Version **v0.3.0**](js/config.js) (updated **2024-06-01**)
+* [Version **v0.4.0**](js/config.js) (updated **2024-06-26**)
 
 Using a regular `.json` file/structure. But with improved handling.
 

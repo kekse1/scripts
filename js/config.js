@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.3.0
+ * v0.4.0
  *
  * Using a regular `.json` file/structure. But with improved handling.
  *
@@ -117,7 +117,7 @@ class Configuration
 		{
 			if(typeof ctx[_path[i]] !== 'object' || ctx[_path[i]] === null)
 			{
-				return null;
+				return undefined;
 			}
 			else if(_path[i] in ctx)
 			{
@@ -125,7 +125,7 @@ class Configuration
 			}
 			else
 			{
-				return null;
+				return undefined;
 			}
 		}
 
@@ -134,7 +134,7 @@ class Configuration
 			return ctx[last];
 		}
 
-		return null;
+		return undefined;
 	}
 
 	with(_path, _inverse = false)
@@ -148,7 +148,7 @@ class Configuration
 
 		if(cfg.length === 0)
 		{
-			return null;
+			return undefined;
 		}
 
 		for(var i = 0; i < cfg.length; ++i)
@@ -225,7 +225,7 @@ class Configuration
 		}
 		else if(result.length === 0)
 		{
-			return null;
+			return undefined;
 		}
 
 		return result[Math.getIndex(_index, result.length)];
