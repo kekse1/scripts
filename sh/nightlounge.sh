@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.6
+# v0.2.7
 #
 # Start streaming.. I use it for the "BigFM Nightlounge".
 # You can add this to your /etc/crontab. :-)
@@ -60,6 +60,7 @@ cleanUp()
 	[[ -z "$pid" ]] && pid="`cat $PID`"
 	kill -9 $pid >/dev/null 2>&1
 	rm "$PID"
+	echo; echo
 	ls -ahl "$OUT"
 	ls -al "$OUT"
 	echo -e "\n\n"
@@ -69,7 +70,7 @@ cleanUp()
 wget -O "$OUT" "$URL" &
 pid="$!" #pid="`ps aux | grep wget | grep "$_out" | awk '{print $2}'`"
 echo -n "$pid" >"$PID"
-echo -e "\n\n >> Going to \`kill -9 ${pid}\` in ${DURATION}!\n\n\n"
+echo -e " >> Going to \`kill -9 ${pid}\` in ${DURATION}!\n\n\n"
 
 trap "cleanUp $pid" INT
 sleep $DURATION && cleanUp $pid
