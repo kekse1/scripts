@@ -68,7 +68,7 @@ It just got it's own [GitHub repository **`prompt`**](https://github.com/kekse1/
 * [Version **v0.2.0**](sh/layout.sh)
 
 The most important thing for me was to switch between keyboard layouts - easily with a shortcut I've set up in XFCE
-(Settings -> Keyboard): calling this script with '-' argument only (so traversing, *not* setting..)!
+(Settings -> Keyboard): calling this script with '-' argument only, to switch between the configured ones.
 
 Here's an example screenshot:
 ![layout.sh](img/layout.png)
