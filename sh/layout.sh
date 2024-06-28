@@ -8,7 +8,7 @@
 #
 # The most important thing for me was to switch between (configurable, see down below)
 # keyboard layouts - easily with a shortcut I've set up in XFCE (Settings -> Keyboard):
-# calling this script with '-' argument only (so traversing, *not* setting..)!
+# calling this script with '-' argument only, to switch between the configured ones.
 #
 # I'm not using the 'de' layout because the 'us' layout is much better @ Linux & Coding.
 #

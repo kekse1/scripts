@@ -68,14 +68,13 @@ It just got it's own [GitHub repository **`prompt`**](https://github.com/kekse1/
 * [Version **v0.2.0**](sh/layout.sh)
 
 The most important thing for me was to switch between keyboard layouts - easily with a shortcut I've set up in XFCE
-(Settings -> Keyboard): calling this script with '-' argument only, to switch between the configured ones.
+(Settings -> Keyboard): calling this script with '-' argument only, to switch between the configured layouts.
 
-Here's an example screenshot:
 ![layout.sh](img/layout.png)
 
 So either call it without arguments, so it'll show you the currently used layout. Call it with a concrete layout, to
-switch to it directly. Or call it with a single `-`, so it'll traverse through the `layouts` array (on top, by default
-it's `layouts=("us" "de")`).
+switch to it directly. Or call it with a single `-`, so it'll switch between the configured layouts (by default, it's
+on top: `layouts=("us" "de")`).
 
 ### [`unexify`.sh](sh/unexify.sh)
 * [Version **v0.1.2**](sh/unexify.sh) (updated **2024-04-23**)
