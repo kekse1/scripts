@@ -7,11 +7,11 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 1. [News](#news)
 2. [Bash](#bash)
 	* [`prompt`.sh](#promptsh)
+	* [`layout`.sh](#layoutsh)
 	* [`unexify`.sh](#unexifysh)
 	* [`sync`.sh](#syncsh)
 	* [`ansi`.sh](#ansish)
 	* [`up2date`.sh](#up2datesh)
-	* [`layout`.sh](#layoutsh)
 	* [`count-all-lines`.sh](#count-all-linessh)
 	* [`copy`.sh](#copysh)
 	* [`fresh`.sh](#freshsh)
@@ -64,6 +64,19 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 ### [`prompt`.sh](sh/prompt.sh)
 It just got it's own [GitHub repository **`prompt`**](https://github.com/kekse1/prompt/).
 
+### [`layout`.sh](sh/layout.sh)
+* [Version **v0.2.0**](sh/layout.sh)
+
+The most important thing for me was to switch between keyboard layouts - easily with a shortcut I've set up in XFCE
+(Settings -> Keyboard): calling this script with '-' argument only (so traversing, *not* setting..)!
+
+Here's an example screenshot:
+![layout.sh](img/layout.png)
+
+So either call it without arguments, so it'll show you the currently used layout. Call it with a concrete layout, to
+switch to it directly. Or call it with a single `-`, so it'll traverse through the `layouts` array (on top, by default
+it's `layouts=("us" "de")`).
+
 ### [`unexify`.sh](sh/unexify.sh)
 * [Version **v0.1.2**](sh/unexify.sh) (updated **2024-04-23**)
 
@@ -111,19 +124,6 @@ Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and 
 I'm using it to do all steps to keep your packages `up2date`, in just one step!
 
 Also, just copy it to `/etc/profile.d/up2date.sh`
-
-### [`layout`.sh](sh/layout.sh)
-* [Version **v0.2.0**](sh/layout.sh)
-
-The most important thing for me was to switch between keyboard layouts - easily with a shortcut I've set up in XFCE
-(Settings -> Keyboard): calling this script with '-' argument only (so traversing, *not* setting..)!
-
-Here's an example screenshot:
-![layout.sh](img/layout.png)
-
-So either call it without arguments, so it'll show you the currently used layout. Call it with a concrete layout, to
-switch to it directly. Or call it with a single `-`, so it'll traverse through the `layouts` array (on top, by default
-it's `layouts=("us" "de")`).
 
 ### [`count-all-lines`.sh](sh/count-all-lines.sh)
 * [Version **v0.3.1**](sh/count-all-lines.sh) (updated **2024-02-25**)
