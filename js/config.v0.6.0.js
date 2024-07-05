@@ -1,29 +1,33 @@
-/*
+/* 
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.5.0
- *
+ * v0.6.0
+ * 
  * Using a regular `.json` file/structure. But with improved handling.
- *
+ * 
  * Example given: { server: { host: 'localhost', { http: { port: 8080 } } } };
  * You can `.get('server.http.host');` and nevertheless get the `host` above it.
- *
+ * 
  * It's possible to receive an array with all upper definitions, and via `_index`
  * argument to select one (-1 for the last, deepest one, e.g.). You can also FORCE
  * a concrete item without parents, see '.force()'.
- *
+ * 
  * The `.with()` function is meant for e.g. { enabled: (bool) }. It checks all upper
  * occurencies, if there's at least one (false) value. So you can 'globally' disable
  * smth., even if deeper occurencies enable smth. I needed/wanted this.
  * Now w/ `.enabled()` and `.disabled()`!
- *
+ * 
  * The [delim] can be changed (defaults to `DEFAULT_DELIM`). On the bottom of this
  * file I also defined my `Math.getIndex(_index, _length)`, btw.
- *
- * AND now also with new `.extend()` function, to kinda 'chroot' into sub configs;
- * but WITH queries to the topmost config as fallback (TODO: query *every* parent
- * path, step by step, after each 'fail'!).
- *
+ * 
+ * Since v0.6.0 it's "finished"[tm]: every call with (_with == true) will now also
+ * check *every* level above, not only the ones defined by all the nested '.extend()'.
+ * And the results are now (undefined), too, not (null) or so, since these may also
+ * be defined in a config. And more changes are here..
+ * 
+ * BEWARE: this is my 'raw' version I'm using in my project, so there's some extension
+ * functions missing here! Either create your own `polyfill.js` or so, or replace all
+ * 'invalid' calls/members here by those you really define(d), or change it as you want.
  */
 
 //
@@ -61,11 +65,7 @@ class Configuration extends Quant
 
 	static normalizePath(_path, _string = true)
 	{
-		if(!_path)
-		{
-			return '';
-		}
-		else if(Array.isArray(_path, true))
+		if(array(_path, true))
 		{
 			if(_path.length === 0)
 			{
@@ -90,6 +90,17 @@ class Configuration extends Quant
 			}
 
 			_path = p;
+		}
+		else if(string(_path, true))
+		{
+			if(_path.length === 0)
+			{
+				return (_string ? '' : []);
+			}
+		}
+		else
+		{
+			return (_string ? '' : null);
 		}
 
 		_path = _path.split(Configuration.delim);
@@ -128,7 +139,8 @@ class Configuration extends Quant
 	{
 		if(string(_value, false))
 		{
-			return this._path = Configuration.normalizePath(_value, true);
+			return this._path = Configuration.normalizePath(
+				_value, true);
 		}
 		else
 		{
@@ -138,16 +150,11 @@ class Configuration extends Quant
 		return this.path;
 	}
 
-	extend(_path_root)
+	extend(_with)
 	{
-		if(!string(_path_root, true))
-		{
-			return null;
-		}
-
 		const result = new Configuration(this.parent);
 		result.CONFIG = this.CONFIG;
-		result.path = _path_root;
+		result.path = _with;
 		result.parentConfig = this;
 
 		return result;
@@ -198,22 +205,26 @@ class Configuration extends Quant
 		return '';
 	}
 
-	getPath(_path, _string = true, _chroot = true)
+	getPath(_path, _string = true, _with = true)
 	{
-		if(Array.isArray(_path, true))
+		if(array(_path, true))
 		{
 			_path = _path.join(Configuration.delim);
+		}
+		else if(!string(_path, true))
+		{
+			return null;
 		}
 
 		var result;
 
-		if(bool(_chroot))
+		if(bool(_with))
 		{
-			result = (_chroot ? this.getRootPath(true) : '');
+			result = (_with ? this.getRootPath(true) : '');
 		}
-		else if(string(_chroot, false))
+		else if(string(_with, false))
 		{
-			result = _chroot;
+			result = _with;
 		}
 		else
 		{
@@ -224,7 +235,14 @@ class Configuration extends Quant
 		{
 			if(result)
 			{
-				result += Configuration.delim;
+				if(result === _path)
+				{
+					result = '';
+				}
+				else
+				{
+					result += Configuration.delim;
+				}
 			}
 
 			result += _path;
@@ -300,65 +318,194 @@ class Configuration extends Quant
 		return Configuration.load(callback, ... _args);
 	}
 
-	force(_path, _chroot = true)
+	fallback(_path, _func, ... _args)
 	{
 		const orig = _path;
+		_path = Configuration.normalizePath(_path, false);
 
-		if(!(_path = this.getPath(_path, false, _chroot)))
+		if(_path.length <= 0 || !string(_func, false))
 		{
-			if(_chroot)
+			return undefined;
+		}
+
+		const test = (_p) => {
+			switch(_func)
 			{
-				return this.force(this.tryRootPath(_chroot), false);
+				case 'force':
+					if(typeof (r = this.force(_p, false)) !== 'undefined')
+						return r;
+					break;
+				case 'with':
+					if(this.with(_p, _args[0], false) === false)
+						return false;
+					break;
+				case 'get':
+					r = this.get(_p, _args[0], false);
+					if(int(_args[0]))
+					{
+						if(typeof r !== 'undefined')
+						{
+							return r;
+						}
+					}
+					else if(r.length > 0)
+					{
+						return r;
+					}
+					break;
+				case 'set':
+					if(this.set(_p, _args[0], false, false) === true)
+						return true;
+					break;
+				case 'has':
+					if(this.has(_p, false))
+						return true;
+					break;
+				case 'unset':
+					if(this.unset(_p, false))
+						return true;
+					break;
+			}
+		};
+		
+		var p, c, r;
+		
+		for(var i = -1, j = 0; j < _path.length - 1; --i, ++j)
+		{
+			p = _path.slice(0, i).join(Configuration.delim);
+
+			for(var k = _path.length - j; k < _path.length; ++k)
+			{
+				c = _path.slice(k, -1);
+				
+				if(c.length === 0)
+				{
+					c = '';
+				}
+				else
+				{
+					c = c.join(Configuration.delim) + Configuration.delim;
+				}
+				
+				c += _path[_path.length - 1];
+				c = p + Configuration.delim + c;
+
+				if(typeof (r = test(c)) !== 'undefined')
+				{
+					return r;
+				}
+			}
+		}
+		
+		switch(_func)
+		{
+			case 'force':
+				if(this.isRootPath(_path))
+					return this.CONFIG;
+				break;
+			case 'with':
+				return true;
+			case 'get':
+				if(!int(_args[0]))
+					return [];
+				break;
+			case 'set':
+			case 'has':
+			case 'unset':
+				return false;
+		}
+
+		return undefined;
+	}
+
+	isRootPath(_path)
+	{
+		_path = Configuration.normalizePath(_path, true);
+
+		if(_path === '')
+		{
+			return true;
+		}
+		else if(this.getRootPath(true) === _path)
+		{
+			return true;
+		}
+
+		return false;
+	}
+	
+	force(_path, _with = true)
+	{
+		if(!_path)
+		{
+			_path = '';
+		}
+
+		if(!(_path = this.getPath(_path, false, _with)))
+		{
+			if(_with)
+			{
+				return this.fallback(_path, 'force');
+			}
+
+			return undefined;
+		}
+		else if(!_with && this.isRootPath(_path))
+		{
+			if(_with)
+			{
+				return this.force(this.getRootPath(), false);
 			}
 
 			return this.CONFIG;
 		}
 
+		const orig = [ ... _path ];
 		const last = _path.pop();
 		var ctx = this.CONFIG;
 
 		for(var i = 0; i < _path.length; ++i)
 		{
-			if(!object(ctx[_path[i]]))
-			{
-				return null;
-			}
-			else if(_path[i] in ctx)
+			if(Reflect.isExtensible(ctx[_path[i]]))
 			{
 				ctx = ctx[_path[i]];
 			}
 			else
 			{
-				return null;
+				ctx = undefined;
+				break;
 			}
 		}
 
-		if(last in ctx)
+		if(ctx && (last in ctx))
 		{
 			return ctx[last];
 		}
-		else if(_chroot)
+		else if(_with)
 		{
-			return this.force(orig, false);
+			return this.fallback(orig, 'force');
 		}
 
-		return null;
+		return undefined;
 	}
 
-	with(_path, _inverse = false, _chroot = true)
+	with(_path, _inverse = false, _with = true)
 	{
-		const orig = _path;
-		
-		if(!(_path = this.getPath(_path, false, _chroot)))
+		if(!(_path = this.getPath(_path, false, _with)))
 		{
+			if(_with)
+			{
+				return this.fallback(orig, 'with', _inverse);
+			}
+			
 			return undefined;
 		}
 
-		const cfg = this.get(_path, null, _chroot);
+		const cfg = this.get(_path, null, _with);
 
 		if(cfg.length === 0)
 		{
-			return null;
+			return undefined;
 		}
 
 		for(var i = 0; i < cfg.length; ++i)
@@ -369,36 +516,34 @@ class Configuration extends Quant
 			}
 		}
 		
-		if(_chroot && this.with(orig, _inverse, false) === false)
+		if(_with)
 		{
-			return false;
+			return this.fallback(_path, 'with', _inverse);
 		}
-
+		
 		return true;
 	}
 
-	enabled(_path, _chroot = true)
+	enabled(_path, _with = true)
 	{
-		return this.with(_path, false, _chroot);
+		return this.with(_path, false, _with);
 	}
 	
-	disabled(_path, _chroot = true)
+	disabled(_path, _with = true)
 	{
-		return this.with(_path, true, _chroot);
+		return this.with(_path, true, _with);
 	}
 
-	get(_path, _index = -1, _chroot = true)
+	get(_path, _index = -1, _with = true)
 	{
-		const orig = _path;
-
-		if(!(_path = this.getPath(_path, false, _chroot)))
+		if(!(_path = this.getPath(_path, false, _with)))
 		{
-			if(_chroot)
+			if(_with)
 			{
-				return this.force(this.tryRootPath(_chroot), false);
+				return this.fallback(orig, 'get', _index);
 			}
-
-			return this.CONFIG;
+			
+			return undefined;
 		}
 
 		if(!int(_index))
@@ -406,43 +551,43 @@ class Configuration extends Quant
 			_index = null;
 		}
 
+		const orig = [ ... _path ];
 		const last = _path.pop();
 		var ctx = this.CONFIG;
-		const result = [];
+		var result = [];
 		
 		for(var i = 0, j = 0; i < _path.length; ++i)
 		{
-			if(!object(ctx[_path[i]]))
-			{
-				break;
-			}
-			else if(last in ctx)
-			{
-				result[j++] = ctx[last];
-			}
-			
-			if(_path[i] in ctx)
+			if(Reflect.isExtensible(ctx[_path[i]]))
 			{
 				ctx = ctx[_path[i]];
 			}
 			else
 			{
+				ctx = undefined;
 				break;
 			}
 		}
 
-		if(last in ctx)
+		if(ctx && (last in ctx))
 		{
 			result.push(ctx[last]);
 		}
-		
-		if(result.length === 0 && _chroot)
-		{
-			const res = this.get(orig, _index, false);
 
-			if(res !== null)
+		if(result.length === 0 && _with)
+		{
+			const res = this.fallback(orig, 'get', _index);
+
+			if(typeof res !== 'undefined')
 			{
-				return res;
+				if(_index === null)
+				{
+					result = res;
+				}
+				else
+				{
+					result = [ res ];
+				}
 			}
 		}
 
@@ -452,18 +597,26 @@ class Configuration extends Quant
 		}
 		else if(result.length === 0)
 		{
-			return null;
+			return undefined;
 		}
 
 		return result[Math.getIndex(_index, result.length)];
 	}
 	
-	set(_path, _value, _force = DEFAULT_FORCE, _chroot = true)
+	set(_path, _value, _force = DEFAULT_FORCE, _with = true)
 	{
-		const orig = _path;
-		
-		if(!(_path = this.getPath(_path, false, _chroot)))
+		if(!(_path = this.getPath(_path, false, _with)))
 		{
+			if(_with)
+			{
+				const res = tryRoots();
+				
+				if(res === true)
+				{
+					return res;
+				}
+			}
+			
 			return undefined;
 		}
 		
@@ -472,33 +625,32 @@ class Configuration extends Quant
 			return this.unset(_path);
 		}
 
+		const orig = [ ... _path ];
 		const last = _path.pop();
 		var ctx = this.CONFIG;
 
 		for(var i = 0; i < _path.length; ++i)
 		{
-			if(!object(ctx[_path[i]]))
-			{
-				if(_force)
-				{
-					ctx = ctx[_path[i]] = {};
-				}
-				else if(_chroot)
-				{
-					return this.set(orig, _value, _force, false);
-				}
-				else
-				{
-					return false;
-				}
-			}
-			else if(_path[i] in ctx)
+			if(Reflect.isExtensible(ctx[_path[i]]))
 			{
 				ctx = ctx[_path[i]];
 			}
+			else if(_path[i] in ctx)
+			{
+				if(_force)
+				{
+					ctx = ctx[_path[i]] = Object.create(null);
+				}
+				else if(_with)
+				{
+					return this.fallback(orig, 'set', _value);
+				}
+				
+				return false;
+			}
 			else
 			{
-				ctx = ctx[_path[i]] = {};
+				ctx = ctx[_path[i]] = Object.create(null);
 			}
 		}
 
@@ -506,96 +658,84 @@ class Configuration extends Quant
 		return true;
 	}
 	
-	has(_path, _chroot = true)
+	has(_path, _with = true)
 	{
-		const orig = _path;
-		
-		if(!(_path = this.getPath(_path, false, _chroot)))
+		if(!(_path = this.getPath(_path, false, _with)))
 		{
+			if(_with)
+			{
+				return tryRoots();
+			}
+			
 			return undefined;
 		}
-		
+
+		const orig = [ ... _path ];		
 		const last = _path.pop();
 		var ctx = this.CONFIG;
 		
 		for(var i = 0; i < _path.length; ++i)
 		{
-			if(!object(ctx[_path[i]]))
-			{
-				if(_chroot)
-				{
-					return this.has(orig, false);
-				}
-
-				return false;
-			}
-			else if(_path[i] in ctx)
+			if(Reflect.isExtensible(ctx[_path[i]]))
 			{
 				ctx = ctx[_path[i]];
 			}
 			else
 			{
-				return false;
+				ctx = undefined;
+				break;
 			}
 		}
 
-		if(last in ctx)
+		if(ctx && (last in ctx))
 		{
 			return true;
 		}
-		else if(_chroot)
+		else if(_with)
 		{
-			return this.has(orig, false);
+			return this.fallback(orig, 'has');
 		}
 		
 		return false;
 	}
 
-	unset(_path, _chroot = true)
+	unset(_path, _with = true)
 	{
-		const orig = _path;
-		
-		if(!(_path = this.getPath(_path, false, _chroot)))
+		if(!(_path = this.getPath(_path, false, _with)))
 		{
+			if(_with)
+			{
+				return tryRoots();
+			}
+			
 			return undefined;
 		}
 
+		const orig = [ ... _path ];
 		const last = _path.pop();
 		var ctx = this.CONFIG;
 
 		for(var i = 0; i < _path.length; ++i)
 		{
-			if(!object(ctx[_path[i]]))
-			{
-				if(_chroot)
-				{
-					return this.unset(orig, false);
-				}
-
-				return false;
-			}
-			else if(_path[i] in ctx)
+			if(Reflect.isExtensible(ctx[_path[i]]))
 			{
 				ctx = ctx[_path[i]];
 			}
-			else if(_chroot)
-			{
-				return this.unset(orig, false);
-			}
 			else
 			{
-				return false;
+				ctx = undefined;
+				break;
 			}
 		}
 
-		if(last in ctx)
+		if(ctx && (last in ctx))
 		{
 			delete ctx[last];
 			return true;
 		}
-		else if(_chroot)
+		else if(_with)
 		{
-			return this.unset(orig, false);
+			return this.fallback(orig, 'unset');
 		}
 
 		return false;
@@ -643,20 +783,6 @@ class Configuration extends Quant
 }
 
 export default Configuration;
-
-//
-Reflect.defineProperty(Math, 'getIndex', { value: (_index, _length) => {
-	if(_length < 1)
-	{
-		return null;
-	}
-	else if((_index %= _length) < 0)
-	{
-		_index = ((_length + _index) % _length);
-	}
-	
-	return (_index || 0);
-}});
 
 //
 

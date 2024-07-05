@@ -44,6 +44,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-07-05**\] _New_ [`config`.js](#configjs) in **v0.6.0**
 * \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.7**
 * \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.3**;
 * \[**2024-06-14**\] Updated the [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.1.0**
@@ -360,14 +361,14 @@ one `.scheme[]` item..
 
 Nice one; have phun.
 
-### [`config`.js](js/config.js)
-* [Version **v0.5.0**](js/config.v0.4.2.js) (updated **2024-06-07**)
+### [`config`.js](js/)
+* [Version **v0.6.0**](js/config.v0.6.0.js) (created **2024-07-05**)
 * [Version **v0.4.0**](js/config.js) (updated **2024-06-26**)
 
 Using a regular `.json` file/structure. But with improved handling.
 
 > [!IMPORTANT]
-> The **v0.5.0** ain't runnable in a regular JavaScript environment,
+> The **v0.6.0** ain't runnable in a regular JavaScript environment,
 > because it's using extensions I've only got in my own code.
 > **But** the algorithms and structures should be correct and
 > clear when you are looking in the code for yourself.
@@ -387,8 +388,9 @@ smth., even if deeper occurencies enable smth. I needed/wanted this; .. now with
 You can, btw., init with config object using `{,static} wrap(_object, ..)`;
 or just argue with such a base object in any constructor argument. AND now
 you can also `.extend()` with kinda 'chroot' sub paths (so your query paths
-can start in a sub object).. last(?) **TODO**: not only query the root path
-as fallback, but also *every* parent path, step-by-step.
+can start in a sub object).. and now, since **v0.6.0** I also support the
+'step-wise' traversing up the paths. So not only any chroot path, but **every**
+path item (see `Configuration.delim`)!
 
 ### [`reflection`.js](js/reflection.js)
 * [Version **v2.1.0**](js/reflection.js) (updated **2024-04-30**)
