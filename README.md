@@ -381,9 +381,9 @@ argument to select one (-1 for the last, deepest one, e.g.). You can also FORCE
 a concrete item without parents, see '.force()'.
 
 The `.with()` function is meant for e.g. { enabled: (bool) }. It checks all upper
-occurencies, if there's at least one (false) value. So you can 'globally' disable
-smth., even if deeper occurencies enable smth. I needed/wanted this; .. now with
-`.enabled()` and `.disabled()`.
+occurencies, if there's at least one (`false/true`) value. So you can 'globally'
+disable/enable smth., even if deeper occurencies enable smth. I needed/wanted this;
+.. usable by `.enabled()` and `.disabled()` (chooses the test with one of `true/false`).
 
 You can, btw., init with config object using `{,static} wrap(_object, ..)`;
 or just argue with such a base object in any constructor argument. AND now
