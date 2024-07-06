@@ -1,33 +1,4 @@
-/* 
- * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
- * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.6.0
- * 
- * Using a regular `.json` file/structure. But with improved handling.
- * 
- * Example given: { server: { host: 'localhost', { http: { port: 8080 } } } };
- * You can `.get('server.http.host');` and nevertheless get the `host` above it.
- * 
- * It's possible to receive an array with all upper definitions, and via `_index`
- * argument to select one (-1 for the last, deepest one, e.g.). You can also FORCE
- * a concrete item without parents, see '.force()'.
- * 
- * The `.with()` function is meant for e.g. { enabled: (bool) }. It checks all upper
- * occurencies, if there's at least one (false) value. So you can 'globally' disable
- * smth., even if deeper occurencies enable smth. I needed/wanted this.
- * Now w/ `.enabled()` and `.disabled()`!
- * 
- * The [delim] can be changed (defaults to `DEFAULT_DELIM`). On the bottom of this
- * file I also defined my `Math.getIndex(_index, _length)`, btw.
- * 
- * Since v0.6.0 it's "finished"[tm]: every call with (_with == true) will now also
- * check *every* level above, not only the ones defined by all the nested '.extend()'.
- * And the results are now (undefined), too, not (null) or so, since these may also
- * be defined in a config. And more changes are here..
- * 
- * BEWARE: this is my 'raw' version I'm using in my project, so there's some extension
- * functions missing here! Either create your own `polyfill.js` or so, or replace all
- * 'invalid' calls/members here by those you really define(d), or change it as you want.
+/*
  */
 
 //
@@ -36,6 +7,7 @@ const DEFAULT_FORCE = false;
 const DEFAULT_ALL = true;
 const DEFAULT_THROW = true;
 const DEFAULT_RESET = false;
+const DEFAULT_COPY = true;
 
 //
 import Quant from './quant.js';
@@ -392,6 +364,11 @@ class Configuration extends Quant
 
 				if(typeof (r = test(c)) !== 'undefined')
 				{
+					if(DEFAULT_COPY && array(r, true))
+					{
+						r = [ ... r ];
+					}
+
 					return r;
 				}
 			}
@@ -479,7 +456,14 @@ class Configuration extends Quant
 
 		if(ctx && (last in ctx))
 		{
-			return ctx[last];
+			const r = ctx[last];
+
+			if(DEFAULT_COPY && array(r, true))
+			{
+				return [ ... r ];
+			}
+
+			return r;
 		}
 		else if(_with)
 		{
@@ -600,7 +584,14 @@ class Configuration extends Quant
 			return undefined;
 		}
 
-		return result[Math.getIndex(_index, result.length)];
+		const item = result[Math.getIndex(_index, result.length)];
+
+		if(DEFAULT_COPY && array(item, true))
+		{
+			return [ ... item ];
+		}
+
+		return item;
 	}
 	
 	set(_path, _value, _force = DEFAULT_FORCE, _with = true)
