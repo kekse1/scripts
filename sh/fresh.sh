@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.3
+# v0.4.4
 #
 # Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
 # since it is *not* executable (but `source` or `.`).
@@ -15,6 +15,8 @@
 #
 
 _GIT_DATE_FORMAT='%s'
+_GIT_DATE_FORMAT_EXT='%s%N'
+_GIT_DATE_SYMBOL='+'
 
 fresh()
 {
@@ -38,10 +40,15 @@ fresh()
 
 	if [[ $_add -eq 0 ]]; then
 		echo -e " >> Only fetching latest repository state."
-		echo -e " >> To also upload your changes, argue with commit message."
+		echo -e " >> To also upload your changes, argue with a commit message;"
+		echo -e " >> use \`$_GIT_DATE_SYMBOL\` to use \`date\` w/ timestamp."
 	else
-		_txt="`date +"$_GIT_DATE_FORMAT"`"
-		_txt="[$_txt] $*"
+		if [[ "$*" == "$_GIT_DATE_SYMBOL" ]]; then
+			_txt="`date +"$_GIT_DATE_FORMAT_EXT"`"
+		else
+			_txt="`date +"$_GIT_DATE_FORMAT"`"
+			_txt="[$_txt] $*"
+		fi
 
 		echo -e " >> Repository path:\n    \e[1m${_dir}\e[0m"
 		echo -e " >> Applying commit:\n    \e[1m${_txt}\e[0m\n"

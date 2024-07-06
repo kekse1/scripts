@@ -44,6 +44,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-07-06**\] Updated the [`fresh`.sh](#freshsh) to **v0.4.4** (for lazy people like me)
 * \[**2024-07-05**\] _New_ [`config`.js](#configjs): **v0.6.2**
 * \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.7**
 * \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.3**;
@@ -144,7 +145,7 @@ So just set your server {user,host,port} and copy securely.
 BTW: yes, I had an unstable line when I created this.. via mobile phone.
 
 ### [`fresh`.sh](sh/fresh.sh)
-* [Version **v0.4.3**](sh/fresh.sh) (updated **2024-04-22**)
+* [Version **v0.4.4**](sh/fresh.sh) (updated **2024-07-06**)
 
 Helper to quickly update `git` repositories.. really tiny.
 
@@ -153,6 +154,11 @@ is now required (because I was too lazy before..).
 
 **Now** (**v0.3.0**) w/ new **`keep`** function (inter alia because `git`
 won't see empty directories).
+
+**New** in **v0.4.4**: use **`+`** (or `$_GIT_DATE_SYMBOL` config) to only
+set the commit message (without it there'd be **no** `git add/commit/push`,
+only `git pull`) to the current `date +"$_GIT_DATE_FORMAT_EXT"`, if you're
+lazy like me.
 
 ### [`replace`.sh](sh/replace.sh)
 * [Version **v0.1.1**](sh/replace.sh) (created **2024-03-19**)
