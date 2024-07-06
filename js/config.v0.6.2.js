@@ -1,4 +1,23 @@
 /*
+ * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
+ * https://kekse.biz/ https://github.com/kekse1/scripts/
+ * v0.6.2
+ *
+ * Using a regular `.json` file/structure. But with improved handling.
+ *
+ * Example given: { server: { host: 'localhost', { http: { port: 8080 } } } };
+ * You can `.get('server.http.host');` and nevertheless get the `host` above it.
+ *
+ * It's possible to receive an array with all upper definitions, and via `_index`
+ * argument to select one (-1 for the last, deepest one, e.g.). You can also FORCE
+ * a concrete item without parents, see '.force()'.
+ *
+ * The `.with()` function is meant for e.g. { enabled: (bool) }. It checks all upper
+ * occurencies, if there's at least one (false) value. So you can 'globally' disable
+ * smth., even if deeper occurencies enable smth. I needed/wanted this.
+ * Now w/ `.enabled()` and `.disabled()`!
+ * 
+ * New since v0.6: Stepwise traverse up *any* path, not only the chroot's!
  */
 
 //
@@ -364,9 +383,9 @@ class Configuration extends Quant
 
 				if(typeof (r = test(c)) !== 'undefined')
 				{
-					if(DEFAULT_COPY && array(r, true))
+					if(DEFAULT_COPY)
 					{
-						r = [ ... r ];
+						return Reflect.clone(r);
 					}
 
 					return r;
@@ -378,6 +397,12 @@ class Configuration extends Quant
 		{
 			case 'force':
 				if(this.isRootPath(_path))
+				{
+					if(DEFAULT_COPY)
+					{
+						return Reflect.clone(this.CONFIG);
+					}
+
 					return this.CONFIG;
 				break;
 			case 'with':
@@ -433,6 +458,10 @@ class Configuration extends Quant
 			{
 				return this.force(this.getRootPath(), false);
 			}
+			else if(DEFAULT_COPY)
+			{
+				return Reflect.clone(this.CONFIG);
+			}
 
 			return this.CONFIG;
 		}
@@ -458,9 +487,9 @@ class Configuration extends Quant
 		{
 			const r = ctx[last];
 
-			if(DEFAULT_COPY && array(r, true))
+			if(DEFAULT_COPY)
 			{
-				return [ ... r ];
+				return Reflect.clone(r);
 			}
 
 			return r;
@@ -586,9 +615,9 @@ class Configuration extends Quant
 
 		const item = result[Math.getIndex(_index, result.length)];
 
-		if(DEFAULT_COPY && array(item, true))
+		if(DEFAULT_COPY)
 		{
-			return [ ... item ];
+			return Reflect.clone(item);
 		}
 
 		return item;
