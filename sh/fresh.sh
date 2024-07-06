@@ -40,8 +40,7 @@ fresh()
 
 	if [[ $_add -eq 0 ]]; then
 		echo -e " >> Only fetching latest repository state."
-		echo -e " >> To also upload your changes, argue with a commit message;"
-		echo -e " >> use \`$_GIT_DATE_SYMBOL\` to use \`date\` w/ timestamp."
+		echo -e " >> To also upload your changes, argue with a commit message (\`$_GIT_DATE_SYMBOL\` for a \`date\`)."
 	else
 		if [[ "$*" == "$_GIT_DATE_SYMBOL" ]]; then
 			_txt="`date +"$_GIT_DATE_FORMAT_EXT"`"
