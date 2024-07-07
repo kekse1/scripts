@@ -34,7 +34,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`links`.js](#linksjs)
 	* [`config`.js](#configjs)
 	* [`reflection`.js](#reflectionjs)
-	* [`intersection`.js](#intersectionjs)
+	* [`intersect`.js](#intersectjs)
 	* [`multiset`.js](#multisetjs)
 	* [`animation`.js](#animationjs)
 	* [`street-split`.js](#street-splitjs)
@@ -58,7 +58,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 * \[**2024-05-02**\] New [`lsblk`.sh](#lsblksh) shell script, **v0.2.0**;
 * \[**2024-05-02**\] Updated [`links`.js](#linksjs) to **v0.8.3**.
 * \[**2024-04-30**\] New [`MultiSet`](#multisetjs) class, **v0.2.0**.
-* \[**2024-04-30**\] New [`intersection`.js](#intersectionjs) for arrays, **v0.2.1** (for any data type);
+* \[**2024-04-30**\] New [`intersect`.js](#intersectjs) for arrays, **v0.2.1** (for any data type);
 * \[**2024-04-30**\] [`reflection`.js](#reflectionjs) updated to **v2.1.0**: **important update**!
 
 ## [Bash](sh/)
@@ -414,8 +414,8 @@ the starting comment on top of the file.
 > Since **v2.1.0** the additional `was()` parameters (varargs) mean **AND**, **not** **OR** any longer..
 > But the `is()` stayed the same (**OR**);
 
-### [`intersection`.js](js/intersection.js)
-* [Version **v0.2.1**](js/intersection.js) (created **2024-04-30**)
+### [`intersect`.js](js/intersect.js)
+* [Version **v0.2.2**](js/intersect.js) (created **2024-07-07**)
 
 Intersection for Arrays. Works with any data type (so no optimization like
 binary search possible here), and respects multiple occurences (if no (true)

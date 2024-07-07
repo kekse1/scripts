@@ -1,7 +1,7 @@
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // https://kekse.biz/ https://github.com/kekse1/scripts/
-// v0.2.1
+// v0.2.2
 //
 // Intersection for Arrays.
 //
@@ -17,7 +17,7 @@
 import MultiSet from './multiset.js';
 
 //
-Reflect.defineProperty(Array, 'intersection', { value: (... _args) => {
+Reflect.defineProperty(Array, 'intersect', { value: (... _args) => {
 	var unique = false;
 	for(var i = 0; i < _args.length; ++i) {
 		if(typeof _args[i] === 'boolean')
