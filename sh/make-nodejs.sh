@@ -33,6 +33,7 @@
 
 #for termux:
 #DEPENDS="binutils libc++ openssl c-ares libicu zlib libuv clang make pkg-config python"
+#DEPENS="ninja-build"
 
 #
 #only used for termux build..

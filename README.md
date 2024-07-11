@@ -468,11 +468,13 @@ but the code is/was a mess!
 Modificated `/usr/bin/nproc`, to optionally set the `NPROC` environment variable,
 which can be an arbitrary number of cores/threads to output.
 
-If `$NPROC’ is not defined or below 1, it will try to get the real value.
+If `$NPROC` is not defined or below 1, it will try to get the real value.
 
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
 and it's licensed under the [MIT](./LICENSE.txt) (also known as 'X' or 'X11' license).
 
-![kekse.biz](favicon.png)
+<a href="favicon.512px.png" target="_blank">
+<img src="favicon.png" alt="Favicon" />
+</a>
 
