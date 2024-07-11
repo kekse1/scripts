@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.6
+# v0.3.7
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -409,7 +409,7 @@ check()
 		#mergeSymlinks
 		echo " >> You can now \`cd\` to '${originalTarget}' and \`rm -rf\` old version(s) [this is 'v${version}', btw ;-]."
 	else
-		echo " >> FAILED (v${version})! \e[1m:-(\e[0m"
+		echo -e " >> FAILED (v${version})! \e[1m:-(\e[0m"
 		exit 14
 	fi
 }
