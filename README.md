@@ -44,22 +44,13 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-07-11**\] [`make-nodejs`.sh](#make-nodejssh) **v0.3.7**
 * \[**2024-07-06**\] Updated the [`fresh`.sh](#freshsh) to **v0.4.4** (for lazy people like me)
 * \[**2024-07-05**\] _New_ [`config`.js](#configjs): **v0.6.2**
 * \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.7**
 * \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.3**;
 * \[**2024-06-14**\] Updated the [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.1.0**
 * \[**2024-06-14**\] Created it's own GitHub repository for the [`prompt`.sh](#promptsh)
-* \[**2024-04-22**\] Renamed my `hugging.sh` to [`hfdownloader`.sh](#hfdownloadersh) (with new **v0.3.0**)!
-* \[**2024-06-03**\] Updated [`street-split`.js](#street-splitjs) to **v0.2.0**
-* \[**2024-05-22**\] New [`init-sub-proj`.sh](#init-sub-projsh), **v0.3.1**;
-* \[**2024-05-09**\] Updated the [`clone`.js](#clonejs) to **v0.4.3**
-* \[**2024-05-08**\] New link to my [`animation`.js](#animationjs), from my [v4 project](https://github.com/kekse1/v4/);
-* \[**2024-05-02**\] New [`lsblk`.sh](#lsblksh) shell script, **v0.2.0**;
-* \[**2024-05-02**\] Updated [`links`.js](#linksjs) to **v0.8.3**.
-* \[**2024-04-30**\] New [`MultiSet`](#multisetjs) class, **v0.2.0**.
-* \[**2024-04-30**\] New [`intersect`.js](#intersectjs) for arrays, **v0.2.1** (for any data type);
-* \[**2024-04-30**\] [`reflection`.js](#reflectionjs) updated to **v2.1.0**: **important update**!
 
 ## [Bash](sh/)
 
@@ -233,7 +224,7 @@ script without parameters!
 > globs, to be pass-thru directed to the `find` command.
 
 ### [`make-nodejs`.sh](sh/make-nodejs.sh)
-* [Version **v0.3.4**](sh/make-nodejs.sh) (updated **2024-05-20**)
+* [Version **v0.3.7**](sh/make-nodejs.sh) (updated **2024-07-11**)
 
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
@@ -242,7 +233,7 @@ the only thing left to do, _just once_, is to merge the fs structure under the s
 the `/usr/` hierarchy.
 
 > [!NOTE]
-> Just call it via `make-nodejs.sh 22.2.0`, e.g.!
+> Just call it via `make-nodejs.sh 22.4.1`, e.g.!
 
 There's a tiny //**TODO**/ (on top of the file), since this script is really old,
 and could maybe be improved in some ways.. **yet to come**!!
