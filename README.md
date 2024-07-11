@@ -44,9 +44,9 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-07-11**\] Minor update: [`config`.js](#configjs) **v0.6.3**
 * \[**2024-07-11**\] [`make-nodejs`.sh](#make-nodejssh) **v0.3.7**
 * \[**2024-07-06**\] Updated the [`fresh`.sh](#freshsh) to **v0.4.4** (for lazy people like me)
-* \[**2024-07-05**\] _New_ [`config`.js](#configjs): **v0.6.2**
 * \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.7**
 * \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.3**;
 * \[**2024-06-14**\] Updated the [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.1.0**
@@ -359,7 +359,7 @@ one `.scheme[]` item..
 Nice one; have phun.
 
 ### [`config`.js](js/)
-* [Version **v0.6.1**](js/config.v0.6.2.js) (updated **2024-07-06**)
+* [Version **v0.6.3**](js/config.v0.6.3.js) (updated **2024-07-11**)
 * [Version **v0.4.0**](js/config.js) (updated **2024-06-26**)
 
 Using a regular `.json` file/structure. But with improved handling.

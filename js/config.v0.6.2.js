@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.6.2
+ * v0.6.3
  *
  * Using a regular `.json` file/structure. But with improved handling.
  *
@@ -143,7 +143,13 @@ class Configuration extends Quant
 
 	extend(_with)
 	{
+		if(!string(_with, false))
+		{
+			return this;
+		}
+
 		const result = new Configuration(this.parent);
+
 		result.CONFIG = this.CONFIG;
 		result.path = _with;
 		result.parentConfig = this;
