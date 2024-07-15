@@ -44,7 +44,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-07-11**\] Minor update: [`config`.js](#configjs) **v0.6.3**
+* \[**2024-07-15**\] Updated the [`config`.js](#configjs) to **v0.7.0** (bugs fixed, and new `.path()`)
 * \[**2024-07-11**\] [`make-nodejs`.sh](#make-nodejssh) **v0.3.7**
 * \[**2024-07-06**\] Updated the [`fresh`.sh](#freshsh) to **v0.4.4** (for lazy people like me)
 * \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.7**
@@ -359,13 +359,13 @@ one `.scheme[]` item..
 Nice one; have phun.
 
 ### [`config`.js](js/)
-* [Version **v0.6.3**](js/config.v0.6.3.js) (updated **2024-07-11**)
+* [Version **v0.7.0**](js/config.v0.7.0.js) (updated **2024-07-15**)
 * [Version **v0.4.0**](js/config.js) (updated **2024-06-26**)
 
 Using a regular `.json` file/structure. But with improved handling.
 
 > [!IMPORTANT]
-> The **v0.6.0** ain't runnable in a regular JavaScript environment,
+> The **v0.7.0** isn't runnable in a regular JavaScript environment,
 > because it's using extensions I've only got in my own code.
 > **But** the algorithms and structures should be correct and
 > clear when you are looking in the code for yourself.
@@ -388,6 +388,12 @@ you can also `.extend()` with kinda 'chroot' sub paths (so your query paths
 can start in a sub object).. and now, since **v0.6.0** I also support the
 'step-wise' traversing up the paths. So not only any chroot path, but **every**
 path item (see `Configuration.delim`)!
+
+**New** since **v0.7.0**: `path()` method. I'm using it to `path.join()` path items;
+I'm using `{ root }` path elements, to `chroot()` step-wise into them. Every parent
+root is `.resolve()`ing with configured sub directories to extend the `chroot()` to
+there. I just wanted to reproduce the whole path depth (by looking at the pure config),
+so I needed this `.path(_path)` method now. ...
 
 ### [`reflection`.js](js/reflection.js)
 * [Version **v2.1.0**](js/reflection.js) (updated **2024-04-30**)
