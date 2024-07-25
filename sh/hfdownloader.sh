@@ -13,6 +13,8 @@
 #
 # Please adapt the following variables to your needs.
 #
+# TODO: a LIST of models to download..
+#
 
 #
 CONCURRENT=8
