@@ -44,13 +44,13 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-07-29**\] [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) **v0.1.1**
 * \[**2024-07-29**\] [`hfdownloader`.sh](#hfdownloadersh) **v0.3.1**
 * \[**2024-07-15**\] Updated the [`config`.js](#configjs) to **v0.7.0** (bugs fixed, and new `.path()`)
 * \[**2024-07-11**\] [`make-nodejs`.sh](#make-nodejssh) **v0.3.7**
 * \[**2024-07-06**\] Updated the [`fresh`.sh](#freshsh) to **v0.4.4** (for lazy people like me)
 * \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.7**
 * \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.3**;
-* \[**2024-06-14**\] Updated the [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.1.0**
 * \[**2024-06-14**\] Created it's own GitHub repository for the [`prompt`.sh](#promptsh)
 
 ## [Bash](sh/)
@@ -261,7 +261,7 @@ tool is easy enough; it's rather kinda reminder' for myself..
 > concretely at the [**`~intelligence`** area](https://kekse.biz/?~intelligence).
 
 ### [`convert-hf-to-gguf`.sh](sh/convert-hf-to-gguf.sh)
-* [Version **v0.1.0**](sh/convert-hf-to-gguf.sh) (updated **2024-06-14**)
+* [Version **v0.1.1**](sh/convert-hf-to-gguf.sh) (updated **2024-07-29**)
 
 > [!IMPORTANT]
 > Dependencies: **Python 3** (w/ `pip`) and [`llama.cpp`](https://github.com/ggerganov/llama.cpp/);
