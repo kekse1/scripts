@@ -44,6 +44,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-07-29**\] [`hfdownloader`.sh](#hfdownloadersh) **v0.3.1**
 * \[**2024-07-15**\] Updated the [`config`.js](#configjs) to **v0.7.0** (bugs fixed, and new `.path()`)
 * \[**2024-07-11**\] [`make-nodejs`.sh](#make-nodejssh) **v0.3.7**
 * \[**2024-07-06**\] Updated the [`fresh`.sh](#freshsh) to **v0.4.4** (for lazy people like me)
@@ -247,7 +248,7 @@ This was created very quickly, without much features or tests.
 Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/wiki/Home_router) for more.
 
 ### [`hfdownloader`.sh](sh/hfdownloader.sh)
-* [Version **v0.3.0**](sh/hfdownloader.sh) (updated **2024-06-10**)
+* [Version **v0.3.1**](sh/hfdownloader.sh) (updated **2024-07-29**)
 
 Easily use the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) tool, to download
 full models from [Hugging Face](https://huggingface.co/), a community for Large Language Models, etc.

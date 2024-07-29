@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.0
+# v0.3.1
 #
 # Easily use the `hfdownloader` tool, from:
 # https://github.com/bodaay/HuggingFaceModelDownloader
@@ -75,7 +75,7 @@ fi
 
 #
 cmd="${TOOL} $TOKEN -c${CONCURRENT} -m '${MODEL}'"
-[[ -n "$ARGS" ]] && CMD="${CMD} ${ARGS}"
+[[ -n "$ARGS" ]] && cmd="${cmd} ${ARGS}"
 
 #
 echo -e "Command: "$cmd"\n\n"
