@@ -74,8 +74,7 @@ if [[ "$MODEL" != *:* ]]; then
 fi
 
 #
-cmd="${TOOL} $TOKEN -c${CONCURRENT} -m '${MODEL}'"
-[[ -n "$ARGS" ]] && cmd="${cmd} ${ARGS}"
+cmd="${TOOL} $TOKEN -c${CONCURRENT} -m '${MODEL}' ${ARGS}"
 
 #
 echo -e "Command: "$cmd"\n\n"
