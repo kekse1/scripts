@@ -3,7 +3,7 @@
 // 
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // https://kekse.biz/ https://github.com/kekse1/scripts/
-// v0.2.0
+// v0.2.1
 //
 // I tried to merge multiple (.gguf) model files via `cat`,
 // but the resulting file size was much bigger than the sum
@@ -54,9 +54,7 @@ const proc = () => {
 		encoding: null, autoClose: true, emitClose: true });
 
 	stream.pipe(out, { end: false });
-	stream.once('close', () => {
-		console.log('closing one input stream.');
-		setTimeout(proc); });
+	stream.once('close', () => setTimeout(proc));
 };
 
 proc();

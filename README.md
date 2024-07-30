@@ -45,7 +45,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-07-30**\] Created a tiny [`merge`.js](#mergejs), **v0.2.0**
+* \[**2024-07-30**\] Created a tiny [`merge`.js](#mergejs), **v0.2.1**
 * \[**2024-07-29**\] [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) **v0.1.1**
 * \[**2024-07-29**\] [`hfdownloader`.sh](#hfdownloadersh) **v0.3.1**
 * \[**2024-07-15**\] Updated the [`config`.js](#configjs) to **v0.7.0** (bugs fixed, and new `.path()`)
@@ -328,7 +328,7 @@ Many, many years ago I just laughed about JavaScript, because it was just some '
 TODAY, in the times of [`Node.js`](https://nodejs.org/), it's a great language, even for the server side! **;-)**
 
 ### [`merge`.js](js/merge.js)
-* [Version **v0.2.0**](js/merge.js) (created **2024-07-30**)
+* [Version **v0.2.1**](js/merge.js) (updated **2024-07-30**)
 
 I tried to merge multiple (.gguf) model files via `cat`,
 but the resulting file size was much bigger than the sum
