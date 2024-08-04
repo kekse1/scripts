@@ -26,6 +26,8 @@
 // I'm using it for a long time now, and it really works great. No problems occured,
 // and I recommend you to always use this instead of `instanceof` or smth. like it.
 //
+// NEW since v3.0.0: my `Object.{has,get,set,remove}()` (traversing functions).
+//
 
 //
 Reflect.defineProperty(Object, 'isNull', { value: (... _args) => {

@@ -415,7 +415,7 @@ the starting comment on top of the file.
 > Since **v2.1.0** the additional `was()` parameters (varargs) mean **AND**, **not** **OR** any longer..
 > But the `is()` stayed the same (**OR**);
 
-Since **v3.0.0** also **with my `Object.{has,get,set,remove}()`**!
+Since **v3.0.0** also **with my `Object.{has,get,set,remove}()`** (traversing functions)!
 
 ### [`intersect`.js](js/intersect.js)
 * [Version **v0.2.2**](js/intersect.js) (created **2024-07-07**)
