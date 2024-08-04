@@ -1,7 +1,7 @@
 /* 
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.2.2
+ * v0.2.3
  * 
  * Extends the `Date` object with moon phase calculations.
  * 
@@ -23,9 +23,11 @@ Reflect.defineProperty(Date, 'moonDay', { value: (_date = new Date()) => {
 	if(typeof _date === 'number') _date = new Date(_date);
 	else if(typeof _date === 'string' && !isNaN(_date)) _date = new Date(Number(_date));
 	else if(!(_date instanceof Date)) throw new Error('Invalid _date argument');
-	const diffInMilliSec = Math.abs(_date.getTime() - KNOWN_NEW_MOON.getTime());
+	const diffInMilliSec = (_date.getTime() - KNOWN_NEW_MOON.getTime());
 	const diffInDays = (diffInMilliSec / (1000 * 60 * 60 * 24));
-	return (diffInDays % SYNODIC_MONTH);
+	const result = (diffInDays % SYNODIC_MONTH);
+	if(result < 0) return (SYNODIC_MONTH + result);
+	return result;
 }});
 
 Reflect.defineProperty(Date.prototype, 'moonPhase', { get: function()

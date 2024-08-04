@@ -446,7 +446,7 @@ then look at my [v4 source code](https://kekse.biz/?~sources)!
 ### [`moon`.js](js/moon.js)
 Extends the `Date` object with moon phase calculation functions.
 
-* [Version **v0.2.2**](js/moon.js) (created **2024-08-04**)
+* [Version **v0.2.3**](js/moon.js) (created **2024-08-04**)
 
 For even more, partially very useful `Date` extensions take a look (for docs and concrete code):
 * [**v4**/docs (...)](https://github.com/kekse1/v4/blob/git/docs/modules/lib/date.md)
