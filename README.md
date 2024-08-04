@@ -45,7 +45,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-08-04**\] [`moon`.js](#moonjs) created, in **v0.2.1**.
+* \[**2024-08-04**\] [`moon`.js](#moonjs) created, in **v0.2.2**.
 * \[**2024-08-04**\] [`reflection`.js](#reflectionjs) update to **v3.0.0**.
 * \[**2024-07-29**\] [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) **v0.1.1**
 * \[**2024-07-29**\] [`hfdownloader`.sh](#hfdownloadersh) **v0.3.1**
@@ -446,7 +446,7 @@ then look at my [v4 source code](https://kekse.biz/?~sources)!
 ### [`moon`.js](js/moon.js)
 Extends the `Date` object with moon phase calculation functions.
 
-* [Version **v0.2.1**](js/moon.js) (created **2024-08-04**)
+* [Version **v0.2.2**](js/moon.js) (created **2024-08-04**)
 
 For even more, partially very useful `Date` extensions take a look (for docs and concrete code):
 * [**v4**/docs (...)](https://github.com/kekse1/v4/blob/git/docs/modules/lib/date.md)
