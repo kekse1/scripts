@@ -37,6 +37,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`intersect`.js](#intersectjs)
 	* [`multiset`.js](#multisetjs)
 	* [`animation`.js](#animationjs)
+	* [`moon`.js](#moonjs)
 	* [`street-split`.js](#street-splitjs)
 	* [`fold.css`.js](#foldcssjs)
 4. [C/C++](#cc)
@@ -44,6 +45,8 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-08-04**\] [`moon`.js](#moonjs) created, in **v0.2.1**.
+* \[**2024-08-04**\] [`reflection`.js](#reflectionjs) update to **v3.0.0**.
 * \[**2024-07-29**\] [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) **v0.1.1**
 * \[**2024-07-29**\] [`hfdownloader`.sh](#hfdownloadersh) **v0.3.1**
 * \[**2024-07-15**\] Updated the [`config`.js](#configjs) to **v0.7.0** (bugs fixed, and new `.path()`)
@@ -397,7 +400,7 @@ there. I just wanted to reproduce the whole path depth (by looking at the pure c
 so I needed this `.path(_path)` method now. ...
 
 ### [`reflection`.js](js/reflection.js)
-* [Version **v2.1.0**](js/reflection.js) (updated **2024-04-30**)
+* [Version **v3.0.0**](js/reflection.js) (updated **2024-08-04**)
 
 My solution for JavaScript's `instanceof` problem, so when in multiple environments
 the classes are initialized/declared not once. In this case, comparing two environments,
@@ -411,6 +414,8 @@ the starting comment on top of the file.
 > [!IMPORTANT]
 > Since **v2.1.0** the additional `was()` parameters (varargs) mean **AND**, **not** **OR** any longer..
 > But the `is()` stayed the same (**OR**);
+
+Since **v3.0.0** also **with my `Object.{has,get,set,remove}()`**!
 
 ### [`intersect`.js](js/intersect.js)
 * [Version **v0.2.2**](js/intersect.js) (created **2024-07-07**)
@@ -436,6 +441,15 @@ Some extensions to the [**Web Animations API**](https://developer.mozilla.org/en
 
 Maybe useful for you? But you've to read the source for yourself; and some functions may be missing;
 then look at my [v4 source code](https://kekse.biz/?~sources)!
+
+### [`moon`.js](js/moon.js)
+Extends the `Date` object with moon phase calculation functions.
+
+* [Version **v0.2.1**](js/moon.js) (created **2024-08-04**)
+
+For even more, partially very useful `Date` extensions take a look (for docs and concrete code):
+* [**v4**/docs (...)](https://github.com/kekse1/v4/blob/git/docs/modules/lib/date.md)
+* [`date.js`](https://github.com/kekse1/v4/blob/git/js/lib/globals/date.js)
 
 ### [`street-split`.js](js/street-split.js)
 * [Version **v0.2.0**](js/street-split.js) (updated **2024-06-03**)
