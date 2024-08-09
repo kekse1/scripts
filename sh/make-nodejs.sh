@@ -214,7 +214,7 @@ download()
 
 		echo " >> Downloading '$file' (`pwd`).."
 		echo
-		wget "$url"
+		wget --continue "$url"
 
 		if [[ $? -ne 0 ]]; then
 			echo " >> FAILED to download '$url'.." >&2
@@ -235,7 +235,7 @@ download()
 
 		echo " >> Downloading '$file' (`pwd`).."
 		echo
-		curl "$url" --output "$file"
+		curl --continue-at - --output "$file" "$url"
 
 		if [[ $? -ne 0 ]]; then
 			echo " >> FAILED to download '$url'.." >&2
