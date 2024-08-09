@@ -45,12 +45,12 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-08-09**\] [`make-nodejs`.sh](#make-nodejssh) to **v0.3.8**
 * \[**2024-08-04**\] [`moon`.js](#moonjs) created, in **v0.2.2**.
 * \[**2024-08-04**\] [`reflection`.js](#reflectionjs) update to **v3.0.0**.
 * \[**2024-07-29**\] [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) **v0.1.1**
 * \[**2024-07-29**\] [`hfdownloader`.sh](#hfdownloadersh) **v0.3.1**
 * \[**2024-07-15**\] Updated the [`config`.js](#configjs) to **v0.7.0** (bugs fixed, and new `.path()`)
-* \[**2024-07-11**\] [`make-nodejs`.sh](#make-nodejssh) **v0.3.7**
 * \[**2024-07-06**\] Updated the [`fresh`.sh](#freshsh) to **v0.4.4** (for lazy people like me)
 * \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.7**
 * \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.3**;
@@ -228,7 +228,7 @@ script without parameters!
 > globs, to be pass-thru directed to the `find` command.
 
 ### [`make-nodejs`.sh](sh/make-nodejs.sh)
-* [Version **v0.3.7**](sh/make-nodejs.sh) (updated **2024-07-11**)
+* [Version **v0.3.8**](sh/make-nodejs.sh) (updated **2024-08-09**)
 
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
@@ -237,7 +237,7 @@ the only thing left to do, _just once_, is to merge the fs structure under the s
 the `/usr/` hierarchy.
 
 > [!NOTE]
-> Just call it via `make-nodejs.sh 22.4.1`, e.g.!
+> Just call it via `make-nodejs.sh 22.6.0`, e.g.!
 
 There's a tiny //**TODO**/ (on top of the file), since this script is really old,
 and could maybe be improved in some ways.. **yet to come**!!

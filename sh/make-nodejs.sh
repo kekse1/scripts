@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.7
+# v0.3.8
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -130,12 +130,12 @@ if [[ "$termux" == "yes" ]]; then
 	target="/data/data/com.termux/files/usr/${target}/"
 	tmpdir="/data/data/com.termux/files/home/${tmpdir}/"
 else
-	flags="$flags -march=$march"
-fi
+	if [[ `id -u` -ne 0 ]]; then
+		echo " >> You need to be the 'root' superuser to do this.." >&2
+		exit 4
+	fi
 
-if [[ `id -u` -ne 0 ]]; then
-	echo " >> You need to be the 'root' superuser to do this.." >&2
-	exit 4
+	flags="$flags -march=$march"
 fi
 
 #
