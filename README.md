@@ -45,7 +45,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-08-09**\] [`make-nodejs`.sh](#make-nodejssh) to **v0.3.8**
+* \[**2024-08-09**\] [`make-nodejs`.sh](#make-nodejssh) to **v0.3.9**
 * \[**2024-08-04**\] [`moon`.js](#moonjs) created, in **v0.2.2**.
 * \[**2024-08-04**\] [`reflection`.js](#reflectionjs) update to **v3.0.0**.
 * \[**2024-07-29**\] [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) **v0.1.1**
@@ -228,7 +228,7 @@ script without parameters!
 > globs, to be pass-thru directed to the `find` command.
 
 ### [`make-nodejs`.sh](sh/make-nodejs.sh)
-* [Version **v0.3.8**](sh/make-nodejs.sh) (updated **2024-08-09**)
+* [Version **v0.3.9**](sh/make-nodejs.sh) (updated **2024-08-09**)
 
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
@@ -237,10 +237,7 @@ the only thing left to do, _just once_, is to merge the fs structure under the s
 the `/usr/` hierarchy.
 
 > [!NOTE]
-> Just call it via `make-nodejs.sh 22.6.0`, e.g.!
-
-There's a tiny //**TODO**/ (on top of the file), since this script is really old,
-and could maybe be improved in some ways.. **yet to come**!!
+> Just call it via `make-nodejs.sh 22.6.0` (or `make-nodejs.sh v22.6.0`), e.g.!
 
 ### [`router`.sh](sh/router.sh)
 * [Version **v0.1.1**](sh/router.sh) (updated **2024-04-23**)
