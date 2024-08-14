@@ -1,7 +1,7 @@
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // https://kekse.biz/ https://github.com/kekse1/scripts/
-// v3.0.0
+// v3.0.1
 //
 // The problem was: depending on your JavaScript *environment*, which also changes
 // e.g. when using <iframe> or so, the base classes are being initialized/declared/..
@@ -95,21 +95,20 @@ const traverseObject = (_path, _value, _context = global, _null = false, _method
 	obj.length)) === null) current = 0; if(obj.length <= current) switch(_method) { case 'has': return false; case 'get':
 	return undefined; case 'remove': return false; case 'set': obj = obj[current] = (pathItemForArray(next) ? [] : (_null ? Object.create(null) : {})); }
 	else obj = obj[current]; } else { if(obj.length === 0) switch(_method) { case 'has': return false; case 'get': return undefined; case 'remove': return false; }
-	obj = obj[obj.length] = (pathItemForArray(next) ? [] : (_null ? Object.create(null) : {})); }} var got = true; try { if(!obj.__proto__) got = false; } catch(_err) { got = false; }
-	if(!got && !Reflect.isExtensible(obj)) switch(_method) { case 'has': return false; case 'get': return undefined; case 'set': case 'remove': return false; }
-	else if(current in obj) obj = obj[current]; else { switch(_method) { case 'has': return false; case 'get': return undefined; case 'remove': return false; } obj = obj[current] =
-	(pathItemForArray(next) ? [] : (_null ? Object.create(null) : {})); }} _path = _path[_path.length - 1]; if(pathItemForArray(_path)) {
-	if(!Array._isArray(obj)) switch(_method) { case 'has': return false; case 'get': return undefined; case 'set': case 'remove': return false; }
-	if(typeof _path === 'number') { if(_path < 0 && (_path = Math.getIndex(_path, obj.length)) === null) _path = 0; if(obj.length <= _path)
-	switch(_method) { case 'has': return false; case 'get': return undefined; case 'remove': return false; case 'set': obj[_path] = _value; return true; }
-	switch(_method) { case 'has': return true; case 'get': return obj[_path]; case 'remove': obj.splice(_path, 1); return true; case 'set':
-	obj[_path] = _value; return true; }} else switch(_method) { case 'has': return (obj.length > 0); case 'get': return obj[obj.length - 1]; case 'remove':
-	if(obj.length === 0) return false; obj.pop(); return true; case 'set': obj.push(_value); return true; }} var got = true; try { if(!obj.__proto__) got = false; }
-	catch(_err) { got = false; } if(!got) switch(_method) { case 'has': return false; case 'get': return undefined; case 'set': case 'remove': return false; }
-	switch(_method) { case 'has': if(typeof obj[_path] === 'undefined') { try { if(!(_path in obj)) return false; } catch(_err) { return false; }} return true;
-	case 'get': try { return obj[_path]; } catch(_err) { return undefined; }; break; case 'set': case 'remove': if(!Reflect.isExtensible(obj)) return false;
-	} switch(_method) { case 'remove': try { return delete obj[_path]; } catch(_err) { return false; }; break; case 'set': try { obj[_path] = _value; }
-	catch(_err) { return false; }} return undefined; };
+	obj = obj[obj.length] = (pathItemForArray(next) ? [] : (_null ? Object.create(null) : {})); }} if(!Reflect.isExtensible(obj)) switch(_method) {
+	case 'has': return false; case 'get': return undefined; case 'set': case 'remove': return false; } else if(current in obj) obj = obj[current]; else {
+	switch(_method) { case 'has': return false; case 'get': return undefined; case 'remove': return false; } obj = obj[current] = (pathItemForArray(next) ? [] :
+	(_null ? Object.create(null) : {})); }} _path = _path[_path.length - 1]; if(pathItemForArray(_path)) { if(!Array._isArray(obj)) switch(_method) {
+	case 'has': return false; case 'get': return undefined; case 'set': case 'remove': return false; } if(typeof _path === 'number') { if(_path < 0 &&
+	(_path = Math.getIndex(_path, obj.length)) === null) _path = 0; if(obj.length <= _path) switch(_method) { case 'has': return false; case 'get':
+	return undefined; case 'remove': return false; case 'set': obj[_path] = _value; return true; } switch(_method) { case 'has': return true; case 'get':
+	return obj[_path]; case 'remove': obj.splice(_path, 1); return true; case 'set': obj[_path] = _value; return true; }} else switch(_method) {
+	case 'has': return (obj.length > 0); case 'get': return obj[obj.length - 1]; case 'remove': if(obj.length === 0) return false; obj.pop(); return true;
+	case 'set': obj.push(_value); return true; }} if(!Object.isExtensible(obj)) switch(_method) { case 'has': return false; case 'get': return undefined;
+	case 'set': case 'remove': return false; } switch(_method) { case 'has': if(typeof obj[_path] === 'undefined') { try { if(!(_path in obj)) return false; }
+	catch(_err) { return false; }} return true; case 'get': try { return obj[_path]; } catch(_err) { return undefined; }; break; case 'set': case 'remove':
+	if(!Reflect.isExtensible(obj)) return false; } switch(_method) { case 'remove': try { return delete obj[_path]; } catch(_err) { return false; }; break;
+	case 'set': try { obj[_path] = _value; } catch(_err) { return false; }} return undefined; };
 
 Reflect.defineProperty(Object, 'has', { value: (_path, _context = global) => traverseObject(_path, undefined, _context, null, 'has') });
 Reflect.defineProperty(Object, 'get', { value: (_path, _context = global) => traverseObject(_path, undefined, _context, null, 'get') });
