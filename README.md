@@ -26,6 +26,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`router`.sh](#routersh)
 	* [`hfdownloader`.sh](#hfdownloadersh)
 	* [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh)
+	* [`hfget`.sh](#hfgetsh)
 	* [`nightlounge`.sh](#nightloungesh)
 	* [`lsblk`.sh](#lsblksh)
 	* [`init-sub-proj`.sh](#init-sub-projsh)
@@ -45,6 +46,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-08-18**\] New [`hfget`.sh](#hfgetsh), **v0.2.0**
 * \[**2024-08-14**\] [`reflection`.js](#reflectionjs) **v3.0.1**
 * \[**2024-08-09**\] [`make-nodejs`.sh](#make-nodejssh) to **v0.3.9**
 * \[**2024-08-04**\] [`moon`.js](#moonjs) created, in **v0.2.2**.
@@ -279,11 +281,20 @@ on **my website @ [`~intelligence`](https://kekse.biz/?~intelligence)**.
 > `./bin/python3 ./bin/pip install -r llama.cpp/requirements.txt`
 > `./bin/python3 llama.cpp/convert-hf-to-gguf.py -h`
 
-### [`nightlounge`.sh](sh/nightlounge.sh)
-* [Version **v0.2.7**](sh/nightlounge.sh) (updated **2024-06-26**)
+### [`hfget`.sh](sh/hfget.sh)
+Just a tiny helper, if you don't want to use the [`hfdownloader(.sh)`](#hfdownloadersh).
 
+* [Version **v0.2.0**](sh/hfget.sh) (created **2024-08-18**)
+
+Downloads from [**Hugging Face**](https://huggingface.co/) with your
+own **Token** (a file) included in the HTTP request header. This
+massively increases the speed of your downloads (and maybe more).
+
+### [`nightlounge`.sh](sh/nightlounge.sh)
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
 I use this script for my daily download of the 'BigFM Nightlounge' podcast.
+
+* [Version **v0.2.7**](sh/nightlounge.sh) (updated **2024-06-26**)
 
 > [!TIP]
 > You can add this to your '/etc/crontab'. ;-)
