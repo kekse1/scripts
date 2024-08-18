@@ -11,6 +11,8 @@
 # own Token (a file) included in the HTTP request header. This
 # massively increases the speed of your downloads (and maybe more).
 #
+# Expects either a URL or a file with a list of URLs as parameter.
+#
 # Depends on the `wget` command/tool (will be checked).
 # Will NOT download with multiple/parallel connections!
 #
