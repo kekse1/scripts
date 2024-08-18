@@ -9,7 +9,8 @@
 #
 # Downloads from Hugging Face (https://huggingface.co/) with your
 # own Token (a file) included in the HTTP request header. This
-# massively increases the speed of your downloads (and maybe more).
+# massively increases the speed of your downloads, and it allows
+# you to access non-public files, and maybe more.
 #
 # Expects either a URL or a file with a list of URLs as parameter.
 #
