@@ -17,7 +17,7 @@
 #
 
 #
-CONCURRENT=8
+CONCURRENT=4
 TOKEN="" #a file!
 TOOL="./hfdownloader"
 ARGS="--maxRetries 64 --retryInterval 16"
