@@ -288,10 +288,10 @@ Just a tiny helper, if you don't want to use the [`hfdownloader(.sh)`](#hfdownlo
 
 Downloads from [**Hugging Face**](https://huggingface.co/) with your
 own **Token** (a file) included in the HTTP request header. This
-massively increases the speed of your downloads (and maybe more).
+massively increases the speed of your downloads, and it allows you
+to access (your) non-public files, and maybe more..
 
-Expects either a URL or a file with a list of URLs as parameter.
-Depends on `wget`.
+Expects either a URL or a file with a list of URLs as parameter. Depends on `wget`.
 
 ### [`nightlounge`.sh](sh/nightlounge.sh)
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
