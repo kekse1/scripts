@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.3
+# v0.2.1
 #
 # You should put this script into your '/etc/profile.d/'
 # directory, so the `area` function will get `source`d.
@@ -32,13 +32,18 @@
 # <from> and <to>. And if no file path is defined, it'll use
 # the stdin (which can also be defined via "-" as parameter).
 #
-# JFYI: I'm going to write this down also in JavaScript l8rs,
-# since it's inefficient to read in the whole data into memory
-# (expensive with big input files). I'm doing this since it
-# would also be inefficient to call both `head` and `tail`
-# twice, since then the input data needs to be handled also
-# twice. Even if using `head` and `tail` was the first reason
-# I created this script... omg. xD~
+# JFYI: The first plan was to just use `head` and `tail`, but
+# it'd be expensive with big data (it would read the data twice,
+# since twice calls are necessary). So I read out the data on my
+# own here. In the first second this was also expensive, since
+# the whole data would be read into memory. Now I fixed this
+# by counting lines, but only store the really necessary/wished
+# lines. The last (TODO) point: before reading the data on my
+# own, I'm using the `wc` utility.. so the data is being read
+# twice, again.. at least it's not stored in memory then, this
+# is good, but I'm not counting the lines on my own since the
+# defined line numbers can only be calculated after knowing the
+# line count (e.g. negative values are counted from the end)...
 #
 
 area()
@@ -63,17 +68,6 @@ area()
 
 		echo 1
 		return 1
-	}
-
-	data=()
-	lines=0
-
-	check()
-	{
-		while read line; do
-			data+=( "$line" )
-			let lines=$lines+1
-		done <"$1"
 	}
 
 	withFile=''
@@ -159,21 +153,21 @@ area()
 		return 6
 	fi
 
-	check "$file"
+	lines=$(wc -l "$file" | cut -d' ' -f1)
 
 	if [[ -z "$from" ]]; then
 		echo "$lines"
 		return 0
-	else
-		[[ $from -lt 0 ]] && from=$((${lines}+${from}+1))
+	fi
+	
+	[[ $from -lt 0 ]] && from=$((${lines}+${from}+1))
 
-		if [[ $from -lt 1 ]]; then
-			echo " >> Starting line number needs to be greater than zero." >&2
-			return 7
-		elif [[ $from -gt $lines ]]; then
-			echo " >> Starting line number exceeds input line count ($lines)." >&2
-			return 8
-		fi
+	if [[ $from -lt 1 ]]; then
+		echo " >> Starting line number needs to be greater than zero." >&2
+		return 7
+	elif [[ $from -gt $lines ]]; then
+		echo " >> Starting line number exceeds input line count ($lines)." >&2
+		return 8
 	fi
 	
 	if [[ -n "$to" ]]; then
@@ -196,8 +190,10 @@ area()
 		to=$from
 	fi
 
-	for ((i=$from; i<=$to; ++i)); do
-		echo "${data[$i-1]}"
-	done
+	current=0
+	
+	while read line; do
+		let current=$current+1
+		[[ $current -ge $from && $current -le $to ]] && echo "$line"
+	done <"$file"
 }
-

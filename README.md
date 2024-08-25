@@ -47,7 +47,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-08-26**\] New [`area`.sh](#areash), **v0.1.3**
+* \[**2024-08-26**\] New [`area`.sh](#areash), **v0.2.1**
 * \[**2024-08-18**\] New [`hfget`.sh](#hfgetsh), **v0.2.0**
 * \[**2024-08-14**\] [`reflection`.js](#reflectionjs) **v3.0.1**
 * \[**2024-08-09**\] [`make-nodejs`.sh](#make-nodejssh) to **v0.3.9**
@@ -330,7 +330,7 @@ so the `area()` function will get `source`d. Then just call it this
 way - possible parameters are described on top of this bash shell
 script file.
 
-* [Version **v0.1.3**](sh/area.sh) (created **2024-08-26**)
+* [Version **v0.2.1**](sh/area.sh) (created **2024-08-26**)
 
 Simple script you can use with either a file path parameter or the
 stdin `-` (if defined at all), to perform one of these actions:
@@ -340,15 +340,6 @@ stdin `-` (if defined at all), to perform one of these actions:
 * extract an area of lines
 
 Line numbers can be negative: they'll count from the end of the input line count.
-
-> [!WARNING]
-> **JFYI**: I'm going to write this down also in JavaScript l8rs,
-> since it's inefficient to read in the whole data into memory
-> (expensive with big input files). I'm doing this since it would
-> also be inefficient to call both `head` and `tail` twice, since
-> then the input data needs to be handled also twice. Even if
-> using `head` and `tail` was the first reason I created this
-> script... omg. xD~
 
 ### [`init-sub-proj`.sh](sh/init-sub-proj.sh)
 * [Version **v0.3.1**](sh/init-sub-proj.sh) (updated **2024-05-23**)
