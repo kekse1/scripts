@@ -176,3 +176,4 @@ area()
 		[[ $current -ge $from && $current -le $to ]] && echo "$line"
 	done <"$file"
 }
+
