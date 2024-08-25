@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.0
+# v0.2.1
 #
 # You should put this script into your '/etc/profile.d/'
 # directory, so the `area` function will get `source`d.
@@ -32,10 +32,18 @@
 # <from> and <to>. And if no file path is defined, it'll use
 # the stdin (which can also be defined via "-" as parameter).
 #
-# JFYI: The first version used `head` and `tail`, but  it's
-# to expensive with big data (it would read the data twice,
-# since twice calls are necessary). So I read out the data
-# on my own here (using `wc -l` only if really necessary).
+# JFYI: The first plan was to just use `head` and `tail`, but
+# it'd be expensive with big data (it would read the data twice,
+# since twice calls are necessary). So I read out the data on my
+# own here. In the first second this was also expensive, since
+# the whole data would be read into memory. Now I fixed this
+# by counting lines, but only store the really necessary/wished
+# lines. The last (TODO) point: before reading the data on my
+# own, I'm using the `wc` utility.. so the data is being read
+# twice, again.. at least it's not stored in memory then, this
+# is good, but I'm not counting the lines on my own since the
+# defined line numbers can only be calculated after knowing the
+# line count (e.g. negative values are counted from the end)...
 #
 
 area()
@@ -134,39 +142,41 @@ area()
 		return 6
 	fi
 
-	lines=''
-	
+	lines=$(wc -l "$file" | cut -d' ' -f1)
+
 	if [[ -z "$from" ]]; then
-		echo "$(wc -l "$file" | cut -d' ' -f1)"
+		echo "$lines"
 		return 0
-	elif [[ -z "$to" ]]; then
-		to=$from
 	fi
 	
-	if [[ $from -lt 0 ]]; then
-		lines=$(wc -l "$file" | cut -d' ' -f1)
-		from=$((${lines}+${from}+1))
-	fi
-	
-	if [[ $to -lt 0 ]]; then
-		[[ -z "$lines" ]] && lines=$(wc -l "$file" | cut -d' ' -f1)
-		[[ $to -lt 0 ]] && to=$((${lines}+${to}+1))
-	fi
+	[[ $from -lt 0 ]] && from=$((${lines}+${from}+1))
 
 	if [[ $from -lt 1 ]]; then
-		[[ -z "$lines" ]] && lines=$(wc -l "$file" | cut -d' ' -f1)
-		echo " >> Starting line number exceeds limit ($lines)" >&2
+		echo " >> Starting line number needs to be greater than zero." >&2
 		return 7
-	elif [[ $to -lt 1 ]]; then
-		[[ -z "$lines" ]] && lines=$(wc -l "$file" | cut -d' ' -f1)
-		echo " >> Ending line number exceeds limit ($lines)." >&2
+	elif [[ $from -gt $lines ]]; then
+		echo " >> Starting line number exceeds input line count ($lines)." >&2
 		return 8
 	fi
 	
-	if [[ $from -gt $to ]]; then
-		(( from = from + to ))
-		(( to = from - to ))
-		(( from = from - to ))
+	if [[ -n "$to" ]]; then
+		[[ $to -lt 0 ]] && to=$((${lines}+${to}+1))
+
+		if [[ $from -gt $to ]]; then
+			(( from = from + to ))
+			(( to = from - to ))
+			(( from = from - to ))
+		fi
+
+		if [[ $to -lt $from ]]; then
+			echo " >> Ending line number may not be lower than starting line." >&2
+			return 8
+		elif [[ $to -gt $lines ]]; then
+			echo " >> Ending line number exceeds input line count ($lines)." >&2
+			return 10
+		fi
+	else
+		to=$from
 	fi
 
 	current=0
