@@ -8,8 +8,9 @@
 # You should put this script into your '/etc/profile.d/'
 # directory, so the `area` function will get `source`d.
 #
-# Simple script which you can use with either a file path
-# parameter or the stdin, to perform one of these actions:
+# Simple script you can use with either a file path parameter
+# or the stdin '-' (if defined at all), to perform one of
+# these actions:
 #
 # 	(a) display the line count of your input
 # 	(b) extract a specific line

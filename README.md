@@ -332,8 +332,8 @@ script file.
 
 * [Version **v0.1.3**](sh/area.sh) (created **2024-08-26**)
 
-Simple script which you can use with either a file path
-parameter or the stdin, to perform one of these actions:
+Simple script you can use with either a file path parameter or the
+stdin `-` (if defined at all), to perform one of these actions:
 
 * display the line count of your input
 * extract a specific line
