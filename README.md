@@ -325,8 +325,10 @@ for you where to use `case`, if you'd like to manage the key/value pairs.
 > For a bit more infos about this, see the top of [the script](sh/lsblk.sh)!
 
 ### [`area`.sh](sh/area.sh)
-You should put this script into your '/etc/profile.d/' directory,
-so the `area` function will get `source`d.
+You should put this script into your `/etc/profile.d/` directory,
+so the `area` function will get `source`d. Then just call it this
+way - possible parameters are described on top of this bash shell
+script file.
 
 * [Version **v0.1.3**](sh/area.sh) (created **2024-08-26**)
 
