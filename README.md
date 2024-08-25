@@ -326,7 +326,7 @@ for you where to use `case`, if you'd like to manage the key/value pairs.
 
 ### [`area`.sh](sh/area.sh)
 You should put this script into your `/etc/profile.d/` directory,
-so the `area` function will get `source`d. Then just call it this
+so the `area()` function will get `source`d. Then just call it this
 way - possible parameters are described on top of this bash shell
 script file.
 
