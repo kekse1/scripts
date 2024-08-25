@@ -59,17 +59,6 @@ area()
 		return 1
 	}
 
-	isNegative()
-	{
-		if [[ "${*::1}" == "-" ]]; then
-			echo 0
-			return 0
-		fi
-
-		echo 1
-		return 1
-	}
-
 	withFile=''
 	file=''
 	from=''
