@@ -17,8 +17,12 @@
 # 	(c) extract an area of lines
 # 
 # Line numbers can be negative: they'll count from the end
-# of the input line count. They won't be modulo'd (%), so
-# they shouldn't exceed the limit.
+# of the input line count.
+#
+# If no line number(s) is/are defined, the real line *count*
+# is printed. Otherwise the single line or the area between
+# <from> and <to>. And if no file path is defined, it'll use
+# the stdin (which can also be defined via "-" as parameter).
 #
 # The parameters are selected merely intelligent: they'll
 # be tested. You can define the file path in the first,
@@ -26,11 +30,6 @@
 # will be the <from>, the (also optional) second one will
 # be the <to>. If <from> is greater than <to>, they'll swap,
 # so it doesn't matter in which order you define 'em.
-#
-# If no line number(s) is/are defined, the real line *count*
-# is printed. Otherwise the single line or the area between
-# <from> and <to>. And if no file path is defined, it'll use
-# the stdin (which can also be defined via "-" as parameter).
 #
 # JFYI: The first version used `head` and `tail`, but  it's
 # to expensive with big data (it would read the data twice,
