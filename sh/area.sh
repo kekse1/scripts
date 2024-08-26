@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.0
+# v0.3.1
 #
 # You should put this script into your '/etc/profile.d/'
 # directory, so the `area` function will get `source`d.
@@ -170,9 +170,9 @@ area()
 
 	current=0
 	
-	while read line; do
+	IFS=$'\n'; while read line; do
 		let current=$current+1
-		[[ $current -ge $from && $current -le $to ]] && echo "$line"
+		[[ $current -ge $from && $current -le $to ]] && echo -e "$line"
 	done <"$file"
 }
 
