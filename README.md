@@ -341,7 +341,7 @@ stdin `-` (if defined at all), to perform one of these actions:
 
 Line numbers can be negative: they'll count from the end of the input line count.
 
-> [!INFO]
+> [!NOTE]
 > **JFYI**: The first version used `head` and `tail`, but  it's to expensive with
 > big data (it would read the data twice, since twice calls are necessary).
 > So I read out the data on my own here (using `wc -l` only if really necessary).
