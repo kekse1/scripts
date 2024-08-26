@@ -169,7 +169,6 @@ area()
 	fi
 
 	current=0
-	
 	IFS=$'\n'; while read line; do
 		let current=$current+1
 		[[ $current -ge $from && $current -le $to ]] && echo -e "$line"
