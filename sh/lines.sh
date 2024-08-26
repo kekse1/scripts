@@ -6,7 +6,7 @@
 # v0.3.1
 #
 # You should put this script into your '/etc/profile.d/'
-# directory, so the `lines` function will get `source`d.
+# directory, so the `lines()` function will get `source`d.
 #
 # Simple script you can use with either a file path parameter
 # or the stdin '-' (if defined at all), to perform one of
