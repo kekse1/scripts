@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.1
+# v0.3.2
 #
 # You should put this script into your '/etc/profile.d/'
 # directory, so the `lines()` function will get `source`d.
@@ -34,7 +34,7 @@
 # JFYI: The first version used `head` and `tail`, but  it's
 # to expensive with big data (it would read the data twice,
 # since twice calls are necessary). So I read out the data
-# on my own here (using `wc -l` only if really necessary).
+# on my own here.
 #
 
 lines()
@@ -168,10 +168,13 @@ lines()
 		(( from = from - to ))
 	fi
 
-	current=0
-	IFS=$'\n'; while read line; do
+	current=0; IFS=$'\n'; while read line; do
 		let current=$current+1
-		[[ $current -ge $from && $current -le $to ]] && echo -e "$line"
+		if [[ $current -ge $from && $current -le $to ]]; then
+		       echo -e "$line"
+	       elif [[ $current -gt $to ]]; then
+		       break
+		fi
 	done <"$file"
 }
 
