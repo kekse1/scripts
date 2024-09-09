@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
+# 
+# BEACHTE `CC=gcc-11` @ `./configure`.. fixing a bug!
 #
+
+# 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
 # v0.3.7
@@ -291,7 +295,7 @@ untar()
 
 configure()
 {
-	cmd="./configure ${args}"
+	cmd="CC=gcc-11 ./configure ${args}"
 	echo " >> '$cmd'"
 	echo
 	eval "$cmd"
