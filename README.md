@@ -30,6 +30,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`nightlounge`.sh](#nightloungesh)
 	* [`lsblk`.sh](#lsblksh)
 	* [`lines`.sh](#linessh)
+    * [`cursor`.sh](#cursorsh)
 	* [`init-sub-proj`.sh](#init-sub-projsh)
 3. [JavaScript](#javascript)
 	* [`clone`.js](#clonejs)
@@ -47,7 +48,8 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-08-26**\] New [`lines`.sh](#linessh), **v0.3.1**
+* \[**2024-09-09**\] Updated [`lines`.sh](#linessh): **v0.4.0**
+* \[**2024-09-09**\] New [`cursor`.sh](#cursorsh), **v0.0.1**
 * \[**2024-08-18**\] New [`hfget`.sh](#hfgetsh), **v0.2.0**
 * \[**2024-08-14**\] [`reflection`.js](#reflectionjs) **v3.0.1**
 * \[**2024-08-09**\] [`make-nodejs`.sh](#make-nodejssh) to **v0.3.9**
@@ -330,7 +332,7 @@ so the `lines()` function will get `source`d. Then just call it this
 way - possible parameters are described on top of this bash shell
 script file.
 
-* [Version **v0.3.1**](sh/lines.sh) (created **2024-08-26**)
+* [Version **v0.4.0**](sh/lines.sh) (updated **2024-09-09**)
 
 Simple script you can use with either a file path parameter or the
 stdin `-` (if defined at all), to perform one of these actions:
@@ -338,13 +340,19 @@ stdin `-` (if defined at all), to perform one of these actions:
 * display the line count of your input
 * extract a specific line
 * extract an area of lines
-
-Line numbers can be negative: they'll count from the end of the input line count.
+* negative numbers counting backwards from the `EOF`
 
 > [!NOTE]
 > **JFYI**: The first version used `head` and `tail`, but  it's to expensive with
 > big data (it would read the data twice, since twice calls are necessary).
-> So I read out the data on my own here (using `wc -l` only if really necessary).
+> So I read out the data on my own here.
+
+### [`cursor`.sh](sh/cursor.sh)
+Tiniest.. just prints out the current cursor position in your active terminal.
+
+* [Version **v0.0.1**](sh/cursor.sh) (created **2024-09-09**)
+
+The real function `cursor()` is only **seven lines** long.
 
 ### [`init-sub-proj`.sh](sh/init-sub-proj.sh)
 * [Version **v0.3.1**](sh/init-sub-proj.sh) (updated **2024-05-23**)

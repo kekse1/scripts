@@ -140,19 +140,16 @@ lines()
 		to=$from
 	fi
 
-	#
 	lines=$(cat "$file" | wc -l)
 
-	[[ $from -lt 0 ]] && from=$(($lines+$from+1))
-	[[ $to -lt 0 ]] && to=$(($lines+$to+1))
+	from=$((${from}%${lines}))
+	to=$((${to}%${lines}))
 
-	if [[ $from -gt $lines ]]; then
-		return 1
-	elif [[ $to -gt $lines ]]; then
-		to=$lines
-	fi
+//TODO/
 
-	# just wanted to remember this arithmetic swap way, so it's used here..
+echo -e "[from] $from\n  [to] $to\n"
+return 123
+	
 	if [[ $from -gt $to ]]; then
 		(( from = from + to ))
 		(( to = from - to ))
