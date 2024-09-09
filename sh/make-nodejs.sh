@@ -7,7 +7,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.7
+# v0.3.9
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -22,17 +22,6 @@
 # *add* the newer version and replace the '0'-link,
 # which should be the target of all your links in
 # the '/usr' hierarchy! ;-)
-#
-# TODO #
-#
-# # use `getopt`; and also --help/-h, etc..!!
-# # timer (how long to compile, etc.?);
-# # better design, etc..!
-#
-# BUGS #
-# # EVTL. --target w/o $version ganz unten!? jedenfalls
-# 	wurde das hier so installiert, trotz korrektem
-# 	'./configure [...]'!??!
 #
 
 #for termux:
@@ -133,13 +122,39 @@ if [[ "$termux" == "yes" ]]; then
 
 	target="/data/data/com.termux/files/usr/${target}/"
 	tmpdir="/data/data/com.termux/files/home/${tmpdir}/"
-else
-	flags="$flags -march=$march"
-fi
 
-if [[ `id -u` -ne 0 ]]; then
-	echo " >> You need to be the 'root' superuser to do this.." >&2
-	exit 4
+	#
+	# this is new (a fix), since v0.3.9:
+	#
+	[[ ! -e "$HOME/.gyp" ]] && mkdir "$HOME/.gyp/"
+	gypinc="$HOME/.gyp/include.gypi"
+	[[ ! -e "$gypinc" ]] && touch "$gypinc"
+
+	grep 'android_ndk_path' "$gypinc" >/dev/null 2>&1
+
+	if [[ $? -ne 0 ]]; then
+		add='{
+	"variables":
+	{
+		"android_ndk_path": ""
+	}
+}'
+		if [[ `stat -c '%s' "$gypinc"` -eq 0 ]]; then
+			echo -e "$add" >"$gypinc"
+		else
+			echo " >> You need to add the following code to your '$gypinc':" >&2
+			echo -e "'$add'" >&2
+			echo " >> Wasn't done automatically because this file was not empty." >&2
+			exit 127
+		fi
+	fi
+else
+	if [[ `id -u` -ne 0 ]]; then
+		echo " >> You need to be the 'root' superuser to do this.." >&2
+		exit 4
+	fi
+
+	flags="$flags -march=$march"
 fi
 
 #
@@ -218,7 +233,7 @@ download()
 
 		echo " >> Downloading '$file' (`pwd`).."
 		echo
-		wget "$url"
+		wget --continue "$url"
 
 		if [[ $? -ne 0 ]]; then
 			echo " >> FAILED to download '$url'.." >&2
@@ -239,7 +254,7 @@ download()
 
 		echo " >> Downloading '$file' (`pwd`).."
 		echo
-		curl "$url" --output "$file"
+		curl --continue-at - --output "$file" "$url"
 
 		if [[ $? -ne 0 ]]; then
 			echo " >> FAILED to download '$url'.." >&2
@@ -261,10 +276,10 @@ download()
 		exit 13
 	}
 
-	if [[ -e "$file" ]]; then
-		echo " >> File seems to be downloaded already.. old one will be deleted here!" >&2
-		rm -rfv "$file"
-	fi
+	#if [[ -e "$file" ]]; then
+	#	echo " >> File seems to be downloaded already.. old one will be deleted here!" >&2
+	#	rm -rfv "$file"
+	#fi
 
 	if [[ "$dl" == "wget" ]]; then
 		useWget

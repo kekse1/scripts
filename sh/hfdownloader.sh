@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.0
+# v0.3.1
 #
 # Easily use the `hfdownloader` tool, from:
 # https://github.com/bodaay/HuggingFaceModelDownloader
@@ -13,9 +13,11 @@
 #
 # Please adapt the following variables to your needs.
 #
+# TODO: a LIST of models to download..
+#
 
 #
-CONCURRENT=8
+CONCURRENT=4
 TOKEN="" #a file!
 TOOL="./hfdownloader"
 ARGS="--maxRetries 64 --retryInterval 16"
@@ -72,8 +74,7 @@ if [[ "$MODEL" != *:* ]]; then
 fi
 
 #
-cmd="${TOOL} $TOKEN -c${CONCURRENT} -m '${MODEL}'"
-[[ -n "$ARGS" ]] && CMD="${CMD} ${ARGS}"
+cmd="${TOOL} $TOKEN -c${CONCURRENT} -m '${MODEL}' ${ARGS}"
 
 #
 echo -e "Command: "$cmd"\n\n"

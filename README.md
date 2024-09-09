@@ -26,8 +26,11 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`router`.sh](#routersh)
 	* [`hfdownloader`.sh](#hfdownloadersh)
 	* [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh)
+	* [`hfget`.sh](#hfgetsh)
 	* [`nightlounge`.sh](#nightloungesh)
 	* [`lsblk`.sh](#lsblksh)
+	* [`lines`.sh](#linessh)
+    * [`cursor`.sh](#cursorsh)
 	* [`init-sub-proj`.sh](#init-sub-projsh)
 3. [JavaScript](#javascript)
 	* [`clone`.js](#clonejs)
@@ -37,6 +40,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`intersect`.js](#intersectjs)
 	* [`multiset`.js](#multisetjs)
 	* [`animation`.js](#animationjs)
+	* [`moon`.js](#moonjs)
 	* [`street-split`.js](#street-splitjs)
 	* [`fold.css`.js](#foldcssjs)
 4. [C/C++](#cc)
@@ -44,12 +48,18 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-09-09**\] Updated [`lines`.sh](#linessh): **v0.4.0**
+* \[**2024-09-09**\] New [`cursor`.sh](#cursorsh), **v0.0.1**
+* \[**2024-08-18**\] New [`hfget`.sh](#hfgetsh), **v0.2.0**
+* \[**2024-08-14**\] [`reflection`.js](#reflectionjs) **v3.0.1**
+* \[**2024-08-09**\] [`make-nodejs`.sh](#make-nodejssh) to **v0.3.9**
+* \[**2024-08-04**\] [`moon`.js](#moonjs) created, in **v0.2.2**.
+* \[**2024-07-29**\] [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) **v0.1.1**
+* \[**2024-07-29**\] [`hfdownloader`.sh](#hfdownloadersh) **v0.3.1**
 * \[**2024-07-15**\] Updated the [`config`.js](#configjs) to **v0.7.0** (bugs fixed, and new `.path()`)
-* \[**2024-07-11**\] [`make-nodejs`.sh](#make-nodejssh) **v0.3.7**
 * \[**2024-07-06**\] Updated the [`fresh`.sh](#freshsh) to **v0.4.4** (for lazy people like me)
 * \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.7**
 * \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.3**;
-* \[**2024-06-14**\] Updated the [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) to **v0.1.0**
 * \[**2024-06-14**\] Created it's own GitHub repository for the [`prompt`.sh](#promptsh)
 
 ## [Bash](sh/)
@@ -224,7 +234,7 @@ script without parameters!
 > globs, to be pass-thru directed to the `find` command.
 
 ### [`make-nodejs`.sh](sh/make-nodejs.sh)
-* [Version **v0.3.7**](sh/make-nodejs.sh) (updated **2024-07-11**)
+* [Version **v0.3.9**](sh/make-nodejs.sh) (updated **2024-08-09**)
 
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
@@ -233,10 +243,7 @@ the only thing left to do, _just once_, is to merge the fs structure under the s
 the `/usr/` hierarchy.
 
 > [!NOTE]
-> Just call it via `make-nodejs.sh 22.4.1`, e.g.!
-
-There's a tiny //**TODO**/ (on top of the file), since this script is really old,
-and could maybe be improved in some ways.. **yet to come**!!
+> Just call it via `make-nodejs.sh 22.6.0` (or `make-nodejs.sh v22.6.0`), e.g.!
 
 ### [`router`.sh](sh/router.sh)
 * [Version **v0.1.1**](sh/router.sh) (updated **2024-04-23**)
@@ -247,7 +254,7 @@ This was created very quickly, without much features or tests.
 Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/wiki/Home_router) for more.
 
 ### [`hfdownloader`.sh](sh/hfdownloader.sh)
-* [Version **v0.3.0**](sh/hfdownloader.sh) (updated **2024-06-10**)
+* [Version **v0.3.1**](sh/hfdownloader.sh) (updated **2024-07-29**)
 
 Easily use the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) tool, to download
 full models from [Hugging Face](https://huggingface.co/), a community for Large Language Models, etc.
@@ -260,7 +267,7 @@ tool is easy enough; it's rather kinda reminder' for myself..
 > concretely at the [**`~intelligence`** area](https://kekse.biz/?~intelligence).
 
 ### [`convert-hf-to-gguf`.sh](sh/convert-hf-to-gguf.sh)
-* [Version **v0.1.0**](sh/convert-hf-to-gguf.sh) (updated **2024-06-14**)
+* [Version **v0.1.1**](sh/convert-hf-to-gguf.sh) (updated **2024-07-29**)
 
 > [!IMPORTANT]
 > Dependencies: **Python 3** (w/ `pip`) and [`llama.cpp`](https://github.com/ggerganov/llama.cpp/);
@@ -278,11 +285,23 @@ on **my website @ [`~intelligence`](https://kekse.biz/?~intelligence)**.
 > `./bin/python3 ./bin/pip install -r llama.cpp/requirements.txt`
 > `./bin/python3 llama.cpp/convert-hf-to-gguf.py -h`
 
-### [`nightlounge`.sh](sh/nightlounge.sh)
-* [Version **v0.2.7**](sh/nightlounge.sh) (updated **2024-06-26**)
+### [`hfget`.sh](sh/hfget.sh)
+Just a tiny helper, if you don't want to use the [`hfdownloader(.sh)`](#hfdownloadersh).
 
+* [Version **v0.2.0**](sh/hfget.sh) (created **2024-08-18**)
+
+Downloads from [**Hugging Face**](https://huggingface.co/) with your
+own **Token** (a file) included in the HTTP request header. This
+massively increases the speed of your downloads, and it allows you
+to access (your) non-public files, and maybe more..
+
+Expects either a URL or a file with a list of URLs as parameter. Depends on `wget`.
+
+### [`nightlounge`.sh](sh/nightlounge.sh)
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
 I use this script for my daily download of the 'BigFM Nightlounge' podcast.
+
+* [Version **v0.2.7**](sh/nightlounge.sh) (updated **2024-06-26**)
 
 > [!TIP]
 > You can add this to your '/etc/crontab'. ;-)
@@ -306,6 +325,34 @@ for you where to use `case`, if you'd like to manage the key/value pairs.
 
 > [!NOTE]
 > For a bit more infos about this, see the top of [the script](sh/lsblk.sh)!
+
+### [`lines`.sh](sh/lines.sh)
+You should put this script into your `/etc/profile.d/` directory,
+so the `lines()` function will get `source`d. Then just call it this
+way - possible parameters are described on top of this bash shell
+script file.
+
+* [Version **v0.4.0**](sh/lines.sh) (updated **2024-09-09**)
+
+Simple script you can use with either a file path parameter or the
+stdin `-` (if defined at all), to perform one of these actions:
+
+* display the line count of your input
+* extract a specific line
+* extract an area of lines
+* negative numbers counting backwards from the `EOF`
+
+> [!NOTE]
+> **JFYI**: The first version used `head` and `tail`, but  it's to expensive with
+> big data (it would read the data twice, since twice calls are necessary).
+> So I read out the data on my own here.
+
+### [`cursor`.sh](sh/cursor.sh)
+Tiniest.. just prints out the current cursor position in your active terminal.
+
+* [Version **v0.0.1**](sh/cursor.sh) (created **2024-09-09**)
+
+The real function `cursor()` is only **seven lines** long.
 
 ### [`init-sub-proj`.sh](sh/init-sub-proj.sh)
 * [Version **v0.3.1**](sh/init-sub-proj.sh) (updated **2024-05-23**)
@@ -396,7 +443,7 @@ there. I just wanted to reproduce the whole path depth (by looking at the pure c
 so I needed this `.path(_path)` method now. ...
 
 ### [`reflection`.js](js/reflection.js)
-* [Version **v2.1.0**](js/reflection.js) (updated **2024-04-30**)
+* [Version **v3.0.1**](js/reflection.js) (updated **2024-08-14**)
 
 My solution for JavaScript's `instanceof` problem, so when in multiple environments
 the classes are initialized/declared not once. In this case, comparing two environments,
@@ -410,6 +457,9 @@ the starting comment on top of the file.
 > [!IMPORTANT]
 > Since **v2.1.0** the additional `was()` parameters (varargs) mean **AND**, **not** **OR** any longer..
 > But the `is()` stayed the same (**OR**);
+
+> [!TIP]
+> Since **v3.0.0** also **with my `Object.{has,get,set,remove}()`** (traversing functions)!
 
 ### [`intersect`.js](js/intersect.js)
 * [Version **v0.2.2**](js/intersect.js) (created **2024-07-07**)
@@ -435,6 +485,15 @@ Some extensions to the [**Web Animations API**](https://developer.mozilla.org/en
 
 Maybe useful for you? But you've to read the source for yourself; and some functions may be missing;
 then look at my [v4 source code](https://kekse.biz/?~sources)!
+
+### [`moon`.js](js/moon.js)
+Extends the `Date` object with moon phase calculation functions.
+
+* [Version **v0.2.3**](js/moon.js) (created **2024-08-04**)
+
+For even more, partially very useful `Date` extensions take a look (for docs and concrete code):
+* [**v4**/docs (...)](https://github.com/kekse1/v4/blob/git/docs/modules/lib/date.md)
+* [`date.js`](https://github.com/kekse1/v4/blob/git/js/lib/globals/date.js)
 
 ### [`street-split`.js](js/street-split.js)
 * [Version **v0.2.0**](js/street-split.js) (updated **2024-06-03**)
