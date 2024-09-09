@@ -48,7 +48,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-09-09**\] Updated [`lines`.sh](#linessh): **v0.4.0**
+* \[**2024-09-09**\] Updated [`lines`.sh](#linessh): **v0.4.1**
 * \[**2024-09-09**\] New [`cursor`.sh](#cursorsh), **v0.0.1**
 * \[**2024-08-18**\] New [`hfget`.sh](#hfgetsh), **v0.2.0**
 * \[**2024-08-14**\] [`reflection`.js](#reflectionjs) **v3.0.1**
@@ -332,7 +332,7 @@ so the `lines()` function will get `source`d. Then just call it this
 way - possible parameters are described on top of this bash shell
 script file.
 
-* [Version **v0.4.0**](sh/lines.sh) (updated **2024-09-09**)
+* [Version **v0.4.1**](sh/lines.sh) (updated **2024-09-09**)
 
 Simple script you can use with either a file path parameter or the
 stdin `-` (if defined at all), to perform one of these actions:

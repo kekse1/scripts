@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.0
+# v0.4.1
 #
 # You should put this script into your '/etc/profile.d/'
 # directory, so the `lines()` function will get `source`d.
@@ -133,12 +133,15 @@ lines()
 		return 6
 	fi
 
-	if [[ -z $from || $from -eq 0 ]]; then
+	if [[ -z $from ]]; then
 		echo "$(cat "$file" | wc -l)"
 		return
 	elif [[ -z $to ]]; then
 		to=$from
 	fi
+
+	[[ $from -eq 0 ]] && return 2
+	[[ $to -eq 0 ]] && to=-1
 
 	#
 	lines=$(cat "$file" | wc -l)
