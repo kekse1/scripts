@@ -8,6 +8,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 2. [Bash](#bash)
 	* [`prompt`.sh](#promptsh)
 	* [`layout`.sh](#layoutsh)
+	* [`lines`.sh](#linessh)
 	* [`unexify`.sh](#unexifysh)
 	* [`sync`.sh](#syncsh)
 	* [`ansi`.sh](#ansish)
@@ -29,7 +30,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`hfget`.sh](#hfgetsh)
 	* [`nightlounge`.sh](#nightloungesh)
 	* [`lsblk`.sh](#lsblksh)
-	* [`lines`.sh](#linessh)
     * [`cursor`.sh](#cursorsh)
 	* [`init-sub-proj`.sh](#init-sub-projsh)
 3. [JavaScript](#javascript)
@@ -78,6 +78,22 @@ The most important thing for me was to switch between keyboard layouts - easily 
 So either call it without arguments, so it'll show you the currently used layout. Call it with a concrete layout, to
 switch to it directly. Or call it with a single `-`, so it'll switch between the configured layouts (by default, it's
 on top: `layouts=("us" "de")`).
+
+### [`lines`.sh](sh/lines.sh)
+You should put this script into your `/etc/profile.d/` directory,
+so the `lines()` function will get `source`d. Then just call it this
+way - possible parameters are described on top of this bash shell
+script file.
+
+* [Version **v0.4.1**](sh/lines.sh) (updated **2024-09-09**)
+
+Simple script you can use with either a file path parameter or the
+stdin `-` (if defined at all), to perform one of these actions:
+
+* display the line count of your input
+* extract a specific line
+* extract an area of lines
+* negative numbers counting backwards from the `EOF`
 
 ### [`unexify`.sh](sh/unexify.sh)
 * [Version **v0.1.2**](sh/unexify.sh) (updated **2024-04-23**)
@@ -325,27 +341,6 @@ for you where to use `case`, if you'd like to manage the key/value pairs.
 
 > [!NOTE]
 > For a bit more infos about this, see the top of [the script](sh/lsblk.sh)!
-
-### [`lines`.sh](sh/lines.sh)
-You should put this script into your `/etc/profile.d/` directory,
-so the `lines()` function will get `source`d. Then just call it this
-way - possible parameters are described on top of this bash shell
-script file.
-
-* [Version **v0.4.1**](sh/lines.sh) (updated **2024-09-09**)
-
-Simple script you can use with either a file path parameter or the
-stdin `-` (if defined at all), to perform one of these actions:
-
-* display the line count of your input
-* extract a specific line
-* extract an area of lines
-* negative numbers counting backwards from the `EOF`
-
-> [!NOTE]
-> **JFYI**: The first version used `head` and `tail`, but  it's to expensive with
-> big data (it would read the data twice, since twice calls are necessary).
-> So I read out the data on my own here.
 
 ### [`cursor`.sh](sh/cursor.sh)
 Tiniest.. just prints out the current cursor position in your active terminal.
