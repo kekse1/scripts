@@ -111,7 +111,7 @@ PS: First parameter needs to be the method to use here (see below).
 
 > [!WARNING]
 > **TODO**!1 ... my base methods aren't yet implemented,
-> there's only a part of the file functions ready there.
+> there's only a part of the file functions ready.
 
 #### **`convert`** method
 At first I needed to convert .mp3 and .ogg to RAW PCM
