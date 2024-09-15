@@ -49,11 +49,11 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-09-15**\] Updated [`reflection`.js](#reflectionjs) to **v3.1.0**!
 * \[**2024-09-10**\] New [`streaming`.sh](#streamingsh): **v0.2.1**
 * \[**2024-09-09**\] Updated [`lines`.sh](#linessh): **v0.4.1**
 * \[**2024-09-09**\] New [`cursor`.sh](#cursorsh), **v0.0.1**
 * \[**2024-08-18**\] New [`hfget`.sh](#hfgetsh), **v0.2.0**
-* \[**2024-08-14**\] [`reflection`.js](#reflectionjs) **v3.0.1**
 * \[**2024-08-09**\] [`make-nodejs`.sh](#make-nodejssh) to **v0.3.9**
 * \[**2024-08-04**\] [`moon`.js](#moonjs) created, in **v0.2.2**.
 * \[**2024-07-29**\] [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) **v0.1.1**
@@ -476,7 +476,7 @@ there. I just wanted to reproduce the whole path depth (by looking at the pure c
 so I needed this `.path(_path)` method now. ...
 
 ### [`reflection`.js](js/reflection.js)
-* [Version **v3.0.1**](js/reflection.js) (updated **2024-08-14**)
+* [Version **v3.1.0**](js/reflection.js) (updated **2024-09-15**)
 
 My solution for JavaScript's `instanceof` problem, so when in multiple environments
 the classes are initialized/declared not once. In this case, comparing two environments,
@@ -492,7 +492,7 @@ the starting comment on top of the file.
 > But the `is()` stayed the same (**OR**);
 
 > [!TIP]
-> Since **v3.0.0** also **with my `Object.{has,get,set,remove}()`** (traversing functions)!
+> In **v3.1.0** **improved/fixed** `Object.{has,get,set,remove}()`** (traversing functions)!
 
 ### [`intersect`.js](js/intersect.js)
 * [Version **v0.2.2**](js/intersect.js) (created **2024-07-07**)

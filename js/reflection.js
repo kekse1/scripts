@@ -1,7 +1,7 @@
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // https://kekse.biz/ https://github.com/kekse1/scripts/
-// v3.0.1
+// v3.1.0
 //
 // The problem was: depending on your JavaScript *environment*, which also changes
 // e.g. when using <iframe> or so, the base classes are being initialized/declared/..
@@ -26,7 +26,7 @@
 // I'm using it for a long time now, and it really works great. No problems occured,
 // and I recommend you to always use this instead of `instanceof` or smth. like it.
 //
-// NEW since v3.0.0: my `Object.{has,get,set,remove}()` (traversing functions).
+// UPDATE v3.1.0: Improved the 'Object.{has,get,set,remove}()' functions (and made readable).
 //
 
 //
@@ -79,43 +79,6 @@ Reflect.defineProperty(Reflect, 'is', { value: (_item, ... _args) => {
 }});
 
 //
-Reflect.defineProperty(Object, 'getPathArray', { value: (_path, _delim = '.') => {
-	if(Number.isInt(_path)) return [ _path ]; else if(typeof _path !== 'string') return [];
-	else _path = _path.split(_delim); for(var i = 0; i < _path.length; ++i)
-	if(!isNaN(_path[i])) _path[i] = Number(_path[i]); return _path; }});
-const pathItemForArray = (_item) => (typeof _item === 'number' || _item.length === 0);
-const traverseObject = (_path, _value, _context = global, _null = false, _method) => {
-	if(typeof _path === 'string') _path = Object.getPathArray(_path); if(!Array.isArray(_path, false)) return _context;
-	if(typeof _method !== 'string') return error('Invalid % argument [ %, %, %, % ]', null, '_method', 'has', 'get', 'set', 'remove');
-	else switch(_method = _method.toLowerCase()) { case 'has': case 'get': case 'set': case 'remove': break;
-	default: return error('Invalid % argument [ %, %, %, % ]', null, '_method', 'has', 'get', 'set', 'remove'); }
-	var obj = _context, current, next; for(var i = 0; i < _path.length - 1; ++i) { current = _path[i]; next = _path[i + 1];
-	if(pathItemForArray(current)) { if(!Array._isArray(obj)) switch(_method) { case 'has': return false; case 'get': return undefined;
-	case 'set': case 'remove': return false; } if(typeof current === 'number') { if(current < 0 && (current = Math.getIndex(current,
-	obj.length)) === null) current = 0; if(obj.length <= current) switch(_method) { case 'has': return false; case 'get':
-	return undefined; case 'remove': return false; case 'set': obj = obj[current] = (pathItemForArray(next) ? [] : (_null ? Object.create(null) : {})); }
-	else obj = obj[current]; } else { if(obj.length === 0) switch(_method) { case 'has': return false; case 'get': return undefined; case 'remove': return false; }
-	obj = obj[obj.length] = (pathItemForArray(next) ? [] : (_null ? Object.create(null) : {})); }} if(!Reflect.isExtensible(obj)) switch(_method) {
-	case 'has': return false; case 'get': return undefined; case 'set': case 'remove': return false; } else if(current in obj) obj = obj[current]; else {
-	switch(_method) { case 'has': return false; case 'get': return undefined; case 'remove': return false; } obj = obj[current] = (pathItemForArray(next) ? [] :
-	(_null ? Object.create(null) : {})); }} _path = _path[_path.length - 1]; if(pathItemForArray(_path)) { if(!Array._isArray(obj)) switch(_method) {
-	case 'has': return false; case 'get': return undefined; case 'set': case 'remove': return false; } if(typeof _path === 'number') { if(_path < 0 &&
-	(_path = Math.getIndex(_path, obj.length)) === null) _path = 0; if(obj.length <= _path) switch(_method) { case 'has': return false; case 'get':
-	return undefined; case 'remove': return false; case 'set': obj[_path] = _value; return true; } switch(_method) { case 'has': return true; case 'get':
-	return obj[_path]; case 'remove': obj.splice(_path, 1); return true; case 'set': obj[_path] = _value; return true; }} else switch(_method) {
-	case 'has': return (obj.length > 0); case 'get': return obj[obj.length - 1]; case 'remove': if(obj.length === 0) return false; obj.pop(); return true;
-	case 'set': obj.push(_value); return true; }} if(!Object.isExtensible(obj)) switch(_method) { case 'has': return false; case 'get': return undefined;
-	case 'set': case 'remove': return false; } switch(_method) { case 'has': if(typeof obj[_path] === 'undefined') { try { if(!(_path in obj)) return false; }
-	catch(_err) { return false; }} return true; case 'get': try { return obj[_path]; } catch(_err) { return undefined; }; break; case 'set': case 'remove':
-	if(!Reflect.isExtensible(obj)) return false; } switch(_method) { case 'remove': try { return delete obj[_path]; } catch(_err) { return false; }; break;
-	case 'set': try { obj[_path] = _value; } catch(_err) { return false; }} return undefined; };
-
-Reflect.defineProperty(Object, 'has', { value: (_path, _context = global) => traverseObject(_path, undefined, _context, null, 'has') });
-Reflect.defineProperty(Object, 'get', { value: (_path, _context = global) => traverseObject(_path, undefined, _context, null, 'get') });
-Reflect.defineProperty(Object, 'set', { value: (_path, _value, _context = global, _null = false) => traverseObject(_path, _value, _context, _null, 'set') });
-Reflect.defineProperty(Object, 'remove', { value: (_path, _context = global) => traverseObject(_path, undefined, _context, null, 'remove') });
-
-//
 if(typeof window === 'undefined')
 {
 	global.was = Reflect.was;
@@ -128,6 +91,340 @@ else
 }
 
 //
-export default { was: Reflect.was, is: Reflect.is, getPrototypesOf: Reflect.getPrototypesOf, isNull: Object.isNull };
+const getPathArray = (_path, _sep = DEFAULT_OBJECT_SEP) => {
+	if(number(_path))
+	{
+		return [ Math.int(_path) ];
+	}
+	else if(Array.isArray(_path))
+	{
+		return _path;
+	}
+	else if(typeof _path !== 'string')
+	{
+		return null;
+	}
+	else if(_path.length === 0)
+	{
+		return null;
+	}
+	
+	const result = [ '' ];
+	
+	for(var i = 0, j = 0; i < _path.length; ++i)
+	{
+		if(_path.at(i, _sep))
+		{
+			if(result[j].length > 0)
+			{
+				result[++j] = '';
+			}
+		}
+		else
+		{
+			result[j] += _path[i];
+		}
+	}
+	
+	for(var i = 0; i < result.length; ++i)
+	{
+		if(result[i].length === 0)
+		{
+			result.splice(i--, 1);
+		}
+		else if(!isNaN(result[i]))
+		{
+			result[i] = Math.int(Number(result[i]));
+		}
+	}
+	
+	if(result.length === 0)
+	{
+		return null;
+	}
+	
+	return result;
+};
+
+Reflect.defineProperty(Object, 'has', { value: (_path, _context = global, _sep = DEFAULT_OBJECT_SEP) => {
+	if((_path = getPathArray(_path, _sep)) === null) return _context; var ctx = _context; var done; try
+	{
+		for(var i = 0; i < _path.length; ++i)
+		{
+			done = false;
+			
+			if(Array.isArray(ctx))
+			{
+				if(ctx.length === 0)
+				{
+					return false;
+				}
+				else if(typeof _path[i] === 'number' && _path[i] < 0)
+				{
+					ctx = ctx[Math.getIndex(_path[i], ctx.length)];
+					done = true;
+				}
+			}
+			
+			if(!done)
+			{
+				if(_path[i] in ctx)
+				{
+					ctx = ctx[_path[i]];
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+	}
+	catch(_err)
+	{
+		return false;
+	}
+	
+	return true;
+}});
+
+Reflect.defineProperty(Object, 'get', { value: (_path, _context = global, _sep = DEFAULT_OBJECT_SEP) => {
+	if((_path = getPathArray(_path, _sep)) === null) return _context; var ctx = _context; var done; const last = _path.pop(); try
+	{
+		for(var i = 0; i < _path.length; ++i)
+		{
+			done = false;
+			
+			if(Array.isArray(ctx))
+			{
+				if(ctx.length === 0)
+				{
+					return undefined;
+				}
+				else if(typeof _path[i] === 'number' && _path[i] < 0)
+				{
+					ctx = ctx[Math.getIndex(_path[i], ctx.length)];
+					done = true;
+				}
+			}
+			
+			if(!done)
+			{
+				if(_path[i] in ctx)
+				{
+					ctx = ctx[_path[i]];
+				}
+				else
+				{
+					return undefined;
+				}
+			}
+		}
+		
+		if(Array.isArray(ctx))
+		{
+			if(ctx.length === 0)
+			{
+				return undefined;
+			}
+			else if(typeof last === 'number' && last < 0)
+			{
+				return ctx[Math.getIndex(last, ctx.length)];
+			}
+		}
+		
+		if(last in ctx)
+		{
+			return ctx[last];
+		}
+	}
+	catch(_err)
+	{
+		return undefined;
+	}
+	
+	return undefined;
+}});
+
+Reflect.defineProperty(Object, 'set', { value: (_path, _value, _context = global, _sep = DEFAULT_OBJECT_SEP, _null = DEFAULT_OBJECT_NUL) => {
+	if((_path = getPathArray(_path, _sep)) === null) return _context; var ctx = _context; var last = _path.pop(); var result; try
+	{
+		const getNextTargetItem = (_index) => {
+			if(typeof _path[_index + 1] === 'undefined')
+			{
+				if(typeof last === 'number')
+				{
+					return [];
+				}
+				else if(_null)
+				{
+					return Object.create(null);
+				}
+				
+				return {};
+			}
+			else if(typeof _path[_index + 1] === 'number')
+			{
+				return [];
+			}
+			else if(_null)
+			{
+				return Object.create(null);
+			}
+			
+			return {};
+		};
+
+		for(var i = 0; i < _path.length; ++i)
+		{
+			if(Array.isArray(ctx) && typeof _path[i] === 'number')
+			{
+				if(_path[i] >= ctx.length)
+				{
+					ctx = ctx[_path[i]] = getNextTargetItem();
+				}
+				else
+				{
+					if(_path[i] < 0)
+					{
+						if(ctx.length === 0)
+						{
+							_path[i] = 0;
+						}
+						else
+						{
+							_path[i] = Math.getIndex(_path[i], ctx.length);
+						}
+					}
+
+					ctx = ctx[_path[i]];
+				}
+			}
+			else if(_path[i] in ctx)
+			{
+				ctx = ctx[_path[i]];
+			}
+			else
+			{
+				ctx = ctx[_path[i]] = getNextTargetItem();
+			}
+		}
+
+		//
+		if(Array.isArray(ctx) && typeof last === 'number')
+		{
+			if(last >= ctx.length)
+			{
+				result = ctx[last];
+				ctx[last] = _value;
+			}
+			else
+			{
+				if(last < 0)
+				{
+					if(ctx.length === 0)
+					{
+						last = 0;
+					}
+					else
+					{
+						last = Math.getIndex(last, ctx.length);
+					}
+				}
+				
+				result = ctx[last];
+				ctx[last] = _value;
+			}
+		}
+		else
+		{
+			result = ctx[last];
+			ctx[last] = _value;
+		}
+	}
+	catch(_err)
+	{
+		if(DEFAULT_OBJECT_SET_BOOL)
+		{
+			return false;
+		}
+		
+		return undefined;
+	}
+	
+	if(DEFAULT_OBJECT_SET_BOOL)
+	{
+		return true;
+	}
+
+	return result;
+}});
+
+Reflect.defineProperty(Object, 'remove', { value: (_path, _context = global, _sep = DEFAULT_OBJECT_SEP) => {
+	if((_path = getPathArray(_path, _sep)) === null) return _context; var ctx = _context; var done; const last = _path.pop(); try
+	{
+		for(var i = 0; i < _path.length; ++i)
+		{
+			done = false;
+			
+			if(Array.isArray(ctx))
+			{
+				if(ctx.length === 0)
+				{
+					return undefined;
+				}
+				else if(typeof _path[i] === 'number' && _path[i] < 0)
+				{
+					ctx = ctx[Math.getIndex(_path[i], ctx.length)];
+					done = true;
+				}
+			}
+			
+			if(!done)
+			{
+				if(_path[i] in ctx)
+				{
+					ctx = ctx[_path[i]];
+				}
+				else
+				{
+					return undefined;
+				}
+			}
+		}
+
+		if(Array.isArray(ctx))
+		{
+			if(ctx.length === 0)
+			{
+				return undefined;
+			}
+			else if(typeof last === 'number')
+			{
+				if(last < 0)
+				{
+					const alternative = Math.getIndex(last, ctx.length);
+					return ctx.splice(alternative, 1)[0];
+				}
+				
+				return ctx.splice(last, 1)[0];
+			}
+		}
+		
+		if(last in ctx)
+		{
+			const result = ctx[last];
+			delete ctx[last];
+			return result;
+		}
+	}
+	catch(_err)
+	{
+		return undefined;
+	}
+	
+	return undefined;
+}});
 
 //
+export default { was: Reflect.was, is: Reflect.is, getPrototypesOf: Reflect.getPrototypesOf, isNull: Object.isNull,
+	has: Object.has, get: Object.get, set: Object.set, remove: Object.remove };
