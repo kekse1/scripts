@@ -30,6 +30,11 @@
 //
 
 //
+const DEFAULT_OBJECT_SEP = '.';		// path separator/delimiter
+const DEFAULT_OBJECT_NUL = true;	// when creating intermediate objects, use `Object.create(null)` (if not arrays at all)!?
+const DEFAULT_OBJECT_SET_BOOL = false;	// `Object.set()` will return the set state, instead of the replaced item (if any)..
+
+//
 Reflect.defineProperty(Object, 'isNull', { value: (... _args) => {
 	if(_args.length === 0) return null;
 	else for(var i = 0; i < _args.length; ++i) {
