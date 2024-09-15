@@ -35,6 +35,24 @@ const DEFAULT_OBJECT_NUL = true;	// when creating intermediate objects, use `Obj
 const DEFAULT_OBJECT_SET_BOOL = false;	// `Object.set()` will return the set state, instead of the replaced item (if any)..
 
 //
+Reflect.defineProperty(Math, 'int', { value: (_value, _inverse = false) => {
+	const a = (_value < 0); const b = (!!_inverse);
+	return (((((a&&b)||!(a||b)) ? Math.floor : Math.ceil)(_value)) || 0);
+}});
+
+Reflect.defineProperty(Math, 'getIndex', { value: (_index, _length) => {
+	if(_length < 1)
+	{
+		return null;
+	}
+	else if((_index %= _length) < 0)
+	{
+		_index = ((_length + _index) % _length);
+	}
+	
+	return (_index || 0);
+}});
+
 Reflect.defineProperty(Object, 'isNull', { value: (... _args) => {
 	if(_args.length === 0) return null;
 	else for(var i = 0; i < _args.length; ++i) {
@@ -97,7 +115,7 @@ else
 
 //
 const getPathArray = (_path, _sep = DEFAULT_OBJECT_SEP) => {
-	if(number(_path))
+	if(typeof _path === 'number')
 	{
 		return [ Math.int(_path) ];
 	}
