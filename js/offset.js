@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+// 
+// TODO /
+// ain't working now.. i've to finish it [when i've got the time..]!
+//
+
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
