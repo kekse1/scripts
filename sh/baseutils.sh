@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://baseutils.org/
-# v0.2.4
+# v0.2.5
 #
 
 #
@@ -86,9 +86,8 @@ eol()
 
 line()
 {
-	echo TODO >&2
-	return 255
-	#with $str, using width() (below)
+	line="$1"; [[ -z "$line" ]] && line="$LINE"; [[ -z "$line" ]] && line="#"
+	line="${line::1}"; for i in $(seq 1 `width`); do echo -n "$line"; done
 }
 
 width()
