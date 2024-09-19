@@ -84,6 +84,7 @@ eol()
 	#using $count
 }
 
+#TODO#laengere line-pad-strings!
 line()
 {
 	line="$1"; [[ -z "$line" ]] && line="$LINE"; [[ -z "$line" ]] && line="="
