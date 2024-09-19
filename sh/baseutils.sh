@@ -88,7 +88,7 @@ eol()
 line()
 {
 	line="$1"; [[ -z "$line" ]] && line="$LINE"; [[ -z "$line" ]] && line="="
-	line="${line::1}"; for i in $(seq 1 `width`); do echo -n "$line"; done
+	line="${line::1}"; for i in $(seq 1 `width`); do echo -n "$line"; done; echo
 }
 
 width()
