@@ -50,6 +50,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-09-19**\] Tiny change in [`baseutils`.sh](#baseutilssh); .. **v0.2.6**;
 * \[**2024-09-19**\] New [`offset`.js](#offsetjs), **v0.1.0**;
 * \[**2024-09-15**\] Updated [`reflection`.js](#reflectionjs) to **v3.1.0**!
 * \[**2024-09-10**\] New [`streaming`.sh](#streamingsh): **v0.2.1**
@@ -247,7 +248,7 @@ detect which suites best:
 * ` >> Syntax: bytes <value> [ <base=1024 | <unit> [ <prec=2> ] ]`
 
 ### [`baseutils`.sh](sh/baseutils.sh)
-* [Version **v0.2.5**](sh/baseutils.sh) (updated **2024-09-19**)
+* [Version **v0.2.6**](sh/baseutils.sh) (updated **2024-09-19**)
 
 This is just the beginning of more bash functions.
 

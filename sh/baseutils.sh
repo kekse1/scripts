@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://baseutils.org/
-# v0.2.5
+# v0.2.6
 #
 
 #
