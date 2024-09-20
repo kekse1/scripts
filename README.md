@@ -42,7 +42,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`multiset`.js](#multisetjs)
 	* [`animation`.js](#animationjs)
 	* [`moon`.js](#moonjs)
-	* [`offset`.js](#offsetjs)
+<!--	* [`offset`.js](#offsetjs)-->
 	* [`street-split`.js](#street-splitjs)
 	* [`fold.css`.js](#foldcssjs)
 4. [C/C++](#cc)
@@ -51,7 +51,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 
 ## News
 * \[**2024-09-19**\] Tiny change in [`baseutils`.sh](#baseutilssh); .. **v0.2.6**;
-* \[**2024-09-19**\] New [`offset`.js](#offsetjs), **v0.1.0**;
 * \[**2024-09-15**\] Updated [`reflection`.js](#reflectionjs) to **v3.1.0**!
 * \[**2024-09-10**\] New [`streaming`.sh](#streamingsh): **v0.2.1**
 * \[**2024-09-09**\] Updated [`lines`.sh](#linessh): **v0.4.1**
@@ -531,6 +530,7 @@ For even more, partially very useful `Date` extensions take a look (for docs and
 * [**v4**/docs (...)](https://github.com/kekse1/v4/blob/git/docs/modules/lib/date.md)
 * [`date.js`](https://github.com/kekse1/v4/blob/git/js/lib/globals/date.js)
 
+<!--
 ### [`offset`.js](js/offset.js)
 This script will calculate either an offset to your
 line/column parameters, or it'll calculate the line
@@ -548,6 +548,7 @@ file dimensions, as is.
 
 > [!TIP]
 > Syntax: offset [ <file path> ] [ <offset/line> [ <column> ] ]
+  -->
 
 ### [`street-split`.js](js/street-split.js)
 * [Version **v0.2.0**](js/street-split.js) (updated **2024-06-03**)

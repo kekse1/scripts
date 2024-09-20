@@ -36,7 +36,7 @@
 import fs from 'node:fs';
 
 //
-var line = 1, column = 1, offset = 0;
+var line = 0, column = 1, offset = 0;
 
 const printResult = (_offset, _line, _column, _exit = true, _none = false) => {
 	console.log((_none ? '  Bytes' : 'Offset') + ': ' + _offset);
@@ -71,8 +71,8 @@ const readFile = (_path, _offset_line, _column = null) => {
 				process.exit(8);
 			}
 		}
-	
-		printResult(offset, --line, column, true, (_offset_line === null));
+
+		printResult(offset, line, column, true, (_offset_line === null));
 	});
 
 	stream.on('data', (_chunk) => {
