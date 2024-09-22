@@ -537,13 +537,10 @@ lines with columns, or count them, etc. Without any parameter it'll
 show you the whole countings, and with another parameter combination
 you can even get to know how many columns a specific line has. ETC.
 
-* [Version **v0.6.0**](js/offset.js) (created **2024-09-22**)
+* [Version **v0.6.1**](js/offset.js) (created **2024-09-22**)
 
 > [!TIP]
 > You should first call with `'--help'` or `'-?'`!
-
-> [!WARNING]
-> Merely **untested**...
 
 ### [`street-split`.js](js/street-split.js)
 * [Version **v0.2.0**](js/street-split.js) (updated **2024-06-03**)

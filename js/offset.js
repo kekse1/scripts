@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.6.0
+ * v0.6.1
  */
 
 /*
@@ -14,8 +14,7 @@
  *
  * See the `const HELP` below. It'll also been shown with `-?` or `--help`! :-)
  *
- * //TODO/soll ich die newlines alle noch mitzaehlen, oder eher ohne gezaehlt!??
- * //TODO/.. merely UNTESTED.
+ * //TODO/soll ich die newlines alle noch mitzaehlen zu column, oder (eher) ohne!??
  * ..
  */
  
@@ -141,9 +140,7 @@ const readFile = (_path, _a, _b) => {
 						}
 					}
 					// how many column in your line _a
-					//
-					//TODO/soll ich die newlines alle noch mitzaehlen, oder eher ohne gezaehlt!??
-					//
+					// todo / mitzaehlen der newlines als columns!? eher ned...
 					else
 					{
 						for(; column < _chunk.length; ++column)
