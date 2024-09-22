@@ -540,7 +540,7 @@ you can even get to know how many columns a specific line has. ETC.
 * [Version **v0.6.0**](js/offset.js) (created **2024-09-22**)
 
 > [!TIP]
-> You should first call with `--help` or `-?`!
+> You should first call with `'--help'` or `'-?'`!
 
 > [!WARNING]
 > Merely **untested**...
