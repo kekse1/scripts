@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.4.0
+ * v0.4.1
  */
 
 /*
@@ -150,6 +150,14 @@ const readFile = (_path, _a, _b) => {
 						}
 							
 						return printResult();
+					}
+				}
+				else if(line > _a)
+				{
+					if(_b > 0)
+					{
+						console.error('Line ' + _a + ' got no column ' + _b);
+						process.exit(2);
 					}
 				}
 			}
