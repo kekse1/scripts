@@ -537,11 +537,10 @@ lines with columns, or count them, etc. Without any parameter it'll
 show you the whole countings, and with another parameter combination
 you can even get to know how many columns a specific line has. ETC.
 
-* [Version **v0.5.0**](js/offset.js) (created **2024-09-22**)
+* [Version **v0.6.0**](js/offset.js) (created **2024-09-22**)
 
 > [!TIP]
-> For an overview over the possible parameter constellations,
-> look at the top of this script (open it in an editor).
+> You should first call with `--help` or `-?`!
 
 > [!WARNING]
 > Merely **untested**...

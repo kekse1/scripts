@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.5.0
+ * v0.6.0
  */
 
 /*
@@ -12,6 +12,15 @@
  * show you the whole countings, and with another parameter combination
  * you can even get to know how many columns a specific line has. ETC.
  *
+ * See the `const HELP` below. It'll also been shown with `-?` or `--help`! :-)
+ *
+ * //TODO/soll ich die newlines alle noch mitzaehlen, oder eher ohne gezaehlt!??
+ * //TODO/.. merely UNTESTED.
+ * ..
+ */
+ 
+//
+const HELP = ` *
  *	Syntax: offset [ <file> ] <offset/line> [ <column> ]
  *
  * The optional file path can be anywhere in your command line,
@@ -32,11 +41,7 @@
  * (b) = int = 0
  *	.. displays how many columns your specific line has.
  *
- * ...
- * //TODO/soll ich die newlines alle noch mitzaehlen, oder eher ohne gezaehlt!?? siehe unten.
- * //TODO/merely UNTESTED...
- * ..
- */ 
+ `;
  
 //
 import path from 'node:path';
@@ -210,6 +215,11 @@ const getArguments = (_vector = process.argv, _start = 2) => {
 		else if(_vector[i] === '--')
 		{
 			break;
+		}
+		else if(_vector[i] === '-?' || _vector[i] === '--help')
+		{
+			process.stdout.write(HELP);
+			process.exit();
 		}
 		else if(!isNaN(_vector[i]))
 		{
