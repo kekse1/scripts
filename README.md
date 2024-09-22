@@ -42,7 +42,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`multiset`.js](#multisetjs)
 	* [`animation`.js](#animationjs)
 	* [`moon`.js](#moonjs)
-<!--	* [`offset`.js](#offsetjs)-->
+    * [`offset`.js](#offsetjs)
 	* [`street-split`.js](#street-splitjs)
 	* [`fold.css`.js](#foldcssjs)
 4. [C/C++](#cc)
@@ -50,6 +50,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-09-22**\] New [`offset`.js](#offsetjs)
 * \[**2024-09-19**\] Tiny change in [`baseutils`.sh](#baseutilssh); .. **v0.2.6**;
 * \[**2024-09-15**\] Updated [`reflection`.js](#reflectionjs) to **v3.1.0**!
 * \[**2024-09-10**\] New [`streaming`.sh](#streamingsh): **v0.2.1**
@@ -530,25 +531,21 @@ For even more, partially very useful `Date` extensions take a look (for docs and
 * [**v4**/docs (...)](https://github.com/kekse1/v4/blob/git/docs/modules/lib/date.md)
 * [`date.js`](https://github.com/kekse1/v4/blob/git/js/lib/globals/date.js)
 
-<!--
 ### [`offset`.js](js/offset.js)
-This script will calculate either an offset to your
-line/column parameters, or it'll calculate the line
-and column for your offset parameter.
+With this script, you can calculate and convert between offsets and
+lines with columns, or count them, etc. Without any parameter it'll
+show you the whole countings, and with another parameter combination
+you can even get to know how many columns a specific line has. ETC.
 
 * [Version **v0.1.0**](js/offset.js) (created **2024-09-19**)
 
-If called with a single integer(!) parameter, this will be
-your offset, so we'll calculate a position (line and column).
-When a second integer(!) parameter is following, these both
-will be the line and then the column, for which we'll
-calculate a file offset. And if no parameter (beneath the
-optional file path) is defined, this will print the real
-file dimensions, as is.
-
 > [!TIP]
-> Syntax: offset [ <file path> ] [ <offset/line> [ <column> ] ]
-  -->
+> For an overview over the possible parameter constellations,
+> look at the top of this script (open it in an editor).
+
+> [!WARNING]
+> This script is still **TODO**, and most parameter combinations dont't work yet!
+> Please be patient..
 
 ### [`street-split`.js](js/street-split.js)
 * [Version **v0.2.0**](js/street-split.js) (updated **2024-06-03**)
