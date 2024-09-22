@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v1.0.0
+ * v0.4.0
  */
 
 /*
@@ -34,6 +34,7 @@
  *
  * ...
  * //TODO/soll ich die newlines alle noch mitzaehlen, oder eher ohne gezaehlt!?? siehe unten.
+ * //TODO/STILL 'BIT BUGGY!!
  * ..
  */ 
  
@@ -63,6 +64,7 @@ const readFile = (_path, _a, _b) => {
 		// whole file
 		if(_a === null && _b === null)
 		{
+			--line;
 			console.log('  Bytes: ' + offset);
 			console.log('  Lines: ' + line);
 		}
