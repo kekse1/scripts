@@ -37,7 +37,7 @@
 #
 
 #
-TYPE="q8_0" # f32, f16, q8_0, .. # 'f*' preserves original quality
+TYPE="q8_0" # f32, f16, q8_0, auto, .. # 'f*' preserves original quality
 DOWNLOADS="downloads"
 MODELS="models"
 FORMAT="gguf"
