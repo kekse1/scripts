@@ -50,7 +50,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-09-22**\] New [`offset`.js](#offsetjs)
+* \[**2024-09-22**\] New [`offset`.js](#offsetjs); **v0.2.0**
 * \[**2024-09-19**\] Tiny change in [`baseutils`.sh](#baseutilssh); .. **v0.2.6**;
 * \[**2024-09-15**\] Updated [`reflection`.js](#reflectionjs) to **v3.1.0**!
 * \[**2024-09-10**\] New [`streaming`.sh](#streamingsh): **v0.2.1**
@@ -537,7 +537,7 @@ lines with columns, or count them, etc. Without any parameter it'll
 show you the whole countings, and with another parameter combination
 you can even get to know how many columns a specific line has. ETC.
 
-* [Version **v0.1.0**](js/offset.js) (created **2024-09-19**)
+* [Version **v0.2.0**](js/offset.js) (created **2024-09-22**)
 
 > [!TIP]
 > For an overview over the possible parameter constellations,
