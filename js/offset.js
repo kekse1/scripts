@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.2.0
+ * v1.0.0
  */
 
 /*
@@ -31,6 +31,10 @@
  * (a) = int > 0
  * (b) = int = 0
  *	.. displays how many columns your specific line has.
+ *
+ * ...
+ * //TODO/soll ich die newlines alle noch mitzaehlen, oder eher ohne gezaehlt!?? siehe unten.
+ * ..
  */ 
  
 //
@@ -38,7 +42,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 
 //
-var line = 0, column = 0, offset = 0;
+var line = 1, column = 0, offset = 0;
 
 const readFile = (_path, _a, _b) => {
 	//
@@ -52,16 +56,39 @@ const readFile = (_path, _a, _b) => {
 		//
 		if(_path !== '-')
 		{
-			console.log(' Path: ' + _path);
-			console.log(' File: ' + path.basename(_path));
+			console.log('   Path: ' + _path);
+			console.log('   File: ' + path.basename(_path));
 		}
 		
+		// whole file
 		if(_a === null && _b === null)
 		{
-			console.log('Bytes: ' + offset);
-			console.log('Lines: ' + line);
-			return;
+			console.log('  Bytes: ' + offset);
+			console.log('  Lines: ' + line);
 		}
+		else
+		{
+			console.log(' Offset: ' + offset);
+			console.log('   Line: ' + line);
+
+			if(_b === 0)
+			{
+				console.log('Columns: ' + column);
+			}
+			else
+			{
+				console.log(' Column: ' + column);
+			}
+		}
+
+		//
+		if(! (stream.closed || stream.destroyed))
+		{
+			stream.destroy();
+		}
+		
+		//
+		process.exit();
 	};
 
 	//
@@ -85,6 +112,46 @@ const readFile = (_path, _a, _b) => {
 	stream.on('data', (_chunk) => {
 		for(var i = 0; i < _chunk.length; ++i)
 		{
+			//
+			if(_a !== null)
+			{
+				// show line/col to offset _a
+				if(_b === null)
+				{
+					if(offset === _a)
+					{
+						return printResult();
+					}
+				}
+				else if(_a === line)
+				{
+					// show offset to line/col
+					if(_b > 0)
+					{
+						if(_b === column)
+						{
+							return printResult();
+						}
+					}
+					// how many column in your line _a
+					//
+					//TODO/soll ich die newlines alle noch mitzaehlen, oder eher ohne gezaehlt!??
+					//
+					else
+					{
+						for(; column < _chunk.length; ++column)
+						{
+							if(_chunk[offset + column] === '\n' || _chunk[offset + column] === '\r')
+							{
+								break;
+							}
+						}
+							
+						return printResult();
+					}
+				}
+			}
+			
 			//
 			++offset;
 
@@ -183,7 +250,7 @@ const checkArguments = (_file, _a, _b) => {
 	{
 		return invalid();
 	}
-	else if(_a === 0)
+	else if(_a === 0 && _b !== null)
 	{
 		return invalid();
 	}
