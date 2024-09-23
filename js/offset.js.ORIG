@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.8.1
+ * v0.8.0
  */
 
 /*
@@ -15,7 +15,6 @@
  * See the `const HELP` below. It'll also been shown with `-?` or `--help`! :-)
  *
  * //TODO/soll ich die newlines alle noch mitzaehlen zu column, oder (eher) ohne!??
- * //TODO/`echo abc | offset.js 1 0` # doesn't work!?
  * ..
  */
  
@@ -67,20 +66,14 @@ const readFile = (_path, _a, _b) => {
 		{
 			line = column = 0;
 		}
-		
-		//
-		printInfo();
-
-		//
-		if(stream && !(stream.closed || stream.destroyed))
+		else
 		{
-			if(_a !== null && _b === null && _a > offset)
-			{
-				console.error('Your offset exceeds limit (%d)!', offset);
-				process.exit(4);
-			}
+		//	--line;
 		}
 
+		//
+		printInfo();		
+		
 		// whole file
 		if(_a === null && _b === null)
 		{
@@ -89,7 +82,7 @@ const readFile = (_path, _a, _b) => {
 		}
 		else
 		{
-			if(_a > line && _b !== null && (stream && !(stream.closed || stream.destroyed)) && !(stream.closed || stream.destroyed))
+			if(_a > line && _b !== null && !(stream.closed || stream.destroyed) && !(stream.closed || stream.destroyed))
 			{
 				console.error('Line ' + _a + ' doesn\'t exist!');
 				process.exit(3);
@@ -207,7 +200,7 @@ const readFile = (_path, _a, _b) => {
 					// todo / mitzaehlen der newlines als columns!? eher ned...
 					else
 					{
-						for(; offset < _chunk.length; ++offset, ++column)
+						for(; offset < _chunk.length; ++offset, ++column, ++offset)
 						{
 							if(_chunk[offset] === '\n' || _chunk[offset] === '\r')
 							{
