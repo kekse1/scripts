@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.8.1
+ * v0.8.2
  */
 
 /*
@@ -66,6 +66,10 @@ const readFile = (_path, _a, _b) => {
 		if(offset === 0)
 		{
 			line = column = 0;
+		}
+		else if(line === 0)
+		{
+			++line;
 		}
 		
 		//
