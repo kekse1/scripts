@@ -42,7 +42,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`multiset`.js](#multisetjs)
 	* [`animation`.js](#animationjs)
 	* [`moon`.js](#moonjs)
-<!--    * [`offset`.js](#offsetjs) -->
 	* [`street-split`.js](#street-splitjs)
 	* [`fold.css`.js](#foldcssjs)
 4. [C/C++](#cc)
@@ -50,7 +49,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-<!-- * \[**2024-09-23**\] Updated [`offset`.js](#offsetjs); **v0.8.2** -->
 * \[**2024-09-19**\] Tiny change in [`baseutils`.sh](#baseutilssh); .. **v0.2.6**;
 * \[**2024-09-15**\] Updated [`reflection`.js](#reflectionjs) to **v3.1.0**!
 * \[**2024-09-10**\] New [`streaming`.sh](#streamingsh): **v0.2.1**
