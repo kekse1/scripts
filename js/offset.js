@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.6.1
+ * v0.7.0
  */
 
 /*
@@ -47,9 +47,18 @@ import path from 'node:path';
 import fs from 'node:fs';
 
 //
-var line = 1, column = 0, offset = 0;
+var line = 0, column = 0, offset = 0;
 
 const readFile = (_path, _a, _b) => {
+	//
+	var stream;
+	
+	//
+	const printInfo = () => { if(_path !== '-') {
+			console.log('   Path: ' + _path);
+			console.log('   File: ' + path.basename(_path));
+		}};
+	
 	//
 	const printResult = () => {
 		//
@@ -57,23 +66,28 @@ const readFile = (_path, _a, _b) => {
 		{
 			line = column = 0;
 		}
-		
-		//
-		if(_path !== '-')
+		else
 		{
-			console.log('   Path: ' + _path);
-			console.log('   File: ' + path.basename(_path));
+		//	--line;
 		}
+
+		//
+		printInfo();		
 		
 		// whole file
 		if(_a === null && _b === null)
 		{
-			--line;
 			console.log('  Bytes: ' + offset);
 			console.log('  Lines: ' + line);
 		}
 		else
 		{
+			if(_a > line && _b !== null && !(stream.closed || stream.destroyed) && !(stream.closed || stream.destroyed))
+			{
+				console.error('Line ' + _a + ' doesn\'t exist!');
+				process.exit(3);
+			}
+			
 			console.log(' Offset: ' + offset);
 			console.log('   Line: ' + line);
 
@@ -88,7 +102,7 @@ const readFile = (_path, _a, _b) => {
 		}
 
 		//
-		if(! (stream.closed || stream.destroyed))
+		if(stream && ! (stream.closed || stream.destroyed))
 		{
 			stream.destroy();
 		}
@@ -96,9 +110,15 @@ const readFile = (_path, _a, _b) => {
 		//
 		process.exit();
 	};
+	
+	//
+	if(_a === 0 && _b === null)
+	{
+		return printResult();
+	}
 
 	//
-	const stream = fs.createReadStream(_path, {
+	stream = fs.createReadStream(_path, {
 		flags: 'r', encoding: 'utf8', autoClose: true, emitClose: true });
 		
 	if(_path === '/dev/stdin')
@@ -118,52 +138,6 @@ const readFile = (_path, _a, _b) => {
 	stream.on('data', (_chunk) => {
 		for(var i = 0; i < _chunk.length; ++i)
 		{
-			//
-			if(_a !== null)
-			{
-				// show line/col to offset _a
-				if(_b === null)
-				{
-					if(offset === _a)
-					{
-						return printResult();
-					}
-				}
-				else if(_a === line)
-				{
-					// show offset to line/col
-					if(_b > 0)
-					{
-						if(_b === column)
-						{
-							return printResult();
-						}
-					}
-					// how many column in your line _a
-					// todo / mitzaehlen der newlines als columns!? eher ned...
-					else
-					{
-						for(; column < _chunk.length; ++column)
-						{
-							if(_chunk[offset + column] === '\n' || _chunk[offset + column] === '\r')
-							{
-								break;
-							}
-						}
-							
-						return printResult();
-					}
-				}
-				else if(line > _a)
-				{
-					if(_b > 0)
-					{
-						console.error('Line ' + _a + ' got no column ' + _b);
-						process.exit(2);
-					}
-				}
-			}
-			
 			//
 			++offset;
 
@@ -193,6 +167,56 @@ const readFile = (_path, _a, _b) => {
 			else
 			{
 				++column;
+			}
+
+			//
+			if(_a !== null)
+			{
+				// show line/col to offset _a
+				if(_b === null)
+				{
+					if(offset === _a)
+					{
+						return printResult();
+					}
+				}
+				else if(_a === line)
+				{
+					// show offset to line/col
+					if(_b > 0)
+					{
+						if(_b === column)
+						{
+							return printResult();
+						}
+						else if(!(i < (_chunk.length - 1)))
+						{
+							printInfo();
+							console.error('Line ' + _a + ' got no column ' + _b);
+							process.exit(2);
+						}
+					}
+					// how many column in your line _a
+					// todo / mitzaehlen der newlines als columns!? eher ned...
+					else
+					{
+						if(i < (_chunk.length - 1)) for(; column < _chunk.length; ++column)
+						{
+							if(_chunk[offset + column] === '\n' || _chunk[offset + column] === '\r')
+							{
+								break;
+							}
+						}
+							
+						return printResult();
+					}
+				}
+				else if(line > _a)
+				{
+					printInfo();
+					console.error('Line ' + (_a - 1) + ' got no column ' + _b);
+					process.exit(2);
+				}
 			}
 		}
 	});
