@@ -42,7 +42,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`multiset`.js](#multisetjs)
 	* [`animation`.js](#animationjs)
 	* [`moon`.js](#moonjs)
-    * [`offset`.js](#offsetjs)
+<!--    * [`offset`.js](#offsetjs) -->
 	* [`street-split`.js](#street-splitjs)
 	* [`fold.css`.js](#foldcssjs)
 4. [C/C++](#cc)
@@ -50,7 +50,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-09-23**\] Updated [`offset`.js](#offsetjs); **v0.8.2**
+<!-- * \[**2024-09-23**\] Updated [`offset`.js](#offsetjs); **v0.8.2** -->
 * \[**2024-09-19**\] Tiny change in [`baseutils`.sh](#baseutilssh); .. **v0.2.6**;
 * \[**2024-09-15**\] Updated [`reflection`.js](#reflectionjs) to **v3.1.0**!
 * \[**2024-09-10**\] New [`streaming`.sh](#streamingsh): **v0.2.1**
@@ -531,6 +531,7 @@ For even more, partially very useful `Date` extensions take a look (for docs and
 * [**v4**/docs (...)](https://github.com/kekse1/v4/blob/git/docs/modules/lib/date.md)
 * [`date.js`](https://github.com/kekse1/v4/blob/git/js/lib/globals/date.js)
 
+<!--
 ### [`offset`.js](js/offset.js)
 With this script, you can calculate and convert between offsets and
 lines with columns, or count them, etc. Without any parameter it'll
@@ -541,6 +542,7 @@ you can even get to know how many columns a specific line has. ETC.
 
 > [!TIP]
 > You should first call with `'--help'` or `'-?'`!
+  -->
 
 ### [`street-split`.js](js/street-split.js)
 * [Version **v0.2.0**](js/street-split.js) (updated **2024-06-03**)
