@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * https://kekse.biz/ https://github.com/kekse1/scripts/
- * v0.7.1
+ * v0.8.0
  */
 
 /*
@@ -200,15 +200,14 @@ const readFile = (_path, _a, _b) => {
 					// todo / mitzaehlen der newlines als columns!? eher ned...
 					else
 					{
-						for(; (offset + column) < _chunk.length; ++column)
+						for(; offset < _chunk.length; ++offset, ++column, ++offset)
 						{
-							if(_chunk[offset + column] === '\n' || _chunk[offset + column] === '\r')
+							if(_chunk[offset] === '\n' || _chunk[offset] === '\r')
 							{
 								break;
 							}
 						}
-
-						offset += column;
+						
 						return printResult();
 					}
 				}
