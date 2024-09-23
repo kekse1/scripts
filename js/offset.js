@@ -48,7 +48,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 
 //
-var line = 0, column = 0, offset = 0;
+var line = 1, column = 0, offset = 0;
 
 const readFile = (_path, _a, _b) => {
 	//
@@ -67,10 +67,6 @@ const readFile = (_path, _a, _b) => {
 		{
 			line = column = 0;
 		}
-		else if(line === 0)
-		{
-			++line;
-		}
 		
 		//
 		printInfo();
@@ -88,6 +84,7 @@ const readFile = (_path, _a, _b) => {
 		// whole file
 		if(_a === null && _b === null)
 		{
+			--line;
 			console.log('  Bytes: ' + offset);
 			console.log('  Lines: ' + line);
 		}
