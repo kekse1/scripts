@@ -414,7 +414,7 @@ one `.scheme[]` item..
 
 Nice one; have phun.
 
-### [`config`.js](js/)
+### `config`.js
 * [Version **v0.7.0**](js/config.v0.7.0.js) (updated **2024-07-15**)
 * [Version **v0.4.0**](js/config.js) (updated **2024-06-26**)
 
