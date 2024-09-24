@@ -34,6 +34,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
     * [`cursor`.sh](#cursorsh)
 	* [`init-sub-proj`.sh](#init-sub-projsh)
 3. [JavaScript](#javascript)
+	* [`offset`.js](#offsetjs)
 	* [`clone`.js](#clonejs)
 	* [`links`.js](#linksjs)
 	* [`config`.js](#configjs)
@@ -49,6 +50,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-09-24**\] New [`offset`.js](#offsetjs); **v1.0.1**
 * \[**2024-09-19**\] Tiny change in [`baseutils`.sh](#baseutilssh); .. **v0.2.6**;
 * \[**2024-09-15**\] Updated [`reflection`.js](#reflectionjs) to **v3.1.0**!
 * \[**2024-09-10**\] New [`streaming`.sh](#streamingsh): **v0.2.1**
@@ -405,6 +407,17 @@ My favorite language.. absolutely. **^\_^**
 Many, many years ago I just laughed about JavaScript, because it was just some 'browser scripting language'..
 TODAY, in the times of [`Node.js`](https://nodejs.org/), it's a great language, even for the server side! **;-)**
 
+### [`offset`.js](js/offset.js)
+With this script, you can calculate and convert between offsets and
+lines with columns, or count them, etc. Without any parameter it'll
+show you the whole countings, and with another parameter combination
+you can even get to know how many columns a specific line has. ETC.
+
+* [Version **v1.0.1**](js/offset.js) (created **2024-09-24**)
+
+> [!TIP]
+> You should first call with `'--help'` or `'-?'`!
+
 ### [`clone`.js](js/clone.js)
 * [Version **v0.4.3**](js/clone.js) (updated **2024-05-09**)
 
@@ -528,19 +541,6 @@ Extends the `Date` object with moon phase calculation functions.
 For even more, partially very useful `Date` extensions take a look (for docs and concrete code):
 * [**v4**/docs (...)](https://github.com/kekse1/v4/blob/git/docs/modules/lib/date.md)
 * [`date.js`](https://github.com/kekse1/v4/blob/git/js/lib/globals/date.js)
-
-<!--
-### [`offset`.js](js/offset.js)
-With this script, you can calculate and convert between offsets and
-lines with columns, or count them, etc. Without any parameter it'll
-show you the whole countings, and with another parameter combination
-you can even get to know how many columns a specific line has. ETC.
-
-* [Version **v0.8.2**](js/offset.js) (updated **2024-09-23**)
-
-> [!TIP]
-> You should first call with `'--help'` or `'-?'`!
-  -->
 
 ### [`street-split`.js](js/street-split.js)
 * [Version **v0.2.0**](js/street-split.js) (updated **2024-06-03**)
