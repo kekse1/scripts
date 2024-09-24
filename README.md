@@ -9,7 +9,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`prompt`.sh](#promptsh)
 	* [`layout`.sh](#layoutsh)
 	* [`lines`.sh](#linessh)
-	* [`streaming`.sh](#streamingsh)
 	* [`unexify`.sh](#unexifysh)
 	* [`sync`.sh](#syncsh)
 	* [`ansi`.sh](#ansish)
@@ -53,7 +52,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 * \[**2024-09-24**\] New [`offset`.js](#offsetjs); **v1.0.1**
 * \[**2024-09-19**\] Tiny change in [`baseutils`.sh](#baseutilssh); .. **v0.2.6**;
 * \[**2024-09-15**\] Updated [`reflection`.js](#reflectionjs) to **v3.1.0**!
-* \[**2024-09-10**\] New [`streaming`.sh](#streamingsh): **v0.2.1**
 * \[**2024-09-09**\] Updated [`lines`.sh](#linessh): **v0.4.1**
 * \[**2024-09-09**\] New [`cursor`.sh](#cursorsh), **v0.0.1**
 * \[**2024-08-18**\] New [`hfget`.sh](#hfgetsh), **v0.2.0**
@@ -99,42 +97,6 @@ stdin `-` (if defined at all), to perform one of these actions:
 * extract a specific line
 * extract an area of lines
 * negative numbers counting backwards from the `EOF`
-
-### [`streaming`.sh](sh/streaming.sh)
-
-Before I'm telling you about the real functionality of this
-script, I want to mention that the function/script should be
-called with the file extensions to look for (from the current
-working directory).. this is a BATCH, so it automates the
-handling of your multimedia files.. I needed it for my own
-A.I. [**Norbert**](https://github.com/kekse1/norbert/) ...
-PS: First parameter needs to be the method to use here (see below).
-
-* [Version **v0.2.1**](sh/streaming.sh) (created **2024-09-10**)
-
-> [!WARNING]
-> **TODO**!1 ... my base methods aren't yet implemented,
-> there's only a part of the file functions ready.
-
-#### **`convert`** method
-At first I needed to convert .mp3 and .ogg to RAW PCM
-audio files. Therefore the `convert` function.
-
-#### **`extract`** method
-Then I wanted to extract RAW PCM audio data from the
-YouTube videos I downloaded. Therefore `extract`.
-
-#### **`play`** method
-The `play` method is similar to `raw`, but holds for
-non-raw audio formats/codecs. This way you could test
-your input files to convert, before they can be played
-via `raw` function after their conversion..
-
-#### **`raw`** method
-And the last `raw` function is especially for my own A.I.
-[**Norbert**](https://github.com/kekse1/norbert/), so that
-he can pass his output data directly to this script, so I'm
-able to hear what he's telling me!
 
 ### [`unexify`.sh](sh/unexify.sh)
 * [Version **v0.1.2**](sh/unexify.sh) (updated **2024-04-23**)
