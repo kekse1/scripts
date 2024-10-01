@@ -5,7 +5,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 
 > [!IMPORTANT]
 > * \[**2024-09-24**\] **Moved** some scripts to my **new**
-> [**`utility`**](https://github.com/kekse1/utility/) and
+> [**`utilities`**](https://github.com/kekse1/utilities/) and
 > [**`javascript`**](https://github.com/kekse1/javascript/) repositories.
 
 ## Index
@@ -43,7 +43,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-09-24**\] **Moved** some scripts to my **new** [**`utility`**](https://github.com/kekse1/utility/) and [**`javascript`**](https://github.com/kekse1/javascript/) repositories.
+* \[**2024-09-24**\] **Moved** some scripts to my **new** [**`utilities`**](https://github.com/kekse1/utilities/) and [**`javascript`**](https://github.com/kekse1/javascript/) repositories.
 * \[**2024-09-24**\] New [`offset`.js](#offsetjs); **v1.0.1**
 * \[**2024-09-19**\] Tiny change in [`baseutils`.sh](#baseutilssh); .. **v0.2.6**;
 * \[**2024-09-15**\] Updated [`reflection`.js](#reflectionjs) to **v3.1.0**!
