@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.1
+# v0.2.2
 #
 # The main reason for this script was: my Node.js projects need to handle
 # whole block devices oder partitions. But I wanted to configure them by
@@ -48,7 +48,7 @@ fi
 #
 GREP="$1"
 shift
-OUTPUT="NAME,PATH,SIZE,UUID,PARTUUID"
+OUTPUT="PATH,NAME,SIZE,SERIAL,UUID,PARTUUID,PTUUID"
 
 if [[ -n "$1" ]]; then
 	for i in "$@"; do

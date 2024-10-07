@@ -43,6 +43,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-10-07**\] Updated the [`lsblk`.sh](#lsblksh) to **v0.2.2**;
 * \[**2024-09-24**\] **Moved** some scripts to my **new** [**`utilities`**](https://github.com/kekse1/utilities/) and [**`javascript`**](https://github.com/kekse1/javascript/) repositories.
 * \[**2024-09-24**\] New [`offset`.js](#offsetjs); **v1.0.1**
 * \[**2024-09-19**\] Tiny change in [`baseutils`.sh](#baseutilssh); .. **v0.2.6**;
@@ -321,7 +322,7 @@ I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 > You can add this to your '/etc/crontab'. ;-)
 
 ### [`lsblk`.sh](sh/lsblk.sh)
-* [Version **v0.2.0**](sh/lsblk.sh) (created **2024-05-02**)
+* [Version **v0.2.2**](sh/lsblk.sh) (updated **2024-10-07**)
 
 The main reason for this script was: my Node.js projects need to handle
 whole block devices oder partitions. But I wanted to configure them by
