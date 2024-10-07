@@ -43,6 +43,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-10-07**\] Updated [`math`.sh](#mathsh) to **v0.2.3**;
 * \[**2024-10-07**\] Updated the [`lsblk`.sh](#lsblksh) to **v0.2.2**;
 * \[**2024-09-24**\] **Moved** some scripts to my **new** [**`utilities`**](https://github.com/kekse1/utilities/) and [**`javascript`**](https://github.com/kekse1/javascript/) repositories.
 * \[**2024-09-24**\] New [`offset`.js](#offsetjs); **v1.0.1**
@@ -195,7 +196,7 @@ The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), o
 `fonts/` directory itself.
 
 ### [`math`.sh](sh/math.sh)
-* [Version **v0.2.2**](sh/math.sh) (updated **2024-04-17**)
+* [Version **v0.2.3**](sh/math.sh) (updated **2024-10-07**)
 
 Functions to be `source`d (so copy to `/etc/profile.d/`) providing conversions for size, and in
 the future also some more math related functions.. for now, look at the source to get to know more.
