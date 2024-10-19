@@ -28,6 +28,7 @@
 # $ cd venv
 # $ source bin/activate
 # $ git clone https://github.com/ggerganov/llama.cpp.git
+# # MAYBE `./bin/python3 -m ensurepip --upgrade`
 # $ ./bin/python3 ./bin/pip install -r llama.cpp/requirements.txt
 # $ python llama.cpp/convert_hf_to_gguf.py -h
 #
