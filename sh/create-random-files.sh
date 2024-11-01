@@ -27,12 +27,10 @@ DEFAULT_LEN=8
 chars="abcdefghijklmnopqrstuvwxyz"
 getRandomText()
 {
-	length=$1
-	result=""
+	length=$1; result=""
 	for i in `seq 1 $length`; do
 		result="${result}${chars:$(($RANDOM%${#chars})):1}"
-	done
-	echo $result
+	done; echo $result
 }
 
 #
