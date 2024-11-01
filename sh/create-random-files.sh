@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.0
+# v0.3.0
 #
 # My `norbert` needed some random input data, from a
 # directory I wanted to propagate with some temporary
@@ -57,7 +57,13 @@ for (( i = 0; i < $COUNT; ++i )); do
 	name="$(openssl rand -hex $NAME)${EXT}"
 	$DD if=/dev/urandom of="${name}" bs=1 count=$SIZE >/dev/null 2>&1
 	if [[ $? -ne 0 ]]; then
-		echo "Unable to create the file '$name'!" >&2
+		echo "Unable to create the file '$name'! So we\'re aborting here, right now." >&2
+		if [[ "${#list[@]}" -gt 0 ]]; then
+			echo "Files created so far, btw.:"; echo
+			for i in "${list[@]}"; do
+				echo "    $i"
+			done; echo
+		fi
 		exit 3
 	else
 		list+=( $name )
