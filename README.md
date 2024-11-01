@@ -21,6 +21,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`count-all-lines`.sh](#count-all-linessh)
 	* [`copy`.sh](#copysh)
 	* [`fresh`.sh](#freshsh)
+	* [`create-random-files`.sh](#create-random-filessh)
 	* [`replace`.sh](#replacesh)
 	* [`toilets`.sh](#toiletssh)
 	* [`math`.sh](#mathsh)
@@ -43,6 +44,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-11-01**\] Created a tiny [`create-random-files`.sh](#create-random-filessh); **v0.2.0**
 * \[**2024-10-24**\] Updated the [`lsblk`.sh](#lsblksh) to **v0.2.3**;
 * \[**2024-10-07**\] Updated [`math`.sh](#mathsh) to **v0.2.3**;
 * \[**2024-09-24**\] **Moved** some scripts to my **new** [**`utilities`**](https://github.com/kekse1/utilities/) and [**`javascript`**](https://github.com/kekse1/javascript/) repositories.
@@ -176,6 +178,18 @@ won't see empty directories).
 set the commit message (without it there'd be **no** `git add/commit/push`,
 only `git pull`) to the current `date +"$_GIT_DATE_FORMAT_EXT"`, if you're
 lazy like me.
+
+### [`create-random-files`.sh](sh/create-random-files.sh)
+My [`Norbert`](https://github.com/kekse1/norbert/) needed some random input data,
+from a directory I wanted to propagate with some temporary files (of an exactly
+defined file size).
+
+* [Version **v0.2.0**](sh/create-random-files.sh) (created **2024-11-01**);
+
+So I created this tiny tool.
+
+> [!IMPORTANT]
+> Dependencies: **`dd`** and **`openssl`**
 
 ### [`replace`.sh](sh/replace.sh)
 * [Version **v0.1.1**](sh/replace.sh) (created **2024-03-19**)
