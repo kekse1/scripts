@@ -44,7 +44,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-11-01**\] Created a tiny [`create-random-files`.sh](#create-random-filessh); **v1.1.0**
+* \[**2024-11-01**\] Created a tiny [`create-random-files`.sh](#create-random-filessh); **v1.1.1**
 * \[**2024-10-24**\] Updated the [`lsblk`.sh](#lsblksh) to **v0.2.3**;
 * \[**2024-10-07**\] Updated [`math`.sh](#mathsh) to **v0.2.3**;
 * \[**2024-09-24**\] **Moved** some scripts to my **new** [**`utilities`**](https://github.com/kekse1/utilities/) and [**`javascript`**](https://github.com/kekse1/javascript/) repositories.
@@ -184,7 +184,7 @@ My [`Norbert`](https://github.com/kekse1/norbert/) needed some random input data
 from a directory I wanted to propagate with some temporary files (of an exactly
 defined file size).
 
-* [Version **v1.1.0**](sh/create-random-files.sh) (created **2024-11-01**);
+* [Version **v1.1.1**](sh/create-random-files.sh) (created **2024-11-01**);
 
 So I created this very tiny tool.
 

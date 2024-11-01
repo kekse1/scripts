@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.1.0
+# v1.1.1
 #
 # My `norbert` needed some random input data, from a
 # directory I wanted to propagate with some temporary
@@ -71,9 +71,9 @@ EXT="$4"
 _max=0
 
 if [[ -z "$COUNT" || -z "$SIZE" || $SIZE -eq 0 ]]; then
+	echo "The <file size> may be negative, so each file will have a random size with the maximum (absolute) defined in your <size>" >&2
 	echo; echo -e "\tSyntax: \$0 < file amount > < file size > [ < file name length (w/o extension) > [ < extension = $DEFAULT_EXT > ] ]" >&2
-	echo; echo "The <file size> may be negative, so each file will have a random size with the maximum (absolute) defined in your <size>" >&2
-	exit 1
+	echo; exit 1
 elif [[ $SIZE -lt 0 ]]; then
 	_max="$((${#SIZE}-1))"
 else
