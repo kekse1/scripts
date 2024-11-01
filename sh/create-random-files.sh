@@ -68,10 +68,16 @@ EXT="$4"
 [[ -z "$EXT" ]] && EXT=$DEFAULT_EXT
 [[ "${EXT::1}" != "." ]] && EXT=".${EXT}"
 
+_max=0
+
 if [[ -z "$COUNT" || -z "$SIZE" || $SIZE -eq 0 ]]; then
 	echo; echo -e "\tSyntax: \$0 < file amount > < file size > [ < file name length (w/o extension) > [ < extension = $DEFAULT_EXT > ] ]" >&2
 	echo; echo "The <file size> may be negative, so each file will have a random size with the maximum (absolute) defined in your <size>" >&2
 	exit 1
+elif [[ $SIZE -lt 0 ]]; then
+	_max="$((${#SIZE}-1))"
+else
+	_max="${#SIZE}"
 fi
 
 size=0; list=(); size=();
@@ -91,7 +97,7 @@ for (( i = 0; i < $COUNT; ++i )); do
 		if [[ "${#list[@]}" -gt 0 ]]; then
 			echo "Files created so far, btw.:"; echo
 			for (( i = 0; i < ${#list[@]}; ++i )); do
-				echo -e "    ${list[$i]}\t(${size[$i]} Bytes)"
+				printf "    %s \t%${_max}s Bytes\n" "${list[$i]}" "${size[$i]}"
 			done; echo
 		fi
 		exit 3
@@ -104,7 +110,7 @@ done
 echo "Successfully created $COUNT files with random data in each of 'em! :-)"
 echo
 for (( i = 0; i < ${#list[@]}; ++i )); do
-	echo -e "    ${list[$i]}\t(${size[$i]} Bytes)"
+	printf "    %s \t%${_max}s Bytes\n" "${list[$i]}" "${size[$i]}"
 done
 echo
 
