@@ -59,7 +59,7 @@ SIZE="$2"
 LEN="$3"
 EXT="$4"
 
-[[ -z "$LEN" ]] && NAME=$DEFAULT_LEN
+[[ -z "$LEN" ]] && LEN=$DEFAULT_LEN
 [[ -z "$EXT" ]] && EXT=$DEFAULT_EXT
 [[ "${EXT::1}" != "." ]] && EXT=".${EXT}"
 
