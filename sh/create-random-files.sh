@@ -3,19 +3,37 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.0
+# v1.0.0
 #
 # My `norbert` needed some random input data, from a
 # directory I wanted to propagate with some temporary
 # files (of an exactly defined file size).
 #
-# So I created this tiny tool. Requirements: the `dd` utility,
-# and the `openssl` tool. .. have phun!
+# So I created this tiny tool. Requirements: the `dd`.
+#
+# Have phun!
+#
+# PS: You can also take the function `getRandomText()` below
+# and put it into some of your '/etc/profile.d/*'. ;-)
 #
 
 #
 DEFAULT_EXT=".tmp"
-DEFAULT_NAME=8
+DEFAULT_LEN=8
+
+# 
+# $0 <length>
+#
+chars="abcdefghijklmnopqrstuvwxyz"
+getRandomText()
+{
+	length=$1
+	result=""
+	for i in `seq 1 $length`; do
+		result="${result}${chars:$(($RANDOM%${#chars})):1}"
+	done
+	echo $result
+}
 
 #
 [[ "${DEFAULT_EXT::1}" != "." ]] && DEFAULT_EXT=".${DEFAULT_EXT}"
@@ -40,10 +58,10 @@ fi
 #
 COUNT="$1"
 SIZE="$2"
-NAME="$3"
+LEN="$3"
 EXT="$4"
 
-[[ -z "$NAME" ]] && NAME=$DEFAULT_NAME
+[[ -z "$LEN" ]] && NAME=$DEFAULT_LEN
 [[ -z "$EXT" ]] && EXT=$DEFAULT_EXT
 [[ "${EXT::1}" != "." ]] && EXT=".${EXT}"
 
@@ -54,7 +72,10 @@ fi
 
 list=()
 for (( i = 0; i < $COUNT; ++i )); do
-	name="$(openssl rand -hex $NAME)${EXT}"
+	name="`getRandomText ${LEN}`${EXT}"
+	while [[ -e "$name" ]]; do
+		name="`getRandomText ${LEN}`${EXT}"
+	done
 	$DD if=/dev/urandom of="${name}" bs=1 count=$SIZE >/dev/null 2>&1
 	if [[ $? -ne 0 ]]; then
 		echo "Unable to create the file '$name'! So we\'re aborting here, right now." >&2
