@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.0.0
+# v1.1.0
 #
 # My `norbert` needed some random input data, from a
 # directory I wanted to propagate with some temporary
@@ -15,6 +15,11 @@
 #
 # PS: You can also take the function `getRandomText()` below
 # and put it into some of your '/etc/profile.d/*'. ;-)
+#
+# JFYI: Since v1.1.0 your 2nd <file size> argument can
+# also be negative. In this case the absolute value of
+# this defines the maximum file size, which will be
+# generated randomly for each file.
 #
 
 #
@@ -63,36 +68,43 @@ EXT="$4"
 [[ -z "$EXT" ]] && EXT=$DEFAULT_EXT
 [[ "${EXT::1}" != "." ]] && EXT=".${EXT}"
 
-if [[ -z "$COUNT" || -z "$SIZE" ]]; then
-	echo "Syntax: \$0 < file amount > < file size > [ < file name length (w/o extension) > [ < extension = $DEFAULT_EXT > ] ]" >&2
+if [[ -z "$COUNT" || -z "$SIZE" || $SIZE -eq 0 ]]; then
+	echo; echo -e "\tSyntax: \$0 < file amount > < file size > [ < file name length (w/o extension) > [ < extension = $DEFAULT_EXT > ] ]" >&2
+	echo; echo "The <file size> may be negative, so each file will have a random size with the maximum (absolute) defined in your <size>" >&2
 	exit 1
 fi
 
-list=()
+size=0; list=(); size=();
 for (( i = 0; i < $COUNT; ++i )); do
 	name="`getRandomText ${LEN}`${EXT}"
 	while [[ -e "$name" ]]; do
 		name="`getRandomText ${LEN}`${EXT}"
 	done
-	$DD if=/dev/urandom of="${name}" bs=1 count=$SIZE >/dev/null 2>&1
+	if [[ $SIZE -lt 0 ]]; then
+		size=$((($RANDOM%${SIZE:1})+1))
+	else
+		size=$SIZE
+	fi
+	$DD if=/dev/urandom of="${name}" bs=1 count=$size >/dev/null 2>&1
 	if [[ $? -ne 0 ]]; then
 		echo "Unable to create the file '$name'! So we\'re aborting here, right now." >&2
 		if [[ "${#list[@]}" -gt 0 ]]; then
 			echo "Files created so far, btw.:"; echo
-			for i in "${list[@]}"; do
-				echo "    $i"
+			for (( i = 0; i < ${#list[@]}; ++i )); do
+				echo -e "    ${list[$i]}\t(${size[$i]} Bytes)"
 			done; echo
 		fi
 		exit 3
 	else
 		list+=( $name )
+		size+=( $size )
 	fi
 done
 
-echo "Successfully created $COUNT files with $SIZE Bytes of random data in each of 'em! :-)"
+echo "Successfully created $COUNT files with random data in each of 'em! :-)"
 echo
-for i in "${list[@]}"; do
-	echo "    $i"
+for (( i = 0; i < ${#list[@]}; ++i )); do
+	echo -e "    ${list[$i]}\t(${size[$i]} Bytes)"
 done
 echo
 
