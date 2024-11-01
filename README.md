@@ -186,10 +186,10 @@ defined file size).
 
 * [Version **v1.0.0**](sh/create-random-files.sh) (created **2024-11-01**);
 
+So I created this very tiny tool.
+
 > [!IMPORTANT]
 > Dependencies: the **`dd`** utility.
-
-So I created this very tiny tool.
 
 > [!TIP]
 > Feel free to extract the **`getRandomText()`** function out of the file,
