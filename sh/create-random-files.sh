@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.1.1
+# v1.3.0
 #
 # My `norbert` needed some random input data, from a
 # directory I wanted to propagate with some temporary
@@ -68,36 +68,45 @@ EXT="$4"
 [[ -z "$EXT" ]] && EXT=$DEFAULT_EXT
 [[ "${EXT::1}" != "." ]] && EXT=".${EXT}"
 
-_max=0
+_max_size=0
+_max_name=0
 
-if [[ -z "$COUNT" || -z "$SIZE" || $SIZE -eq 0 ]]; then
-	echo "The <file size> may be negative, so each file will have a random size with the maximum (absolute) defined in your <size>" >&2
-	echo; echo -e "\tSyntax: \$0 < file amount > < file size > [ < file name length (w/o extension) > [ < extension = $DEFAULT_EXT > ] ]" >&2
+if [[ -z "$COUNT" || -z "$SIZE" || $SIZE -eq 0 || $LEN -eq 0 ]]; then
+	echo "The <file size> and <file name length> can be negative, which would be the maximum of random values for them." >&2
+	echo; echo -e "\tSyntax: \$0 < file amount > < file size > [ < file name length = $DEFAULT_LEN > [ < extension = $DEFAULT_EXT > ] ]" >&2
 	echo; exit 1
-elif [[ $SIZE -lt 0 ]]; then
-	_max="$((${#SIZE}-1))"
-else
-	_max="${#SIZE}"
 fi
 
-size=0; list=(); size=();
+if [[ $SIZE -lt 0 ]]; then
+	_max_size="$((${#SIZE}-1))"
+else
+	_max_size="${#SIZE}"
+fi
+
+if [[ $LEN -lt 0 ]]; then
+	_max_name="${LEN:1}"
+else
+	_max_name="$LEN"
+fi
+
+_max_name=$((${_max_name}+${#EXT}))
+
+#
+size=$SIZE; len=$LEN; list=(); size=();
 for (( i = 0; i < $COUNT; ++i )); do
-	name="`getRandomText ${LEN}`${EXT}"
+	[[ $LEN -lt 0 ]] && len=$((($RANDOM%${LEN:1})+1))
+	name="`getRandomText ${len}`${EXT}"
 	while [[ -e "$name" ]]; do
 		name="`getRandomText ${LEN}`${EXT}"
 	done
-	if [[ $SIZE -lt 0 ]]; then
-		size=$((($RANDOM%${SIZE:1})+1))
-	else
-		size=$SIZE
-	fi
+	[[ $SIZE -lt 0 ]] && size=$((($RANDOM%${SIZE:1})+1))
 	$DD if=/dev/urandom of="${name}" bs=1 count=$size >/dev/null 2>&1
 	if [[ $? -ne 0 ]]; then
 		echo "Unable to create the file '$name'! So we\'re aborting here, right now." >&2
 		if [[ "${#list[@]}" -gt 0 ]]; then
 			echo "Files created so far, btw.:"; echo
 			for (( i = 0; i < ${#list[@]}; ++i )); do
-				printf "    %s \t%${_max}s Bytes\n" "${list[$i]}" "${size[$i]}"
+				printf "    %${_max_name}s\t\e[1m%${_max_size}s\e[0m Bytes\n" "${list[$i]}" "${size[$i]}"
 			done; echo
 		fi
 		exit 3
@@ -110,7 +119,7 @@ done
 echo "Successfully created $COUNT files with random data in each of 'em! :-)"
 echo
 for (( i = 0; i < ${#list[@]}; ++i )); do
-	printf "    %s \t%${_max}s Bytes\n" "${list[$i]}" "${size[$i]}"
+	printf "    %${_max_name}s\t\e[1m%${_max_size}s\e[0m Bytes\n" "${list[$i]}" "${size[$i]}"
 done
 echo
 
