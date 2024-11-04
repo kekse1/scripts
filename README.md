@@ -193,8 +193,8 @@ So I created this very tiny tool.
 
 > [!NOTE]
 > JFYI: Since **v1.4.0** the 1st, 2nd and 3rd argument can
-> also be negative. In this case the absolute value of
-> them defines the maximum of randomly generated params.
+> also be negative. In this case the absolute values of them
+> define their maximum of randomly generated params.
 
 > [!TIP]
 > Feel free to extract the **`randomChars()`** and **`random()`** functions
