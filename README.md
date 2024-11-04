@@ -192,7 +192,7 @@ So I created this very tiny tool.
 > Dependencies: the **`dd`** utility.
 
 > [!NOTE]
-> JFYI: Since v1.4.0 the 1st, 2nd and 3rd argument can
+> JFYI: Since **v1.4.0** the 1st, 2nd and 3rd argument can
 > also be negative. In this case the absolute value of
 > them defines the maximum of randomly generated params.
 
