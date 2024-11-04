@@ -144,3 +144,4 @@ for (( i = 0; i < ${#list[@]}; ++i )); do
 		printf "%-${_max_name}s\t\e[1m%${_max_size}s\e[0m Bytes\n" "${list[$i]}" "${sizes[$i]}"
 	fi
 done
+
