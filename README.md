@@ -192,13 +192,13 @@ So I created this very tiny tool.
 > Dependencies: the **`dd`** utility.
 
 > [!NOTE]
-> Feel free to extract the **`getRandomText()`** function out of the file,
-> so you can maybe put it into one of your `/etc/profile.d/*.sh`?
-
-> [!TIP]
 > JFYI: Since v1.4.0 the 1st, 2nd and 3rd argument can
 > also be negative. In this case the absolute value of
 > them defines the maximum of randomly generated params.
+
+> [!TIP]
+> Feel free to extract the **`randomChars()`** and **`random()`** functions
+> out of the file and put it into one of your `/etc/profile.d/*.sh`.
 
 ### [`replace`.sh](sh/replace.sh)
 * [Version **v0.1.1**](sh/replace.sh) (created **2024-03-19**)
