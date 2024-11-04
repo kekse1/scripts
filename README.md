@@ -219,7 +219,7 @@ The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), o
 `fonts/` directory itself.
 
 ### [`math`.sh](sh/math.sh)
-* [Version **v0.2.3**](sh/math.sh) (updated **2024-10-07**)
+* [Version **v0.2.4**](sh/math.sh) (updated **2024-11-04**)
 
 Functions to be `source`d (so copy to `/etc/profile.d/`) providing conversions for size, and in
 the future also some more math related functions.. for now, look at the source to get to know more.

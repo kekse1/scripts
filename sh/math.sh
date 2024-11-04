@@ -1,7 +1,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.3
+# v0.2.4
 #
 # Copy to '/etc/profile.d/` to automatically include
 # the following functions .. read the source 4 info!
@@ -11,6 +11,7 @@ _PREC=2
 _BASE=1024
 _1024=( Bytes KiB MiB GiB TiB PiB EiB ZiB YiB )
 _1000=( Bytes KB MB GB TB PB EB ZB YB )
+_CHARS="abcdefghijklmnopqrstuvwxyz"
 
 #
 1024()
@@ -238,15 +239,6 @@ isFloat()
 }
 
 #
-random()
-{
-	echo TODO >&2
-	return 255
-	# use ${RANDOM}
-	# <max> <min> <radix> // even a list possible via 4th <count>?!
-}
-
-#
 radix()
 {
 	echo TODO >&2
@@ -255,4 +247,32 @@ radix()
 }
 
 #
+# TODO # 'radix' parameter...?!
+#
+random()
+{
+	max=$1
+	min=$2
 
+	[[ -z "$max" ]] && max=255
+	[[ -z "$min" ]] && min=0
+	
+	if [[ $max -eq $min ]]; then
+		echo $max
+		return
+	elif [[ $max -lt $min ]]; then
+		tmp=$max
+		max=$min
+		min=$tmp
+	fi
+
+	echo "$(((${RANDOM}%(${max}-${min}+1))+${min}))"
+}
+
+randomChars()
+{
+	length=$1; result=""
+	for i in `seq 1 $length`; do
+		result="${result}${_CHARS:$(($RANDOM%${#_CHARS})):1}"
+	done; echo $result
+}

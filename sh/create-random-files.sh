@@ -51,6 +51,15 @@ random()
 
 	[[ -z "$max" ]] && max=255
 	[[ -z "$min" ]] && min=0
+	
+	if [[ $max -eq $min ]]; then
+		echo $max
+		return
+	elif [[ $max -lt $min ]]; then
+		tmp=$max
+		max=$min
+		min=$tmp
+	fi
 
 	echo "$(((${RANDOM}%(${max}-${min}+1))+${min}))"
 }
