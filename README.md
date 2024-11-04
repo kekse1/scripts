@@ -44,7 +44,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-11-01**\] Updated my tiny [`create-random-files`.sh](#create-random-filessh); **v1.3.0**
+* \[**2024-11-01**\] Updated [`create-random-files`.sh](#create-random-filessh) to **v1.4.0**
 * \[**2024-10-24**\] Updated the [`lsblk`.sh](#lsblksh) to **v0.2.3**;
 * \[**2024-10-07**\] Updated [`math`.sh](#mathsh) to **v0.2.3**;
 * \[**2024-09-24**\] **Moved** some scripts to my **new** [**`utilities`**](https://github.com/kekse1/utilities/) and [**`javascript`**](https://github.com/kekse1/javascript/) repositories.
@@ -184,7 +184,7 @@ My [`Norbert`](https://github.com/kekse1/norbert/) needed some random input data
 from a directory I wanted to propagate with some temporary files (of an exactly
 defined file size).
 
-* [Version **v1.3.0**](sh/create-random-files.sh) (updated **2024-11-02**);
+* [Version **v1.4.0**](sh/create-random-files.sh) (updated **2024-11-04**);
 
 So I created this very tiny tool.
 
@@ -196,10 +196,9 @@ So I created this very tiny tool.
 > so you can maybe put it into one of your `/etc/profile.d/*.sh`?
 
 > [!TIP]
-> Since **v1.1.0** your 2nd `<file size>` parameter can also be negative.
-> It's absolute value will be the maximum of random sizes for each file.
-> And since **v1.3.0** the 3rd `<file name length>` parameter can also
-> be negative.
+> JFYI: Since v1.4.0 the 1st, 2nd and 3rd argument can
+> also be negative. In this case the absolute value of
+> them defines the maximum of randomly generated params.
 
 ### [`replace`.sh](sh/replace.sh)
 * [Version **v0.1.1**](sh/replace.sh) (created **2024-03-19**)

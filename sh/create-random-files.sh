@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.3.0
+# v1.4.0
 #
 # My `norbert` needed some random input data, from a
 # directory I wanted to propagate with some temporary
@@ -13,29 +13,46 @@
 #
 # Have phun!
 #
-# PS: You can also take the function `getRandomText()` below
-# and put it into some of your '/etc/profile.d/*'. ;-)
-#
-# JFYI: Since v1.1.0 your 2nd <file size> argument can
+# JFYI: Since v1.1.0 the 1st, 2nd and 3rd argument can
 # also be negative. In this case the absolute value of
-# this defines the maximum file size, which will be
-# generated randomly for each file.
+# them defines the maximum of randomly generated params.
+#
+# PS: You can also take the functions `randomChars()`
+# with `random()` and put it into your '/etc/profile.d/*'.
 #
 
 #
+CHARS="abcdefghijklmnopqrstuvwxyz"
 DEFAULT_EXT=".tmp"
-DEFAULT_LEN=8
+DEFAULT_LENGTH=8
+
+#
+if [[ -z "$RANDOM" ]]; then
+	echo "There's no \$RANDOM available!" >&2
+	exit 234
+fi
 
 # 
 # $0 <length>
 #
-chars="abcdefghijklmnopqrstuvwxyz"
-getRandomText()
+
+randomChars()
 {
 	length=$1; result=""
 	for i in `seq 1 $length`; do
-		result="${result}${chars:$(($RANDOM%${#chars})):1}"
+		result="${result}${CHARS:$(($RANDOM%${#CHARS})):1}"
 	done; echo $result
+}
+
+random()
+{
+	max=$1
+	min=$2
+
+	[[ -z "$max" ]] && max=255
+	[[ -z "$min" ]] && min=0
+
+	echo "$(((${RANDOM}%(${max}-${min}+1))+${min}))"
 }
 
 #
@@ -64,42 +81,42 @@ SIZE="$2"
 LEN="$3"
 EXT="$4"
 
-[[ -z "$LEN" ]] && LEN=$DEFAULT_LEN
+[[ -z "$LEN" ]] && LEN=$DEFAULT_LENGTH
 [[ -z "$EXT" ]] && EXT=$DEFAULT_EXT
 [[ "${EXT::1}" != "." ]] && EXT=".${EXT}"
 
-_max_size=0
-_max_name=0
-
-if [[ -z "$COUNT" || -z "$SIZE" || $SIZE -eq 0 || $LEN -eq 0 ]]; then
+if [[ -z "$COUNT" || -z "$SIZE" || $SIZE -eq 0 || $LEN -eq 0 || $COUNT -eq 0 ]]; then
 	echo "The <file size> and <file name length> can be negative, which would be the maximum of random values for them." >&2
-	echo; echo -e "\tSyntax: \$0 < file amount > < file size > [ < file name length = $DEFAULT_LEN > [ < extension = $DEFAULT_EXT > ] ]" >&2
+	echo; echo -e "\tSyntax: \$0 < file amount > < file size > [ < file name length = $DEFAULT_LENGTH > [ < extension = $DEFAULT_EXT > ] ]" >&2
 	echo; exit 1
 fi
 
+_random_size=0
+_random_len=0
+
 if [[ $SIZE -lt 0 ]]; then
-	_max_size="$((${#SIZE}-1))"
-else
-	_max_size="${#SIZE}"
+	SIZE="${SIZE:1}"
+	_random_size=1
 fi
 
 if [[ $LEN -lt 0 ]]; then
-	_max_name="${LEN:1}"
-else
-	_max_name="$LEN"
+	LEN="${LEN:1}"
+	_random_len=1
 fi
 
-_max_name=$((${_max_name}+${#EXT}))
+if [[ $COUNT -lt 0 ]]; then
+	COUNT="${COUNT:1}"
+	COUNT=`random $COUNT 1`
+fi
 
 #
-size=$SIZE; len=$LEN; list=(); size=();
+_max_name=0; _max_size=0; size=$SIZE; len=$LEN; list=(); size=();
 for (( i = 0; i < $COUNT; ++i )); do
-	[[ $LEN -lt 0 ]] && len=$((($RANDOM%${LEN:1})+1))
-	name="`getRandomText ${len}`${EXT}"
-	while [[ -e "$name" ]]; do
-		name="`getRandomText ${LEN}`${EXT}"
-	done
-	[[ $SIZE -lt 0 ]] && size=$((($RANDOM%${SIZE:1})+1))
+	[[ $_random_size -ne 0 ]] && size=`random $SIZE`
+	[[ $_random_len -ne 0 ]] && len=`random $LEN 1`
+	name="`randomChars ${len}`${EXT}"
+	[[ ${#name} -gt $_max_name ]] && _max_name=${#name}
+	tmp=$((${#size}+6)); [[ $tmp -gt $_max_size ]] && _max_size=$tmp
 	$DD if=/dev/urandom of="${name}" bs=1 count=$size >/dev/null 2>&1
 	if [[ $? -ne 0 ]]; then
 		echo "Unable to create the file '$name'! So we\'re aborting here, right now." >&2
@@ -122,4 +139,3 @@ for (( i = 0; i < ${#list[@]}; ++i )); do
 	printf "    %${_max_name}s\t\e[1m%${_max_size}s\e[0m Bytes\n" "${list[$i]}" "${size[$i]}"
 done
 echo
-
