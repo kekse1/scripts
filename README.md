@@ -12,6 +12,12 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 1. [News](#news)
 2. [Bash](#bash)
 	* [`prompt`.sh](#promptsh)
+	* [`dump`](#dump)
+	* [`offset`.js](#offsetjs)
+	* [`lines`.sh](#linessh)
+	* [`up2date`.sh](#up2datesh)
+	* [`fresh`.sh](#freshsh)
+	* [`make-nodejs`.sh](#make-nodejssh)
 	* [`layout`.sh](#layoutsh)
 	* [`lines`.sh](#linessh)
 	* [`unexify`.sh](#unexifysh)
@@ -44,6 +50,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-11-26**\] Integrated the old `utilties` repository into here.. again.
 * \[**2024-11-01**\] Updated [`create-random-files`.sh](#create-random-filessh) to **v1.5.1**
 * \[**2024-10-24**\] Updated the [`lsblk`.sh](#lsblksh) to **v0.2.3**;
 * \[**2024-10-07**\] Updated [`math`.sh](#mathsh) to **v0.2.3**;
@@ -66,8 +73,70 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 
 ## [Bash](sh/)
 
-### [`prompt`.sh](sh/prompt.sh)
-It just got it's own [GitHub repository **`prompt`**](https://github.com/kekse1/prompt/).
+### [`prompt`.sh](https://github.com/kekse1/prompt/)
+**Moved** to it's [own repository](https://github.com/kekse1/prompt).
+
+### [`dump`](https://github.com/kekse1/dump/)
+In [another repository](https://github.com/kekse1/dump/).
+
+### [`offset`.js](js/offset.js)
+With this script, you can calculate and convert between offsets and
+lines with columns, or count them, etc. Without any parameter it'll
+show you the whole countings, and with another parameter combination
+you can even get to know how many columns a specific line has. ETC.
+
+* [Version **v1.0.2**](js/offset.js) (updated **2024-10-06**)
+
+> [!TIP]
+> Start with the parameter `--help` or `-?`! **:-)**
+
+### [`lines`.sh](sh/lines.sh)
+You should put this script into your `/etc/profile.d/` directory,
+so the `lines()` function will get `source`d. Then just call it this
+way - possible parameters are described on top of this bash shell
+script file.
+
+* [Version **v0.4.1**](sh/lines.sh) (updated **2024-09-09**)
+
+Simple script you can use with either a file path parameter or the
+stdin `-` (if defined at all), to perform one of these actions:
+
+* display the line count of your input
+* extract a specific line
+* extract an area of lines
+* negative numbers counting backwards from the `EOF`
+
+### [`up2date`.sh](sh/up2date.sh)
+* [Version **v0.2.1**](sh/up2date.sh)
+
+Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
+I'm using it to do all steps to keep your packages `up2date`, in just one step!
+
+Also, just copy it to `/etc/profile.d/up2date.sh`
+
+### [`fresh`.sh](sh/fresh.sh)
+* [Version **v0.4.4**](sh/fresh.sh) (updated **2024-07-06**)
+
+Helper to quickly update `git` repositories.. really tiny.
+
+Now with check if you're inside a git repository, and also a commit message
+is now required (because I was too lazy before..).
+
+> [!TIP]
+> Includes a function `keep()` to create `.keep` files in empty directories.
+> Useful for `git`, since it won't obey empty directories.
+
+### [`make-nodejs`.sh](sh/make-nodejs.sh)
+* [Version **v0.3.10**](sh/make-nodejs.sh) (updated **2024-10-06**)
+
+For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
+the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
+can also manage multiple versions, or just check if the newest installation really works, before removing the old one..
+the only thing left to do, _just once_, is to merge the fs structure under the symlink path `/opt/node.js/0` into
+the `/usr/` hierarchy.
+
+> [!NOTE]
+> Just call it via `make-nodejs.sh 22.9.0` (or `make-nodejs.sh v22.9.0`), e.g.!
 
 ### [`layout`.sh](sh/layout.sh)
 * [Version **v0.2.0**](sh/layout.sh)
