@@ -13,7 +13,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 2. [Bash](#bash)
 	* [`prompt`.sh](#promptsh)
 	* [`dump`](#dump)
-	* [`offset`.js](#offsetjs)
 	* [`lines`.sh](#linessh)
 	* [`up2date`.sh](#up2datesh)
 	* [`fresh`.sh](#freshsh)
@@ -35,7 +34,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`move-by-ext`.sh](#move-by-extsh)
 	* [`find-ext`.sh](#find-extsh)
 	* [`insert-header`.sh](#insert-headersh)
-	* [`make-nodejs`.sh](#make-nodejssh)
 	* [`router`.sh](#routersh)
 	* [`hfdownloader`.sh](#hfdownloadersh)
 	* [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh)
@@ -55,17 +53,13 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 * \[**2024-10-24**\] Updated the [`lsblk`.sh](#lsblksh) to **v0.2.3**;
 * \[**2024-10-07**\] Updated [`math`.sh](#mathsh) to **v0.2.3**;
 * \[**2024-09-24**\] **Moved** some scripts to my **new** [**`utilities`**](https://github.com/kekse1/utilities/) and [**`javascript`**](https://github.com/kekse1/javascript/) repositories.
-* \[**2024-09-24**\] New [`offset`.js](#offsetjs); **v1.0.1**
 * \[**2024-09-19**\] Tiny change in [`baseutils`.sh](#baseutilssh); .. **v0.2.6**;
-* \[**2024-09-15**\] Updated [`reflection`.js](#reflectionjs) to **v3.1.0**!
 * \[**2024-09-09**\] Updated [`lines`.sh](#linessh): **v0.4.1**
 * \[**2024-09-09**\] New [`cursor`.sh](#cursorsh), **v0.0.1**
 * \[**2024-08-18**\] New [`hfget`.sh](#hfgetsh), **v0.2.0**
 * \[**2024-08-09**\] [`make-nodejs`.sh](#make-nodejssh) to **v0.3.9**
-* \[**2024-08-04**\] [`moon`.js](#moonjs) created, in **v0.2.2**.
 * \[**2024-07-29**\] [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) **v0.1.1**
 * \[**2024-07-29**\] [`hfdownloader`.sh](#hfdownloadersh) **v0.3.1**
-* \[**2024-07-15**\] Updated the [`config`.js](#configjs) to **v0.7.0** (bugs fixed, and new `.path()`)
 * \[**2024-07-06**\] Updated the [`fresh`.sh](#freshsh) to **v0.4.4** (for lazy people like me)
 * \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.7**
 * \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.3**;
@@ -78,17 +72,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 
 ### [`dump`](https://github.com/kekse1/dump/)
 In [another repository](https://github.com/kekse1/dump/).
-
-### [`offset`.js](js/offset.js)
-With this script, you can calculate and convert between offsets and
-lines with columns, or count them, etc. Without any parameter it'll
-show you the whole countings, and with another parameter combination
-you can even get to know how many columns a specific line has. ETC.
-
-* [Version **v1.0.2**](js/offset.js) (updated **2024-10-06**)
-
-> [!TIP]
-> Start with the parameter `--help` or `-?`! **:-)**
 
 ### [`lines`.sh](sh/lines.sh)
 You should put this script into your `/etc/profile.d/` directory,
@@ -340,18 +323,6 @@ script without parameters!
 > [!NOTE]
 > My **TODO** is to replace the file extension argv-parameters by full
 > globs, to be pass-thru directed to the `find` command.
-
-### [`make-nodejs`.sh](sh/make-nodejs.sh)
-* [Version **v0.3.9**](sh/make-nodejs.sh) (updated **2024-08-09**)
-
-For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
-the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
-can also manage multiple versions, or just check if the newest installation really works, before removing the old one..
-the only thing left to do, _just once_, is to merge the fs structure under the symlink path `/opt/node.js/0` into
-the `/usr/` hierarchy.
-
-> [!NOTE]
-> Just call it via `make-nodejs.sh 22.6.0` (or `make-nodejs.sh v22.6.0`), e.g.!
 
 ### [`router`.sh](sh/router.sh)
 * [Version **v0.1.1**](sh/router.sh) (updated **2024-04-23**)
