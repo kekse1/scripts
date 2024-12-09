@@ -14,10 +14,10 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`prompt`.sh](#promptsh)
 	* [`dump`](#dump)
 	* [`lines`.sh](#linessh)
+	* [`layout`.sh](#layoutsh)
 	* [`up2date`.sh](#up2datesh)
 	* [`fresh`.sh](#freshsh)
 	* [`make-nodejs`.sh](#make-nodejssh)
-	* [`layout`.sh](#layoutsh)
 	* [`lines`.sh](#linessh)
 	* [`unexify`.sh](#unexifysh)
 	* [`sync`.sh](#syncsh)
@@ -89,6 +89,18 @@ stdin `-` (if defined at all), to perform one of these actions:
 * extract an area of lines
 * negative numbers counting backwards from the `EOF`
 
+### [`layout`.sh](sh/layout.sh)
+* [Version **v0.2.0**](sh/layout.sh)
+
+The most important thing for me was to switch between keyboard layouts - easily with a shortcut I've set up in XFCE
+(Settings -> Keyboard): calling this script with '-' argument only, to switch between the configured layouts.
+
+![layout.sh](img/layout.png)
+
+So either call it without arguments, so it'll show you the currently used layout. Call it with a concrete layout, to
+switch to it directly. Or call it with a single `-`, so it'll switch between the configured layouts (by default, it's
+on top: `layouts=("us" "de")`).
+
 ### [`up2date`.sh](sh/up2date.sh)
 * [Version **v0.2.1**](sh/up2date.sh)
 
@@ -120,34 +132,6 @@ the `/usr/` hierarchy.
 
 > [!NOTE]
 > Just call it via `make-nodejs.sh 22.9.0` (or `make-nodejs.sh v22.9.0`), e.g.!
-
-### [`layout`.sh](sh/layout.sh)
-* [Version **v0.2.0**](sh/layout.sh)
-
-The most important thing for me was to switch between keyboard layouts - easily with a shortcut I've set up in XFCE
-(Settings -> Keyboard): calling this script with '-' argument only, to switch between the configured layouts.
-
-![layout.sh](img/layout.png)
-
-So either call it without arguments, so it'll show you the currently used layout. Call it with a concrete layout, to
-switch to it directly. Or call it with a single `-`, so it'll switch between the configured layouts (by default, it's
-on top: `layouts=("us" "de")`).
-
-### [`lines`.sh](sh/lines.sh)
-You should put this script into your `/etc/profile.d/` directory,
-so the `lines()` function will get `source`d. Then just call it this
-way - possible parameters are described on top of this bash shell
-script file.
-
-* [Version **v0.4.1**](sh/lines.sh) (updated **2024-09-09**)
-
-Simple script you can use with either a file path parameter or the
-stdin `-` (if defined at all), to perform one of these actions:
-
-* display the line count of your input
-* extract a specific line
-* extract an area of lines
-* negative numbers counting backwards from the `EOF`
 
 ### [`unexify`.sh](sh/unexify.sh)
 * [Version **v0.1.2**](sh/unexify.sh) (updated **2024-04-23**)
