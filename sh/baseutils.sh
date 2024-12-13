@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-# https://kekse.biz/ https://baseutils.org/
-# v0.2.6
+# https://kekse.biz/ https://github.com/kekse1/scripts/
+# v0.3.0
 #
 
 #
@@ -77,26 +77,29 @@ absolute()
 	return 1
 }
 
-eol()
-{
-	echo TODO >&2
-	return 255
-	#using $count
-}
-
-#TODO#laengere line-pad-strings!
 line()
 {
-	line="$1"; [[ -z "$line" ]] && line="$LINE"; [[ -z "$line" ]] && line="="
-	line="${line::1}"; for i in $(seq 1 `width`); do echo -n "$line"; done; echo
+	w=`width`; if [[ $w -eq 0 ]]; then echo; return; fi
+	IFS=$'\n'; line="$*"; [[ -z "$line" ]] && line="$LINE"; [[ -z "$line" ]] && line="="
+	for (( i=0; i<$w; ++i )); do
+		mod=$((${i}%${#line}));
+		echo -n "${line:${mod}:1}"
+	done; echo
 }
 
 width()
 {
-	if [[ -n "$COLUMNS" ]]; then
+	if [[ -n "$COLS" ]]; then
+		echo $COLS
+	elif [[ -n "$COLUMNS" ]]; then
 		echo $COLUMNS
 	else
-		tput cols
+		tput cols 2>/dev/null
+
+		if [[ $? -ne 0 ]]; then
+		       echo 0
+		       return 1
+		fi
 	fi
 }
 
@@ -105,8 +108,20 @@ height()
 	if [[ -n "$LINES" ]]; then
 		echo $LINES
 	else
-		tput lines
+		tput lines 2>/dev/null
+
+		if [[ $? -ne 0 ]]; then
+		       echo 0
+		       return 1
+		fi
 	fi
+}
+
+eol()
+{
+	echo TODO >&2
+	return 255
+	#using $count
 }
 
 pad()
