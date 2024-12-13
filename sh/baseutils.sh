@@ -83,7 +83,7 @@ line()
 	IFS=$'\n'; line="$*"; [[ -z "$line" ]] && line="$LINE"; [[ -z "$line" ]] && line="="
 	for (( i=0; i<$w; ++i )); do
 		mod=$((${i}%${#line}));
-		echo -n -- "${line:${mod}:1}"
+		echo -n "${line:${mod}:1}"
 	done; echo
 }
 
