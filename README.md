@@ -48,7 +48,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-12-13**\] Updated the **`line()`** function in [`baseutils`.sh](#baseutilssh); .. **v0.3.0**;
+* \[**2024-12-23**\] Updated [`baseutils`.sh](#baseutilssh); .. **v0.3.1**;
 * \[**2024-11-26**\] Integrated the old `utilties` repository into here.. again.
 * \[**2024-11-01**\] Updated [`create-random-files`.sh](#create-random-filessh) to **v1.5.1**
 * \[**2024-10-24**\] Updated the [`lsblk`.sh](#lsblksh) to **v0.2.3**;
@@ -266,7 +266,7 @@ detect which suites best:
 * ` >> Syntax: bytes <value> [ <base=1024 | <unit> [ <prec=2> ] ]`
 
 ### [`baseutils`.sh](sh/baseutils.sh)
-* [Version **v0.3.0**](sh/baseutils.sh) (updated **2024-12-13**)
+* [Version **v0.3.1**](sh/baseutils.sh) (updated **2024-12-23**)
 
 This is just the beginning of more bash functions.
 

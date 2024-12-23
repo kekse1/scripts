@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.0
+# v0.3.1
 #
 
 #
@@ -57,11 +57,13 @@ from()
 }
 
 #
+#TODO#my *better* version of it..
+#
 extname()
 {
-	# my own version w/ $count argument, see lib/v4/..!
-	echo TODO >&2
-	return 255
+	result="`basename "$1"`"
+	result=".${result#*.}"
+	echo "$result"
 }
 
 relative()
