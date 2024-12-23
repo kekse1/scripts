@@ -4,9 +4,8 @@
 Every script is made by myself, arose out of necessity.. or because I found it interesting.
 
 > [!IMPORTANT]
-> * \[**2024-09-24**\] **Moved** some scripts to my **new**
-> [**`utilities`**](https://github.com/kekse1/utilities/) and
-> [**`javascript`**](https://github.com/kekse1/javascript/) repositories.
+> * \[**2024-09-24**\] **Moved** all the **JavaScript**s from here
+> to their own [**JavaScript**](https://github.com/kekse1/javascript/) repository.
 
 ## Index
 1. [News](#news)
