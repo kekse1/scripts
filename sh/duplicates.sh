@@ -13,12 +13,6 @@
 #
 
 #
-# TODO # save the original file name
-# TODO # a second directory parameter for the newly created hash files...
-# TODO # '--recursive'!??? bzw. '--depth' (for `find`)!?! ;-)
-# 
-
-#
 syntax()
 {
 	echo "Syntax: `basename "$0"` <target directory> [ <depth> ]" >&2
