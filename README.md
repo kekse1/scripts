@@ -47,7 +47,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-12-23**\] Created [`duplicates`.sh](#duplicatessh), **v0.1.0**;
+* \[**2024-12-23**\] Created [`duplicates`.sh](#duplicatessh), **v0.2.0**;
 * \[**2024-12-23**\] Updated [`baseutils`.sh](#baseutilssh); .. **v0.3.1**;
 * \[**2024-11-26**\] Integrated the old `utilties` repository into here.. again.
 * \[**2024-11-01**\] Updated [`create-random-files`.sh](#create-random-filessh) to **v1.5.1**
@@ -122,7 +122,7 @@ is now required (because I was too lazy before..).
 > Useful for `git`, since it won't obey empty directories.
 
 ### [`duplicates`.sh](sh/duplicates.sh)
-* [Version **v0.1.0**](sh/duplicates.sh) (created **2024-12-23**)
+* [Version **v0.2.0**](sh/duplicates.sh) (created **2024-12-23**)
 
 Finds file duplicates. You define a target directory
 and an optional depth (defaults to 1, so only the

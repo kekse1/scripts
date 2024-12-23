@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.0
+# v0.2.0
 # 
 # Finds file duplicates. You define a target directory
 # and an optional depth (defaults to 1, so only the
@@ -26,15 +26,14 @@ depth="$2"
 if [[ -z "$target" ]]; then
 	echo "Missing target directory!" >&2
 	syntax 1
-elif [[ -d "$target" ]]; then
-	target="$(realpath "$target")"
-	echo "Real target directory: '$target'"
 else
-	mkdir -p "$target"
-
-	if [[ $? -ne 0 ]]; then
-		echo "Unable to create target directory!" >&2
-		exit 2
+	target="$(realpath "$target")"
+	[[ $? -ne 0 ]] && exit 2
+	echo -n "Using target directory: '$target' "
+	if [[ -d "$target" ]]; then
+		echo "(already exists)"
+	else
+		echo "(will be created)"
 	fi
 fi
 
@@ -68,8 +67,16 @@ while IFS= read -r -d '' file; do
 	files+=( "$file" )
 done < <(find ./ -maxdepth "$depth" -type f -print0)
 
-echo "Found ${#files[@]} files (with a maximum depth of ${depth}):"
-echo
+echo "Found ${#files[@]} files (with a maximum depth of ${depth})."
+confirm "Do you want to continue"
+if [[ $? -ne 0 ]]; then
+	echo "Aborted by user request." >&2
+	exit 3
+else
+	echo
+fi
+
+mkdir -pv "$target" 2>/dev/null
 
 for (( i=0; i < ${#files[@]}; ++i )); do
 	file="${files[$i]}"
