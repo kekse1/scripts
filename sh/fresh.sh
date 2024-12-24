@@ -45,7 +45,7 @@ fresh()
 		_txt="$*"
 
 		if [[ "${_txt::1}" == "$_GIT_DATE_SYMBOL" ]]; then
-			_txt="`date +"$_GIT_DATE_FORMAT_EXT"`${_txt:1}"
+			_txt="`date +"$_GIT_DATE_FORMAT_EXT"` ${_txt:1}"
 		else
 			_txt="`date +"$_GIT_DATE_FORMAT"`"
 			_txt="[$_txt] $*"
