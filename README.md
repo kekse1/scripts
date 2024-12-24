@@ -47,6 +47,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2024-12-24**\] Updated [`fresh`.sh](#freshsh), **v0.4.5**;
 * \[**2024-12-23**\] Created [`index`.sh](#indexsh), **v0.2.0**;
 * \[**2024-12-23**\] Updated [`baseutils`.sh](#baseutilssh); .. **v0.3.1**;
 * \[**2024-11-26**\] Integrated the old `utilties` repository into here.. again.
@@ -60,7 +61,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 * \[**2024-08-09**\] [`make-nodejs`.sh](#make-nodejssh) to **v0.3.9**
 * \[**2024-07-29**\] [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) **v0.1.1**
 * \[**2024-07-29**\] [`hfdownloader`.sh](#hfdownloadersh) **v0.3.1**
-* \[**2024-07-06**\] Updated the [`fresh`.sh](#freshsh) to **v0.4.4** (for lazy people like me)
 * \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to **v0.2.7**
 * \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, **v0.2.3**;
 * \[**2024-06-14**\] Created it's own GitHub repository for the [`prompt`.sh](#promptsh)
@@ -110,7 +110,7 @@ I'm using it to do all steps to keep your packages `up2date`, in just one step!
 Also, just copy it to `/etc/profile.d/up2date.sh`
 
 ### [`fresh`.sh](sh/fresh.sh)
-* [Version **v0.4.4**](sh/fresh.sh) (updated **2024-07-06**)
+* [Version **v0.4.5**](sh/fresh.sh) (updated **2024-12-24**)
 
 Helper to quickly update `git` repositories.. really tiny.
 

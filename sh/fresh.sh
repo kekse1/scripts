@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.4.4
+# v0.4.5
 #
 # Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
 # since it is *not* executable (but `source` or `.`).
@@ -42,8 +42,10 @@ fresh()
 		echo -e " >> Only fetching latest repository state."
 		echo -e " >> To also upload your changes, argue with a commit message (\`$_GIT_DATE_SYMBOL\` for a \`date\`)."
 	else
-		if [[ "$*" == "$_GIT_DATE_SYMBOL" ]]; then
-			_txt="`date +"$_GIT_DATE_FORMAT_EXT"`"
+		_txt="$*"
+
+		if [[ "${_txt::1}" == "$_GIT_DATE_SYMBOL" ]]; then
+			_txt="`date +"$_GIT_DATE_FORMAT_EXT"`${_txt:1}"
 		else
 			_txt="`date +"$_GIT_DATE_FORMAT"`"
 			_txt="[$_txt] $*"
