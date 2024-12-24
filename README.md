@@ -16,7 +16,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`layout`.sh](#layoutsh)
 	* [`up2date`.sh](#up2datesh)
 	* [`fresh`.sh](#freshsh)
-	* [`duplicates`.sh](#duplicatessh)
+	* [`index`.sh](#indexsh)
 	* [`make-nodejs`.sh](#make-nodejssh)
 	* [`unexify`.sh](#unexifysh)
 	* [`sync`.sh](#syncsh)
@@ -47,7 +47,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2024-12-23**\] Created [`duplicates`.sh](#duplicatessh), **v0.2.0**;
+* \[**2024-12-23**\] Created [`index`.sh](#indexsh), **v0.2.0**;
 * \[**2024-12-23**\] Updated [`baseutils`.sh](#baseutilssh); .. **v0.3.1**;
 * \[**2024-11-26**\] Integrated the old `utilties` repository into here.. again.
 * \[**2024-11-01**\] Updated [`create-random-files`.sh](#create-random-filessh) to **v1.5.1**
@@ -121,14 +121,14 @@ is now required (because I was too lazy before..).
 > Includes a function `keep()` to create `.keep` files in empty directories.
 > Useful for `git`, since it won't obey empty directories.
 
-### [`duplicates`.sh](sh/duplicates.sh)
-* [Version **v0.2.0**](sh/duplicates.sh) (created **2024-12-23**)
+### [`index`.sh](sh/index.sh)
+* [Version **v0.2.0**](sh/index.sh) (updated **2024-12-24**)
 
-Finds file duplicates. You define a target directory
-and an optional depth (defaults to 1, so only the
-current directory), and in your target directory
-there'll be files with names out of the `sha224sum`,
-and the original extensions.
+Finds file duplicates, or just creates an index with the file hashes..
+
+You define a target directory and an optional depth (defaults to 1,
+so only the current directory), and in your target directory there'll
+be files with names out of their `sha224sum`, with original extensions.
 
 ### [`make-nodejs`.sh](sh/make-nodejs.sh)
 * [Version **v0.3.10**](sh/make-nodejs.sh) (updated **2024-10-06**)

@@ -5,11 +5,13 @@
 # https://kekse.biz/ https://github.com/kekse1/scripts/
 # v0.2.0
 # 
-# Finds file duplicates. You define a target directory
-# and an optional depth (defaults to 1, so only the
-# current directory), and in your target directory
-# there'll be files with names out of the `sha224sum`,
-# and the original extensions.
+# Finds file duplicates, or just creates an index with
+# the file hashes..
+#
+# You define a target directory and an optional depth
+# (defaults to 1, so only the current directory), and
+# in your target directory there'll be files with names
+# out of their `sha224sum`, with original extensions.
 #
 
 #
