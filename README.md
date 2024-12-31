@@ -63,17 +63,23 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 
 ## [Bash](sh/)
 
+<a href="https://github.com/kekse1/prompt/">
 <img id="promptsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60prompt.sh%60" />
+</a>
 
-**Moved** to it's [own repository](https://github.com/kekse1/prompt).
+**Moved** to it's [own **repository**](https://github.com/kekse1/prompt/).
 
 
+<a href="https://github.com/kekse1/dump/">
 <img id="dump" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60dump%60" />
+</a>
 
-In [another repository](https://github.com/kekse1/dump/).
+In it's [own **repository**](https://github.com/kekse1/dump/).
 
 
+<a href="sh/lines.sh">
 <img id="linessh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60lines.sh%60" />
+</a>
 
 You should put this script into your `/etc/profile.d/` directory,
 so the `lines()` function will get `source`d. Then just call it this
@@ -91,7 +97,9 @@ stdin `-` (if defined at all), to perform one of these actions:
 * negative numbers counting backwards from the `EOF`
 
 
+<a href="sh/layout.sh">
 <img id="layoutsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60layout.sh%60" />
+</a>
 
 * [Version **v0.2.0**](sh/layout.sh)
 
@@ -105,7 +113,9 @@ switch to it directly. Or call it with a single `-`, so it'll switch between the
 on top: `layouts=("us" "de")`).
 
 
+<a href="sh/up2date.sh">
 <img id="up2datesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60up2date.sh%60" />
+</a>
 
 * [Version **v0.2.1**](sh/up2date.sh)
 
@@ -115,7 +125,9 @@ I'm using it to do all steps to keep your packages `up2date`, in just one step!
 Also, just copy it to `/etc/profile.d/up2date.sh`
 
 
+<a href="sh/fresh.sh">
 <img id="freshsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60fresh.sh%60" />
+</a>
 
 * [Version **v0.4.5**](sh/fresh.sh) (updated **2024-12-24**)
 
@@ -126,7 +138,9 @@ Helper to quickly update `git` repositories.. really tiny.
 > Useful for `git`, since it won't obey empty directories.
 
 
+<a href="sh/index.sh">
 <img id="indexsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60index.sh%60" />
+</a>
 
 * [Version **v0.2.0**](sh/index.sh) (updated **2024-12-24**)
 
@@ -137,7 +151,9 @@ so only the current directory), and in your target directory there'll
 be files with names out of their `sha224sum`, with original extensions.
 
 
+<a href="sh/make-nodejs.sh">
 <img id="make-nodejssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60make-nodejs.sh%60" />
+</a>
 
 * [Version **v0.3.10**](sh/make-nodejs.sh) (updated **2024-10-06**)
 
@@ -151,7 +167,9 @@ the `/usr/` hierarchy.
 > Just call it via `make-nodejs.sh 22.9.0` (or `make-nodejs.sh v22.9.0`), e.g.!
 
 
+<a href="sh/unexify.sh">
 <img id="unexifysh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60unexify.sh%60" />
+</a>
 
 * [Version **v0.1.2**](sh/unexify.sh) (updated **2024-04-23**)
 
@@ -168,7 +186,9 @@ _JFYI_: Dependency is the [**`exiftool`**](https://exiftool.org), which is the
 packet `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
 
 
+<a href="sh/sync.sh">
 <img id="syncsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60sync.sh%60" />
+</a>
 
 * [Version **v0.4.4**](sh/sync.sh) (updated **2024-05-01**)
 
@@ -187,7 +207,9 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 > As usual, you can also use `-h` or `--help`! **:-D**
 
 
+<a href="sh/ansi.sh">
 <img id="ansish" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60ansi.sh%60" />
+</a>
 
 * [Version **v0.0.3**](sh/ansi.sh) (updated **2024-04-21**)
 
@@ -197,7 +219,9 @@ You either need to manually `source` or `.` in your shell (it's NOT executable),
 or copy it to `/etc/profile.d/ansi.sh`.
 
 
+<a href="sh/up2date.sh">
 <img id="up2datesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60up2date.sh%60" />
+</a>
 
 * [Version **v0.2.1**](sh/up2date.sh)
 
@@ -207,7 +231,9 @@ I'm using it to do all steps to keep your packages `up2date`, in just one step!
 Also, just copy it to `/etc/profile.d/up2date.sh`
 
 
+<a href="sh/count-all-lines.sh">
 <img id="count-all-linessh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60count-all-lines.sh%60" />
+</a>
 
 * [Version **v0.3.1**](sh/count-all-lines.sh) (updated **2024-02-25**)
 
@@ -216,7 +242,9 @@ parameters (especially globs to define file extensions!), and output a list of f
 sorted ascending, and ending with the line count sum of all line counts.
 
 
+<a href="sh/copy.sh">
 <img id="copysh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60copy.sh%60" />
+</a>
 
 * [Version **v0.1.2**](sh/copy.sh) (updated **2024-02-25**)
 
@@ -229,7 +257,9 @@ So just set your server {user,host,port} and copy securely.
 BTW: yes, I had an unstable line when I created this.. via mobile phone.
 
 
+<a href="sh/create-random-files.sh">
 <img id="create-random-filessh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60create-random-files.sh%60" />
+</a>
 
 My [`Norbert`](https://github.com/kekse1/norbert/) needed some random input data,
 from a directory I wanted to propagate with some temporary files (of an exactly
@@ -252,14 +282,18 @@ So I created this very tiny tool.
 > out of the file and put it into one of your `/etc/profile.d/*.sh`.
 
 
+<a href="sh/replace.sh">
 <img id="replacesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60replace.sh%60" />
+</a>
 
 * [Version **v0.1.1**](sh/replace.sh) (created **2024-03-19**)
 
 Recursive (really!) `sed` (regular expression) replacement in (only real!) files.
 
 
+<a href="sh/toilets.sh">
 <img id="toiletssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60toilets.sh%60" />
+</a>
 
 * [Version **v0.0.2**](sh/toilets.sh) (created **2024-03-19**)
 
@@ -274,7 +308,9 @@ The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), o
 `fonts/` directory itself.
 
 
+<a href="sh/math.sh">
 <img id="mathsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60math.sh%60" />
+</a>
 
 * [Version **v0.2.4**](sh/math.sh) (updated **2024-11-04**)
 
@@ -287,7 +323,9 @@ detect which suites best:
 * ` >> Syntax: bytes <value> [ <base=1024 | <unit> [ <prec=2> ] ]`
 
 
+<a href="sh/baseutils.sh">
 <img id="baseutilssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60baseutils.sh%60" />
+</a>
 
 * [Version **v0.3.1**](sh/baseutils.sh) (updated **2024-12-23**)
 
@@ -301,14 +339,18 @@ from my `/etc/profile.d/` scripts, and now here we are..
 Still _much_ **TODO**, but the first functions are declared and I'm going to implement everything soon!
 
 
+<a href="sh/move-by-ext.sh">
 <img id="move-by-extsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60move-by-ext.sh%60" />
+</a>
 
 * [Version **v0.0.2**](sh/move-by-ext.sh) (updated **2024-02-25**)
 
 Another tiny helper... really nothing special.
 
 
+<a href="sh/find-ext.sh">
 <img id="find-extsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60find-ext.sh%60" />
+</a>
 
 * [Version **v0.1.2**](sh/find-ext.sh) (updated **2024-02-25**)
 
@@ -317,7 +359,9 @@ only counting all different extensions available under the current working direc
 to limit the `find` recursion depth via optional first argument (needs to be positive integer).
 
 
+<a href="sh/insert-header.sh">
 <img id="insert-headersh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60insert-header.sh%60" />
+</a>
 
 * [Version **v0.2.3**](sh/insert-header.sh) (updated **2024-06-25**)
 
@@ -338,7 +382,9 @@ script without parameters!
 > globs, to be pass-thru directed to the `find` command.
 
 
+<a href="sh/router.sh">
 <img id="routersh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60router.sh%60" />
+</a>
 
 * [Version **v0.1.1**](sh/router.sh) (updated **2024-04-23**)
 
@@ -348,7 +394,9 @@ This was created very quickly, without much features or tests.
 Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/wiki/Home_router) for more.
 
 
+<a href="sh/hfdownloader.sh">
 <img id="hfdownloadersh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60hfdownloader.sh%60" />
+</a>
 
 * [Version **v0.3.1**](sh/hfdownloader.sh) (updated **2024-07-29**)
 
@@ -363,7 +411,9 @@ tool is easy enough; it's rather kinda reminder' for myself..
 > concretely at the [**`~intelligence`** area](https://kekse.biz/?~intelligence).
 
 
+<a href="sh/convert-hf-to-gguf.sh">
 <img id="convert-hf-to-ggufsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60convert-hf-to-gguf.sh%60" />
+</a>
 
 * [Version **v0.1.1**](sh/convert-hf-to-gguf.sh) (updated **2024-07-29**)
 
@@ -384,7 +434,9 @@ on **my website @ [`~intelligence`](https://kekse.biz/?~intelligence)**.
 > `./bin/python3 llama.cpp/convert-hf-to-gguf.py -h`
 
 
+<a href="sh/hfget.sh">
 <img id="hfgetsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60hfget.sh%60" />
+</a>
 
 Just a tiny helper, if you don't want to use the [`hfdownloader(.sh)`](#hfdownloadersh).
 
@@ -398,7 +450,9 @@ to access (your) non-public files, and maybe more..
 Expects either a URL or a file with a list of URLs as parameter. Depends on `wget`.
 
 
+<a href="sh/nightlounge.sh">
 <img id="nightloungesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60nightlounge.sh%60" />
+</a>
 
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
 I use this script for my daily download of the 'BigFM Nightlounge' podcast.
@@ -409,7 +463,9 @@ I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 > You can add this to your '/etc/crontab'. ;-)
 
 
+<a href="sh/lsblk.sh">
 <img id="lsblksh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60lsblk.sh%60" />
+</a>
 
 * [Version **v0.2.3**](sh/lsblk.sh) (updated **2024-10-24**)
 
@@ -431,7 +487,9 @@ for you where to use `case`, if you'd like to manage the key/value pairs.
 > For a bit more infos about this, see the top of [the script](sh/lsblk.sh)!
 
 
+<a href="sh/cursor.sh">
 <img id="cursorsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60cursor.sh%60" />
+</a>
 
 Tiniest.. just prints out the current cursor position in your active terminal.
 
@@ -440,7 +498,9 @@ Tiniest.. just prints out the current cursor position in your active terminal.
 The real function `cursor()` is only **seven lines** long.
 
 
+<a href="sh/init-sub-proj.sh">
 <img id="init-sub-projsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60init-sub-proj.sh%60" />
+</a>
 
 * [Version **v0.3.1**](sh/init-sub-proj.sh) (updated **2024-05-23**)
 
@@ -454,7 +514,9 @@ Links stay exactly the same (so using `readlink`).
 
 ## C/C++
 
+<a href="c-cpp/nproc.c">
 <img id="nprocc" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60nproc.c%60" />
+</a>
 
 * [Version **v0.2.2**](c-cpp/nproc.c) (created **2024-04-15**)
 
@@ -467,7 +529,7 @@ If `$NPROC` is not defined or below 1, it will try to get the real value.
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
 and it's licensed under the [MIT](./LICENSE.txt) (also known as 'X' or 'X11' license).
 
-<a href="favicon.512px.png" target="_blank">
+<a href="https://kekse.biz/" target="_blank">
 <img src="favicon.png" alt="Favicon" />
 </a>
 
