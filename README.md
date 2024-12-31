@@ -5,7 +5,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 
 > [!IMPORTANT]
 > * \[**2024-09-24**\] **Moved** all the **JavaScript**s from here
-> to their own [**JavaScript**](https://github.com/kekse1/javascript/) repository.
+> to their own [**`JavaScripts`**](https://github.com/kekse1/javascripts/) repository.
 
 ## Index
 1. [News](#news)
@@ -41,20 +41,17 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`lsblk`.sh](#lsblksh)
     * [`cursor`.sh](#cursorsh)
 	* [`init-sub-proj`.sh](#init-sub-projsh)
-3. [JavaScript](#javascript)
-4. [C/C++](#cc)
+3. [C/C++](#cc)
     * [`nproc.c`](#nprocc)
-5. [Copyright and License](#copyright-and-license)
+4. [Copyright and License](#copyright-and-license)
 
 ## News
 * \[**2024-12-24**\] Updated [`fresh`.sh](#freshsh), **v0.4.5**;
 * \[**2024-12-23**\] Created [`index`.sh](#indexsh), **v0.2.0**;
 * \[**2024-12-23**\] Updated [`baseutils`.sh](#baseutilssh); .. **v0.3.1**;
-* \[**2024-11-26**\] Integrated the old `utilties` repository into here.. again.
 * \[**2024-11-01**\] Updated [`create-random-files`.sh](#create-random-filessh) to **v1.5.1**
 * \[**2024-10-24**\] Updated the [`lsblk`.sh](#lsblksh) to **v0.2.3**;
 * \[**2024-10-07**\] Updated [`math`.sh](#mathsh) to **v0.2.3**;
-* \[**2024-09-24**\] **Moved** some scripts to my **new** [**`utilities`**](https://github.com/kekse1/utilities/) and [**`javascript`**](https://github.com/kekse1/javascript/) repositories.
 * \[**2024-09-09**\] Updated [`lines`.sh](#linessh): **v0.4.1**
 * \[**2024-09-09**\] New [`cursor`.sh](#cursorsh), **v0.0.1**
 * \[**2024-08-18**\] New [`hfget`.sh](#hfgetsh), **v0.2.0**
