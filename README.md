@@ -40,16 +40,9 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`lsblk`.sh](#lsblksh)
 	* [`cursor`.sh](#cursorsh)
 	* [`init-sub-proj`.sh](#init-sub-projsh)
-<<<<<<< HEAD
 3. [C/C++](#cc)
     * [`nproc.c`](#nprocc)
 4. [Copyright and License](#copyright-and-license)
-=======
-3. [JavaScript](#javascript)
-4. [C/C++](#cc)
-	* [`nproc.c`](#nprocc)
-5. [Copyright and License](#copyright-and-license)
->>>>>>> 019a5330594d86ccc64080b050ab12cb7f92f7d9
 
 ## News
 * \[**2024-12-24**\] Updated [`fresh`.sh](#freshsh), **v0.4.5**;
