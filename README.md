@@ -529,7 +529,7 @@ If `$NPROC` is not defined or below 1, it will try to get the real value.
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
 and it's licensed under the [MIT](./LICENSE.txt) (also known as 'X' or 'X11' license).
 
-<a href="https://kekse.biz/" target="_blank">
+<a href="https://kekse.biz/">
 <img src="favicon.png" alt="Favicon" />
 </a>
 
