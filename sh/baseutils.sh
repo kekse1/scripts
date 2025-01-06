@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.1
+# v0.4.0
 #
 
 #
@@ -160,3 +160,11 @@ upper()
 }
 
 #
+confirm()
+{
+	[[ -n "$1" ]] && echo -ne "$1 [Yes/No]? "
+	read confirm; confirm="${confirm::1}"; confirm="${confirm,,}"
+	[[ "$confirm" != "y" ]] && return 1
+	return 0
+}
+

@@ -45,9 +45,10 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2025-01-06**\] Updated [`baseutils`.sh](#baseutilssh), **v0.4.0**;
+* \[**2025-01-06**\] Updated [`ansi`.sh](#ansish), **v0.1.0**;
 * \[**2024-12-24**\] Updated [`fresh`.sh](#freshsh), **v0.4.5**;
 * \[**2024-12-23**\] Created [`index`.sh](#indexsh), **v0.2.0**;
-* \[**2024-12-23**\] Updated [`baseutils`.sh](#baseutilssh); .. **v0.3.1**;
 * \[**2024-11-01**\] Updated [`create-random-files`.sh](#create-random-filessh) to **v1.5.1**
 * \[**2024-10-24**\] Updated the [`lsblk`.sh](#lsblksh) to **v0.2.3**;
 * \[**2024-10-07**\] Updated [`math`.sh](#mathsh) to **v0.2.3**;
@@ -211,7 +212,7 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 <img id="ansish" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60ansi.sh%60" />
 </a>
 
-* [Version **v0.0.3**](sh/ansi.sh) (updated **2024-04-21**)
+* [Version **v0.1.0**](sh/ansi.sh) (updated **2025-01-06**)
 
 Starting with a shell script (to be `source`d) for ANSI escape sequences.
 
@@ -327,7 +328,7 @@ detect which suites best:
 <img id="baseutilssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60baseutils.sh%60" />
 </a>
 
-* [Version **v0.3.1**](sh/baseutils.sh) (updated **2024-12-23**)
+* [Version **v0.4.0**](sh/baseutils.sh) (updated **2025-01-06**)
 
 This is just the beginning of more bash functions.
 
