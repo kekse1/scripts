@@ -72,7 +72,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 
 
 <a href="https://github.com/kekse1/dump.js/">
-<img id="dump" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60dump.js%60" />
+<img id="dumpjs" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60dump.js%60" />
 </a>
 
 In it's [own **repository**](https://github.com/kekse1/dump.js/).
