@@ -11,7 +11,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 1. [News](#news)
 2. [Bash](#bash)
 	* [`prompt`.sh](#promptsh)
-	* [`dump`](#dump)
+	* [`dump`.js](#dumpjs)
 	* [`lines`.sh](#linessh)
 	* [`layout`.sh](#layoutsh)
 	* [`up2date`.sh](#up2datesh)
@@ -71,11 +71,11 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 **Moved** to it's [own **repository**](https://github.com/kekse1/prompt/).
 
 
-<a href="https://github.com/kekse1/dump/">
-<img id="dump" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60dump%60" />
+<a href="https://github.com/kekse1/dump.js/">
+<img id="dump" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60dump.js%60" />
 </a>
 
-In it's [own **repository**](https://github.com/kekse1/dump/).
+In it's [own **repository**](https://github.com/kekse1/dump.js/).
 
 
 <a href="sh/lines.sh">
