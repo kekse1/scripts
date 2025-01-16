@@ -42,7 +42,8 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`init-sub-proj`.sh](#init-sub-projsh)
 3. [C/C++](#cc)
     * [`nproc.c`](#nprocc)
-4. [Copyright and License](#copyright-and-license)
+4. [Contact](#contact)
+5. [Copyright and License](#copyright-and-license)
 
 ## News
 * \[**2025-01-06**\] Updated [`baseutils`.sh](#baseutilssh), **v0.4.0**;
@@ -525,6 +526,9 @@ Modificated `/usr/bin/nproc`, to optionally set the `NPROC` environment variable
 which can be an arbitrary number of cores/threads to output.
 
 If `$NPROC` is not defined or below 1, it will try to get the real value.
+
+# Contact
+<img src="https://kekse.biz/github.php?override=github:scripts&draw&text=scripts@kekse.biz&angle=6&size=38pt&fg=150,20,90&font=OpenSans&ro&readonly&h=64&v=16" />
 
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
