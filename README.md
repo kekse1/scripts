@@ -16,11 +16,11 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`layout`.sh](#layoutsh)
 	* [`up2date`.sh](#up2datesh)
 	* [`fresh`.sh](#freshsh)
+    * [`ansi`.sh](#ansish)
 	* [`index`.sh](#indexsh)
 	* [`make-nodejs`.sh](#make-nodejssh)
 	* [`unexify`.sh](#unexifysh)
 	* [`sync`.sh](#syncsh)
-	* [`ansi`.sh](#ansish)
 	* [`up2date`.sh](#up2datesh)
 	* [`count-all-lines`.sh](#count-all-linessh)
 	* [`copy`.sh](#copysh)
@@ -46,9 +46,9 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2025-02-17**\] Updated the [`ansi`.sh](#ansish) to v**1.0.0** (now w/ **`progress()`**);
 * \[**2025-01-16**\] Update in [`math`.sh](#mathsh), to v**0.2.5**;
 * \[**2025-01-06**\] Updated [`baseutils`.sh](#baseutilssh), v**0.4.0**;
-* \[**2025-01-06**\] Updated [`ansi`.sh](#ansish), v**0.1.0**;
 * \[**2024-12-24**\] Updated [`fresh`.sh](#freshsh), v**0.4.5**;
 * \[**2024-12-23**\] Created [`index`.sh](#indexsh), v**0.2.0**;
 * \[**2024-11-01**\] Updated [`create-random-files`.sh](#create-random-filessh) to v**1.5.1**
@@ -213,13 +213,14 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 <img id="ansish" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60ansi.sh%60" />
 </a>
 
-* [Version v**0.1.0**](sh/ansi.sh) (updated **2025-01-06**)
+It's recommended to copy this file to the `/etc/profile.d/` directory.
 
-Starting with a shell script (to be `source`d) for ANSI escape sequences.
+* [Version v**1.0.0**](sh/ansi.sh) (updated **2025-02-17**)
 
-You either need to manually `source` or `.` in your shell (it's NOT executable),
-or copy it to `/etc/profile.d/ansi.sh`.
+Now includes the **`progress()`** function.
+![progress()](img/ansi.sh::progress.png)
 
+Plus some helper functions (beneath the regular style and color functions).
 
 <a href="sh/up2date.sh">
 <img id="up2datesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60up2date.sh%60" />

@@ -1,17 +1,112 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.0
-#
-# Starting with a shell script (to be `source`d) for
-# ANSI escape sequences.
-#
-# You either need to manually `source` or `.` in your shell
-# (it's NOT executable), or copy it to `/etc/profile.d/ansi.sh`.
+# v1.0.0
 #
 
 #
 export LINE='='
+
+DONE=( 230 200 60 )
+TODO=( 30 70 130 )
+
+#
+repeat()
+{
+	count=$1; shift
+	result=''
+	[[ $count -le 0 ]] && return
+	for (( i=0; i<$count; ++i )); do
+		result="${result}${*}"
+	done
+	echo "$result"
+}
+
+progress()
+{
+	current="$1"
+	total="$2"
+	width="$3"
+	prec="$4"
+	space="$5"; [[ -z "$space" ]] && space=0
+
+	if [[ -z "$prec" ]]; then
+		prec=0
+	elif [[ $prec -lt 0 ]]; then
+		prec=-1
+	elif [[ $prec -gt 6 ]]; then
+		prec=6
+	fi
+	
+	if [[ -z "$width" ]]; then
+		width="`width`"
+	elif [[ "${width: -1}" == "%" ]]; then
+		width="$((`width`*${width::-1}/100))"
+	elif [[ $width -lt 1 || $width -gt `width` ]]; then
+		width="`width`"
+	fi
+
+	[[ $space -gt 0 ]] && width=$((${width}-${space}*2))
+
+	factor="`div $current $total`"
+
+	text=""; if [[ $prec -ge 0 ]]; then
+		len=$((${prec}+4))
+		text="$(mul $factor 100)"
+		text="$(int "$text" $prec)"
+		text="$(printf "%${len}s" "$text")"
+	fi
+
+	width=$((${width}-${#text}-2))
+	done="$(int `mul $factor $width`)"
+	todo="$(int `sub $width $done`)"
+	done="`repeat $done $(bg ${DONE[@]} ' ')`"
+	todo="`repeat $todo $(bg ${TODO[@]} ' ')`"
+
+	if [[ -n "$text" ]]; then
+		text="`bold``info`${text}`error`%`none`"
+		done="${text} ${done}"
+	fi
+
+	if [[ $space -gt 0 ]]; then
+		done="`repeat $space ' '`${done}"
+		todo="${todo}`repeat $space ' '`"
+	fi
+
+	echo "${done}${todo}`none`"
+}
+
+int()
+{
+	value="$1"
+	scale="$2"; [[ -z "$scale" ]] && scale=0
+	echo "scale=${scale}; (${value}/1)" | bc
+}
+
+add()
+{
+	echo "$(awk "BEGIN {print ${1}+${2}}")"
+}
+
+sub()
+{
+	echo "$(awk "BEGIN {print ${1}-${2}}")"
+}
+
+mul()
+{
+	echo "$(awk "BEGIN {print ${1}*${2}}")"
+}
+
+div()
+{
+	echo "$(awk "BEGIN {print ${1}/${2}}")"
+}
+
+mod()
+{
+	echo "$(awk "BEGIN {print ${1}%${2}}")"
+}
 
 #
 line()
@@ -57,26 +152,20 @@ height()
 #
 none()
 {
-	echo -en '\e[0m'
+	echo -en "\e[0m"
 }
 
 #
 fg()
 {
 	echo -en "\e[38;2;$1;$2;$3m"
-
-	if [[ -n "$4" ]]; then
-	       echo -en "$4\e[39m"
-	fi
+	[[ -n "$4" ]] && echo -en "$4\e[39m"
 }
 
 bg()
 {
 	echo -en "\e[48;2;$1;$2;$3m"
-
-	if [[ -n "$4" ]]; then
-		echo -en "$4\e[49m"
-	fi
+	[[ -n "$4" ]] && echo -en "$4\e[49m"
 }
 
 info()
@@ -102,36 +191,97 @@ debug()
 bold()
 {
 	echo -en "\e[1m"
-
-	if [[ -n "$*" ]]; then
-		echo -en "$*\e[0m"
-	fi
+	[[ -n "$*" ]] && echo -en "$*\e[22m"
 }
 
 underline()
 {
 	echo -en "\e[4m"
-
-	if [[ -n "$*" ]]; then
-		echo -en "$*\e[24m"
-	fi
+	[[ -n "$*" ]] && echo -en "$*\e[24m"
 }
 
 italic()
 {
 	echo -en "\e[3m"
-
-	if [[ -n "$*" ]]; then
-		echo -en "$*\e[23m"
-	fi
+	[[ -n "$*" ]] && echo -en "$*\e[23m"
 }
 
 faint()
 {
 	echo -en "\e[2m"
-
-	if [[ -n "$*" ]]; then
-		echo -en "$*\e[22m"
-	fi
+	[[ -n "$*" ]] && echo -en "$*\e[22m"
 }
+
+slow()
+{
+	echo -en "\e[5m"
+	[[ -n "$*" ]] && echo -en "$*\e[25m"
+}
+
+fast()
+{
+	echo -en "\e[6m"
+	[[ -n "$*" ]] && echo -en "$*\e[26m"
+}
+
+inverse()
+{
+	echo -en "\e[7m"
+	[[ -n "$*" ]] && echo -en "$*\e[27m"
+}
+
+hidden()
+{
+	echo -en "\e[8m"
+	[[ -n "$*" ]] && echo -en "$*\e[28m"
+}
+
+strike()
+{
+	echo -en "\e[9m"
+	[[ -n "$*" ]] && echo -en "$*\e[29m"
+}
+
+#
+THROW()
+{
+	_str="Unable to \`source\`"
+
+	if [[ -n "$1" ]]; then
+		_str="${_str} the file `warn "$1"`"
+	else
+		_str="${_str} a required file"
+	fi
+
+	ERROR "$_str"
+
+	[[ -n "$2" ]] && exit $2
+	exit 123
+}
+
+ERROR()
+{
+	echo -en "`faint`[`none``error``inverse`ERROR`none``faint`]`none`" >&2
+	[[ -n "$*" ]] && echo -e " `error`${*}`none`" >&2
+}
+
+WARN()
+{
+	echo -en "`faint`[`none``warn``inverse`WARNING`none``faint`]`none`" >&2
+	[[ -n "$*" ]] && echo -e " `warn`${*}`none`" >&2
+}
+
+DEBUG()
+{
+	echo -en "`faint`[`none``debug``inverse`JFYI`none``faint`]`none`" >&2
+	[[ -n "$*" ]] && echo -e " `debug`${*}`none`" >&2
+}
+
+INFO()
+{
+	echo -en "`faint`[`none``info``inverse`INFO`none``faint`]`none`"
+	[[ -n "$*" ]] && echo -e " `info`${*}`none`"
+}
+
+#
 
