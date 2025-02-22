@@ -63,7 +63,7 @@ progress()
 		text="$(printf "%${len}s" "$text")"
 	fi
 
-	width=$((${width}-${#text}-2))
+	width=$((${width}-${#text}-4))
 	done="$(int `mul $factor $width`)"
 	todo="$(int `sub $width $done`)"
 	done="`repeat $done $(bg ${DONE[@]} ' ')`"
@@ -71,7 +71,7 @@ progress()
 
 	if [[ -n "$text" ]]; then
 		text="`bold``info`${text}`error`%`none`"
-		done="${text} ${done}"
+		done="${text} `fg ${DONE[@]}``faint`[`none`${done}"
 	fi
 
 	if [[ $space -gt 0 ]]; then
@@ -79,7 +79,7 @@ progress()
 		todo="${todo}`repeat $space ' '`"
 	fi
 
-	echo "${done}${todo}`none`"
+	echo "${done}${todo}`fg ${DONE[@]}``faint`]`none`"
 }
 
 int()
