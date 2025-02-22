@@ -252,7 +252,7 @@ strike()
 }
 
 #
-THROW()
+SOURCE()
 {
 	_str="Unable to \`source\`"
 
