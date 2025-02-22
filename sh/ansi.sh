@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.0.0
+# v1.0.1
 #
 
 #
@@ -47,6 +47,12 @@ progress()
 	fi
 
 	[[ $space -gt 0 ]] && width=$((${width}-${space}*2))
+
+	if [[ $current -lt 0 ]]; then
+		current=0
+	elif [[ $current -gt $total ]]; then
+		current=$total
+	fi
 
 	factor="`div $current $total`"
 
