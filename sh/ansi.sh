@@ -69,9 +69,12 @@ progress()
 	done="`repeat $done $(bg ${DONE[@]} ' ')`"
 	todo="`repeat $todo $(bg ${TODO[@]} ' ')`"
 
+	done="`fg ${DONE[@]}``faint '['`${done}"
+	todo="${todo}`fg ${DONE[@]}``faint ']'`"
+
 	if [[ -n "$text" ]]; then
 		text="`bold``info`${text}`error`%`none`"
-		done="${text} `fg ${DONE[@]}``faint`[`none`${done}"
+		done="${text} ${done}"
 	fi
 
 	if [[ $space -gt 0 ]]; then
@@ -79,7 +82,7 @@ progress()
 		todo="${todo}`repeat $space ' '`"
 	fi
 
-	echo "${done}${todo}`fg ${DONE[@]}``faint`]`none`"
+	echo "${done}${todo}`none`"
 }
 
 int()
