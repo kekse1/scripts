@@ -217,8 +217,8 @@ It's recommended to copy this file to the `/etc/profile.d/` directory.
 
 * [Version v**1.0.3**](sh/ansi.sh) (updated **2025-02-23**)
 
-Now includes the **`progress()`** function.
-![progress()](img/ansi.sh::progress.png)
+Now includes the (better) **`progress()`** function.
+![progress()](img/ansi.progress.png)
 
 Plus some helper functions (beneath the regular style and color functions).
 
