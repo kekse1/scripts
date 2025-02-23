@@ -46,7 +46,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2025-02-23**\] Updated the [`ansi`.sh](#ansish) to v**1.0.2**;
+* \[**2025-02-23**\] Updated the [`ansi`.sh](#ansish) to v**1.0.3**;
 * \[**2025-01-16**\] Update in [`math`.sh](#mathsh), to v**0.2.5**;
 * \[**2025-01-06**\] Updated [`baseutils`.sh](#baseutilssh), v**0.4.0**;
 * \[**2024-12-24**\] Updated [`fresh`.sh](#freshsh), v**0.4.5**;
@@ -215,7 +215,7 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 
 It's recommended to copy this file to the `/etc/profile.d/` directory.
 
-* [Version v**1.0.2**](sh/ansi.sh) (updated **2025-02-23**)
+* [Version v**1.0.3**](sh/ansi.sh) (updated **2025-02-23**)
 
 Now includes the **`progress()`** function.
 ![progress()](img/ansi.sh::progress.png)

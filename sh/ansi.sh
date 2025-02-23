@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.0.2
+# v1.0.3
 #
 
 #
@@ -9,6 +9,9 @@ export LINE='='
 
 DONE=( 230 200 60 )
 TODO=( 30 70 130 )
+
+ob="("
+cb=")"
 
 #
 repeat()
@@ -69,8 +72,8 @@ progress()
 	done="`repeat $done $(bg ${DONE[@]} ' ')`"
 	todo="`repeat $todo $(bg ${TODO[@]} ' ')`"
 
-	done="`fg ${DONE[@]}``faint '['`${done}"
-	todo="${todo}`fg ${DONE[@]}``faint ']'`"
+	done="`fg ${DONE[@]}``faint "$ob"`${done}"
+	todo="${todo}`fg ${DONE[@]}``faint "$cb"`"
 
 	if [[ -n "$text" ]]; then
 		text="`bold``info`${text}`error`%`none`"
