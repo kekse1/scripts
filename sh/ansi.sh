@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.0.1
+# v1.0.2
 #
 
 #
@@ -249,6 +249,12 @@ strike()
 {
 	echo -en "\e[9m"
 	[[ -n "$*" ]] && echo -en "$*\e[29m"
+}
+
+#
+clearLine()
+{
+	echo -en "\e[2K"
 }
 
 #
