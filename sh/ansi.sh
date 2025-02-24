@@ -1,7 +1,11 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
+<<<<<<< HEAD
 # v1.0.4
+=======
+# v1.0.3
+>>>>>>> 28265059a966ae105c077b45a6673e954eaa76a6
 #
 
 #

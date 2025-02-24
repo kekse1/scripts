@@ -46,7 +46,11 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+<<<<<<< HEAD
 * \[**2025-02-24**\] Updated the [`ansi`.sh](#ansish) to v**1.0.4**;
+=======
+* \[**2025-02-23**\] Updated the [`ansi`.sh](#ansish) to v**1.0.3**;
+>>>>>>> 28265059a966ae105c077b45a6673e954eaa76a6
 * \[**2025-01-16**\] Update in [`math`.sh](#mathsh), to v**0.2.5**;
 * \[**2025-01-06**\] Updated [`baseutils`.sh](#baseutilssh), v**0.4.0**;
 * \[**2024-12-24**\] Updated [`fresh`.sh](#freshsh), v**0.4.5**;
@@ -215,10 +219,14 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 
 It's recommended to copy this file to the `/etc/profile.d/` directory.
 
+<<<<<<< HEAD
 * [Version v**1.0.4**](sh/ansi.sh) (updated **2025-02-24**)
+=======
+* [Version v**1.0.3**](sh/ansi.sh) (updated **2025-02-23**)
+>>>>>>> 28265059a966ae105c077b45a6673e954eaa76a6
 
-Now includes the **`progress()`** function.
-![progress()](img/ansi.sh::progress.png)
+Now includes the (better) **`progress()`** function.
+![progress()](img/ansi.progress.png)
 
 Plus some helper functions (beneath the regular style and color functions).
 

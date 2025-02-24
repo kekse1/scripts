@@ -14,6 +14,10 @@
 # out of their `sha224sum`, with original extensions.
 #
 
+# 
+# TODO # please tell the user which original files were duplicates, too..
+# 
+
 #
 syntax()
 {
