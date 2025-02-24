@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.0.2
+# v1.0.4
 #
 
 #
@@ -9,6 +9,9 @@ export LINE='='
 
 DONE=( 230 200 60 )
 TODO=( 30 70 130 )
+
+ob="("
+cb=")"
 
 #
 repeat()
@@ -39,13 +42,16 @@ progress()
 	fi
 	
 	if [[ -z "$width" ]]; then
-		width="`width`"
+		width=`width`
 	elif [[ "${width: -1}" == "%" ]]; then
-		width="$((`width`*${width::-1}/100))"
-	elif [[ $width -lt 1 || $width -gt `width` ]]; then
-		width="`width`"
+		width=$((`width`*${width::-1}/100))
+	elif [[ $width -eq 0 ]]; then
+		width=`width`
+	elif [[ $width -lt 0 ]]; then
+		width=$((`width`+${width}))
 	fi
 
+	[[ $width -lt 10 || $width -gt `width` ]] && width=`width`
 	[[ $space -gt 0 ]] && width=$((${width}-${space}*2))
 
 	if [[ $current -lt 0 ]]; then
@@ -69,8 +75,8 @@ progress()
 	done="`repeat $done $(bg ${DONE[@]} ' ')`"
 	todo="`repeat $todo $(bg ${TODO[@]} ' ')`"
 
-	done="`fg ${DONE[@]}``faint '['`${done}"
-	todo="${todo}`fg ${DONE[@]}``faint ']'`"
+	done="`fg ${DONE[@]}``faint "$ob"`${done}"
+	todo="${todo}`fg ${DONE[@]}``faint "$cb"`"
 
 	if [[ -n "$text" ]]; then
 		text="`bold``info`${text}`error`%`none`"
