@@ -48,6 +48,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 
 ## News
 * \[**2025-02-28**\] Created the [`download-wiki-dumps`.sh](#download-wiki-dumpssh), v**0.1.1**;
+* \[**2025-02-28**\] Updated the [`make-nodejs`.sh](#make-nodejssh) to v**0.3.11**;
 * \[**2025-02-24**\] Updated the [`ansi`.sh](#ansish) to v**1.0.4**;
 * \[**2025-01-16**\] Update in [`math`.sh](#mathsh), to v**0.2.5**;
 * \[**2025-01-06**\] Updated [`baseutils`.sh](#baseutilssh), v**0.4.0**;
@@ -58,7 +59,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 * \[**2024-09-09**\] Updated [`lines`.sh](#linessh): v**0.4.1**
 * \[**2024-09-09**\] New [`cursor`.sh](#cursorsh), v**0.0.1**
 * \[**2024-08-18**\] New [`hfget`.sh](#hfgetsh), v**0.2.0**
-* \[**2024-08-09**\] [`make-nodejs`.sh](#make-nodejssh) to v**0.3.9**
 * \[**2024-07-29**\] [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh) v**0.1.1**
 * \[**2024-07-29**\] [`hfdownloader`.sh](#hfdownloadersh) v**0.3.1**
 * \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to v**0.2.7**
@@ -159,7 +159,7 @@ be files with names out of their `sha224sum`, with original extensions.
 <img id="make-nodejssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60make-nodejs.sh%60" />
 </a>
 
-* [Version v**0.3.10**](sh/make-nodejs.sh) (updated **2024-10-06**)
+* [Version v**0.3.11**](sh/make-nodejs.sh) (updated **2025-02-28**)
 
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
@@ -168,7 +168,11 @@ the only thing left to do, _just once_, is to merge the fs structure under the s
 the `/usr/` hierarchy.
 
 > [!NOTE]
-> Just call it via `make-nodejs.sh 22.9.0` (or `make-nodejs.sh v22.9.0`), e.g.!
+> Just call it via `make-nodejs.sh 23.9.0` (or `make-nodejs.sh v23.9.0`), e.g.!
+
+> [!NOTE]
+> In v**0.3.11** I changed the `$tmdir` variable to be below the `/opt/nodejs/` (target) directory,
+> due to my `noexec` option in my `/etc/fstab` for my `/tmp/` (ram disk) directory/mount.
 
 
 <a href="sh/unexify.sh">

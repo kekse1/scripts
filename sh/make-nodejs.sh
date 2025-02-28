@@ -2,7 +2,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.3.10
+# v0.3.11
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -18,6 +18,11 @@
 # which should be the target of all your links in
 # the '/usr' hierarchy! ;-)
 #
+# New since v0.3.11: the $tmpdir is now also below
+# the '/opt/node.js/' directory. The problem was:
+# I configured my '/etc/fstab' w/ the 'noexec'
+# option for my '/tmp/' (on ram disk).. ;-)
+#
 
 #for termux:
 #DEPENDS="binutils libc++ openssl c-ares libicu zlib libuv clang make pkg-config python"
@@ -31,9 +36,10 @@ os="android"
 #
 target="$4"
 
-tmpdir="/tmp/node.js/"
+#tmpdir="/tmp/node.js/"
 [[ -z "$target" ]] && target="/opt/node.js/"
 originalTarget="$target"
+tmpdir="${target}/tmp/"
 
 #
 url="https://nodejs.org/dist/"
