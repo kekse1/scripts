@@ -51,7 +51,7 @@ progress()
 		width=$((`width`+${width}))
 	fi
 
-	[[ $width -lt 10 || $width -gt `width` ]] && width=`width`
+	[[ $width -lt 12 || $width -gt `width` ]] && width=`width`
 	[[ $space -gt 0 ]] && width=$((${width}-${space}*2))
 
 	if [[ $current -lt 0 ]]; then
