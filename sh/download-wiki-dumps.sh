@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.1
+# v0.1.2
 #
 # Downloads the *latest* wiki dumps. See the '$url' vector.
 # After downloading, they'll be `bunzip2`d. Implemented
@@ -147,18 +147,26 @@ for (( i=0; i<${#url[@]}; ++i )); do
 	fi
 
 	if [[ $SIMULATE -eq 0 ]]; then
-		$BUNZIP2 "$_base" "$_bunzip"
+		$BUNZIP2 <"$_base" >"$_bunzip"
 	else
 		true
 	fi
 
 	if [[ $? -eq 0 ]]; then
 		echo -e "\nSuccessfully downloaded and extracted the '$_base'!\n"
+		rm "$_base"
+
+		if [[ $? -ne 0 ]]; then
+			echo "[ERROR] Unable to remove download '$_base'!?" >&2
+			echo "Aborting..." >&2
+			exit 6
+		fi
+
 		url[$i]="$_bunzip"
 	else
 		echo -e "\n[ERROR] Unable to \`bunzip2\` the '$_base' (but successfully downloaded it)." >&2
 		echo "Aborting..."
-		exit 6
+		exit 7
 	fi
 done
 
