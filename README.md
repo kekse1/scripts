@@ -25,6 +25,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 	* [`count-all-lines`.sh](#count-all-linessh)
 	* [`copy`.sh](#copysh)
 	* [`create-random-files`.sh](#create-random-filessh)
+	* [`download-wiki-dumps`.sh](#download-wiki-dumpssh)
 	* [`replace`.sh](#replacesh)
 	* [`toilets`.sh](#toiletssh)
 	* [`math`.sh](#mathsh)
@@ -46,6 +47,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2025-02-28**\] Created the [`download-wiki-dumps`.sh](#download-wiki-dumpssh), v**0.1.1**;
 * \[**2025-02-24**\] Updated the [`ansi`.sh](#ansish) to v**1.0.4**;
 * \[**2025-01-16**\] Update in [`math`.sh](#mathsh), to v**0.2.5**;
 * \[**2025-01-06**\] Updated [`baseutils`.sh](#baseutilssh), v**0.4.0**;
@@ -283,6 +285,28 @@ So I created this very tiny tool.
 > [!TIP]
 > Feel free to extract the **`randomChars()`** and **`random()`** functions
 > out of the file and put it into one of your `/etc/profile.d/*.sh`.
+
+
+<a href="sh/download-wiki-dumps.sh">
+<img id="download-wiki-dumpssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60download-wiki-dumps.sh%60" />
+</a>
+
+Downloads the *latest* wiki dumps. See the '$url' vector.
+After downloading, they'll get `bunzip2`d. Implemented
+with some checks to be absolutely sure, and also creates
+backups, etc. .. jfyi.
+
+* [Version v**0.1.1**](sh/download-wiki-dumps.sh) (created **2025-02-28**);
+
+You may configure the `$url` vector/array on top of the file. It'll hold all the url's
+to the **latest** dumps at [**dumps**.wikimedia.org](https://dumps.wikimedia.org/). But
+expects the original `.bz2` files (so the script can also extract them).
+
+The `$SIMULATE` variable is my regular way for debugging such scripts during creation,
+etc.  .. you don't really need to change it.
+
+> [!NOTE]
+> Depends on the `wget` and the `bunzip2` utility (but this will also be checked).
 
 
 <a href="sh/replace.sh">
