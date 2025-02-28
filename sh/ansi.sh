@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.0.4
+# v1.0.5
 #
 
 #
@@ -51,7 +51,7 @@ progress()
 		width=$((`width`+${width}))
 	fi
 
-	[[ $width -lt 12 || $width -gt `width` ]] && width=`width`
+	[[ $width -lt 10 || $width -gt `width` ]] && width=`width`
 	[[ $space -gt 0 ]] && width=$((${width}-${space}*2))
 
 	if [[ $current -lt 0 ]]; then
@@ -282,7 +282,7 @@ SOURCE()
 
 ERROR()
 {
-	echo -en "`faint`[`none``error``inverse`ERROR`none``faint`]`none`" >&2
+	echo -en "  `faint`[`none``error``inverse`ERROR`none``faint`]`none`" >&2
 	[[ -n "$*" ]] && echo -e " `error`${*}`none`" >&2
 }
 
@@ -294,15 +294,18 @@ WARN()
 
 DEBUG()
 {
-	echo -en "`faint`[`none``debug``inverse`JFYI`none``faint`]`none`" >&2
+	echo -en "   `faint`[`none``debug``inverse`JFYI`none``faint`]`none`" >&2
 	[[ -n "$*" ]] && echo -e " `debug`${*}`none`" >&2
 }
 
 INFO()
 {
-	echo -en "`faint`[`none``info``inverse`INFO`none``faint`]`none`"
+	echo -en "   `faint`[`none``info``inverse`INFO`none``faint`]`none`"
 	[[ -n "$*" ]] && echo -e " `info`${*}`none`"
 }
+
+#
+Norbert="`debug``italic`Norbert`none`"
 
 #
 
