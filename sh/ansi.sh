@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.0.5
+# v1.0.6
 #
 
 #
@@ -28,7 +28,7 @@ repeat()
 progress()
 {
 	current="$1"
-	total="$2"
+	total="$2"; [[ -z "$total" ]] && total=100
 	width="$3"
 	prec="$4"
 	space="$5"; [[ -z "$space" ]] && space=0

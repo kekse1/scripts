@@ -49,7 +49,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 ## News
 * \[**2025-02-28**\] Created the [`download-wiki-dumps`.sh](#download-wiki-dumpssh), v**0.1.2**;
 * \[**2025-02-28**\] Updated the [`make-nodejs`.sh](#make-nodejssh) to v**0.3.11**;
-* \[**2025-02-28**\] Updated the [`ansi`.sh](#ansish) to v**1.0.5**;
+* \[**2025-02-28**\] Updated the [`ansi`.sh](#ansish) to v**1.0.6**;
 * \[**2025-01-16**\] Update in [`math`.sh](#mathsh), to v**0.2.5**;
 * \[**2025-01-06**\] Updated [`baseutils`.sh](#baseutilssh), v**0.4.0**;
 * \[**2024-12-24**\] Updated [`fresh`.sh](#freshsh), v**0.4.5**;
@@ -221,7 +221,7 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 
 It's recommended to copy this file to the `/etc/profile.d/` directory.
 
-* [Version v**1.0.5**](sh/ansi.sh) (updated **2025-02-28**)
+* [Version v**1.0.6**](sh/ansi.sh) (updated **2025-02-28**)
 
 Now includes the (better) **`progress()`** function.
 ![progress()](img/ansi.progress.png)
