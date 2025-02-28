@@ -6,7 +6,7 @@
 # v0.1.1
 #
 # Downloads the *latest* wiki dumps. See the '$url' vector.
-# After downloading, they'll get `bunzip2`d. Implemented
+# After downloading, they'll be `bunzip2`d. Implemented
 # with some checks to be absolutely sure, and also creates
 # backups, etc. .. jfyi.
 #
