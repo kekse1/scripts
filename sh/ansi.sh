@@ -1,9 +1,8 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.0.6
+# v1.0.7
 #
-
 #
 export LINE='='
 
@@ -28,7 +27,7 @@ repeat()
 progress()
 {
 	current="$1"
-	total="$2"; [[ -z "$total" ]] && total=100
+	total="$2"; [[ -z "$total" || $total -le 0 ]] && total=100
 	width="$3"
 	prec="$4"
 	space="$5"; [[ -z "$space" ]] && space=0
@@ -51,7 +50,8 @@ progress()
 		width=$((`width`+${width}))
 	fi
 
-	[[ $width -lt 10 || $width -gt `width` ]] && width=`width`
+	[[ $width -le 0 ]] && width=${width:1}
+	width=$(mod $width $((`width`+1)))
 	[[ $space -gt 0 ]] && width=$((${width}-${space}*2))
 
 	if [[ $current -lt 0 ]]; then
@@ -100,27 +100,27 @@ int()
 
 add()
 {
-	echo "$(awk "BEGIN {print ${1}+${2}}")"
+	echo "$(awk "BEGIN {print (${1})+(${2})}")"
 }
 
 sub()
 {
-	echo "$(awk "BEGIN {print ${1}-${2}}")"
+	echo "$(awk "BEGIN {print (${1})-(${2})}")"
 }
 
 mul()
 {
-	echo "$(awk "BEGIN {print ${1}*${2}}")"
+	echo "$(awk "BEGIN {print (${1})*(${2})}")"
 }
 
 div()
 {
-	echo "$(awk "BEGIN {print ${1}/${2}}")"
+	echo "$(awk "BEGIN {print (${1})/(${2})}")"
 }
 
 mod()
 {
-	echo "$(awk "BEGIN {print ${1}%${2}}")"
+	echo "$(awk "BEGIN {print (${1})%(${2})}")"
 }
 
 #
@@ -303,6 +303,9 @@ INFO()
 	echo -en "   `faint`[`none``info``inverse`INFO`none``faint`]`none`"
 	[[ -n "$*" ]] && echo -e " `info`${*}`none`"
 }
+
+#
+Norbert="`debug``italic`Norbert`none`"
 
 #
 
