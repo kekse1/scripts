@@ -1,10 +1,12 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.1.1
+# v1.2.0
 #
 
 # for the `line()`:
+#export LINE=",.-'\`'-.,"
+#export LINE_COLOR="auto"
 [[ -z "$LINE" ]] && export LINE=",.-'\`'-.,"
 [[ -z "$LINE_COLOR" ]] && export LINE_COLOR="auto"
 
@@ -128,15 +130,30 @@ mod()
 #
 line()
 {
+	_line="$1"; [[ -z "$_line" ]] && _line="$LINE"
+	_string="$2"
+	_start="$3"; [[ -z "$_start" ]] && _start=8
+	_space="$4"; [[ -z "$_space" ]] && _space="   "
+	_string="${_space}${_string}${_space}"
 	w=`width`; if [[ $w -eq 0 ]]; then echo; return; fi
-	IFS=$'\n'; line="$*"; [[ -z "$line" ]] && line="$LINE"; [[ -z "$line" ]] && line="="
 	lineColor="$LINE_COLOR"; [[ -n "$lineColor" && "$lineColor" != "auto" ]] && IFS=' ' lineColor=( $lineColor )
 	[[ $lineColor != "auto" ]] && fg "${lineColor[@]}"
 	for (( i=0; i<$w; ++i )); do
-		mod=$((${i}%${#line}));
-		[[ $lineColor == "auto" ]] && fg $(($RANDOM%256)) $(($RANDOM%256)) $(($RANDOM%256))
-		echo -n "${line:${mod}:1}"
-	done; none; echo
+		if [[ -n "$_string" && $i -ge $_start ]]; then
+			char="${_string::1}"
+			_string="${_string:1}"
+			none
+		else
+			mod=$((${i}%${#_line}));
+			if [[ $lineColor == "auto" ]]; then
+				fg $(($RANDOM%256)) $(($RANDOM%256)) $(($RANDOM%256))
+			else
+				fg ${LINE_COLOR[@]}
+			fi
+			char="${_line:${mod}:1}"
+		fi
+		echo -n "$char"
+	done; echo -e "`none`"
 }
 
 width()
