@@ -65,7 +65,6 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 * \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, v**0.2.3**;
 * \[**2024-06-14**\] Created it's own GitHub repository for the [`prompt`.sh](#promptsh)
 
-> [!TIP]
 > [!IMPORTANT]
 > **Announcement**: ich habe gerade fest gestellt, dass ein paar meiner `for`-Schleifen
 > in den BASH-Shell-Scripts durch Nutzung der `i`-Variable eine solche ueberschreiben,
