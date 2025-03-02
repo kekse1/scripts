@@ -1,16 +1,21 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.0.7
+# v1.1.0
 #
-#
-export LINE='='
 
+# for the `line()`:
+[[ -z "$LINE" ]] && export LINE='='
+if [[ -z "$LINE_COLOR" ]]; then
+	export LINE_COLOR="auto"
+elif [[ "$LINE_COLOR" != "auto" ]]; then
+	LINE_COLOR=( $LINE_COLOR )
+fi
+
+# for the `progress()`:
 DONE=( 230 200 60 )
 TODO=( 30 70 130 )
-
-ob="("
-cb=")"
+ob="("; cb=")"
 
 #
 repeat()
@@ -128,10 +133,12 @@ line()
 {
 	w=`width`; if [[ $w -eq 0 ]]; then echo; return; fi
 	IFS=$'\n'; line="$*"; [[ -z "$line" ]] && line="$LINE"; [[ -z "$line" ]] && line="="
+	[[ -n $LINE_COLOR && $LINE_COLOR != "auto" ]] && fg "${LINE_COLOR[@]}"
 	for (( i=0; i<$w; ++i )); do
 		mod=$((${i}%${#line}));
+		[[ $LINE_COLOR == "auto" ]] && fg $(($RANDOM%256)) $(($RANDOM%256)) $(($RANDOM%256))
 		echo -n "${line:${mod}:1}"
-	done; echo
+	done; none; echo
 }
 
 width()
@@ -303,6 +310,9 @@ INFO()
 	echo -en "   `faint`[`none``info``inverse`INFO`none``faint`]`none`"
 	[[ -n "$*" ]] && echo -e " `info`${*}`none`"
 }
+
+#
+Norbert="`debug``italic`Norbert`none`"
 
 #
 
