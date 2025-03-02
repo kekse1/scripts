@@ -47,7 +47,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2025-03-02**\] Updated the [`ansi`.sh](#ansish) to v**1.1.0**;
+* \[**2025-03-02**\] Updated the [`ansi`.sh](#ansish) to v**1.1.1**;
 * \[**2025-02-28**\] Created the [`download-wiki-dumps`.sh](#download-wiki-dumpssh), v**0.1.2**;
 * \[**2025-02-28**\] Updated the [`make-nodejs`.sh](#make-nodejssh) to v**0.3.11**;
 * \[**2025-01-16**\] Update in [`math`.sh](#mathsh), to v**0.2.5**;
@@ -221,7 +221,7 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 
 It's recommended to copy this file to the `/etc/profile.d/` directory.
 
-* [Version v**1.1.0**](sh/ansi.sh) (updated **2025-03-02**)
+* [Version v**1.1.1**](sh/ansi.sh) (updated **2025-03-02**)
 
 Now also includes the **`progress()`** function:
 ![progress()](img/ansi.progress.png)
@@ -231,7 +231,7 @@ Plus some helper functions (beneath the regular style and color functions).
 > [!NOTE]
 > Since v**1.1.0** it enhances the `line()` function by colors. These can reside
 > in the `$LINE_COLOR` environment variable: either **three** bytes or the keyword
-> `auto` (which is default if nothing is defined here).
+> `auto` (which is my default if nothing is defined here).
 
 > [!TIP]
 > I know it since some months or so, but again I saw here the nifty thing that

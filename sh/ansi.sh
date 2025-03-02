@@ -1,21 +1,18 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.1.0
+# v1.1.1
 #
 
 # for the `line()`:
-[[ -z "$LINE" ]] && export LINE='='
-if [[ -z "$LINE_COLOR" ]]; then
-	export LINE_COLOR="auto"
-elif [[ "$LINE_COLOR" != "auto" ]]; then
-	LINE_COLOR=( $LINE_COLOR )
-fi
+[[ -z "$LINE" ]] && export LINE=",.-'\`'-.,"
+[[ -z "$LINE_COLOR" ]] && export LINE_COLOR="auto"
 
 # for the `progress()`:
-DONE=( 230 200 60 )
-TODO=( 30 70 130 )
-ob="("; cb=")"
+PROGRESS_DONE=( 230 200 60 )
+PROGRESS_TODO=( 30 70 130 )
+PROGRESS_OB="("
+PROGRESS_CB=")"
 
 #
 repeat()
@@ -77,11 +74,11 @@ progress()
 	width=$((${width}-${#text}-4))
 	done="$(int `mul $factor $width`)"
 	todo="$(int `sub $width $done`)"
-	done="`repeat $done $(bg ${DONE[@]} ' ')`"
-	todo="`repeat $todo $(bg ${TODO[@]} ' ')`"
+	done="`repeat $done $(bg ${PROGRESS_DONE[@]} ' ')`"
+	todo="`repeat $todo $(bg ${PROGRESS_TODO[@]} ' ')`"
 
-	done="`fg ${DONE[@]}``faint "$ob"`${done}"
-	todo="${todo}`fg ${DONE[@]}``faint "$cb"`"
+	done="`fg "${PROGRESS_DONE[@]}"``bold "${PROGRESS_OB}"`${done}"
+	todo="`fg "${PROGRESS_TODO[@]}"`${todo}`fg "${PROGRESS_DONE[@]}"``bold "${PROGRESS_CB}"`"
 
 	if [[ -n "$text" ]]; then
 		text="`bold``info`${text}`error`%`none`"
@@ -133,10 +130,11 @@ line()
 {
 	w=`width`; if [[ $w -eq 0 ]]; then echo; return; fi
 	IFS=$'\n'; line="$*"; [[ -z "$line" ]] && line="$LINE"; [[ -z "$line" ]] && line="="
-	[[ -n $LINE_COLOR && $LINE_COLOR != "auto" ]] && fg "${LINE_COLOR[@]}"
+	lineColor="$LINE_COLOR"; [[ -n "$lineColor" && "$lineColor" != "auto" ]] && IFS=' ' lineColor=( $lineColor )
+	[[ $lineColor != "auto" ]] && fg "${lineColor[@]}"
 	for (( i=0; i<$w; ++i )); do
 		mod=$((${i}%${#line}));
-		[[ $LINE_COLOR == "auto" ]] && fg $(($RANDOM%256)) $(($RANDOM%256)) $(($RANDOM%256))
+		[[ $lineColor == "auto" ]] && fg $(($RANDOM%256)) $(($RANDOM%256)) $(($RANDOM%256))
 		echo -n "${line:${mod}:1}"
 	done; none; echo
 }
@@ -310,9 +308,6 @@ INFO()
 	echo -en "   `faint`[`none``info``inverse`INFO`none``faint`]`none`"
 	[[ -n "$*" ]] && echo -e " `info`${*}`none`"
 }
-
-#
-Norbert="`debug``italic`Norbert`none`"
 
 #
 
