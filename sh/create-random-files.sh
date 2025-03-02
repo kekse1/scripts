@@ -120,7 +120,7 @@ fi
 
 #
 _max_name=0; _max_size=0; size=$SIZE; len=$LEN; list=(); sizes=();
-local i; for (( i = 0; i < $COUNT; ++i )); do
+for (( i = 0; i < $COUNT; ++i )); do
 	[[ $_random_size -ne 0 ]] && size=`random $SIZE`
 	[[ $_random_len -ne 0 ]] && len=`random $LEN 1`
 	name="`randomChars ${len}`${EXT}"
@@ -146,7 +146,7 @@ local i; for (( i = 0; i < $COUNT; ++i )); do
 	fi
 done
 
-local i; for (( i = 0; i < ${#list[@]}; ++i )); do
+for (( i = 0; i < ${#list[@]}; ++i )); do
 	if [[ $_random_size -eq 0 ]]; then
 		echo "${list[$i]}"
 	else

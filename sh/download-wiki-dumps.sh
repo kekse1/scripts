@@ -129,7 +129,7 @@ else
 fi
 
 #
-local i; for (( i=0; i<${#url[@]}; ++i )); do
+for (( i=0; i<${#url[@]}; ++i )); do
 	_url="${url[$i]}"
 	_base="$(basename "$_url")"
 	_bunzip="${_base:: -4}"
