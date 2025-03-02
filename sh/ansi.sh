@@ -5,10 +5,10 @@
 #
 
 # for the `line()`:
-#export LINE=",.-'\`'-.,"
-#export LINE_COLOR="auto"
-[[ -z "$LINE" ]] && export LINE=",.-'\`'-.,"
-[[ -z "$LINE_COLOR" ]] && export LINE_COLOR="auto"
+export LINE=",.-'\`'-.,"
+export LINE_COLOR="auto"
+#[[ -z "$LINE" ]] && export LINE=",.-'\`'-.,"
+#[[ -z "$LINE_COLOR" ]] && export LINE_COLOR="auto"
 
 # for the `progress()`:
 PROGRESS_DONE=( 230 200 60 )
@@ -22,7 +22,7 @@ repeat()
 	count=$1; shift
 	result=''
 	[[ $count -le 0 ]] && return
-	for (( i=0; i<$count; ++i )); do
+	for (( _i=0; i<$count; ++i )); do
 		result="${result}${*}"
 	done
 	echo "$result"
@@ -138,13 +138,13 @@ line()
 	w=`width`; if [[ $w -eq 0 ]]; then echo; return; fi
 	lineColor="$LINE_COLOR"; [[ -n "$lineColor" && "$lineColor" != "auto" ]] && IFS=' ' lineColor=( $lineColor )
 	[[ $lineColor != "auto" ]] && fg "${lineColor[@]}"
-	for (( i=0; i<$w; ++i )); do
-		if [[ -n "$_string" && $i -ge $_start ]]; then
+	for (( _i=0; _i<$w; ++_i )); do
+		if [[ -n "$_string" && $_i -ge $_start ]]; then
 			char="${_string::1}"
 			_string="${_string:1}"
 			none
 		else
-			mod=$((${i}%${#_line}));
+			mod=$(($_i%${#_line}));
 			if [[ $lineColor == "auto" ]]; then
 				fg $(($RANDOM%256)) $(($RANDOM%256)) $(($RANDOM%256))
 			else
