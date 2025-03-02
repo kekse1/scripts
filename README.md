@@ -231,7 +231,7 @@ It's recommended to copy this file to the `/etc/profile.d/` directory.
 * [Version v**1.2.1**](sh/ansi.sh) (updated **2025-03-02**)
 
 Now also includes the **`progress()`** function:
-![progress()](img/ansi::progress.png)
+![progress()](img/ansi-progress.png)
 
 Plus some helper functions (beneath the regular style and color functions).
 
@@ -240,7 +240,7 @@ Plus some helper functions (beneath the regular style and color functions).
 > in the `$LINE_COLOR` environment variable: either **three** bytes or the keyword
 > `auto` (which is my default if nothing is defined here). See example screenshot (below)!
 
-![Example line()](img/ansi::line.png)
+![Example line()](img/ansi-line.png)
 
 > [!TIP]
 > I know it since some months or so, but again I saw here the nifty thing that

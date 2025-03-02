@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.2.1
+# v1.2.2
 #
 
 # for the `line()`:
@@ -130,13 +130,14 @@ mod()
 #
 line()
 {
-	_line="$1"; [[ -z "$_line" ]] && _line="$LINE"
+	_line="$1"; [[ -z "$_line" ]] && _line="$LINE"; [[ -z "$_line" ]] && _line=",.-'\`'-.,"
 	_string="$2"
 	_start="$3"; [[ -z "$_start" ]] && _start=8
 	_space="$4"; [[ -z "$_space" ]] && _space="   "
 	_string="${_space}${_string}${_space}"
 	w=`width`; if [[ $w -eq 0 ]]; then echo; return; fi
-	lineColor="$LINE_COLOR"; [[ -n "$lineColor" && "$lineColor" != "auto" ]] && IFS=' ' lineColor=( $lineColor )
+	lineColor="$LINE_COLOR"; [[ -z "$lineColor" ]] && lineColor="auto"
+       	[[ -n "$lineColor" && "$lineColor" != "auto" ]] && IFS=' ' lineColor=( $lineColor )
 	[[ $lineColor != "auto" ]] && fg "${lineColor[@]}"
 	local _i; for (( _i=0; _i<$w; ++_i )); do
 		if [[ -n "$_string" && $_i -ge $_start ]]; then
