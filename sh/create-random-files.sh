@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.5.1
+# v1.5.2
 #
 # My `norbert` needed some random input data, from a
 # directory I wanted to propagate with some temporary
@@ -120,7 +120,7 @@ fi
 
 #
 _max_name=0; _max_size=0; size=$SIZE; len=$LEN; list=(); sizes=();
-for (( i = 0; i < $COUNT; ++i )); do
+local i; for (( i = 0; i < $COUNT; ++i )); do
 	[[ $_random_size -ne 0 ]] && size=`random $SIZE`
 	[[ $_random_len -ne 0 ]] && len=`random $LEN 1`
 	name="`randomChars ${len}`${EXT}"
@@ -131,11 +131,11 @@ for (( i = 0; i < $COUNT; ++i )); do
 		echo "Unable to create the file '$name'! So we\'re aborting here, right now." >&2
 		if [[ "${#list[@]}" -gt 0 ]]; then
 			echo "Files created so far, btw.:"; echo
-			for (( i = 0; i < ${#list[@]}; ++i )); do
+			local j; for (( j = 0; j < ${#list[@]}; ++j )); do
 				if [[ $_random_size -eq 0 ]]; then
-					echo "${list[$i]}"
+					echo "${list[$j]}"
 				else
-					printf "%-${_max_name}s\t\e[1m%${_max_size}s\e[0m Bytes\n" "${list[$i]}" "${size[$i]}"
+					printf "%-${_max_name}s\t\e[1m%${_max_size}s\e[0m Bytes\n" "${list[$j]}" "${size[$j]}"
 				fi
 			done; echo
 		fi
@@ -146,7 +146,7 @@ for (( i = 0; i < $COUNT; ++i )); do
 	fi
 done
 
-for (( i = 0; i < ${#list[@]}; ++i )); do
+local i; for (( i = 0; i < ${#list[@]}; ++i )); do
 	if [[ $_random_size -eq 0 ]]; then
 		echo "${list[$i]}"
 	else

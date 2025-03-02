@@ -55,13 +55,13 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 > schon richten..
 
 * \[**2025-03-02**\] Updated the [`ansi`.sh](#ansish) to v**1.2.1**;
+* \[**2025-03-02**\] Updated [`create-random-files`.sh](#create-random-filessh) to v**1.5.2**
 * \[**2025-02-28**\] Created the [`download-wiki-dumps`.sh](#download-wiki-dumpssh), v**0.1.2**;
 * \[**2025-02-28**\] Updated the [`make-nodejs`.sh](#make-nodejssh) to v**0.3.11**;
 * \[**2025-01-16**\] Update in [`math`.sh](#mathsh), to v**0.2.5**;
 * \[**2025-01-06**\] Updated [`baseutils`.sh](#baseutilssh), v**0.4.0**;
 * \[**2024-12-24**\] Updated [`fresh`.sh](#freshsh), v**0.4.5**;
 * \[**2024-12-23**\] Created [`index`.sh](#indexsh), v**0.2.0**;
-* \[**2024-11-01**\] Updated [`create-random-files`.sh](#create-random-filessh) to v**1.5.1**
 * \[**2024-10-24**\] Updated the [`lsblk`.sh](#lsblksh) to v**0.2.3**;
 * \[**2024-09-09**\] Updated [`lines`.sh](#linessh): v**0.4.1**
 * \[**2024-09-09**\] New [`cursor`.sh](#cursorsh), v**0.0.1**
@@ -293,7 +293,7 @@ My [`Norbert`](https://github.com/kekse1/norbert/) needed some random input data
 from a directory I wanted to propagate with some temporary files (of an exactly
 defined file size).
 
-* [Version v**1.5.1**](sh/create-random-files.sh) (updated **2024-11-04**);
+* [Version v**1.5.2**](sh/create-random-files.sh) (updated **2025-03-02**);
 
 So I created this very tiny tool.
 
