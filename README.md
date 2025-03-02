@@ -1,11 +1,9 @@
 <img src="https://kekse.biz/github.php?draw&override=github:scripts" />
 
-# **Scripts**
-Every script is made by myself, arose out of necessity.. or because I found it interesting.
+Every Script is made by myself, arose out of necessity.. or because I found it interesting.
 
-> [!IMPORTANT]
-> * \[**2024-09-24**\] **Moved** all the **JavaScript**s from here
-> to their own [**`JavaScripts`**](https://github.com/kekse1/javascripts/) repository.
+> [!NOTE]
+> For the future I'm planning to sort all the scripts in here by their line counts. JFYI..
 
 ## Index
 1. [News](#news)
