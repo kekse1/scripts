@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.2
+# v0.1.3
 #
 # Downloads the *latest* wiki dumps. See the '$url' vector.
 # After downloading, they'll be `bunzip2`d. Implemented
@@ -129,7 +129,7 @@ else
 fi
 
 #
-for (( i=0; i<${#url[@]}; ++i )); do
+local i; for (( i=0; i<${#url[@]}; ++i )); do
 	_url="${url[$i]}"
 	_base="$(basename "$_url")"
 	_bunzip="${_base:: -4}"
