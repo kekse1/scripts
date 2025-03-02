@@ -47,7 +47,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2025-03-02**\] Updated the [`ansi`.sh](#ansish) to v**1.2.0**;
+* \[**2025-03-02**\] Updated the [`ansi`.sh](#ansish) to v**1.2.1**;
 * \[**2025-02-28**\] Created the [`download-wiki-dumps`.sh](#download-wiki-dumpssh), v**0.1.2**;
 * \[**2025-02-28**\] Updated the [`make-nodejs`.sh](#make-nodejssh) to v**0.3.11**;
 * \[**2025-01-16**\] Update in [`math`.sh](#mathsh), to v**0.2.5**;
@@ -64,6 +64,14 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 * \[**2024-06-25**\] Updated [`nightlounge`.sh](#nightloungesh) to v**0.2.7**
 * \[**2024-06-19**\] Created my [`insert-header`.sh](#insert-headersh) shell script, v**0.2.3**;
 * \[**2024-06-14**\] Created it's own GitHub repository for the [`prompt`.sh](#promptsh)
+
+> [!TIP]
+> [!IMPORTANT]
+> **Announcement**: ich habe gerade fest gestellt, dass ein paar meiner `for`-Schleifen
+> in den BASH-Shell-Scripts durch Nutzung der `i`-Variable eine solche ueberschreiben,
+> falls eine hoehere, aufrufende Funktion diese ebenso verwendet! Das heiszt, **ich muss
+> noch viele Shell-Scripts hier updaten**! Die Aenderung ist minimal: **`local i`** wird's
+> schon richten..
 
 ## [Bash](sh/)
 
@@ -221,7 +229,7 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 
 It's recommended to copy this file to the `/etc/profile.d/` directory.
 
-* [Version v**1.2.0**](sh/ansi.sh) (updated **2025-03-02**)
+* [Version v**1.2.1**](sh/ansi.sh) (updated **2025-03-02**)
 
 Now also includes the **`progress()`** function:
 ![progress()](img/ansi::progress.png)
