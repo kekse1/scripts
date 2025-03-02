@@ -52,7 +52,7 @@ Every script is made by myself, arose out of necessity.. or because I found it i
 > in den BASH-Shell-Scripts durch Nutzung der `i`-Variable eine solche ueberschreiben,
 > falls eine hoehere, aufrufende Funktion diese ebenso verwendet! Das heiszt, **ich muss
 > noch viele Shell-Scripts hier updaten**! Die Aenderung ist minimal: **`local i`** wird's
-> schon richten..
+> schon richten.. **HINT: nur innerhalb von Funktionen!**
 
 * \[**2025-03-02**\] Updated the [`ansi`.sh](#ansish) to v**1.2.2**;
 * \[**2025-03-02**\] Updated [`create-random-files`.sh](#create-random-filessh) to v**1.5.2**
