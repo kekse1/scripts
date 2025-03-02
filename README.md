@@ -3,7 +3,7 @@
 Every Script is made by myself, arose out of necessity.. or because I found it interesting.
 
 > [!NOTE]
-> For the future I'm planning to sort all the scripts in here by their line counts. JFYI..
+> For the future I'm planning to sort all the scripts in here by their line counts. **JFYI**..
 
 ## Index
 1. [News](#news)
