@@ -89,7 +89,7 @@ tries=0; while [[ -e "$backup_directory" ]]; do
 done; mkdir "$backup_directory"
 
 for i in "${url[@]}"; do
-	echo "  >> $i"
+	echo "  >> $(basename "$i")"
 	if [[ "${i: -4}" != ".bz2" ]]; then
 		echo "[WARN] Maybe invalid wiki-dump URL? It's extension is not '.bz2'! Aborting.." >&2
 		exit 4
