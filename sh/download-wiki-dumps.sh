@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.3
+# v0.1.4
 #
 # Downloads the *latest* wiki dumps. See the '$url' vector.
 # After downloading, they'll be `bunzip2`d. Implemented
@@ -31,11 +31,17 @@
 
 #
 url=(
+	"https://dumps.wikimedia.org/wikidatawiki/latest/wikidatawiki-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/dewiki/latest/dewiki-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/dewikibooks/latest/dewikibooks-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/dewikisource/latest/dewikisource-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/dewiktionary/latest/dewiktionary-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/dewikiquote/latest/dewikiquote-latest-pages-articles-multistream.xml.bz2"
+	"https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles-multistream.xml.bz2"
+	"https://dumps.wikimedia.org/enwikibooks/latest/enwikibooks-latest-pages-articles-multistream.xml.bz2"
+	"https://dumps.wikimedia.org/enwikisource/latest/enwikisource-latest-pages-articles-multistream.xml.bz2"
+	"https://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles-multistream.xml.bz2"
+	"https://dumps.wikimedia.org/enwikiquote/latest/enwikiquote-latest-pages-articles-multistream.xml.bz2"
 )
 
 SIMULATE=0

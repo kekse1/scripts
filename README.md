@@ -52,9 +52,9 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 > noch viele Shell-Scripts hier updaten**! Die Aenderung ist minimal: **`local i`** wird's
 > schon richten.. **HINT**: nur innerhalb von Funktionen!
 
+* \[**2025-03-03**\] Updated [`download-wiki-dumps`.sh](#downlad-wiki-dumpssh); v**0.1.4**;
 * \[**2025-03-02**\] Updated the [`ansi`.sh](#ansish) to v**1.2.2**;
 * \[**2025-03-02**\] Updated [`create-random-files`.sh](#create-random-filessh) to v**1.5.2**
-* \[**2025-03-02**\] Updated the [`download-wiki-dumps`.sh](#download-wiki-dumpssh), to v**0.1.3**;
 * \[**2025-02-28**\] Updated the [`make-nodejs`.sh](#make-nodejssh) to v**0.3.11**;
 * \[**2025-01-16**\] Update in [`math`.sh](#mathsh), to v**0.2.5**;
 * \[**2025-01-06**\] Updated [`baseutils`.sh](#baseutilssh), v**0.4.0**;
@@ -317,18 +317,18 @@ After downloading, they'll be `bunzip2`d. Implemented
 with some checks to be absolutely sure, and also creates
 backups, etc. .. jfyi.
 
-* [Version v**0.1.3**](sh/download-wiki-dumps.sh) (updated **2025-03-02**);
+* [Version v**0.1.4**](sh/download-wiki-dumps.sh) (updated **2025-03-03**);
 
 You may configure the `$url` vector/array on top of the file. It'll hold all the url's
 to the **latest** dumps at [**dumps**.wikimedia.org](https://dumps.wikimedia.org/). But
 expects the original `.bz2` files (so the script can also extract them).
 
-The `$SIMULATE` variable is my regular way for debugging such scripts during creation,
-etc.  .. you don't really need to change it.
-
 > [!NOTE]
 > Depends on the `wget` and the `bunzip2` utility (but this will also be checked).
 
+> [!TIP]
+> Before v**0.1.4** there were only german dumps, now I added the english ones, too.
+> Additionally there's now also the [**wikidatawiki**](https://dumps.wikimedia.org/wikidatawiki/).
 
 <a href="sh/replace.sh">
 <img id="replacesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60replace.sh%60" />
