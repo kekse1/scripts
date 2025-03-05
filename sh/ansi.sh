@@ -5,11 +5,11 @@
 #
 
 # for the `line()`:
-#[[ -z "$LINE" ]] && export LINE=",.-'\`'-.,"
-#[[ -z "$LINE_COLOR" ]] && export LINE_COLOR="auto"
-export LINE=",.-'\`'-.,"
+[[ -z "$LINE" ]] && export LINE=",.-'\`'-.,"
+[[ -z "$LINE_COLOR" ]] && export LINE_COLOR="auto"
+#export LINE=",.-'\`'-.,"
 #export LINE_COLOR="auto"
-export LINE_COLOR="255 255 0"
+#export LINE_COLOR="255 255 0"
 
 # for the `progress()`:
 PROGRESS_DONE=( 230 200 60 )
