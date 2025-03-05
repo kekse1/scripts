@@ -514,8 +514,8 @@ the `--pairs` output into key/value etc., I wanted to leave myself a
 hint for future shell scripts.. and for you! Note, that I marked out
 for you where to use `case`, if you'd like to manage the key/value pairs.
 
-> [!NOTE]
-> For a bit more infos about this, see the top of [the script](sh/lsblk.sh)!
+> [!TIP]
+> There's [**another version**](sh/lsblk.2.sh) available as well.. **jfyi**.
 
 
 <a href="sh/cursor.sh">
