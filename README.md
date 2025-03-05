@@ -52,6 +52,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 > noch viele Shell-Scripts hier updaten**! Die Aenderung ist minimal: **`local i`** wird's
 > schon richten.. **HINT**: nur innerhalb von Funktionen!
 
+* \[**2025-03-05**\] Updated [`init-sub-proj`.sh](#init-sub-projsh) to v**0.4.0**;
 * \[**2025-03-05**\] Updated [`create-random-files`.sh](#create-random-filessh) to v**1.6.0**
 * \[**2025-03-05**\] Updated the [`ansi`.sh](#ansish) to v**1.3.0**;
 * \[**2025-03-03**\] Updated [`download-wiki-dumps`.sh](#download-wiki-dumpssh); v**0.1.4**;
@@ -226,7 +227,7 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 
 It's recommended to copy this file to the `/etc/profile.d/` directory.
 
-* [Version v**1.2.3**](sh/ansi.sh) (updated **2025-03-03**)
+* [Version v**1.3.0**](sh/ansi.sh) (updated **2025-03-05**)
 
 Now also includes the **`progress()`** function:
 ![progress()](img/ansi-progress.png)
@@ -291,7 +292,7 @@ My [`Norbert`](https://github.com/kekse1/norbert/) needed some random input data
 from a directory I wanted to propagate with some temporary files (of an exactly
 defined file size).
 
-* [Version v**1.5.2**](sh/create-random-files.sh) (updated **2025-03-02**);
+* [Version v**1.6.0**](sh/create-random-files.sh) (updated **2025-03-05**);
 
 So I created this very tiny tool.
 
@@ -550,7 +551,7 @@ The real function `cursor()` is only **seven lines** long.
 <img id="init-sub-projsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60init-sub-proj.sh%60" />
 </a>
 
-* [Version v**0.3.1**](sh/init-sub-proj.sh) (updated **2024-05-23**)
+* [Version v**0.4.0**](sh/init-sub-proj.sh) (updated **2025-03-05**)
 
 I do initialize a sub part of my bigger project with
 the help of this script.

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-# https://kekse.biz/ https://github.com/kekse1/norbert/
-# v0.3.1
+# https://norbert.com.es/
+# v0.4.0
 #
 # I do initialize a sub part of my bigger project with
 # the help of this script.
@@ -96,9 +96,9 @@ fi
 #
 REAL="$(realpath "$0")"
 DIR="$(dirname "$REAL")"
-ALL="$(realpath "${DIR}/../")"
+PROJ="$(realpath "${DIR}/../")"
 
-if [[ "$ALL" == "$TARGET" ]]; then
+if [[ "$PROJ" == "$TARGET" ]]; then
 	echo "You can't copy the tree to itself!" >&2
 	exit 6
 fi
@@ -109,7 +109,7 @@ for i in "${COPY[@]}"; do
 	dn="$(dirname "$i")"
 	[[ "$dn" == "." ]] && dn=""
 	td="${TARGET}/$dn"
-	p="${ALL}/$i"
+	p="${PROJ}/$i"
 	e=1
 	d=0
 	l=0
@@ -146,9 +146,9 @@ done
 #
 _keep()
 {
-	_created=0
-	_existed=0
-	_erroneous=0
+	local _created=0
+	local _existed=0
+	local _erroneous=0
 
 	traverse()
 	{
@@ -171,7 +171,7 @@ _keep()
 			fi
 		fi
 
-		for i in *; do
+		local i; local p; for i in *; do
 			p="$1/$i"
 
 			if [[ -L "$p" ]]; then
@@ -182,7 +182,7 @@ _keep()
 		done
 	}
 
-	_orig="`pwd`"
+	local _orig="`pwd`"
 	traverse "$1"
 	cd "$_orig"
 	[[ $_erroneous -ne 0 ]] && return 1
