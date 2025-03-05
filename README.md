@@ -45,6 +45,11 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
+> [!INFO]
+> I had to update some [**bash** shell scripts](#bash) with the
+> `local` directive.. so all scripts should be fixed now. But I
+> didn't test 'em very well this time. JFYI..
+
 * \[**2025-03-05**\] Updated all [**bash** shell scripts](#bash) where `local` was necessary.. **^\_^**
 * \[**2025-03-05**\] Updated the [`ansi`.sh](#ansish) to v**1.3.1**;
 
