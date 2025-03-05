@@ -1,15 +1,15 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.2.3
+# v1.3.0
 #
 
 # for the `line()`:
-[[ -z "$LINE" ]] && export LINE=",.-'\`'-.,"
-[[ -z "$LINE_COLOR" ]] && export LINE_COLOR="auto"
-#export LINE=",.-'\`'-.,"
+#[[ -z "$LINE" ]] && export LINE=",.-'\`'-.,"
+#[[ -z "$LINE_COLOR" ]] && export LINE_COLOR="auto"
+export LINE=",.-'\`'-.,"
 #export LINE_COLOR="auto"
-#export LINE_COLOR="255 255 0"
+export LINE_COLOR="255 255 0"
 
 # for the `progress()`:
 PROGRESS_DONE=( 230 200 60 )
@@ -20,10 +20,10 @@ PROGRESS_CB=")"
 #
 repeat()
 {
-	count=$1; shift
-	result=''
+	local count=$1; shift
+	local result=''
 	[[ $count -le 0 ]] && return
-	local _i; for (( _i=0; _i<$count; ++_i )); do
+	local i; for (( i=0; i<$count; ++i )); do
 		result="${result}${*}"
 	done
 	echo "$result"
@@ -31,11 +31,11 @@ repeat()
 
 progress()
 {
-	current="$1"
-	total="$2"; [[ -z "$total" || $total -le 0 ]] && total=100
-	width="$3"
-	prec="$4"
-	space="$5"; [[ -z "$space" ]] && space=0
+	local current="$1"
+	local total="$2"; [[ -z "$total" || $total -le 0 ]] && total=100
+	local width="$3"
+	local prec="$4"
+	local space="$5"; [[ -z "$space" ]] && space=0
 
 	if [[ -z "$prec" ]]; then
 		prec=0
@@ -65,9 +65,9 @@ progress()
 		current=$total
 	fi
 
-	factor="`div $current $total`"
+	local factor="`div $current $total`"
 
-	text=""; if [[ $prec -ge 0 ]]; then
+	local text=""; local len; if [[ $prec -ge 0 ]]; then
 		len=$((${prec}+4))
 		text="$(mul $factor 100)"
 		text="$(int "$text" $prec)"
@@ -75,8 +75,8 @@ progress()
 	fi
 
 	width=$((${width}-${#text}-4))
-	done="$(int `mul $factor $width`)"
-	todo="$(int `sub $width $done`)"
+	local done="$(int `mul $factor $width`)"
+	local todo="$(int `sub $width $done`)"
 	done="`repeat $done $(bg ${PROGRESS_DONE[@]} ' ')`"
 	todo="`repeat $todo $(bg ${PROGRESS_TODO[@]} ' ')`"
 
@@ -98,48 +98,48 @@ progress()
 
 int()
 {
-	value="$1"
-	scale="$2"; [[ -z "$scale" ]] && scale=0
+	local value="$1"; local scale="$2"
+	[[ -z "$scale" ]] && scale=0
 	echo "scale=${scale}; (${value}/1)" | bc
 }
 
 add()
 {
-	echo "$(awk "BEGIN {print (${1})+(${2})}")"
+	echo "$(awk "BEGIN {print ($1)+($2)}")"
 }
 
 sub()
 {
-	echo "$(awk "BEGIN {print (${1})-(${2})}")"
+	echo "$(awk "BEGIN {print ($1)-($2)}")"
 }
 
 mul()
 {
-	echo "$(awk "BEGIN {print (${1})*(${2})}")"
+	echo "$(awk "BEGIN {print ($1)*($2)}")"
 }
 
 div()
 {
-	echo "$(awk "BEGIN {print (${1})/(${2})}")"
+	echo "$(awk "BEGIN {print ($1)/($2)}")"
 }
 
 mod()
 {
-	echo "$(awk "BEGIN {print (${1})%(${2})}")"
+	echo "$(awk "BEGIN {print ($1)%($2)}")"
 }
 
 #
 line()
 {
-	_line="$1"; [[ -z "$_line" ]] && _line="$LINE"; [[ -z "$_line" ]] && _line=",.-'\`'-.,"
-	_string="$2"
-	_start="$3"; [[ -z "$_start" ]] && _start=6
-	_space="$4"; [[ -z "$_space" ]] && _space=" "
+	local _line="$1"; [[ -z "$_line" ]] && _line="$LINE"; [[ -z "$_line" ]] && _line=",.-'\`'-.,"
+	local _string="$2"
+	local _start="$3"; [[ -z "$_start" ]] && _start=6
+	local _space="$4"; [[ -z "$_space" ]] && _space=" "
 	_string="${_space}${_string}${_space}"
-	w=`width`; if [[ $w -eq 0 ]]; then echo; return; fi
-	lineColor="$LINE_COLOR"; [[ -n "$lineColor" && "$lineColor" != "auto" ]] && IFS=' ' lineColor=( $lineColor )
+	local w=`width`; if [[ $w -eq 0 ]]; then echo; return; fi
+	local lineColor="$LINE_COLOR"; [[ -n "$lineColor" && "$lineColor" != "auto" ]] && IFS=' ' lineColor=( $lineColor )
 	[[ $lineColor != "auto" ]] && fg "${lineColor[@]}"
-	local _i; for (( _i=0; _i<$w; ++_i )); do
+	local i; local char; local mod; for (( i=0; i<$w; ++i )); do
 		if [[ -n "$_string" && $_i -ge $_start ]]; then
 			char="${_string::1}"
 			_string="${_string:1}"
@@ -289,7 +289,7 @@ clearLine()
 #
 SOURCE()
 {
-	_str="Unable to \`source\`"
+	local _str="Unable to \`source\`"
 
 	if [[ -n "$1" ]]; then
 		_str="${_str} the file `warn "$1"`"
@@ -328,4 +328,6 @@ INFO()
 }
 
 #
+Norbert="`debug``italic`Norbert`none`"
 
+#
