@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.0
+# v0.4.1
 #
 
 #
@@ -44,9 +44,9 @@ from()
 		return 4
 	fi
 
-	from=$1
+	local from=$1
 	shift
-	file="$*"
+	local file="$*"
 
 	if [[ ! -r "$file" ]]; then
 		echo "Your input file is not readable (or doesn't even exist)." >&2
@@ -61,7 +61,7 @@ from()
 #
 extname()
 {
-	result="`basename "$1"`"
+	local result="`basename "$1"`"
 	result=".${result#*.}"
 	echo "$result"
 }
@@ -81,9 +81,9 @@ absolute()
 
 line()
 {
-	w=`width`; if [[ $w -eq 0 ]]; then echo; return; fi
+	local w=`width`; if [[ $w -eq 0 ]]; then echo; return; fi
 	IFS=$'\n'; line="$*"; [[ -z "$line" ]] && line="$LINE"; [[ -z "$line" ]] && line="="
-	for (( i=0; i<$w; ++i )); do
+	local i; local mod; for (( i=0; i<$w; ++i )); do
 		mod=$((${i}%${#line}));
 		echo -n "${line:${mod}:1}"
 	done; echo
@@ -163,7 +163,7 @@ upper()
 confirm()
 {
 	[[ -n "$1" ]] && echo -ne "$1 [Yes/No]? "
-	read confirm; confirm="${confirm::1}"; confirm="${confirm,,}"
+	local confirm; read confirm; confirm="${confirm::1}"; confirm="${confirm,,}"
 	[[ "$confirm" != "y" ]] && return 1
 	return 0
 }

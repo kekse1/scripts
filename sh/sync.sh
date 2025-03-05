@@ -4,7 +4,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.5
+# v0.4.6
 #
 # This will transfer all NEW/CHANGES files via `rsync` command,
 # using the SSH protocol.
@@ -160,7 +160,7 @@ echo
 # function to repeatly ask user until y/n are his answer..
 askUser()
 {
-	while true; do
+	local cont; while true; do
 		read -p " >> Do you want to continue [Yes|No]? " cont
 
 		case "${cont,,}" in

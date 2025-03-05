@@ -3,7 +3,7 @@
 header="  Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
     https://kekse.biz/
     https://github.com/kekse1/scripts/"
-version="v0.1.2"
+version="v0.1.3"
 help="${header}
   ${version}
 
@@ -104,7 +104,7 @@ fi
 # function to ask, see here below..
 askToContinue()
 {
-	while true; do
+	local cont; while true; do
 		echo " >> Directory: '$dir'"
 		read -p " >> Do you want to continue [Yes/No]? " cont
 

@@ -1,7 +1,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.5
+# v0.2.6
 #
 # Copy to '/etc/profile.d/` to automatically include
 # the following functions .. read the source 4 info!
@@ -16,14 +16,14 @@ _CHARS="abcdefghijklmnopqrstuvwxyz"
 #
 1024()
 {
-	for i in ${_1024[@]}; do
+	local i; for i in ${_1024[@]}; do
 		echo "$i"
 	done
 }
 
 1000()
 {
-	for i in ${!_1000[@]}; do
+	local i; for i in ${!_1000[@]}; do
 		echo "${_1000[$i]}"
 	done
 }
@@ -39,9 +39,9 @@ bytes()
 		return 2
 	fi
 
-	prec=$_PREC
-	base=$_BASE
-	unit=-1
+	local prec=$_PREC
+	local base=$_BASE
+	local unit=-1
 
 	if [[ $# -ge 2 && -n "$2" ]]; then
 		getParams()
@@ -95,7 +95,7 @@ bytes()
 	fi
 
 	#
-	max=0
+	local max=0
 
 	if [[ $base -eq 1024 ]]; then
 		max=$((${#_1024[@]}-1))
@@ -106,9 +106,9 @@ bytes()
 	fi
 
 	#
-	rest=$1
-	index=0
-	int=${rest%%.*}
+	local rest=$1
+	local index=0
+	local int=${rest%%.*}
 	
 	while [[ $int -ge $base ]]; do
 		[[ $index -ge $max ]] && break
@@ -130,7 +130,7 @@ bytes()
 	[[ $index -eq 0 ]] && prec=0
 	
 	#
-	result="$(LANG=C printf "%.${prec}f" "${rest/./,}" 2>/dev/null)"
+	local result="$(LANG=C printf "%.${prec}f" "${rest/./,}" 2>/dev/null)"
 	[[ $? -ne 0 ]] && result="$(LANG=C printf "%.${prec}f" "${rest/,/.}" 2>/dev/null)"
 	result="`tryCast $result`"
 
@@ -141,7 +141,7 @@ bytes()
 #
 tryCast()
 {
-	result="$1"
+	local result="$1"
 	
 	if [[ "$result" != *.* ]]; then
 		echo "$result"
@@ -251,8 +251,8 @@ radix()
 #
 random()
 {
-	max=$1
-	min=$2
+	local max=$1
+	local min=$2
 
 	[[ -z "$max" ]] && max=255
 	[[ -z "$min" ]] && min=0
@@ -261,7 +261,7 @@ random()
 		echo $max
 		return
 	elif [[ $max -lt $min ]]; then
-		tmp=$max
+		local tmp=$max
 		max=$min
 		min=$tmp
 	fi
@@ -271,8 +271,9 @@ random()
 
 randomChars()
 {
-	length=$1; result=""
+	local length=$1; local result=""
 	for i in `seq 1 $length`; do
 		result="${result}${_CHARS:$(($RANDOM%${#_CHARS})):1}"
 	done; echo $result
 }
+

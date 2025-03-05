@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.6.0
+# v1.6.1
 #
 # My `norbert` needed some random input data, from a
 # directory I wanted to propagate with some temporary

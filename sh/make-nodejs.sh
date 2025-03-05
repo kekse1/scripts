@@ -2,7 +2,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.3.11
+# v0.3.12
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -225,16 +225,16 @@ download()
 {
 	useWget()
 	{
-		wh="$(which "wget" 2>/dev/null)"
+		local wh="$(which "wget" 2>/dev/null)"
 
-		if [[ -z "$wh" ]]; then
+		if [[ $? -ne 0 ]]; then
 			echo " >> PROBLEM: Couldn't find 'wget' to download.. aborting!" >&2
 			exit 8
 		fi
 
 		echo " >> Downloading '$file' (`pwd`).."
 		echo
-		wget --continue "$url"
+		$wh --continue "$url"
 
 		if [[ $? -ne 0 ]]; then
 			echo " >> FAILED to download '$url'.." >&2
@@ -246,16 +246,16 @@ download()
 
 	useCurl()
 	{
-		wh="$(which "curl" 2>/dev/null)"
+		local wh="$(which "curl" 2>/dev/null)"
 
-		if [[ -z "$wh" ]]; then
+		if [[ $? -ne 0 ]]; then
 			echo " >> PROBLEM: Couldn't find 'curl' to download.. aborting!" >&2
 			exit 10
 		fi
 
 		echo " >> Downloading '$file' (`pwd`).."
 		echo
-		curl --continue-at - --output "$file" "$url"
+		$wh --continue-at - --output "$file" "$url"
 
 		if [[ $? -ne 0 ]]; then
 			echo " >> FAILED to download '$url'.." >&2
@@ -359,7 +359,7 @@ start()
 
 really()
 {
-	read -p " >> Do you want to continue [yes/no]? " cont
+	local cont; read -p " >> Do you want to continue [yes/no]? " cont
 
 	case "$cont" in
 		y*|Y*)
@@ -439,3 +439,4 @@ check()
 start
 
 #
+

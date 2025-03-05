@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.1
+# v0.1.2
 #
 
 _regex="$*"
@@ -17,7 +17,7 @@ traverse()
 {
 	cd "$1"
 
-	for i in *; do
+	local i; local p; for i in *; do
 		p="$1/$i"
 		
 		if [[ -L "$p" ]]; then

@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.2
+# v0.1.3
 #
 # Some time ago I needed to setup my computer as a router (using `iptables`).
 #
@@ -87,7 +87,7 @@ informKernel()
 {
 	echo 1 >/proc/sys/net/ipv4/ip_forward
 
-	for i in /proc/sys/net/ipv4/conf/*/rp_filter; do
+	local i; for i in /proc/sys/net/ipv4/conf/*/rp_filter; do
 		echo 1 >$i
 	done
 }

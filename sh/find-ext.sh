@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.4
+# v0.1.5
 # 
 # Syntax: `$0 [ --depth / -d <depth> ] [ --raw / -r ]`
 # 
@@ -63,7 +63,7 @@ fi
 
 getExtension()
 {
-	res="${*##*/}"
+	local res="${*##*/}"
 	res="${res:1}"
 
 	if [[ $res == *'.'* ]]; then
@@ -73,7 +73,7 @@ getExtension()
 
 inArray()
 {
-	for i in $result; do
+	local i; for i in $result; do
 		[[ "$i" == "$*" ]] && return 0
 	done
 	return 1

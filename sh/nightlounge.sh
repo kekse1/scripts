@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.7
+# v0.2.8
 #
 # Start streaming.. I use it for the "BigFM Nightlounge".
 # You can add this to your /etc/crontab. :-)
@@ -56,7 +56,7 @@ echo " >> Output file: '$OUT'"
 #
 cleanUp()
 {
-	pid="$1"
+	local pid="$1"
 	[[ -z "$pid" ]] && pid="`cat $PID`"
 	kill -9 $pid >/dev/null 2>&1
 	rm "$PID"

@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.4.1
+# v0.4.2
 #
 # You should put this script into your '/etc/profile.d/'
 # directory, so the `lines()` function will get `source`d.
@@ -50,10 +50,10 @@ lines()
 		return 1
 	}
 
-	withFile=''
-	file=''
-	from=''
-	to=''
+	local withFile=''
+	local file=''
+	local from=''
+	local to=''
 
 	if [[ -z "$1" ]]; then
 		echo " >> No parameter may be be empty (but your first one is..)." >&2
@@ -144,7 +144,7 @@ lines()
 	[[ $to -eq 0 ]] && to=-1
 
 	#
-	lines=$(cat "$file" | wc -l)
+	local lines=$(cat "$file" | wc -l)
 
 	[[ $from -lt 0 ]] && from=$(($lines+$from+1))
 	[[ $to -lt 0 ]] && to=$(($lines+$to+1))
@@ -162,7 +162,7 @@ lines()
 		(( from = from - to ))
 	fi
 
-	current=0; IFS=$'\n'; while read line; do
+	local current=0; IFS=$'\n'; while read line; do
 		let current=$current+1
 		if [[ $current -ge $from && $current -le $to ]]; then
 		       echo -e "$line"

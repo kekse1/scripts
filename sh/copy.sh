@@ -59,8 +59,7 @@ _reached_max=0
 
 stop()
 {
-	echo
-	echo " >> SIGINT (loops: $_loops)"
+	echo -e "\n >> SIGINT (loops: $_loops)"
 	exit $_res
 }
 

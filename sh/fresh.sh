@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.4.5
+# v0.4.6
 #
 # Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
 # since it is *not* executable (but `source` or `.`).
@@ -20,7 +20,7 @@ _GIT_DATE_SYMBOL='+'
 
 fresh()
 {
-	_dir="`git rev-parse --git-dir 2>/dev/null`"
+	local _dir="`git rev-parse --git-dir 2>/dev/null`"
 
 	if [[ $? -ne 0 ]]; then
 		echo " >> Not inside a git repository!" >&2
@@ -30,13 +30,13 @@ fresh()
 		_dir="${_dir::-5}"
 	fi
 
-	_add=0
+	local _add=0
 	[[ $# -gt 0 ]] && _add=1
 	
-	_orig="`pwd`"
+	local _orig="`pwd`"
 	cd "$_dir"
 
-	_txt=
+	local _txt=
 
 	if [[ $_add -eq 0 ]]; then
 		echo -e " >> Only fetching latest repository state."
@@ -68,10 +68,10 @@ fresh()
 
 keep()
 {
-	_created=0
-	_existed=0
-	_erroneous=0
-	_depth=0
+	local _created=0
+	local _existed=0
+	local _erroneous=0
+	local _depth=0
 
 	traverse()
 	{
@@ -96,7 +96,7 @@ keep()
 			fi
 		fi
 
-		for i in *; do
+		local p; for i in *; do
 			p="$1/$i"
 
 			if [[ -L "$p" ]]; then
@@ -107,7 +107,7 @@ keep()
 		done
 	}
 
-	_orig="`pwd`"
+	local _orig="`pwd`"
 	traverse "$_orig" 1
 
 	if [[ $_created -gt 0 ]]; then

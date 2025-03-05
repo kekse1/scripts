@@ -1,6 +1,6 @@
 # Copyright (c) 2018 Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.2.1
+# v0.2.2
 # 
 # Copy this file to '/etc/profile.d/up2date.sh'!
 #
@@ -20,9 +20,9 @@ os=""
 
 OS()
 {
-	_gentoo="`which emerge 2>/dev/null`"
-	_debian="`which apt 2>/dev/null`"
-	_termux="`which pkg 2>/dev/null`"
+	local _gentoo="`which emerge 2>/dev/null`"
+	local _debian="`which apt 2>/dev/null`"
+	local _termux="`which pkg 2>/dev/null`"
 
 	if [ -z "$_gentoo" -a -z "$_debian" -a -z "$_termux" ]; then
 		echo "You neither use 'Gentoo' Linux nor 'Debian' or 'Termux' Linux!" >&2
@@ -72,10 +72,10 @@ up2time()
 {
 	[ -n "$NO_NTP" ] && return
 
-	SERVER="de.pool.ntp.org"
+	local SERVER="de.pool.ntp.org"
 
-	_ntpdate="`which ntpdate 2>/dev/null`"
-	_hwclock="`which hwclock 2>/dev/null`"
+	local _ntpdate="`which ntpdate 2>/dev/null`"
+	local _hwclock="`which hwclock 2>/dev/null`"
 
 	if [ -z "$_ntpdate" ]; then
 		return 255
@@ -92,7 +92,7 @@ up2file()
 {
 	[ -n "$NO_UPDATEDB" ] && return
 
-	_updatedb="`which updatedb 2>/dev/null`"
+	local _updatedb="`which updatedb 2>/dev/null`"
 
 	if [ -z "$_updatedb" ]; then
 		return 255
@@ -105,7 +105,7 @@ up2npm()
 {
 	[ -n "$NO_NPM" ] && return
 
-	_npm="`which npm 2>/dev/null`"
+	local _npm="`which npm 2>/dev/null`"
 
 	if [ -z "$_npm" ]; then
 		return 255
@@ -118,9 +118,9 @@ termux()
 {
 	up2time
 
-	_pkg="`which pkg 2>/dev/null`"
-	_apt="`which apt 2>/dev/null`"
-	_apt_file="`which apt-file 2>/dev/null`"
+	local _pkg="`which pkg 2>/dev/null`"
+	local _apt="`which apt 2>/dev/null`"
+	local _apt_file="`which apt-file 2>/dev/null`"
 
 	if [ -z "$_pkg" ]; then
 		if [ -z "$_apt" ]; then
@@ -160,8 +160,8 @@ debian()
 {
 	up2time
 
-	_apt="`which apt 2>/dev/null`"
-	_apt_file="`which apt-file 2>/dev/null`"
+	local _apt="`which apt 2>/dev/null`"
+	local _apt_file="`which apt-file 2>/dev/null`"
 
 	if [ -z "$_apt" ]; then
 		echo "'apt' is not installed!" >&2
@@ -189,7 +189,7 @@ gentoo()
 {
 	up2time
 
-	_emerge="`which emerge 2>/dev/null`"
+	local _emerge="`which emerge 2>/dev/null`"
 
 	if [ -z "$_emerge" ]; then
 		echo "'emerge' is not installed!" >&2
@@ -246,3 +246,4 @@ cfg()
 			;;
 	esac
 }
+

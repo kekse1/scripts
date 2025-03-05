@@ -31,7 +31,7 @@ diskSize()
 		return 255
 	fi
 
-	path="$1"
+	local path="$1"
 
 	if [[ "${path::1}" != "/" ]]; then
 		path="$(findDisk "$path")"
@@ -40,7 +40,7 @@ diskSize()
 		return 254
 	fi
 
-	SIZE="$($LSBLK --bytes --pairs --output size "$path")"
+	local SIZE="$($LSBLK --bytes --pairs --output size "$path")"
 	SIZE="${SIZE#*=}"
 	SIZE="${SIZE#\"}"
 	SIZE="${SIZE%\"}"
@@ -60,7 +60,7 @@ diskInfo()
 		return 255
 	fi
 
-	path="$1"
+	local path="$1"
 
 	if [[ "${path::1}" != "/" ]]; then
 		path="$(findDisk "$path")"
@@ -69,12 +69,12 @@ diskInfo()
 		return 254
 	fi
 
-	size=""
-	sep="$2"; [[ -z "$sep" ]] && sep=" "
-	output="$($LSBLK --bytes --pairs --output path,size "$path")"
+	local size=""
+	local sep="$2"; [[ -z "$sep" ]] && sep=" "
+	local output="$($LSBLK --bytes --pairs --output path,size "$path")"
 	output=( $output )
 	
-	for pair in "${output[@]}"; do
+	local pair; local key; local value; for pair in "${output[@]}"; do
 		key="${pair%%=*}"
 		value="${pair#*=}"
 		value="${value#\"}"
@@ -96,11 +96,12 @@ findDisk()
 		return 1
 	fi
 
-	verbose=0; [[ -n "$3" ]] && verbose=1
-	verboseExtra=0; [[ -n "$4" ]] && verboseExtra=1
+	local verbose=0; [[ -n "$3" ]] && verbose=1
+	local verboseExtra=0; [[ -n "$4" ]] && verboseExtra=1
 
-	_IFS="$IFS"; IFS=','; cmd="${LSBLK} --bytes --pairs --output ${OUTPUT[*]} 2>/dev/null"; IFS="$_IFS"
-	output="$(eval "$cmd" | grep -i "$1")"
+	local _IFS="$IFS"; IFS=','
+	local cmd="${LSBLK} --bytes --pairs --output ${OUTPUT[*]} 2>/dev/null"; IFS="$_IFS"
+	local output="$(${cmd} | grep -i "$1")" #eval...
 
 	if [[ $? -ne 0 ]]; then
 		echo "Unable to find drive/partition parameters!" >&2
@@ -110,9 +111,10 @@ findDisk()
 		return 3
 	fi
 	
-	result=''
+	local result=''
 	output=( $output )
-	match=""
+	local match=""
+	local pair; local key; local value
 
 	for pair in "${output[@]}"; do
 		key="${pair%%=*}"
@@ -162,3 +164,4 @@ findDisk()
 }
 
 #
+

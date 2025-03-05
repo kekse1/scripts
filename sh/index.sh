@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.0
+# v0.2.1
 # 
 # Finds file duplicates, or just creates an index with
 # the file hashes..
@@ -53,7 +53,7 @@ sha224()
 
 extname()
 {
-	result="`basename "$1"`"
+	local result="`basename "$1"`"
 	result=".${result#*.}"
 	echo "$result"
 }
@@ -61,7 +61,7 @@ extname()
 confirm()
 {
 	[[ -n "$1" ]] && echo -ne "$1 [Yes/No]? "
-	read confirm; confirm="${confirm::1}"; confirm="${confirm,,}"
+	local confirm; read confirm; confirm="${confirm::1}"; confirm="${confirm,,}"
 	[[ "$confirm" != "y" ]] && return 1
 	return 0
 }
