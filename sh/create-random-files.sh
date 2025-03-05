@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.5.2
+# v1.6.0
 #
 # My `norbert` needed some random input data, from a
 # directory I wanted to propagate with some temporary
@@ -38,7 +38,7 @@ fi
 
 randomChars()
 {
-	length=$1; result=""
+	local length=$1; local result=""
 	for i in `seq 1 $length`; do
 		result="${result}${CHARS:$(($RANDOM%${#CHARS})):1}"
 	done; echo $result
@@ -46,8 +46,8 @@ randomChars()
 
 random()
 {
-	max=$1
-	min=$2
+	local max=$1
+	local min=$2
 
 	[[ -z "$max" ]] && max=255
 	[[ -z "$min" ]] && min=0
@@ -131,7 +131,7 @@ for (( i = 0; i < $COUNT; ++i )); do
 		echo "Unable to create the file '$name'! So we\'re aborting here, right now." >&2
 		if [[ "${#list[@]}" -gt 0 ]]; then
 			echo "Files created so far, btw.:"; echo
-			local j; for (( j = 0; j < ${#list[@]}; ++j )); do
+			for (( j = 0; j < ${#list[@]}; ++j )); do
 				if [[ $_random_size -eq 0 ]]; then
 					echo "${list[$j]}"
 				else
