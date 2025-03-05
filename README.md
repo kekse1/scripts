@@ -45,13 +45,6 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-> [!IMPORTANT]
-> **Announcement**: ich habe gerade fest gestellt, dass ein paar meiner `for`-Schleifen
-> in den BASH-Shell-Scripts durch Nutzung der `i`-Variable eine solche ueberschreiben,
-> falls eine hoehere, aufrufende Funktion diese ebenso verwendet! Das heiszt, **ich muss
-> noch viele Shell-Scripts hier updaten**! Die Aenderung ist minimal: **`local i`** wird's
-> schon richten.. **HINT**: nur innerhalb von Funktionen!
-
 * \[**2025-03-05**\] Updated the [`ansi`.sh](#ansish) to v**1.3.1**;
 * \[**2025-03-05**\] Updated [`init-sub-proj`.sh](#init-sub-projsh) to v**0.4.0**;
 * \[**2025-03-05**\] Updated [`create-random-files`.sh](#create-random-filessh) to v**1.6.0**
