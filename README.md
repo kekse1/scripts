@@ -52,9 +52,9 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 > noch viele Shell-Scripts hier updaten**! Die Aenderung ist minimal: **`local i`** wird's
 > schon richten.. **HINT**: nur innerhalb von Funktionen!
 
+* \[**2025-03-05**\] Updated the [`ansi`.sh](#ansish) to v**1.3.1**;
 * \[**2025-03-05**\] Updated [`init-sub-proj`.sh](#init-sub-projsh) to v**0.4.0**;
 * \[**2025-03-05**\] Updated [`create-random-files`.sh](#create-random-filessh) to v**1.6.0**
-* \[**2025-03-05**\] Updated the [`ansi`.sh](#ansish) to v**1.3.0**;
 * \[**2025-03-03**\] Updated [`download-wiki-dumps`.sh](#download-wiki-dumpssh); v**0.1.4**;
 * \[**2025-02-28**\] Updated the [`make-nodejs`.sh](#make-nodejssh) to v**0.3.11**;
 * \[**2025-01-16**\] Update in [`math`.sh](#mathsh), to v**0.2.5**;
@@ -227,7 +227,7 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 
 It's recommended to copy this file to the `/etc/profile.d/` directory.
 
-* [Version v**1.3.0**](sh/ansi.sh) (updated **2025-03-05**)
+* [Version v**1.3.1**](sh/ansi.sh) (updated **2025-03-05**)
 
 Now also includes the **`progress()`** function:
 ![progress()](img/ansi-progress.png)

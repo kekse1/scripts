@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.3.0
+# v1.3.1
 #
 
 # for the `line()`:
@@ -140,12 +140,12 @@ line()
 	local lineColor="$LINE_COLOR"; [[ -n "$lineColor" && "$lineColor" != "auto" ]] && IFS=' ' lineColor=( $lineColor )
 	[[ $lineColor != "auto" ]] && fg "${lineColor[@]}"
 	local i; local char; local mod; for (( i=0; i<$w; ++i )); do
-		if [[ -n "$_string" && $_i -ge $_start ]]; then
+		if [[ -n "$_string" && $i -ge $_start ]]; then
 			char="${_string::1}"
 			_string="${_string:1}"
 			none
 		else
-			mod=$(($_i%${#_line}));
+			mod=$(($i%${#_line}));
 			if [[ $lineColor == "auto" ]]; then
 				fg $(($RANDOM%256)) $(($RANDOM%256)) $(($RANDOM%256))
 			else
@@ -328,6 +328,4 @@ INFO()
 }
 
 #
-Norbert="`debug``italic`Norbert`none`"
 
-#
