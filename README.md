@@ -45,7 +45,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-> [!INFO]
+> [!NOTE]
 > I had to update some [**bash** shell scripts](#bash) with the
 > `local` directive.. so all scripts should be fixed now. But I
 > didn't test 'em very well this time. JFYI..
