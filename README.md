@@ -24,6 +24,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`copy`.sh](#copysh)
 	* [`create-random-files`.sh](#create-random-filessh)
 	* [`download-wiki-dumps`.sh](#download-wiki-dumpssh)
+	* [`crypto`.sh](#cryptosh)
 	* [`replace`.sh](#replacesh)
 	* [`toilets`.sh](#toiletssh)
 	* [`math`.sh](#mathsh)
@@ -45,11 +46,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 5. [Copyright and License](#copyright-and-license)
 
 ## News
-> [!NOTE]
-> I had to update some [**bash** shell scripts](#bash) with the
-> `local` directive.. so all scripts should be fixed now. But I
-> didn't test 'em very well this time. JFYI..
-
+* \[**2025-03-14**\] Started the [`crypto`.sh](#cryptosh); .. is still pure **TODO**!1
 * \[**2025-03-05**\] Updated all [**bash** shell scripts](#bash) where `local` was necessary.. **^\_^**
 * \[**2025-03-05**\] Updated the [`ansi`.sh](#ansish) to v**1.3.1**;
 
@@ -312,6 +309,19 @@ expects the original `.bz2` files (so the script can also extract them).
 > [!TIP]
 > Before v**0.1.4** there were only german dumps, now I added the english ones, too.
 > Additionally there's now also the [**wikidatawiki**](https://dumps.wikimedia.org/wikidatawiki/).
+
+
+<a href="sh/crypto.sh">
+<img id="cryptosh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60crypto.sh%60" />
+</a>
+
+Manage **LUKS** encryption via `cryptsetup`.
+
+* [Version v**0.0.1**](sh/crypto.sh) (created **2025-03-14**)
+
+> [!NOTE]
+> Just **began** this helping script.. is still **pure** **TODO**!1
+
 
 <a href="sh/replace.sh">
 <img id="replacesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60replace.sh%60" />
