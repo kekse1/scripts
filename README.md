@@ -317,7 +317,7 @@ expects the original `.bz2` files (so the script can also extract them).
 
 Manage **LUKS** encryption via `cryptsetup`.
 
-* [Version v**0.0.1**](sh/crypto.sh) (created **2025-03-14**)
+* [Version v**0.0.2**](sh/crypto.sh) (created **2025-03-14**)
 
 > [!NOTE]
 > Just **began** this helping script.. is still **pure** **TODO**!1
