@@ -40,12 +40,11 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`lsblk`.sh](#lsblksh)
 	* [`cursor`.sh](#cursorsh)
 	* [`init-sub-proj`.sh](#init-sub-projsh)
-3. [C/C++](#cc)
-    * [`nproc.c`](#nprocc)
-4. [Contact](#contact)
-5. [Copyright and License](#copyright-and-license)
+3. [Contact](#contact)
+4. [Copyright and License](#copyright-and-license)
 
 ## News
+* \[**2025-03-18**\] **Moved** the only non-bash script from here to it's own [`nproc.c`](https://github.com/kekse1/nproc.c/) repository
 * \[**2025-03-14**\] Started the [`crypto`.sh](#cryptosh); .. is still pure **TODO**!1
 * \[**2025-03-05**\] Updated all [**bash** shell scripts](#bash) where `local` was necessary.. **^\_^**
 * \[**2025-03-05**\] Updated the [`ansi`.sh](#ansish) to v**1.3.1**;
@@ -552,19 +551,6 @@ See the $COPY file list. And end each item without
 slash to only initialize it empty (even though dirs
 contain entries in your original project). Symbolic
 Links stay exactly the same (so using `readlink`).
-
-## C/C++
-
-<a href="c-cpp/nproc.c">
-<img id="nprocc" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60nproc.c%60" />
-</a>
-
-* [Version v**0.2.2**](c-cpp/nproc.c) (created **2024-04-15**)
-
-Modificated `/usr/bin/nproc`, to optionally set the `NPROC` environment variable,
-which can be an arbitrary number of cores/threads to output.
-
-If `$NPROC` is not defined or below 1, it will try to get the real value.
 
 # Contact
 <img src="https://kekse.biz/github.php?override=github:scripts&draw&text=scripts@kekse.biz&angle=6&size=38pt&fg=150,20,90&font=OpenSans&ro&readonly&h=64&v=16" />
