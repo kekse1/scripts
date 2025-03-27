@@ -7,7 +7,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 
 ## Index
 1. [News](#news)
-2. [Scripts](#scripts)
+2. [Scripts](#bash-shell-scripts)
 	* [`prompt`.sh](#promptsh)
 	* [`dump`.js](#dumpjs)
 	* [`lines`.sh](#linessh)
@@ -47,7 +47,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 * \[**2025-03-18**\] **Moved** the only non-bash script from here to it's own [`nproc.c`](https://github.com/kekse1/nproc.c/) repository
 
 
-## [**Bash Shell* Scripts](./src/)
+## [**Bash Shell** Scripts](./src/)
 
 <a href="https://github.com/kekse1/prompt/">
 <img id="promptsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60prompt.sh%60" />
