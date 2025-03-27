@@ -3,18 +3,18 @@
 Every Script is made by myself, arose out of necessity.. or because I found it interesting.
 
 > [!NOTE]
-> For the future I'm planning to sort all the scripts in here by their line counts. **JFYI**..
+> All of these scripts are implemented for the [`bash` shell](https://www.gnu.org/software/bash/) only!
 
 ## Index
 1. [News](#news)
-2. [Bash](#bash)
+2. [Scripts](#scripts)
 	* [`prompt`.sh](#promptsh)
 	* [`dump`.js](#dumpjs)
 	* [`lines`.sh](#linessh)
 	* [`layout`.sh](#layoutsh)
 	* [`up2date`.sh](#up2datesh)
 	* [`fresh`.sh](#freshsh)
-    * [`ansi`.sh](#ansish)
+	* [`ansi`.sh](#ansish)
 	* [`index`.sh](#indexsh)
 	* [`make-nodejs`.sh](#make-nodejssh)
 	* [`unexify`.sh](#unexifysh)
@@ -45,11 +45,9 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 
 ## News
 * \[**2025-03-18**\] **Moved** the only non-bash script from here to it's own [`nproc.c`](https://github.com/kekse1/nproc.c/) repository
-* \[**2025-03-14**\] Started the [`crypto`.sh](#cryptosh); .. is still pure **TODO**!1
-* \[**2025-03-05**\] Updated all [**bash** shell scripts](#bash) where `local` was necessary.. **^\_^**
-* \[**2025-03-05**\] Updated the [`ansi`.sh](#ansish) to v**1.3.1**;
 
-## [Bash](sh/)
+
+## [**Bash Shell* Scripts](./src/)
 
 <a href="https://github.com/kekse1/prompt/">
 <img id="promptsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60prompt.sh%60" />
@@ -74,7 +72,7 @@ so the `lines()` function will get `source`d. Then just call it this
 way - possible parameters are described on top of this bash shell
 script file.
 
-* [Version v**0.4.2**](sh/lines.sh) (updated **2025-03-05**)
+* [Version v**0.4.2**](src/lines.sh) (updated **2025-03-05**)
 
 Simple script you can use with either a file path parameter or the
 stdin `-` (if defined at all), to perform one of these actions:
@@ -89,7 +87,7 @@ stdin `-` (if defined at all), to perform one of these actions:
 <img id="layoutsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60layout.sh%60" />
 </a>
 
-* [Version v**0.2.0**](sh/layout.sh)
+* [Version v**0.2.0**](src/layout.sh)
 
 The most important thing for me was to switch between keyboard layouts - easily with a shortcut I've set up in XFCE
 (Settings -> Keyboard): calling this script with '-' argument only, to switch between the configured layouts.
@@ -105,7 +103,7 @@ on top: `layouts=("us" "de")`).
 <img id="up2datesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60up2date.sh%60" />
 </a>
 
-* [Version v**0.2.2**](sh/up2date.sh) (updated **2025-03-05**)
+* [Version v**0.2.2**](src/up2date.sh) (updated **2025-03-05**)
 
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
 I'm using it to do all steps to keep your packages `up2date`, in just one step!
@@ -117,7 +115,7 @@ Also, just copy it to `/etc/profile.d/up2date.sh`
 <img id="freshsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60fresh.sh%60" />
 </a>
 
-* [Version v**0.4.6**](sh/fresh.sh) (updated **2025-03-05**)
+* [Version v**0.4.6**](src/fresh.sh) (updated **2025-03-05**)
 
 Helper to quickly update `git` repositories.. really tiny.
 
@@ -130,7 +128,7 @@ Helper to quickly update `git` repositories.. really tiny.
 <img id="indexsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60index.sh%60" />
 </a>
 
-* [Version v**0.2.1**](sh/index.sh) (updated **2025-03-05**)
+* [Version v**0.2.1**](src/index.sh) (updated **2025-03-05**)
 
 Finds file duplicates, or just creates an index with the file hashes..
 
@@ -143,7 +141,7 @@ be files with names out of their `sha224sum`, with original extensions.
 <img id="make-nodejssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60make-nodejs.sh%60" />
 </a>
 
-* [Version v**0.3.12**](sh/make-nodejs.sh) (updated **2025-03-05**)
+* [Version v**0.3.12**](src/make-nodejs.sh) (updated **2025-03-05**)
 
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
@@ -163,7 +161,7 @@ the `/usr/` hierarchy.
 <img id="unexifysh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60unexify.sh%60" />
 </a>
 
-* [Version v**0.1.3**](sh/unexify.sh) (updated **2025-03-05**)
+* [Version v**0.1.3**](src/unexify.sh) (updated **2025-03-05**)
 
 Little helper script to recursively remove all headers from images.
 
@@ -182,7 +180,7 @@ packet `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
 <img id="syncsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60sync.sh%60" />
 </a>
 
-* [Version v**0.4.6**](sh/sync.sh) (updated **2025-03-05**)
+* [Version v**0.4.6**](src/sync.sh) (updated **2025-03-05**)
 
 Another helping hand which became required since I'm managing some archive on my server,
 which needs to be synchronized with an SB stick (using `crontab`, ..).
@@ -205,7 +203,7 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 
 It's recommended to copy this file to the `/etc/profile.d/` directory.
 
-* [Version v**1.3.1**](sh/ansi.sh) (updated **2025-03-05**)
+* [Version v**1.3.1**](src/ansi.sh) (updated **2025-03-05**)
 
 Now also includes the **`progress()`** function:
 ![progress()](img/ansi-progress.png)
@@ -228,7 +226,7 @@ Plus some helper functions (beneath the regular style and color functions).
 <img id="up2datesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60up2date.sh%60" />
 </a>
 
-* [Version v**0.2.1**](sh/up2date.sh)
+* [Version v**0.2.1**](src/up2date.sh)
 
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
 I'm using it to do all steps to keep your packages `up2date`, in just one step!
@@ -240,7 +238,7 @@ Also, just copy it to `/etc/profile.d/up2date.sh`
 <img id="count-all-linessh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60count-all-lines.sh%60" />
 </a>
 
-* [Version v**0.3.1**](sh/count-all-lines.sh) (updated **2024-02-25**)
+* [Version v**0.3.1**](src/count-all-lines.sh) (updated **2024-02-25**)
 
 Will traverse recursively through all sub directories (of current working directory) using one or more `find -iname`
 parameters (especially globs to define file extensions!), and output a list of found ones with their line counts,
@@ -251,7 +249,7 @@ sorted ascending, and ending with the line count sum of all line counts.
 <img id="copysh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60copy.sh%60" />
 </a>
 
-* [Version v**0.1.2**](sh/copy.sh) (updated **2024-02-25**)
+* [Version v**0.1.2**](src/copy.sh) (updated **2024-02-25**)
 
 A little helper to `scp` files, with only the remote file path as argument.
 
@@ -270,7 +268,7 @@ My [`Norbert`](https://github.com/kekse1/norbert/) needed some random input data
 from a directory I wanted to propagate with some temporary files (of an exactly
 defined file size).
 
-* [Version v**1.6.1**](sh/create-random-files.sh) (updated **2025-03-05**);
+* [Version v**1.6.1**](src/create-random-files.sh) (updated **2025-03-05**);
 
 So I created this very tiny tool.
 
@@ -296,7 +294,7 @@ After downloading, they'll be `bunzip2`d. Implemented
 with some checks to be absolutely sure, and also creates
 backups, etc. .. jfyi.
 
-* [Version v**0.1.4**](sh/download-wiki-dumps.sh) (updated **2025-03-03**);
+* [Version v**0.1.4**](src/download-wiki-dumps.sh) (updated **2025-03-03**);
 
 You may configure the `$url` vector/array on top of the file. It'll hold all the url's
 to the **latest** dumps at [**dumps**.wikimedia.org](https://dumps.wikimedia.org/). But
@@ -316,7 +314,7 @@ expects the original `.bz2` files (so the script can also extract them).
 
 Manage **LUKS** encryption via `cryptsetup`.
 
-* [Version v**0.0.2**](sh/crypto.sh) (created **2025-03-14**)
+* [Version v**0.0.2**](src/crypto.sh) (created **2025-03-14**)
 
 > [!NOTE]
 > Just **began** this helping script.. is still **pure** **TODO**!1
@@ -326,7 +324,7 @@ Manage **LUKS** encryption via `cryptsetup`.
 <img id="replacesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60replace.sh%60" />
 </a>
 
-* [Version v**0.1.2**](sh/replace.sh) (updated **2025-03-05**)
+* [Version v**0.1.2**](src/replace.sh) (updated **2025-03-05**)
 
 Recursive (really!) `sed` (regular expression) replacement in (only real!) files.
 
@@ -335,7 +333,7 @@ Recursive (really!) `sed` (regular expression) replacement in (only real!) files
 <img id="toiletssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60toilets.sh%60" />
 </a>
 
-* [Version v**0.0.2**](sh/toilets.sh) (created **2024-03-19**)
+* [Version v**0.0.2**](src/toilets.sh) (created **2024-03-19**)
 
 Easily compare `toilet` (or `figlet`) outputs for a list of fonts in a file (each line another font).
 Command line switches are passed through to the tool itself. Input texts can also be set via command
@@ -352,7 +350,7 @@ The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), o
 <img id="mathsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60math.sh%60" />
 </a>
 
-* [Version v**0.2.6**](sh/math.sh) (updated **2025-03-05**)
+* [Version v**0.2.6**](src/math.sh) (updated **2025-03-05**)
 
 Functions to be `source`d (so copy to `/etc/profile.d/`) providing conversions for size, and in
 the future also some more math related functions.. for now, look at the source to get to know more.
@@ -367,7 +365,7 @@ detect which suites best:
 <img id="baseutilssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60baseutils.sh%60" />
 </a>
 
-* [Version v**0.4.1**](sh/baseutils.sh) (updated **2025-03-05**)
+* [Version v**0.4.1**](src/baseutils.sh) (updated **2025-03-05**)
 
 This is just the beginning of more bash functions.
 
@@ -383,7 +381,7 @@ Still _much_ **TODO**, but the first functions are declared and I'm going to imp
 <img id="move-by-extsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60move-by-ext.sh%60" />
 </a>
 
-* [Version v**0.0.2**](sh/move-by-ext.sh) (updated **2024-02-25**)
+* [Version v**0.0.2**](src/move-by-ext.sh) (updated **2024-02-25**)
 
 Another tiny helper... really nothing special.
 
@@ -392,7 +390,7 @@ Another tiny helper... really nothing special.
 <img id="find-extsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60find-ext.sh%60" />
 </a>
 
-* [Version v**0.1.5**](sh/find-ext.sh) (updated **2025-03-05**)
+* [Version v**0.1.5**](src/find-ext.sh) (updated **2025-03-05**)
 
 Something similar to the [`move-by-ext`.sh](#move-by-extsh) helper, but here without write operations,
 only counting all different extensions available under the current working directory. And it's possible
@@ -403,7 +401,7 @@ to limit the `find` recursion depth via optional first argument (needs to be pos
 <img id="insert-headersh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60insert-header.sh%60" />
 </a>
 
-* [Version v**0.2.3**](sh/insert-header.sh) (updated **2024-06-25**)
+* [Version v**0.2.3**](src/insert-header.sh) (updated **2024-06-25**)
 
 My source code needed my (copyright) header when I published it.
 So I created this script, since more than just less files needed
@@ -426,7 +424,7 @@ script without parameters!
 <img id="routersh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60router.sh%60" />
 </a>
 
-* [Version v**0.1.3**](sh/router.sh) (updated **2025-03-05**)
+* [Version v**0.1.3**](src/router.sh) (updated **2025-03-05**)
 
 Some time ago I needed to setup my computer as a router (using `iptables`).
 
@@ -438,7 +436,7 @@ Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/w
 <img id="hfdownloadersh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60hfdownloader.sh%60" />
 </a>
 
-* [Version v**0.3.1**](sh/hfdownloader.sh) (updated **2024-07-29**)
+* [Version v**0.3.1**](src/hfdownloader.sh) (updated **2024-07-29**)
 
 Easily use the [`hfdownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) tool, to download
 full models from [Hugging Face](https://huggingface.co/), a community for Large Language Models, etc.
@@ -455,7 +453,7 @@ tool is easy enough; it's rather kinda reminder' for myself..
 <img id="convert-hf-to-ggufsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60convert-hf-to-gguf.sh%60" />
 </a>
 
-* [Version v**0.1.1**](sh/convert-hf-to-gguf.sh) (updated **2024-07-29**)
+* [Version v**0.1.1**](src/convert-hf-to-gguf.sh) (updated **2024-07-29**)
 
 > [!IMPORTANT]
 > Dependencies: **Python 3** (w/ `pip`) and [`llama.cpp`](https://github.com/ggerganov/llama.cpp/);
@@ -480,7 +478,7 @@ on **my website @ [`~intelligence`](https://kekse.biz/?~intelligence)**.
 
 Just a tiny helper, if you don't want to use the [`hfdownloader(.sh)`](#hfdownloadersh).
 
-* [Version v**0.2.0**](sh/hfget.sh) (created **2024-08-18**)
+* [Version v**0.2.0**](src/hfget.sh) (created **2024-08-18**)
 
 Downloads from [**Hugging Face**](https://huggingface.co/) with your
 own **Token** (a file) included in the HTTP request header. This
@@ -497,7 +495,7 @@ Expects either a URL or a file with a list of URLs as parameter. Depends on `wge
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
 I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 
-* [Version v**0.2.8**](sh/nightlounge.sh) (updated **2025-03-05**)
+* [Version v**0.2.8**](src/nightlounge.sh) (updated **2025-03-05**)
 
 > [!TIP]
 > You can add this to your '/etc/crontab'. ;-)
@@ -507,7 +505,7 @@ I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 <img id="lsblksh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60lsblk.sh%60" />
 </a>
 
-* [Version v**0.2.3**](sh/lsblk.sh) (updated **2024-10-24**)
+* [Version v**0.2.3**](src/lsblk.sh) (updated **2024-10-24**)
 
 The main reason for this script was: my Node.js projects need to handle
 whole block devices oder partitions. But I wanted to configure them by
@@ -524,7 +522,7 @@ hint for future shell scripts.. and for you! Note, that I marked out
 for you where to use `case`, if you'd like to manage the key/value pairs.
 
 > [!TIP]
-> There's [**another version**](sh/lsblk.2.sh) available as well.. **jfyi**.
+> There's [**another version**](src/lsblk.2.sh) available as well.. **jfyi**.
 
 
 <a href="sh/cursor.sh">
@@ -533,7 +531,7 @@ for you where to use `case`, if you'd like to manage the key/value pairs.
 
 Tiniest.. just prints out the current cursor position in your active terminal.
 
-* [Version v**0.0.2**](sh/cursor.sh) (updated **2025-03-05**)
+* [Version v**0.0.2**](src/cursor.sh) (updated **2025-03-05**)
 
 The real function `cursor()` is only **seven lines** long.
 
@@ -542,7 +540,7 @@ The real function `cursor()` is only **seven lines** long.
 <img id="init-sub-projsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60init-sub-proj.sh%60" />
 </a>
 
-* [Version v**0.4.0**](sh/init-sub-proj.sh) (updated **2025-03-05**)
+* [Version v**0.4.0**](src/init-sub-proj.sh) (updated **2025-03-05**)
 
 I do initialize a sub part of my bigger project with
 the help of this script.
