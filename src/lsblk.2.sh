@@ -100,8 +100,8 @@ findDisk()
 	local verboseExtra=0; [[ -n "$4" ]] && verboseExtra=1
 
 	local _IFS="$IFS"; IFS=','
-	local cmd="${LSBLK} --bytes --pairs --output ${OUTPUT[*]} 2>/dev/null"; IFS="$_IFS"
-	local output="$(${cmd} | grep -i "$1")" #eval...
+	local cmd="${LSBLK} --bytes --pairs --output ${OUTPUT[*]}"; IFS="$_IFS"
+	local output="$(${cmd} 2>/dev/null | grep -i "$1")" #eval...
 
 	if [[ $? -ne 0 ]]; then
 		echo "Unable to find drive/partition parameters!" >&2
