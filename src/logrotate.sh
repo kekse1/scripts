@@ -49,7 +49,7 @@ LOG()
 
 	shift; local LINE="$*"; [[ -z "$LINE" ]] && return 3
 
-	echo "$(echo "$LINE" | tr '\n' ' ' | tr '\r' ' ')" >>$FILE
+	echo "$(echo "$LINE" | tr '\n' ';' | tr '\r' ';')" >>$FILE
 	[[ $LINES -gt 0 ]] && LOG_CLEAN "$FILE" "$LINES"
 }
 
