@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.0.3
+# v0.0.4
 #
 # Simple setup for log line entries.
 #
@@ -15,6 +15,9 @@
 # will stay in the log file).
 #
 # *Really* easy setup.. :-)
+#
+# Will, jfyi, allow any character; also non-printable,
+# BUT any NEWLINE will be replaced by a space (`\n` and `\r`).
 #
 
 #
@@ -45,7 +48,7 @@ LOG()
 
 	shift; local LINE="$*"; [[ -z "$LINE" ]] && return 3
 
-	echo "$LINE" >>$FILE
+	echo "$(echo "$LINE" | tr '\n' ' ' | tr '\r' ' ')" >>$FILE
 	[[ $LINES -gt 0 ]] && LOG_CLEAN "$FILE" "$LINES"
 }
 
