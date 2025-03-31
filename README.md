@@ -45,7 +45,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 4. [Copyright and License](#copyright-and-license)
 
 ## News
-* \[**2025-03-31**\] New script [`logrotate`.sh](#logrotatesh), .. v**0.0.2**;
+* \[**2025-03-31**\] New script [`logrotate`.sh](#logrotatesh), .. v**0.0.3**;
 * \[**2025-03-18**\] **Moved** the only non-bash script from here to it's own [`nproc.c`](https://github.com/kekse1/nproc.c/) repository
 
 
@@ -145,7 +145,7 @@ be files with names out of their `sha224sum`, with original extensions.
 
 Simple setup for log line entries.
 
-* [Version v**0.0.2**](src/logrotate.sh) (created **2025-03-31**)
+* [Version v**0.0.3**](src/logrotate.sh) (created **2025-03-31**)
 
 See the `syntax()` help: you can append new log lines to a file, and you
 can optionally limit the line count to a specific value.

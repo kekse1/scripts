@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.0.2
+# v0.0.3
 #
 # Simple setup for log line entries.
 #
@@ -27,9 +27,6 @@ LOG()
 	}
 
 	if [[ $# -lt 3 ]]; then syntax; return 1; fi
-
-	local LINES="$1"; if [[ -z "$LINES" ]]; then
-		syntax; return 2; fi
 
 	local FILE="$1"; if [[ -z "$FILE" ]]; then
 		echo -e "[ERROR] No file argument given.\n" >&2
