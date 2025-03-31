@@ -17,7 +17,8 @@
 # *Really* easy setup.. :-)
 #
 # Will, jfyi, allow any character; also non-printable,
-# BUT any NEWLINE will be replaced by a space (`\n` and `\r`).
+# BUT any NEWLINE will be replaced by a semicolom `;`
+# (from every `\n` or `\r`).
 #
 
 #

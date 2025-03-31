@@ -154,7 +154,8 @@ can optionally limit the line count to a specific value.
 
 > [!TIP]
 > Will, jfyi, allow any character; also non-printable,
-> BUT any NEWLINE will be replaced by a space (`\n` and `\r`).
+> BUT any NEWLINE will be replaced by a semicolon `;`
+> (from every `\n` or `\r`).
 
 <a href="sh/make-nodejs.sh">
 <img id="make-nodejssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=28&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60make-nodejs.sh%60" />
