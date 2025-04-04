@@ -254,17 +254,12 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 
 It's recommended to copy this file to the `/etc/profile.d/` directory.
 
-* [Version v**1.3.1**](src/ansi.sh) (updated **2025-03-05**)
+* [Version v**1.3.2**](src/ansi.sh) (updated **2025-04-04**)
 
 Now also includes the **`progress()`** function:
 ![progress()](img/ansi-progress.png)
 
 Plus some helper functions (beneath the regular style and color functions).
-
-> [!NOTE]
-> Since v**1.1.0** it enhances the `line()` function by colors. These can reside
-> in the `$LINE_COLOR` environment variable: either **three** bytes or the keyword
-> `auto` (which is my default if nothing is defined here). See example screenshot (below)!
 
 ![Example line()](img/ansi-line.png)
 
