@@ -10,7 +10,8 @@
 # surely obeying the original extension.
 #
 # This was necessary for me after sorting out duplicates of
-# some files w/ my older `index.sh`. :-)
+# some files w/ my older `index.sh` (which perfectly fits to
+# this one - maybe you want to use both together? ;-) ...
 #
 # So also take a look at my older `index.sh`!
 # Both together are better. :-)

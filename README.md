@@ -383,7 +383,7 @@ with an increasing number (counted for each file extension),
 surely obeying the original extensions.
 
 This was necessary for me after sorting out duplicates of
-some files w/ my older `[index.sh](#indexsh)`. :-)
+some files w/ my older [`index.sh`](#indexsh).
 
 > [!TIP]
 > So also take a look at my older [`index.sh`](#indexsh)!
