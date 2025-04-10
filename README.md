@@ -379,7 +379,8 @@ be files with names out of their `sha224sum`, with original extensions.
 **STILL pure TODO**!
 
 Renames a bunch of files in a directory (NOT recursive)
-with an increasing number (counted for each file extension).
+with an increasing number (counted for each file extension),
+surely obeying the original extensions.
 
 This was necessary for me after sorting out duplicates of
 some files w/ my older `[index.sh](#indexsh)`. :-)
