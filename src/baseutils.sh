@@ -1,8 +1,17 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.2
+# v0.4.3
 #
+
+#
+# config.. tiny. only holds if no such environment
+# variable (w/o '_' prefix!) is defined.. ^_^
+#
+_FULL=0 # will switch `extname` between `extname1` and `extname2`
+
+#
+[[ -z "$FULL" ]] && FULL=$_FULL
 
 #
 mkcd()
@@ -59,6 +68,17 @@ from()
 #
 #TODO#my *better* version of it..
 #
+extname()
+{
+	if [[ $FULL -eq 0 ]]; then
+		extname2 "$*"
+		return $?
+	fi
+
+	extname1 "$*"
+	return $?
+}
+
 extname1()
 {
 	local result="$(basename "$*")"

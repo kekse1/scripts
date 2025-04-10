@@ -22,6 +22,11 @@
 # 
 
 #
+# change this setting for either `extname1` or `extname2` (see below); ..
+#
+FULL=0
+
+#
 syntax()
 {
 	echo "Syntax: `basename "$0"` <target directory> [ <depth> ]" >&2
@@ -54,7 +59,7 @@ sha224()
 	echo "`sha224sum "$1" | cut -d' ' -f1`"
 }
 
-extname()
+extname1()
 {
 	local result="$(basename "$*")"
 	while [[ "${result::1}" == "." ]]; do
@@ -64,6 +69,29 @@ extname()
 	result="${result#*.}"
 	[[ "${result::1}" == "." ]] && return 3
 	echo ".${result}"
+}
+
+extname2()
+{
+	local result="$(basename "$*")"
+	while [[ "${result::1}" == "." ]]; do
+		result="${result:1}"; done
+	[[ -z "$result" ]] && return 1
+	[[ "$result" =~ "." ]] || return 2
+	result="${result##*.}"
+	[[ "${result::1}" == "." ]] && return 3
+	echo ".${result}"
+}
+
+extname()
+{
+	if [[ $FULL -eq 0 ]]; then
+		extname2 "$*"
+		return $?
+	fi
+
+	extname1 "$*"
+	return $?
 }
 
 confirm()

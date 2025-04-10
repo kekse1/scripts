@@ -12,7 +12,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 * \[**2025-04-10**\] BIG update in [`find-ext`.sh](#find-extsh), v**0.2.1**;
 * \[**2025-04-10**\] Updated [`insert-header`.sh](#insert-headersh), v**0.2.4**;
 * \[**2025-04-10**\] Updated the [`incmv`.sh](#incmvsh), v**0.2.1** (but still **TODO**!);
-* \[**2025-04-10**\] **Tiny** update in the [`baseutils`.sh](#baseutilssh), v**0.4.2**;
+* \[**2025-04-10**\] **Tiny** update in the [`baseutils`.sh](#baseutilssh), v**0.4.3**;
 * \[**2025-03-31**\] New script [`logrotate`.sh](#logrotatesh), .. v**0.0.4**;
 * \[**2025-03-18**\] **Moved** the only non-bash script from here to it's own [`nproc.c`](https://github.com/kekse1/nproc.c/) repository
 
@@ -463,7 +463,7 @@ detect which suites best:
 <img id="baseutilssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60baseutils.sh%60" />
 </a>
 
-* [Version v**0.4.2**](src/baseutils.sh) (updated **2025-04-10**)
+* [Version v**0.4.3**](src/baseutils.sh) (updated **2025-04-10**)
 
 This is just the beginning of more bash functions.
 
