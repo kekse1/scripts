@@ -51,14 +51,14 @@ syntax()
 	echo -e "\t        [ --help / -h ]  Just shows this syntax information ONLY"
 	echo -e "\t[ --prefix <...> / -p ]  Optional string *before* count value"
 	echo -e "\t[ --suffix <...> / -s ]  Optional string *after* count value"
-	echo -e "\t      [ --hidden / -H ]  Include hidden/dot files"
+	echo -e "\t      [ --hidden / -d ]  Include hidden/dot files"
 	echo -e "\t        [ --full / -f ]  Takes full extensions"
 	echo -e "\t      [ --global / -g ] ONE counter instead of one for each extension"
 	echo
 }
 
 #
-short='hp:s:Hfg'
+short='hp:s:dfg'
 long='help,prefix:,suffix:,hidden,full,global'
 opts="$(getopt -o "$short" -l "$long" -n "$base" -- "$@")"
 
