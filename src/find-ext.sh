@@ -5,7 +5,7 @@
 # https://kekse.biz/ https://github.com/kekse1/scripts/
 # v0.2.0
 # 
-# Syntax: `$0 [ --depth / -d <depth> ] [ --raw / -r ]`
+# Syntax: `$0 [ --depth / -d <depth> ] [ --raw / -r ] [ --hidden / -d ] [ --full / -f ]`
 # 
 # Creates a list of all found extensions. Searching within and below the current working directory (with optional max --depth/-d).
 # The '--raw / -r' parameter will prevent any other output (but the list of different extensions itself).
@@ -17,14 +17,15 @@ dir="$(dirname "$real")"
 base="$(basename "$real")"
 
 #
-FULL=0
+full=0
+hidden=0
 
 #
 count=0
 raw=0
 max=""
-short=hfrd:
-long=help,full,raw,depth:
+short=hdfrd:
+long=help,hidden,full,raw,depth:
 opts="$(getopt -o "$short" -l "$long" -n "$base" -- "$@")"
 
 if [[ $? -eq 0 ]]; then
@@ -35,14 +36,18 @@ fi
 
 while true; do
 	case "$1" in
+		'-d'|'--hidden')
+			[[ $hidden -eq 0 ]] && hidden=1 || hidden=0
+			shift
+			;;
 		'-f'|'--full')
-			[[ $FULL -eq 0 ]] && FULL=1 || FULL=0
+			[[ $full -eq 0 ]] && full=1 || full=0
 			shift;
 			;;
 		'-d'|'--depth')
 			shift;
 			if [[ "$1" =~ ^[0-9]+$ ]]; then
-				max="-maxdepth $1"
+				max="$1"
 				shift 2
 			else
 				echo " >> Parameter for --depth / -d needs to be a positive integer!" >&2
@@ -56,6 +61,8 @@ while true; do
 			;;
 		'-h'|'--help')
 			echo -e "\nSyntax: $(basename "$0")\n"
+			echo -e "\t[ -h / --help ]          // this info"
+			echo -e "\t[ -d / --hidden ]        // also count hidden/dot files"
 			echo -e "\t[ -d / --depth <depth> ] // directory depth"
 			echo -e "\t[ -r / --raw ]           // no other output than the result(s)"
 			echo -e "\t[ -f / --full ]          // full extensions instead of only the last one"
@@ -68,29 +75,34 @@ while true; do
 	esac
 done
 
-if [[ ! -z "$max" && $raw -eq 0 ]]; then
-	echo -e " >> Depth limit is set to $max.\n" >&2
+if [[ -z "$max" || $max -le 0 ]]; then
+	max=""
+else
+	echo -e " >> Depth limit set to $max.\n"
+	max="-maxdepth $max"
 fi
 
 extname1()
 {
-	[[ "$*" =~ "." ]] || return 1
 	local result="$(basename "$*")"
-	result=".${result#*}"
-	echo "$result"
+	[[ "$result" =~ "." ]] || return 1
+	[[ "$result" == "." ]] && return 2
+	[[ -z "$result" ]] && return 2
+	echo ".${result#*.}"
 }
 
 extname2()
 {
-	[[ "$*" =~ "." ]] || return 1
 	local result="$(basename "$*")"
-	result=".${result##*.}"
-	echo "$result"
+	[[ "$result" =~ "." ]] || return 1
+	[[ "$result" == "." ]] && return 2
+	[[ -z "$result" ]] && return 2
+	echo ".${result##*.}"
 }
 
 extname()
 {
-	if [[ $FULL -eq 0 ]]; then
+	if [[ $full -eq 0 ]]; then
 		extname2 "$*"
 		return $?
 	fi
@@ -100,16 +112,18 @@ extname()
 }
 
 #
+FIND="find $max -not -name .."
+[[ $hidden -eq 1 ]] && FIND+=" -not -name '.*'"
+FIND+=" -print0"
+
 declare -A COUNT
 
 while IFS= read -r -d '' file; do
 	ext="$(extname "$file")"
 	[[ $? -ne 0 ]] && continue
-	if [[ ! -v COUNT["$ext"] ]]; then
-		let count=$count+1
-	fi
+	[[ -v COUNT["$ext"] ]] || let count=$count+1
 	COUNT["$ext"]=$((COUNT["$ext"]+1))
-done < <(find $max -not -name . -not -name .. -print0)
+done < <(eval "$FIND")
 
 #
 if [[ $raw -ne 0 ]]; then

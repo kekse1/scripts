@@ -56,10 +56,11 @@ sha224()
 
 extname()
 {
-	[[ "$*" =~ "." ]] || return 1
-	local result="`basename "$*"`"
-	result=".${result#*.}"
-	echo "$result"
+	local result="$(basename "$*")"
+	[[ "$result" =~ "." ]] || return 1
+	[[ "$result" == "." ]] && return 2
+	[[ -z "$result" ]] && return 3
+	echo ".${result#*.}"
 }
 
 confirm()
@@ -91,6 +92,7 @@ mkdir -pv "$target" 2>/dev/null
 for (( i=0; i < ${#files[@]}; ++i )); do
 	file="${files[$i]}"
 	ext="`extname "$file"`"
+	[[ $? -ne 0 ]] && continue
 	hash="`sha224 "$file"`"
 	echo "[${file}] ${hash}"
 	cp "$file" "${target}/${hash}${ext}" 2>/dev/null

@@ -61,18 +61,20 @@ from()
 #
 extname1()
 {
-	[[ "$*" =~ "." ]] || return 1
 	local result="$(basename "$*")"
-	result=".${result#*.}"
-	echo "$result"
+	[[ "$result" =~ "." ]] || return 1
+	[[ "$result" == "." ]] && return 2
+	[[ -z "$result" ]] && return 3
+	echo ".${result#*.}"
 }
 
 extname2()
 {
-	[[ "$*" =~ "." ]] || return 1
 	local result="$(basename "$*")"
-	result=".${result##*.}"
-	echo "$result"
+	[[ "$result" =~ "." ]] || return 1
+	[[ "$result" == "." ]] && return 2
+	[[ -z "$result" ]] && return 3
+	echo ".${result##*.}"
 }
 
 relative()
