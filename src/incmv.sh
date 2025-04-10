@@ -53,7 +53,7 @@ syntax()
 	echo -e "\t[ --suffix <...> / -s ]  Optional string *after* count value"
 	echo -e "\t      [ --hidden / -d ]  Include hidden/dot files"
 	echo -e "\t        [ --full / -f ]  Takes full extensions"
-	echo -e "\t      [ --global / -g ] ONE counter instead of one for each extension"
+	echo -e "\t      [ --global / -g ]  ONE counter instead of one for each extension"
 	echo
 }
 
