@@ -2,7 +2,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.3.12
+# v0.3.13
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -361,8 +361,8 @@ really()
 {
 	local cont; read -p " >> Do you want to continue [yes/no]? " cont
 
-	case "$cont" in
-		y*|Y*)
+	case "${cont,,}" in
+		y*)
 			begin;;
 		*)
 			echo

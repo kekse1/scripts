@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.1
+# v0.4.2
 #
 
 #
@@ -59,10 +59,17 @@ from()
 #
 #TODO#my *better* version of it..
 #
-extname()
+extname1()
 {
-	local result="`basename "$1"`"
+	local result="$(basename "$*")"
 	result=".${result#*.}"
+	echo "$result"
+}
+
+extname2()
+{
+	local result="$(basename "$*")"
+	result=".${result##*.}"
 	echo "$result"
 }
 

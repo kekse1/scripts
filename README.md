@@ -8,7 +8,8 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
-* \[**2025-04-10**\] New script [`incmv`.sh](#incmvsh), v**0.0.1** (is STILL **TODO**!);
+* \[**2025-04-10**\] Updated the [`incmv`.sh](#incmvsh), v**0.1.0** (but still **TODO**!);
+* \[**2025-04-10**\] **Tiny** update in the [`baseutils`.sh](#baseutilssh), v**0.4.2**;
 * \[**2025-03-31**\] New script [`logrotate`.sh](#logrotatesh), .. v**0.0.4**;
 * \[**2025-03-18**\] **Moved** the only non-bash script from here to it's own [`nproc.c`](https://github.com/kekse1/nproc.c/) repository
 
@@ -173,7 +174,7 @@ can optionally limit the line count to a specific value.
 <img id="make-nodejssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60make-nodejs.sh%60" />
 </a>
 
-* [Version v**0.3.12**](src/make-nodejs.sh) (updated **2025-03-05**)
+* [Version v**0.3.13**](src/make-nodejs.sh) (updated **2025-04-10**)
 
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
@@ -378,6 +379,8 @@ be files with names out of their `sha224sum`, with original extensions.
 
 **STILL pure TODO**!
 
+* [Version v**0.1.0**](src/incmv.sh) (updated **2025-04-10**)
+
 Renames a bunch of files in a directory (NOT recursive)
 with an increasing number (counted for each file extension),
 surely obeying the original extensions.
@@ -457,7 +460,7 @@ detect which suites best:
 <img id="baseutilssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60baseutils.sh%60" />
 </a>
 
-* [Version v**0.4.1**](src/baseutils.sh) (updated **2025-03-05**)
+* [Version v**0.4.2**](src/baseutils.sh) (updated **2025-04-10**)
 
 This is just the beginning of more bash functions.
 
@@ -654,7 +657,7 @@ The real function `cursor()` is only **seven lines** long.
 <img id="init-sub-projsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60init-sub-proj.sh%60" />
 </a>
 
-* [Version v**0.4.0**](src/init-sub-proj.sh) (updated **2025-03-05**)
+* [Version v**0.4.1**](src/init-sub-proj.sh) (updated **2025-04-10**)
 
 I do initialize a sub part of my bigger project with
 the help of this script.

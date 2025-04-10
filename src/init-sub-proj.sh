@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://norbert.com.es/
-# v0.4.0
+# v0.4.1
 #
 # I do initialize a sub part of my bigger project with
 # the help of this script.
@@ -60,10 +60,9 @@ fi
 if [[ -e "$TARGET" ]]; then
 	if [[ -d "$TARGET" ]]; then
 		read -p "Are you sure to copy our tree to '$TARGET' [yes/no]!? " cont
-		cont="${cont::1}"
 		cont="${cont,,}"
 		case "$cont" in
-			y)
+			y*)
 				;;
 			*)
 				echo "Aborted!" >&2
@@ -76,10 +75,9 @@ if [[ -e "$TARGET" ]]; then
 	fi
 else
 	read -p "Do you want to create the target '$TARGET' [yes/no]? " cont
-	cont="${cont::1}"
 	cont="${cont,,}"
 	case "$cont" in
-		y)
+		y*)
 			;;
 		*)
 			echo "Aborted!" >&2
