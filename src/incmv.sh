@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.0
+# v0.2.1
 # 
 # Renames a bunch of files in a directory (NOT recursive)
 # with an increasing number (counted for each file extension),
@@ -33,6 +33,8 @@ SUFFIX=""
 GLOBAL=0
 HIDDEN=0
 FULL=0
+PRESERVE=0
+REMOVE=0
 
 # 
 SOURCE=""
@@ -54,12 +56,14 @@ syntax()
 	echo -e "\t      [ --hidden / -d ]  Include hidden/dot files"
 	echo -e "\t        [ --full / -f ]  Takes full extensions"
 	echo -e "\t      [ --global / -g ]  ONE counter instead of one for each extension"
+	echo -e "\t    [ --preserve / -v ]  Do not use any --prefix/--suffix (only original name)"
+	echo -e "\t      [ --remove / -r ]  Remove starting count of file names, if any"
 	echo
 }
 
 #
-short='hp:s:dfg'
-long='help,prefix:,suffix:,hidden,full,global'
+short='hp:s:dfgvr'
+long='help,prefix:,suffix:,hidden,full,global,preserve,remove'
 opts="$(getopt -o "$short" -l "$long" -n "$base" -- "$@")"
 
 if [[ $? -ne 0 ]]; then
@@ -74,6 +78,14 @@ while true; do
 		'-h'|'--help')
 			syntax
 			exit
+			;;
+		'-v'|'--preserve')
+			[[ $PRESERVE -eq 0 ]] && PRESERVE=1 || PRESERVE=0
+			shift;
+			;;
+		'-r'|'--remove')
+			[[ $REMOVE -eq 0 ]] && REMOVE=1 || REMOVE=0
+			shift;
 			;;
 		'-g'|'--global')
 			[[ $GLOBAL -eq 0 ]] && GLOBAL=1 || GLOBAL=0
@@ -154,13 +166,27 @@ if [[ "$SOURCE" == "$TARGET" ]]; then
 	echo
 fi
 
-echo -e "[Source] '$SOURCE'"
-echo -e "[Target] '$TARGET'"
-echo -e "[Prefix] '$PREFIX'"
-echo -e "[Suffix] '$SUFFIX'"
-echo -n "[Hidden] "; [[ $HIDDEN -eq 0 ]] && echo "no" || echo "yes"
-echo -n "[Global] "; [[ $GLOBAL -eq 0 ]] && echo "no" || echo "yes"
-echo -n "  [Full] "; [[ $FULL -eq 0 ]] && echo "no" || echo "yes"
+_preserve_remove=0
+
+if [[ $PRESERVE -ne 0 ]]; then
+	if [[ -n "$PREFIX" || -n "$SUFFIX" ]]; then
+		_preserve_remove=1
+		echo "JFYI: I'm disabling the --prefix/--suffix due to --preserve." >&2
+	fi
+
+	PREFIX=''
+	SUFFIX=''
+fi
+
+echo -e "  [Source] '$SOURCE'"
+echo -e "  [Target] '$TARGET'"
+echo -en "  [Prefix] '$PREFIX'"; [[ $_preserve_remove -ne 0 ]] && echo -n " (removed due to --preserve)"; echo
+echo -en "  [Suffix] '$SUFFIX'"; [[ $_preserve_remove -ne 0 ]] && echo -n " (removed due to --preserve)"; echo
+echo -n "  [Hidden] "; [[ $HIDDEN -eq 0 ]] && echo "no" || echo "yes"
+echo -n "  [Global] "; [[ $GLOBAL -eq 0 ]] && echo "no" || echo "yes"
+echo -n "    [Full] "; [[ $FULL -eq 0 ]] && echo "no" || echo "yes"
+echo -n "[Preverse] "; [[ $PRESERVE -eq 0 ]] && echo "no" || echo "yes"
+echo -n "  [Remove] "; [[ $REMOVE -eq 0 ]] && echo "no" || echo "yes"
 echo;
 
 #
@@ -180,7 +206,7 @@ extname2()
 	local result="$(basename "$*")"
 	[[ "${result::1}" == "." ]] && result="${result:1}"
 	[[ -z "$result" ]] && return 1
-	[[ "$result" =~ "." ]] && return 2
+	[[ "$result" =~ "." ]] || return 2
 	result="${result##*.}"
 	[[ "${result::1}" == "." ]] && return 3
 	echo ".${result}"
@@ -212,7 +238,7 @@ while IFS= read -r -d '' file; do
 	ext="$(extname "$file")"
 	[[ $? -ne 0 ]] && continue
 	[[ -v COUNT["$ext"] ]] || let count=$count+1
-	COUNT["$ext"]=$((COUNT["$ext"]+1))
+	COUNT["$ext"]=$((COUNT["$ext"] + 1))
 done < <(eval "$FIND")
 
 #
