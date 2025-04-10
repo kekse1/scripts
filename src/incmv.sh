@@ -47,13 +47,14 @@ base="$(basename "$0")"
 #
 syntax()
 {
-	echo "Syntax: $0 [ <directory> ]"
-	echo -e "\t        [ -h / --help ]  Just shows this syntax information ONLY"
-	echo -e "\t[ -p / --prefix <...> ]  Optional string *before* count value"
-	echo -e "\t[ -s / --suffix <...> ]  Optional string *after* count value"
-	echo -e "\t      [ -H / --hidden ]  Include hidden/dot files"
-	echo -e "\t        [ -f / --full ]  Takes full extensions"
-	echo -e "\t      [ -g / --global ] ONE counter instead of one for each extension"
+	echo "Syntax: $0 <directory>"; echo
+	echo -e "\t        [ --help / -h ]  Just shows this syntax information ONLY"
+	echo -e "\t[ --prefix <...> / -p ]  Optional string *before* count value"
+	echo -e "\t[ --suffix <...> / -s ]  Optional string *after* count value"
+	echo -e "\t      [ --hidden / -H ]  Include hidden/dot files"
+	echo -e "\t        [ --full / -f ]  Takes full extensions"
+	echo -e "\t      [ --global / -g ] ONE counter instead of one for each extension"
+	echo
 }
 
 #
