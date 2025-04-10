@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.3.1
+# v1.3.2
 #
 
 # for the `line()`:
@@ -317,7 +317,7 @@ WARN()
 
 DEBUG()
 {
-	echo -en "   `faint`[`none``debug``inverse`JFYI`none``faint`]`none`" >&2
+	echo -en "  `faint`[`none``debug``inverse`DEBUG`none``faint`]`none`" >&2
 	[[ -n "$*" ]] && echo -e " `debug`${*}`none`" >&2
 }
 
