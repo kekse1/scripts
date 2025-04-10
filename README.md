@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-04-10**\] New script [`incmv`.sh](#incmvsh), v**0.0.1** (is STILL **TODO**!);
 * \[**2025-03-31**\] New script [`logrotate`.sh](#logrotatesh), .. v**0.0.4**;
 * \[**2025-03-18**\] **Moved** the only non-bash script from here to it's own [`nproc.c`](https://github.com/kekse1/nproc.c/) repository
 
@@ -33,6 +34,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`copy`.sh](#copysh)
 	* [`create-random-files`.sh](#create-random-filessh)
 	* [`download-wiki-dumps`.sh](#download-wiki-dumpssh)
+	* [`incmv`.sh](#incmvsh)
 	* [`crypto`.sh](#cryptosh)
 	* [`replace`.sh](#replacesh)
 	* [`toilets`.sh](#toiletssh)
@@ -157,6 +159,9 @@ Finds file duplicates, or just creates an index with the file hashes..
 You define a target directory and an optional depth (defaults to 1,
 so only the current directory), and in your target directory there'll
 be files with names out of their `sha224sum`, with original extensions.
+
+> [!TIP]
+> See also my new [`incmv.sh`](#incmvsh). Both together are better. :-)
 
 <br><br>
 
@@ -363,6 +368,25 @@ expects the original `.bz2` files (so the script can also extract them).
 > [!TIP]
 > Before v**0.1.4** there were only german dumps, now I added the english ones, too.
 > Additionally there's now also the [**wikidatawiki**](https://dumps.wikimedia.org/wikidatawiki/).
+
+<br><br>
+
+### `incmv.sh`
+<a href="src/incmv.sh">
+<img id="incmvsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60incmv.sh%60" />
+</a>
+
+**STILL pure TODO**!
+
+Renames a bunch of files in a directory (NOT recursive)
+with an increasing number (counted for each file extension).
+
+This was necessary for me after sorting out duplicates of
+some files w/ my older `[index.sh](#indexsh)`. :-)
+
+> [!TIP]
+> So also take a look at my older `[index.sh](#indexsh)`!
+> Both together are better. :-)
 
 <br><br>
 

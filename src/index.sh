@@ -13,6 +13,9 @@
 # in your target directory there'll be files with names
 # out of their `sha224sum`, with original extensions.
 #
+# BTW: see also my new `incmv.sh`!
+# Both together are better. :-)
+#
 
 # 
 # TODO # please tell the user which original files were duplicates, too..
