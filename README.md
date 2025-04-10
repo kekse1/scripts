@@ -77,7 +77,7 @@ In it's [own **repository**](https://github.com/kekse1/dump.js/).
 <br><br>
 
 ### `lines.sh`
-<a href="sh/lines.sh">
+<a href="src/lines.sh">
 <img id="linessh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60lines.sh%60" />
 </a>
 
@@ -99,7 +99,7 @@ stdin `-` (if defined at all), to perform one of these actions:
 <br><br>
 
 ### `layout.sh`
-<a href="sh/layout.sh">
+<a href="src/layout.sh">
 <img id="layoutsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60layout.sh%60" />
 </a>
 
@@ -117,7 +117,7 @@ on top: `layouts=("us" "de")`).
 <br><br>
 
 ### `up2date.sh`
-<a href="sh/up2date.sh">
+<a href="src/up2date.sh">
 <img id="up2datesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60up2date.sh%60" />
 </a>
 
@@ -131,7 +131,7 @@ Also, just copy it to `/etc/profile.d/up2date.sh`
 <br><br>
 
 ### `fresh.sh`
-<a href="sh/fresh.sh">
+<a href="src/fresh.sh">
 <img id="freshsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60fresh.sh%60" />
 </a>
 
@@ -146,7 +146,7 @@ Helper to quickly update `git` repositories.. really tiny.
 <br><br>
 
 ### `index.sh`
-<a href="sh/index.sh">
+<a href="src/index.sh">
 <img id="indexsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60index.sh%60" />
 </a>
 
@@ -161,7 +161,7 @@ be files with names out of their `sha224sum`, with original extensions.
 <br><br>
 
 ### `logrotate.sh`
-<a href="sh/logrotate.sh">
+<a href="src/logrotate.sh">
 <img id="logrotatesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60logrotate.sh%60" />
 </a>
 
@@ -182,7 +182,7 @@ can optionally limit the line count to a specific value.
 <br><br>
 
 ### `make-nodejs.sh`
-<a href="sh/make-nodejs.sh">
+<a href="src/make-nodejs.sh">
 <img id="make-nodejssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60make-nodejs.sh%60" />
 </a>
 
@@ -204,7 +204,7 @@ the `/usr/` hierarchy.
 <br><br>
 
 ### `unexify.sh`
-<a href="sh/unexify.sh">
+<a href="src/unexify.sh">
 <img id="unexifysh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60unexify.sh%60" />
 </a>
 
@@ -225,7 +225,7 @@ packet `libimage-exiftool-perl` within [**Debian** Linux](https://debian.org/).
 <br><br>
 
 ### `sync.sh`
-<a href="sh/sync.sh">
+<a href="src/sync.sh">
 <img id="syncsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60sync.sh%60" />
 </a>
 
@@ -248,7 +248,7 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 <br><br>
 
 ### `ansi.sh`
-<a href="sh/ansi.sh">
+<a href="src/ansi.sh">
 <img id="ansish" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60ansi.sh%60" />
 </a>
 
@@ -276,7 +276,7 @@ Plus some helper functions (beneath the regular style and color functions).
 <br><br>
 
 ### `up2date.sh`
-<a href="sh/up2date.sh">
+<a href="src/up2date.sh">
 <img id="up2datesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60up2date.sh%60" />
 </a>
 
@@ -290,7 +290,7 @@ Also, just copy it to `/etc/profile.d/up2date.sh`
 <br><br>
 
 ### `count-all-lines.sh`
-<a href="sh/count-all-lines.sh">
+<a href="src/count-all-lines.sh">
 <img id="count-all-linessh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60count-all-lines.sh%60" />
 </a>
 
@@ -303,7 +303,7 @@ sorted ascending, and ending with the line count sum of all line counts.
 <br><br>
 
 ### `copy.sh`
-<a href="sh/copy.sh">
+<a href="src/copy.sh">
 <img id="copysh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60copy.sh%60" />
 </a>
 
@@ -320,7 +320,7 @@ BTW: yes, I had an unstable line when I created this.. via mobile phone.
 <br><br>
 
 ### `create-random.files.sh`
-<a href="sh/create-random-files.sh">
+<a href="src/create-random-files.sh">
 <img id="create-random-filessh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60create-random-files.sh%60" />
 </a>
 
@@ -347,7 +347,7 @@ So I created this very tiny tool.
 <br><br>
 
 ### `download-wiki-dumps.sh`
-<a href="sh/download-wiki-dumps.sh">
+<a href="src/download-wiki-dumps.sh">
 <img id="download-wiki-dumpssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60download-wiki-dumps.sh%60" />
 </a>
 
@@ -372,7 +372,7 @@ expects the original `.bz2` files (so the script can also extract them).
 <br><br>
 
 ### `crypto.sh`
-<a href="sh/crypto.sh">
+<a href="src/crypto.sh">
 <img id="cryptosh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60crypto.sh%60" />
 </a>
 
@@ -386,7 +386,7 @@ Manage **LUKS** encryption via `cryptsetup`.
 <br><br>
 
 ### `replace.sh`
-<a href="sh/replace.sh">
+<a href="src/replace.sh">
 <img id="replacesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60replace.sh%60" />
 </a>
 
@@ -397,7 +397,7 @@ Recursive (really!) `sed` (regular expression) replacement in (only real!) files
 <br><br>
 
 ### `toilets.sh`
-<a href="sh/toilets.sh">
+<a href="src/toilets.sh">
 <img id="toiletssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60toilets.sh%60" />
 </a>
 
@@ -416,7 +416,7 @@ The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), o
 <br><br>
 
 ### `math.sh`
-<a href="sh/math.sh">
+<a href="src/math.sh">
 <img id="mathsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60math.sh%60" />
 </a>
 
@@ -433,7 +433,7 @@ detect which suites best:
 <br><br>
 
 ### `baseutils.sh`
-<a href="sh/baseutils.sh">
+<a href="src/baseutils.sh">
 <img id="baseutilssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60baseutils.sh%60" />
 </a>
 
@@ -451,7 +451,7 @@ Still _much_ **TODO**, but the first functions are declared and I'm going to imp
 <br><br>
 
 ### `move-by-ext.sh`
-<a href="sh/move-by-ext.sh">
+<a href="src/move-by-ext.sh">
 <img id="move-by-extsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60move-by-ext.sh%60" />
 </a>
 
@@ -462,7 +462,7 @@ Another tiny helper... really nothing special.
 <br><br>
 
 ### `find-ext.sh`
-<a href="sh/find-ext.sh">
+<a href="src/find-ext.sh">
 <img id="find-extsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60find-ext.sh%60" />
 </a>
 
@@ -475,7 +475,7 @@ to limit the `find` recursion depth via optional first argument (needs to be pos
 <br><br>
 
 ### `insert-header.sh`
-<a href="sh/insert-header.sh">
+<a href="src/insert-header.sh">
 <img id="insert-headersh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60insert-header.sh%60" />
 </a>
 
@@ -500,7 +500,7 @@ script without parameters!
 <br><br>
 
 ### `router.sh`
-<a href="sh/router.sh">
+<a href="src/router.sh">
 <img id="routersh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60router.sh%60" />
 </a>
 
@@ -514,7 +514,7 @@ Feel free to use it as kinda template; see [this link](https://wiki.gentoo.org/w
 <br><br>
 
 ### `hfdownloader.sh`
-<a href="sh/hfdownloader.sh">
+<a href="src/hfdownloader.sh">
 <img id="hfdownloadersh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60hfdownloader.sh%60" />
 </a>
 
@@ -533,7 +533,7 @@ tool is easy enough; it's rather kinda reminder' for myself..
 <br><br>
 
 ### `convert-hf-to-gguf.sh`
-<a href="sh/convert-hf-to-gguf.sh">
+<a href="src/convert-hf-to-gguf.sh">
 <img id="convert-hf-to-ggufsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60convert-hf-to-gguf.sh%60" />
 </a>
 
@@ -558,7 +558,7 @@ on **my website @ [`~intelligence`](https://kekse.biz/?~intelligence)**.
 <br><br>
 
 ### `hfget.sh`
-<a href="sh/hfget.sh">
+<a href="src/hfget.sh">
 <img id="hfgetsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60hfget.sh%60" />
 </a>
 
@@ -576,7 +576,7 @@ Expects either a URL or a file with a list of URLs as parameter. Depends on `wge
 <br><br>
 
 ### `nightlounge.sh`
-<a href="sh/nightlounge.sh">
+<a href="src/nightlounge.sh">
 <img id="nightloungesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60nightlounge.sh%60" />
 </a>
 
@@ -591,7 +591,7 @@ I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 <br><br>
 
 ### `lsblk.sh`
-<a href="sh/lsblk.sh">
+<a href="src/lsblk.sh">
 <img id="lsblksh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60lsblk.sh%60" />
 </a>
 
@@ -617,7 +617,7 @@ for you where to use `case`, if you'd like to manage the key/value pairs.
 <br><br>
 
 ### `cursor.sh`
-<a href="sh/cursor.sh">
+<a href="src/cursor.sh">
 <img id="cursorsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60cursor.sh%60" />
 </a>
 
@@ -630,7 +630,7 @@ The real function `cursor()` is only **seven lines** long.
 <br><br>
 
 ### `init-sub-proj.sh`
-<a href="sh/init-sub-proj.sh">
+<a href="src/init-sub-proj.sh">
 <img id="init-sub-projsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60init-sub-proj.sh%60" />
 </a>
 
