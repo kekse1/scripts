@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.3
+# v0.2.4
 #
 # My source code needed my (copyright) header when I published it.
 # So I created this script, since more than just less files needed
@@ -89,13 +89,13 @@ while [[ $# -gt 0 ]]; do
 	if [[ $STOPPED -eq 0 ]]; then
 		case "$1" in
 			'-d'|'--delete')
-				UNLINK=1
+				[[ $UNLINK -eq 0 ]] && UNLINK=1 || UNLINK=0
 				;;
 			'-r'|'--restore')
-				RESTORE=1
+				[[ $RESTORE -eq 0 ]] && RESTORE=1 || RESTORE=0
 				;;
 			'--')
-				STOPPED=1
+				[[ $STOPPED -eq 0 ]] && STOPPED=1 || STOPPED=0
 				;;
 			*)
 				if [[ "$1" =~ ^[0-9]+$ ]]; then

@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.5
+# v0.2.0
 # 
 # Syntax: `$0 [ --depth / -d <depth> ] [ --raw / -r ]`
 # 
@@ -17,12 +17,14 @@ dir="$(dirname "$real")"
 base="$(basename "$real")"
 
 #
-result=""
+FULL=0
+
+#
 count=0
 raw=0
 max=""
-short=hrd:
-long=help,raw,depth:
+short=hfrd:
+long=help,full,raw,depth:
 opts="$(getopt -o "$short" -l "$long" -n "$base" -- "$@")"
 
 if [[ $? -eq 0 ]]; then
@@ -33,22 +35,31 @@ fi
 
 while true; do
 	case "$1" in
+		'-f'|'--full')
+			[[ $FULL -eq 0 ]] && FULL=1 || FULL=0
+			shift;
+			;;
 		'-d'|'--depth')
-			if [[ "$2" =~ ^[0-9]+$ ]]; then
-				max="-maxdepth $2"
+			shift;
+			if [[ "$1" =~ ^[0-9]+$ ]]; then
+				max="-maxdepth $1"
 				shift 2
 			else
 				echo " >> Parameter for --depth / -d needs to be a positive integer!" >&2
 				exit 2
 			fi
+			shift;
 			;;
 		'-r'|'--raw')
-			raw=1
+			[[ $raw -eq 0 ]] && raw=1 || raw=0
 			shift
 			;;
 		'-h'|'--help')
-			echo "Syntax: $(basename "$0") [ --depth / -d <depth> ] [ --raw / -r ]"
-			exit
+			echo -e "\nSyntax: $(basename "$0")\n"
+			echo -e "\t[ -d / --depth <depth> ] // directory depth"
+			echo -e "\t[ -r / --raw ]           // no other output than the result(s)"
+			echo -e "\t[ -f / --full ]          // full extensions instead of only the last one"
+			echo; exit
 			;;
 		'--')
 			shift
@@ -61,37 +72,61 @@ if [[ ! -z "$max" && $raw -eq 0 ]]; then
 	echo -e " >> Depth limit is set to $max.\n" >&2
 fi
 
-getExtension()
+extname1()
 {
-	local res="${*##*/}"
-	res="${res:1}"
+	[[ "$*" =~ "." ]] || return 1
+	local result="$(basename "$*")"
+	result=".${result#*}"
+	echo "$result"
+}
 
-	if [[ $res == *'.'* ]]; then
-		echo ".${res##*.}"
+extname2()
+{
+	[[ "$*" =~ "." ]] || return 1
+	local result="$(basename "$*")"
+	result=".${result##*.}"
+	echo "$result"
+}
+
+extname()
+{
+	if [[ $FULL -eq 0 ]]; then
+		extname2 "$*"
+		return $?
 	fi
+
+	extname1 "$*"
+	return $?
 }
 
-inArray()
-{
-	local i; for i in $result; do
-		[[ "$i" == "$*" ]] && return 0
-	done
-	return 1
-}
+#
+declare -A COUNT
 
 while IFS= read -r -d '' file; do
-	ext="`getExtension "$file"`"
-	[[ -z "$ext" ]] && continue
-	inArray "$ext"
-	if [[ $? -ne 0 ]]; then
-	       result="$result $ext"
-	       let count=$count+1
+	ext="$(extname "$file")"
+	[[ $? -ne 0 ]] && continue
+	if [[ ! -v COUNT["$ext"] ]]; then
+		let count=$count+1
 	fi
+	COUNT["$ext"]=$((COUNT["$ext"]+1))
 done < <(find $max -not -name . -not -name .. -print0)
 
-result="${result:1}"
-for i in $result; do
-	echo $i
+#
+if [[ $raw -ne 0 ]]; then
+	for i in "${!COUNT[@]}"; do
+		echo "$i"
+	done; exit
+else
+	echo -e "\n >> Found $count different extensions.\n"
+fi
+
+_max=0
+
+for i in "${!COUNT[@]}"; do
+	[[ ${#i} -gt $_max ]] && _max=${#i}
 done
 
-[[ $raw -eq 0 ]] && echo -e "\n >> Found $count different extensions." >&2
+for i in "${!COUNT[@]}"; do
+	printf "[%${_max}s] %d\n" "$i" "${COUNT[$i]}"
+done
+

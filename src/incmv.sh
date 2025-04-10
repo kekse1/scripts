@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.1
+# v0.2.0
 # 
 # Renames a bunch of files in a directory (NOT recursive)
 # with an increasing number (counted for each file extension),
@@ -83,7 +83,7 @@ while true; do
 			[[ $FULL -eq 0 ]] && FULL=1 || FULL=0
 			shift
 			;;
-		'-H'|'--hidden')
+		'-d'|'--hidden')
 			[[ $HIDDEN -eq 0 ]] && HIDDEN=1 || HIDDEN=0
 			shift
 			;;
@@ -166,6 +166,7 @@ echo;
 #
 extname1()
 {
+	[[ "$*" =~ "." ]] || return 1
 	local result="$(basename "$*")"
 	result=".${result#*.}"
 	echo "$result"
@@ -173,6 +174,7 @@ extname1()
 
 extname2()
 {
+	[[ "$*" =~ "." ]] || return 1
 	local result="$(basename "$*")"
 	result=".${result##*.}"
 	echo "$result"
@@ -180,7 +182,13 @@ extname2()
 
 extname()
 {
-	[[ $FULL -eq 0 ]] && extname2 "$*" || extname1 "$*"
+	if [[ $FULL -eq 0 ]]; then
+		extname2 "$*"
+		return $?
+	fi
+
+	extname1 "$*"
+	return $?
 }
 
 #
@@ -188,22 +196,35 @@ FIND="find '$SOURCE' -maxdepth 1 -type f"
 [[ $HIDDEN -eq 0 ]] && FIND+=" -not -name '.*'"
 FIND+=" -print0"
 
+count=0
 FILES=()
 declare -A COUNT
 
 #
 while IFS= read -r -d '' file; do
 	FILES+=( "$file" )
-	EXT="$(extname "$file")"
-	COUNT[$EXT]=$((COUNT["$EXT"]+1))
+	ext="$(extname "$file")"
+	[[ $? -ne 0 ]] && continue
+	[[ -v COUNT["$ext"] ]] || let count=$count+1
+	COUNT["$ext"]=$((COUNT["$ext"]+1))
 done < <(eval "$FIND")
 
 #
-echo -e "\n(TODO)\n\nExtensions found, btw:\n"
-for ext in "${!COUNT[@]}"; do
-	echo "[$ext] ${COUNT[$ext]}"
+_max=0
+for i in "${!COUNT[@]}"; do
+	[[ ${#i} -gt $_max ]] && _max=${#i}
 done
-echo -e "\n(TODO) as already set.. exiting!"; exit 255
+
+echo -e "\nI found and counted ${count} different file extensions:\n"
+
+for ext in "${!COUNT[@]}"; do
+	printf "[%${_max}s] %d\n" "$ext" "${COUNT[$ext]}"
+done
+
+#
+echo -e "\n\n\n... TODO (all the rest).. ^_^\n"
+echo -e "\thttps://github.com/kekse1/scripts/\n\t<kuchen@kekse.biz>\n"
+exit 127
 
 
 # 

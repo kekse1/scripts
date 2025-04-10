@@ -56,7 +56,8 @@ sha224()
 
 extname()
 {
-	local result="`basename "$1"`"
+	[[ "$*" =~ "." ]] || return 1
+	local result="`basename "$*"`"
 	result=".${result#*.}"
 	echo "$result"
 }

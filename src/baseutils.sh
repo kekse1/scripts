@@ -61,6 +61,7 @@ from()
 #
 extname1()
 {
+	[[ "$*" =~ "." ]] || return 1
 	local result="$(basename "$*")"
 	result=".${result#*.}"
 	echo "$result"
@@ -68,6 +69,7 @@ extname1()
 
 extname2()
 {
+	[[ "$*" =~ "." ]] || return 1
 	local result="$(basename "$*")"
 	result=".${result##*.}"
 	echo "$result"
