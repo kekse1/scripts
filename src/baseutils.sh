@@ -63,7 +63,7 @@ extname1()
 {
 	local result="$(basename "$*")"
 	[[ "$result" =~ "." ]] || return 1
-	[[ "$result" == "." ]] && return 2
+	[[ "${result::1}" == "." ]] && return 2
 	[[ -z "$result" ]] && return 3
 	echo ".${result#*.}"
 }
@@ -72,7 +72,7 @@ extname2()
 {
 	local result="$(basename "$*")"
 	[[ "$result" =~ "." ]] || return 1
-	[[ "$result" == "." ]] && return 2
+	[[ "${result::1}" == "." ]] && return 2
 	[[ -z "$result" ]] && return 3
 	echo ".${result##*.}"
 }
