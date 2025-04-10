@@ -24,7 +24,6 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`up2date`.sh](#up2datesh)
 	* [`fresh`.sh](#freshsh)
 	* [`ansi`.sh](#ansish)
-	* [`index`.sh](#indexsh)
 	* [`logrotate`.sh](#logrotatesh)
 	* [`make-nodejs`.sh](#make-nodejssh)
 	* [`unexify`.sh](#unexifysh)
@@ -34,6 +33,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`copy`.sh](#copysh)
 	* [`create-random-files`.sh](#create-random-filessh)
 	* [`download-wiki-dumps`.sh](#download-wiki-dumpssh)
+	* [`index`.sh](#indexsh)
 	* [`incmv`.sh](#incmvsh)
 	* [`crypto`.sh](#cryptosh)
 	* [`replace`.sh](#replacesh)
@@ -144,24 +144,6 @@ Helper to quickly update `git` repositories.. really tiny.
 > [!TIP]
 > Includes a function `keep()` to create `.keep` files in empty directories.
 > Useful for `git`, since it won't obey empty directories.
-
-<br><br>
-
-### `index.sh`
-<a href="src/index.sh">
-<img id="indexsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60index.sh%60" />
-</a>
-
-* [Version v**0.2.1**](src/index.sh) (updated **2025-03-05**)
-
-Finds file duplicates, or just creates an index with the file hashes..
-
-You define a target directory and an optional depth (defaults to 1,
-so only the current directory), and in your target directory there'll
-be files with names out of their `sha224sum`, with original extensions.
-
-> [!TIP]
-> See also my new [`incmv.sh`](#incmvsh). Both together are better. :-)
 
 <br><br>
 
@@ -368,6 +350,24 @@ expects the original `.bz2` files (so the script can also extract them).
 > [!TIP]
 > Before v**0.1.4** there were only german dumps, now I added the english ones, too.
 > Additionally there's now also the [**wikidatawiki**](https://dumps.wikimedia.org/wikidatawiki/).
+
+<br><br>
+
+### `index.sh`
+<a href="src/index.sh">
+<img id="indexsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60index.sh%60" />
+</a>
+
+* [Version v**0.2.1**](src/index.sh) (updated **2025-03-05**)
+
+Finds file duplicates, or just creates an index with the file hashes..
+
+You define a target directory and an optional depth (defaults to 1,
+so only the current directory), and in your target directory there'll
+be files with names out of their `sha224sum`, with original extensions.
+
+> [!TIP]
+> See also my new [`incmv.sh`](#incmvsh). Both together are better. :-)
 
 <br><br>
 
