@@ -20,5 +20,8 @@
 #
 # TODO # nothing here yet! but i'm going to write this soon..
 #
+# # dynamic extension (each w/ own counter)
+# # optional prefix and suffix!
+#
 
 #
