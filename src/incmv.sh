@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.0
+# v0.1.1
 # 
 # Renames a bunch of files in a directory (NOT recursive)
 # with an increasing number (counted for each file extension),
@@ -47,7 +47,7 @@ base="$(basename "$0")"
 #
 syntax()
 {
-	echo "Syntax: $0 <directory>"; echo
+	echo "Syntax: $0 < source directory > < target directory >"; echo
 	echo -e "\t        [ --help / -h ]  Just shows this syntax information ONLY"
 	echo -e "\t[ --prefix <...> / -p ]  Optional string *before* count value"
 	echo -e "\t[ --suffix <...> / -s ]  Optional string *after* count value"
@@ -154,8 +154,10 @@ if [[ "$SOURCE" == "$TARGET" ]]; then
 	echo
 fi
 
-echo -e "[Prefix] '$PREFIX'\n[Suffix] '$SUFFIX'"
-
+echo -e "[Source] '$SOURCE'"
+echo -e "[Target] '$TARGET'"
+echo -e "[Prefix] '$PREFIX'"
+echo -e "[Suffix] '$SUFFIX'"
 echo -n "[Hidden] "; [[ $HIDDEN -eq 0 ]] && echo "no" || echo "yes"
 echo -n "[Global] "; [[ $GLOBAL -eq 0 ]] && echo "no" || echo "yes"
 echo -n "  [Full] "; [[ $FULL -eq 0 ]] && echo "no" || echo "yes"

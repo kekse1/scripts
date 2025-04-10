@@ -8,7 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
-* \[**2025-04-10**\] Updated the [`incmv`.sh](#incmvsh), v**0.1.0** (but still **TODO**!);
+* \[**2025-04-10**\] Updated the [`incmv`.sh](#incmvsh), v**0.1.1** (but still **TODO**!);
 * \[**2025-04-10**\] **Tiny** update in the [`baseutils`.sh](#baseutilssh), v**0.4.2**;
 * \[**2025-03-31**\] New script [`logrotate`.sh](#logrotatesh), .. v**0.0.4**;
 * \[**2025-03-18**\] **Moved** the only non-bash script from here to it's own [`nproc.c`](https://github.com/kekse1/nproc.c/) repository
@@ -379,7 +379,7 @@ be files with names out of their `sha224sum`, with original extensions.
 
 **STILL pure TODO**!
 
-* [Version v**0.1.0**](src/incmv.sh) (updated **2025-04-10**)
+* [Version v**0.1.1**](src/incmv.sh) (updated **2025-04-10**)
 
 Renames a bunch of files in a directory (NOT recursive)
 with an increasing number (counted for each file extension),
