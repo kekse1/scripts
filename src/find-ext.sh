@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.1
+# v0.2.2
 # 
 # Syntax: `$0 [ --depth / -d <depth> ] [ --raw / -r ] [ --hidden / -d ] [ --full / -f ]`
 # 
@@ -137,7 +137,7 @@ if [[ $raw -ne 0 ]]; then
 		echo "$i"
 	done; exit
 else
-	echo -e "\n >> Found $count different extensions.\n"
+	echo -e " >> Found $count different extensions.\n"
 fi
 
 _max=0
@@ -147,6 +147,8 @@ for i in "${!COUNT[@]}"; do
 done
 
 for i in "${!COUNT[@]}"; do
-	printf "[%${_max}s] %d\n" "$i" "${COUNT[$i]}"
+	printf "%${_max}s %d\n" "$i" "${COUNT[$i]}"
 done
+
+echo
 
