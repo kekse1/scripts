@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.0
+# v0.2.1
 # 
 # Syntax: `$0 [ --depth / -d <depth> ] [ --raw / -r ] [ --hidden / -d ] [ --full / -f ]`
 # 
