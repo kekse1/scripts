@@ -385,7 +385,7 @@ This was necessary for me after sorting out duplicates of
 some files w/ my older `[index.sh](#indexsh)`. :-)
 
 > [!TIP]
-> So also take a look at my older `[index.sh](#indexsh)`!
+> So also take a look at my older [`index.sh`](#indexsh)!
 > Both together are better. :-)
 
 <br><br>
