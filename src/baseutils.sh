@@ -62,7 +62,8 @@ from()
 extname1()
 {
 	local result="$(basename "$*")"
-	[[ "${result::1}" == "." ]] && result="${result:1}"
+	while [[ "${result::1}" == "." ]]; do
+	       result="${result:1}"; done
 	[[ -z "$result" ]] && return 1
 	[[ "$result" =~ "." ]] || return 2
 	result="${result#*.}"
@@ -73,7 +74,8 @@ extname1()
 extname2()
 {
 	local result="$(basename "$*")"
-	[[ "${result::1}" == "." ]] && result="${result:1}"
+	while [[ "${result::1}" == "." ]]; do
+		result="${result:1}"; done
 	[[ -z "$result" ]] && return 1
 	[[ "$result" =~ "." ]] || return 2
 	result="${result##*.}"
