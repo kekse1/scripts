@@ -396,7 +396,7 @@ some files w/ my older [`index.sh`](#indexsh).
 > Both together are better. :-)
 
 #### Parameters
-This is the current state: the supported `getopt` parameters.
+This is the current state of supported `getopt` parameters:
 
 * **`-h / --help`**
 * **`-p / --prefix`**
