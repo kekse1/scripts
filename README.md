@@ -386,8 +386,7 @@ be files with names out of their `sha224sum`, with original extensions.
 * [Version v**0.2.2**](src/inc.sh) (updated **2025-04-11**)
 
 Renames a bunch of files in a directory (NOT recursive)
-with an increasing number (counted for each file extension),
-surely obeying the original extensions.
+with an increasing number. With some options..
 
 This was necessary for me after sorting out duplicates of
 some files w/ my older [`index.sh`](#indexsh).
@@ -395,6 +394,19 @@ some files w/ my older [`index.sh`](#indexsh).
 > [!TIP]
 > So also take a look at my older [`index.sh`](#indexsh)!
 > Both together are better. :-)
+
+#### Parameters
+This is the current state: the supported `getopt` parameters.
+
+* **`-h / --help`**
+* **`-p / --prefix`**
+* **`-s / --suffix`**
+* **`-d / --hidden`**
+* **`-f / --full`**
+* **`-g / --global`**
+* **`-v / --preserve`**
+* **`-r / --remove`**
+* **`-t / --sort`**
 
 <br><br>
 

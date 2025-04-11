@@ -6,8 +6,7 @@
 # v0.2.2
 # 
 # Renames a bunch of files in a directory (NOT recursive)
-# with an increasing number (counted for each file extension),
-# surely obeying the original extension.
+# with an increasing number. With some options..
 #
 # This was necessary for me after sorting out duplicates of
 # some files w/ my older `index.sh` (which perfectly fits to
