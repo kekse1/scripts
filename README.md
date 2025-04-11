@@ -8,10 +8,10 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-04-11**\] Updated the [`inc`.sh](#incsh), v**0.2.2** (but still pure **TODO**!);
 * \[**2025-04-10**\] Update in the [`index`.sh](#indexsh), v**0.2.2**;
 * \[**2025-04-10**\] BIG update in [`find-ext`.sh](#find-extsh), v**0.2.2**;
 * \[**2025-04-10**\] Updated [`insert-header`.sh](#insert-headersh), v**0.2.4**;
-* \[**2025-04-10**\] Updated the [`incmv`.sh](#incmvsh), v**0.2.1** (but still **TODO**!);
 * \[**2025-04-10**\] **Tiny** update in the [`baseutils`.sh](#baseutilssh), v**0.4.3**;
 * \[**2025-03-31**\] New script [`logrotate`.sh](#logrotatesh), .. v**0.0.4**;
 * \[**2025-03-18**\] **Moved** the only non-bash script from here to it's own [`nproc.c`](https://github.com/kekse1/nproc.c/) repository
@@ -38,7 +38,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`create-random-files`.sh](#create-random-filessh)
 	* [`download-wiki-dumps`.sh](#download-wiki-dumpssh)
 	* [`index`.sh](#indexsh)
-	* [`incmv`.sh](#incmvsh)
+	* [`inc`.sh](#incsh)
 	* [`crypto`.sh](#cryptosh)
 	* [`replace`.sh](#replacesh)
 	* [`toilets`.sh](#toiletssh)
@@ -371,18 +371,19 @@ so only the current directory), and in your target directory there'll
 be files with names out of their `sha224sum`, with original extensions.
 
 > [!TIP]
-> See also my new [`incmv.sh`](#incmvsh). Both together are better. :-)
+> See also my new [`inc.sh`](#incsh). Both together are better. :-)
 
 <br><br>
 
-### `incmv.sh`
-<a href="src/incmv.sh">
-<img id="incmvsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60incmv.sh%60" />
+### `inc.sh`
+<a href="src/inc.sh">
+<img id="incsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60inc.sh%60" />
 </a>
 
-**STILL pure TODO**!
+> [!NOTE]
+> **STILL pure TODO**!
 
-* [Version v**0.2.1**](src/incmv.sh) (updated **2025-04-10**)
+* [Version v**0.2.2**](src/inc.sh) (updated **2025-04-11**)
 
 Renames a bunch of files in a directory (NOT recursive)
 with an increasing number (counted for each file extension),

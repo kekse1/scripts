@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.1
+# v0.2.2
 # 
 # Renames a bunch of files in a directory (NOT recursive)
 # with an increasing number (counted for each file extension),
@@ -18,10 +18,7 @@
 #
 
 #
-# TODO # ...
-#
-# # dynamic extension (each w/ own counter)
-# # optional prefix and suffix!
+# STILL ONLY TODO!1
 #
 
 #
@@ -53,17 +50,18 @@ syntax()
 	echo -e "\t        [ --help / -h ]  Just shows this syntax information ONLY"
 	echo -e "\t[ --prefix <...> / -p ]  Optional string *before* count value"
 	echo -e "\t[ --suffix <...> / -s ]  Optional string *after* count value"
-	echo -e "\t      [ --hidden / -d ]  Include hidden/dot files"
+	echo -e "\t      [ --hidden / -d ]  Also count hidden/dot files (w/ \`.\` prefix)"
 	echo -e "\t        [ --full / -f ]  Takes full extensions"
 	echo -e "\t      [ --global / -g ]  ONE counter instead of one for each extension"
 	echo -e "\t    [ --preserve / -v ]  Do not use any --prefix/--suffix (only original name)"
-	echo -e "\t      [ --remove / -r ]  Remove starting count of file names, if any"
+	echo -e "\t      [ --remove / -r ]  Remove count of file names; only already counted w/ --preserve"
+	echo -e "\t        [ --sort / -t ]  Used by \`ls\` - that\'s how files will get counted"
 	echo
 }
 
 #
-short='hp:s:dfgvr'
-long='help,prefix:,suffix:,hidden,full,global,preserve,remove'
+short='ht:p:s:dfgvr'
+long='help,sort:,prefix:,suffix:,hidden,full,global,preserve,remove'
 opts="$(getopt -o "$short" -l "$long" -n "$base" -- "$@")"
 
 if [[ $? -ne 0 ]]; then
@@ -78,6 +76,15 @@ while true; do
 		'-h'|'--help')
 			syntax
 			exit
+			;;
+		'-t'|'--sort')
+			shift
+			if [[ -z "$1" ]]; then
+				echo 'Missing `--sort` parameter!' >&2
+				exit 2
+			fi
+			SORT="$1"
+			shift
 			;;
 		'-v'|'--preserve')
 			[[ $PRESERVE -eq 0 ]] && PRESERVE=1 || PRESERVE=0
@@ -103,7 +110,7 @@ while true; do
 			shift
 			if [[ -z "$1" ]]; then
 				echo 'Missing `--prefix` parameter!' >&2
-				exit 2
+				exit 3
 			fi
 			PREFIX="$1"
 			shift
@@ -112,7 +119,7 @@ while true; do
 			shift
 			if [[ -z "$1" ]]; then
 				echo 'Missing `--suffix` parameter!' >&2
-				exit 3
+				exit 4
 			fi
 			SUFFIX="$1"
 			shift
@@ -128,14 +135,14 @@ if [[ -n "$1" && -d "$1" ]]; then
 	SOURCE="$1"
 elif [[ -z "$SOURCE" || ! -d "$SOURCE" ]]; then
 	echo "Missing or invalid source directory!" >&2
-	exit 4
+	exit 5
 fi
 
 if [[ -n "$2" && -d "$2" ]]; then
 	TARGET="$2"
 elif [[ -z "$TARGET" || ! -d "$TARGET" ]]; then
 	echo "Missing or invalid target directory!" >&2
-	exit 5
+	exit 6
 fi
 
 SOURCE="$(realpath "$SOURCE")"
@@ -161,7 +168,7 @@ if [[ "$SOURCE" == "$TARGET" ]]; then
 	prompt "Are you sure this is correct [yes/no]? "
 	if [[ $? -ne 0 ]]; then
 		echo -e "OK, so we abort here.." >&2
-		exit 6
+		exit 7
 	fi
 	echo
 fi
