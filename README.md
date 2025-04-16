@@ -438,7 +438,8 @@ Kinda (really tiny) "management" of exit and it's codes. ...
 * [Version v**0.1.0**](src/quit.sh) (created **2025-04-16**)
 
 > [!NOTE]
-> See the comment on top of this script for a detailed intro.
+> See the comment on top of this script for a detailed introduction
+> and my intention to create this 'script'.
 
 <br><br>
 
