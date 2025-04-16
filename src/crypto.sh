@@ -103,14 +103,14 @@ echo "umount($#)" >&2; return 255;
 			cmount "$@"
 			return $?
 			;;
-		umount|cumount)
+		umount|cumount|unmount|cunmount)
 			cumount "$@"
 			return $?
 			;;
 		*)
 			echo "ERROR: Invalid function!" >&2
 			echo -e "\t[ format, list, info, mount, umount ]" >&2
-			exit 255
+			return 255
 			;;
 	esac
 }
