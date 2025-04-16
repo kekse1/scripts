@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-04-16**\] New lil helper [`quit`.sh](#quitsh), v**0.1.0**;
 * \[**2025-04-16**\] More **preparations** for my [`crypto`.sh](#cryptosh), currently v**0.0.6**;
 * \[**2025-04-11**\] Updated the [`inc`.sh](#incsh), v**0.2.2** (but still pure **TODO**!);
 * \[**2025-04-10**\] Update in the [`index`.sh](#indexsh), v**0.2.2**;
@@ -41,6 +42,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`index`.sh](#indexsh)
 	* [`inc`.sh](#incsh)
 	* [`crypto`.sh](#cryptosh)
+	* [`quit`.sh](#quitsh)
 	* [`replace`.sh](#replacesh)
 	* [`toilets`.sh](#toiletssh)
 	* [`math`.sh](#mathsh)
@@ -423,6 +425,20 @@ Manage **LUKS** encryption via `cryptsetup`.
 > [!NOTE]
 > I just **began** with this script.. currently I'm doing some **preparations** only;
 > the (bigger) rest stays **TODO**. ..
+
+<br><br>
+
+### `quit.sh`
+<a href="src/quit.sh">
+<img id="quitsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60quit.sh%60" />
+</a>
+
+# Kinda tiny "management" of exit and it's codes. ...
+
+* [Version v**0.1.0**](src/quit.sh) (created **2025-04-16**)
+
+> [!NOTE]
+> See the comment on top of this script for a detailed intro.
 
 <br><br>
 
