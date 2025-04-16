@@ -433,7 +433,7 @@ Manage **LUKS** encryption via `cryptsetup`.
 <img id="quitsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60quit.sh%60" />
 </a>
 
-# Kinda tiny "management" of exit and it's codes. ...
+Kinda (really tiny) "management" of exit and it's codes. ...
 
 * [Version v**0.1.0**](src/quit.sh) (created **2025-04-16**)
 
