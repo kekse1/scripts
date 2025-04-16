@@ -52,7 +52,7 @@ quit()
 
 rand()
 {
-	local max=$1; [[ -z "$max" ]] && max=255
+	local max=$1; [[ -z "$max" ]] && max=4294967295 # now the max. int32 ((2**32)-1) or ((256**4)-1);
 	local min=$2; [[ -z "$min" ]] && min=0
 
 	if [[ $max -eq $min ]]; then
