@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-04-16**\] More **preparations** for my [`crypto`.sh](#cryptosh), currently v**0.0.6**;
 * \[**2025-04-11**\] Updated the [`inc`.sh](#incsh), v**0.2.2** (but still pure **TODO**!);
 * \[**2025-04-10**\] Update in the [`index`.sh](#indexsh), v**0.2.2**;
 * \[**2025-04-10**\] BIG update in [`find-ext`.sh](#find-extsh), v**0.2.2**;
@@ -417,10 +418,11 @@ This is the current state of supported `getopt` parameters:
 
 Manage **LUKS** encryption via `cryptsetup`.
 
-* [Version v**0.0.4**](src/crypto.sh) (updated **2025-04-03**)
+* [Version v**0.0.6**](src/crypto.sh) (updated **2025-04-16**)
 
 > [!NOTE]
-> Just **began** this helping script.. is still **pure** **TODO**!1
+> I just **began** with this script.. currently I'm doing some **preparations** only;
+> the (bigger) rest stays **TODO**. ..
 
 <br><br>
 
