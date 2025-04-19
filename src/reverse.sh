@@ -42,7 +42,7 @@ while true; do
 	let _count=$_count+1
 	echo -n "Restarting SSH reverse tunnel #${_count}... "
 
-	if [[ -z $_sleep ]]; then
+	if [[ -z $_sleep || $_sleep -eq 0 ]]; then
 		echo "now."
 	else
 		echo "in ${_sleep}."
