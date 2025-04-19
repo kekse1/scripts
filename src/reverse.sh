@@ -24,7 +24,7 @@ _host_remote="example.com"
 _user_remote="user"
 # important: use arrays, due to possibly multiple routes
 _port_local=( 22 80 )
-_port_tunnel=( 2048 8192 )
+_port_tunnel=( 2222 8080 )
 _host_local=( localhost localhost )
 # the watchdog's $_sleep can be none.. but not recommended.
 _date="%A, %Y-%m-%d (%H:%M:%S)"
