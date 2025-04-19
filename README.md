@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-04-19**\] New [`reverse`.sh](#reversesh), v**0.1.0**;
 * \[**2025-04-16**\] New lil helper [`quit`.sh](#quitsh), v**0.1.0**;
 * \[**2025-04-16**\] More **preparations** for my [`crypto`.sh](#cryptosh), currently v**0.0.6**;
 * \[**2025-04-11**\] Updated the [`inc`.sh](#incsh), v**0.2.2** (but still pure **TODO**!);
@@ -37,6 +38,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`up2date`.sh](#up2datesh)
 	* [`count-all-lines`.sh](#count-all-linessh)
 	* [`copy`.sh](#copysh)
+	* [`reverse`.sh](#reversesh)
 	* [`create-random-files`.sh](#create-random-filessh)
 	* [`download-wiki-dumps`.sh](#download-wiki-dumpssh)
 	* [`index`.sh](#indexsh)
@@ -305,6 +307,22 @@ is going to repeat the copy (as long you define in the 'loops' variable).
 So just set your server {user,host,port} and copy securely.
 
 BTW: yes, I had an unstable line when I created this.. via mobile phone.
+
+<br><br>
+
+### `reverse.sh`
+<a href="src/reverse.sh">
+<img id="reversesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60reverse.sh%60" />
+</a>
+
+My own solution (instead of using `autossh` or so).
+
+* [Version v**0.1.0**](src/reverse.sh) (created **2025-04-19**)
+
+Kinda 'watchdog', w/ pause between retries. For some
+reverse ssh tunnel. Default configuration opens the
+port (2222) on your remote machine - as a relay/tunnel
+to your local SSH server (so without port forwarding).
 
 <br><br>
 
