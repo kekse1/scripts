@@ -324,6 +324,9 @@ reverse ssh tunnel. Default configuration opens the
 port (2222) on your remote machine - as a relay/tunnel
 to your local SSH server (so without port forwarding).
 
+Use <Ctrl>+<C> to create a SIGINT signal, which will
+stop this script (via `trap`).
+
 <br><br>
 
 ### `create-random.files.sh`
