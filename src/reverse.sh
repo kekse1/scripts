@@ -48,7 +48,7 @@ for (( i=0; i<len; ++i )); do
 	port="${_port_local[$i]}"
 	tunnel="${_port_tunnel[$i]}"
 
-	echo "${host} : ${port} => ${_host_remote} : ${tunnel}"
+	echo "${host}:${port} <= ${_host_remote}:${tunnel}"
 	CMD+="-R ${tunnel}:${host}:${port} "
 done
 
@@ -65,7 +65,7 @@ trap sigint SIGINT
 
 #
 _count=1
-echo "Starting SSH reverse tunnel:"
+echo -e "\nStarting SSH reverse tunnel:"
 echo -e "\t\`${CMD}\`\n"
 
 while true; do
