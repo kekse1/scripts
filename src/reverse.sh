@@ -31,12 +31,13 @@ sigint()
 	exit
 }
 
+trap sigint SIGINT
+
 #
 _count=1
 echo "Starting SSH reverse tunnel."
 while true; do
 
-	trap sigint SIGINT
 	ssh -p${_port_remote} -N -R ${_port_tunnel}:${_host_local}:${_port_local} ${_host_remote} #-f
 
 	let _count=$_count+1
