@@ -8,7 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
-* \[**2025-04-19**\] New [`reverse`.sh](#reversesh), v**0.1.0**;
+* \[**2025-04-19**\] New [`reverse`.sh](#reversesh), v**0.2.0**;
 * \[**2025-04-16**\] New lil helper [`quit`.sh](#quitsh), v**0.1.0**;
 * \[**2025-04-16**\] More **preparations** for my [`crypto`.sh](#cryptosh), currently v**0.0.6**;
 * \[**2025-04-11**\] Updated the [`inc`.sh](#incsh), v**0.2.2** (but still pure **TODO**!);
@@ -317,7 +317,7 @@ BTW: yes, I had an unstable line when I created this.. via mobile phone.
 
 My own solution (instead of using `autossh` or so).
 
-* [Version v**0.1.0**](src/reverse.sh) (created **2025-04-19**)
+* [Version v**0.2.0**](src/reverse.sh) (created **2025-04-19**)
 
 Kinda 'watchdog', w/ pause between retries. For some
 reverse ssh tunnel. Default configuration opens the

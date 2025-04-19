@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.0
+# v0.2.0
 #
 # My own solution (instead of using `autossh` or so).
 #
@@ -19,7 +19,7 @@
 #
 _port_remote=22
 _port_local=22
-_port_tunnel=2222
+_port_tunnel=1024
 _host_remote="localhost"
 _host_local="localhost"
 _sleep=1m
@@ -32,17 +32,23 @@ sigint()
 }
 
 #
-_count=0; while true; do
-	let _count=$_count+1
-	echo -n "Starting SSH #${_count} ... "
-	if [[ $_count -gt 1 ]]; then
-		echo "in ${_sleep}."
-		sleep $_sleep
-	else
-		echo "now."
-	fi
+_count=1
+echo "Starting SSH reverse tunnel."
+while true; do
+
 	trap sigint SIGINT
 	ssh -p${_port_remote} -N -R ${_port_tunnel}:${_host_local}:${_port_local} ${_host_remote} #-f
+
+	let _count=$_count+1
+	echo -n "Restarting SSH reverse tunnel #${_count}... "
+
+	if [[ -z $_sleep ]]; then
+		echo "now."
+	else
+		echo "in ${_sleep}."
+		sleep $_sleep
+	fi
+
 done
 
 #
