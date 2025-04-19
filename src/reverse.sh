@@ -3,27 +3,56 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.0
+# v0.4.0
 #
 # My own solution (instead of using `autossh` or so).
 #
 # Kinda 'watchdog', w/ pause between retries. For some
 # reverse ssh tunnel. Default configuration opens the
-# port (1024) on your remote machine - as a relay/tunnel
-# to your local SSH server (so without port forwarding).
+# port on your remote machine - as a relay/tunnel to
+# your local servers (without NAT w/ port forwarding).
 #
 # Use <Ctrl>+<C> to create a SIGINT signal, which will
 # stop this script (via `trap`).
 #
-
+# Now also multiple routes possible.
 #
+
+# ssh settings for remote host
 _port_remote=22
-_port_local=22
-_port_tunnel=1024
-_host_remote="remote.host"
-_host_local="localhost"
+_host_remote="example.com"
+_user_remote="user"
+# important: use arrays, due to possibly multiple routes
+_port_local=( 22 80 )
+_port_tunnel=( 2048 8192 )
+_host_local=( localhost localhost )
+# the watchdog's $_sleep can be none.. but not recommended.
 _date="%A, %Y-%m-%d (%H:%M:%S)"
 _sleep=1m
+
+#
+CMD="ssh -p${_port_remote} ${_user_remote}@${_host_remote} -o ExitOnForwardFailure=yes -N "
+
+#
+len=${#_port_local[@]}
+if [[ ${#_port_tunnel[@]} -ne $len || ${#_host_local[@]} -ne $len ]]; then
+	echo "Invalid configuration (size mismatch)!" >&2
+	exit 1
+elif [[ $len -eq 0 ]]; then
+	echo "No reverse tunnel configured!" >&2
+	exit 2
+fi
+
+for (( i=0; i<len; ++i )); do
+	host="${_host_local[$i]}"
+	port="${_port_local[$i]}"
+	tunnel="${_port_tunnel[$i]}"
+
+	echo "${host} : ${port} => ${_host_remote} : ${tunnel}"
+	CMD+="-R ${tunnel}:${host}:${port} "
+done
+
+CMD="${CMD:: -1}"
 
 #
 sigint()
@@ -36,16 +65,12 @@ trap sigint SIGINT
 
 #
 _count=1
-echo "Starting SSH reverse tunnel."
+echo "Starting SSH reverse tunnel:"
+echo -e "\t\`${CMD}\`\n"
 
 while true; do
-
 	date +"${_date}"
-
-	echo
-	ssh -p${_port_remote} -o ExitOnForwardFailure=yes -N -R ${_port_tunnel}:${_host_local}:${_port_local} ${_host_remote} #-f
-	echo
-
+	echo; eval "$CMD"; echo
 	let _count=$_count+1
 	echo -n "Restarting SSH reverse tunnel #${_count}... "
 
@@ -55,7 +80,6 @@ while true; do
 		echo "in ${_sleep}."
 		sleep $_sleep
 	fi
-
 done
 
 #
