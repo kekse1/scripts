@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.0
+# v0.4.1
 #
 # My own solution (instead of using `autossh` or so).
 #
@@ -20,8 +20,9 @@
 
 # ssh settings for remote host
 _port_remote=22
-_host_remote="example.com"
+_host_remote="example"
 _user_remote="user"
+_compress=1
 # important: use arrays, due to possibly multiple routes
 _port_local=( 22 80 )
 _port_tunnel=( 2222 8080 )
@@ -32,6 +33,7 @@ _sleep=1m
 
 #
 CMD="ssh -p${_port_remote} ${_user_remote}@${_host_remote} -o ExitOnForwardFailure=yes -N "
+[[ $_compress -ne 0 ]] && CMD+="-C "
 
 #
 len=${#_port_local[@]}
