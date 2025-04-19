@@ -22,7 +22,7 @@
 _port_remote=22
 _host_remote="example"
 _user_remote="user"
-_compress=1
+_compress=0
 # important: use arrays, due to possibly multiple routes
 _port_local=( 22 80 )
 _port_tunnel=( 2222 8080 )
