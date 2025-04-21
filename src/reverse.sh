@@ -33,7 +33,7 @@ _port_local=( 22 80 )
 _port_tunnel=( 2222 8080 )
 # the watchdog's $_sleep can be none.. but not recommended.
 _date="%A, %Y-%m-%d (%H:%M:%S)"
-_sleep=1m
+_sleep=2m
 
 #
 CMD="ssh -p${_port_remote} ${_user_remote}@${_host_remote} -o ConnectTimeout=${_ConnectTimeout} -o ServerAliveInterval=${_ServerAliveInterval} -o TCPKeepAlive=${_TCPKeepAlive} -o ExitOnForwardFailure=yes -o GatewayPorts=${_GatewayPorts} -N "
