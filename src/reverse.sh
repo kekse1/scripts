@@ -31,7 +31,7 @@ _GatewayPorts=yes
 _host_local=( localhost localhost )
 _port_local=( 22 80 )
 _port_tunnel=( 2222 8080 )
-# the watchdog's $_sleep can be none.. but not recommended.
+# the watchdog's $_sleep can be zero length/none.. but not recommended.
 _date="%A, %Y-%m-%d (%H:%M:%S)"
 _sleep=2m
 
