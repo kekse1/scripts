@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.1
+# v0.4.2
 #
 # My own solution (instead of using `autossh` or so).
 #
@@ -20,9 +20,13 @@
 
 # ssh settings for remote host
 _port_remote=22
-_host_remote="example"
+_host_remote="host"
 _user_remote="user"
 _compress=0
+_tcp_keep_alive=yes
+_timeout_alive=30
+_timeout_connect=30
+_gateway_ports=yes
 # important: use arrays, due to possibly multiple routes
 _host_local=( localhost localhost )
 _port_local=( 22 80 )
@@ -32,7 +36,7 @@ _date="%A, %Y-%m-%d (%H:%M:%S)"
 _sleep=1m
 
 #
-CMD="ssh -p${_port_remote} ${_user_remote}@${_host_remote} -o ExitOnForwardFailure=yes -N "
+CMD="ssh -p${_port_remote} ${_user_remote}@${_host_remote} -o ConnectTimeout=${_timeout_connect} -o ServerAliveInterval=${_timeout_alive} -o TCPKeepAlive=${_tcp_keep_alive} -o ExitOnForwardFailure=yes -o GatewayPorts=${_gateway_ports} -N "
 [[ $_compress -ne 0 ]] && CMD+="-C "
 
 #
