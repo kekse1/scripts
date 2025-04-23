@@ -12,7 +12,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 * \[**2025-04-16**\] New lil helper [`quit`.sh](#quitsh), v**0.1.0**;
 * \[**2025-04-16**\] More **preparations** for my [`crypto`.sh](#cryptosh), currently v**0.0.6**;
 * \[**2025-04-11**\] Updated the [`inc`.sh](#incsh), v**0.2.2** (but still pure **TODO**!);
-* \[**2025-04-10**\] Update in the [`index`.sh](#indexsh), v**0.2.2**;
+* \[**2025-04-10**\] Update in the [`index`.sh](#indexsh), v**0.2.3**;
 * \[**2025-04-10**\] BIG update in [`find-ext`.sh](#find-extsh), v**0.2.2**;
 * \[**2025-04-10**\] Updated [`insert-header`.sh](#insert-headersh), v**0.2.4**;
 * \[**2025-04-10**\] **Tiny** update in the [`baseutils`.sh](#baseutilssh), v**0.4.3**;
@@ -387,7 +387,7 @@ expects the original `.bz2` files (so the script can also extract them).
 <img id="indexsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60index.sh%60" />
 </a>
 
-* [Version v**0.2.2**](src/index.sh) (updated **2025-04-10**)
+* [Version v**0.2.3**](src/index.sh) (updated **2025-04-24**)
 
 Finds file duplicates, or just creates an index with the file hashes..
 

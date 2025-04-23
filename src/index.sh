@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.2
+# v0.2.3
 # 
 # Finds file duplicates, or just creates an index with
 # the file hashes..
@@ -41,7 +41,7 @@ if [[ -z "$target" ]]; then
 	echo "Missing target directory!" >&2
 	syntax 1
 else
-	target="$(realpath "$target")"
+	target="$(realpath "$target")/"
 	[[ $? -ne 0 ]] && exit 2
 	echo -n "Using target directory: '$target' "
 	if [[ -d "$target" ]]; then
@@ -130,5 +130,5 @@ for (( i=0; i < ${#files[@]}; ++i )); do
 done
 
 echo
-echo "Now look into '${target}'"
+echo "Now look into '${target}'."
 
