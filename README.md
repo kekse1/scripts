@@ -470,9 +470,9 @@ Kinda (really tiny) "management" of exit and it's codes. ...
 <img id="replacesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60replace.sh%60" />
 </a>
 
-* [Version v**0.1.2**](src/replace.sh) (updated **2025-03-05**)
+* [Version v**0.1.3**](src/replace.sh) (updated **2025-04-23**)
 
-Recursive (really!) `sed` (regular expression) replacement in (only real!) files.
+Recursive (really!) `sed` (regular expression) replacement in (only real) files.
 
 <br><br>
 
