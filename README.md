@@ -11,14 +11,12 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 * \[**2025-05-03**\] TINY helper [`ntpdate`.sh](#ntpdatesh), v**0.3.0**;
 * \[**2025-04-21**\] Updated the [`reverse`.sh](#reversesh), v**0.4.2**;
 * \[**2025-04-16**\] New lil helper [`quit`.sh](#quitsh), v**0.1.0**;
-* \[**2025-04-16**\] More **preparations** for my [`crypto`.sh](#cryptosh), currently v**0.0.6**;
-* \[**2025-04-11**\] Updated the [`inc`.sh](#incsh), v**0.2.2** (but still pure **TODO**!);
-* \[**2025-04-10**\] Update in the [`index`.sh](#indexsh), v**0.2.3**;
-* \[**2025-04-10**\] BIG update in [`find-ext`.sh](#find-extsh), v**0.2.2**;
-* \[**2025-04-10**\] Updated [`insert-header`.sh](#insert-headersh), v**0.2.4**;
-* \[**2025-04-10**\] **Tiny** update in the [`baseutils`.sh](#baseutilssh), v**0.4.3**;
-* \[**2025-03-31**\] New script [`logrotate`.sh](#logrotatesh), .. v**0.0.4**;
-* \[**2025-03-18**\] **Moved** the only non-bash script from here to it's own [`nproc.c`](https://github.com/kekse1/nproc.c/) repository
+
+<br>
+
+#### TODO
+* [ ] [`inc`.sh](#incsh)
+* [ ] [`crypto`.sh](#cryptosh)
 
 <br><br>
 
