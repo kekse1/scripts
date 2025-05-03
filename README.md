@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-05-03**\] TINY helper [`ntpdate`.sh](#ntpdatesh), v**0.2.0**;
 * \[**2025-04-21**\] Updated the [`reverse`.sh](#reversesh), v**0.4.2**;
 * \[**2025-04-16**\] New lil helper [`quit`.sh](#quitsh), v**0.1.0**;
 * \[**2025-04-16**\] More **preparations** for my [`crypto`.sh](#cryptosh), currently v**0.0.6**;
@@ -52,6 +53,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`move-by-ext`.sh](#move-by-extsh)
 	* [`find-ext`.sh](#find-extsh)
 	* [`insert-header`.sh](#insert-headersh)
+	* [`ntpdate`.sh](#ntpdatesh)
 	* [`router`.sh](#routersh)
 	* [`hfdownloader`.sh](#hfdownloadersh)
 	* [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh)
@@ -579,6 +581,21 @@ script without parameters!
 > [!NOTE]
 > My **TODO** is to replace the file extension argv-parameters by full
 > globs, to be pass-thru directed to the `find` command.
+
+<br><br>
+
+### `ntpdate.sh`
+<a href="src/ntpdate.sh">
+<img id="ntpdatesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60ntpdate.sh%60" />
+</a>
+
+* [Version v**0.2.0**](src/ntpdate.sh) (published **2025-05-03**)
+
+Really tiny helper to refresh your time. You could also put it in a cronjob;
+with optional `$LOG` for every last update.
+
+> [!TIP]
+> For [Debian Linux](https://debian.org/): `ntpdate` is in the packet `ntpsec-ntpdate` now.
 
 <br><br>
 
