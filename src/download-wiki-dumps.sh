@@ -28,6 +28,9 @@
 # The '$SIMULATE' is just another debug function I'm massively
 # using when developing scripts. You should set it to (0).
 #
+# TODO # bitte noch ein zeitstempel o.ae. unter target
+# 	 directory.. damit zeitpunkt der dumps klar ist.
+#
 
 #
 url=(
