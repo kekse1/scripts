@@ -413,6 +413,9 @@ into `text/plain` versions. BUT you need a copy of the whole fs
 tree, because original input files are being deleted (so replaced
 by the new ones) [see also `$_unlink`, on the top];
 
+Will also create an extra INDEX FILE which lists all pages with
+their names, sections and (new target) file path's.
+
 * [Version v**0.1.1**](src/man2txt.sh) (created **2025-06-30**)
 
 > [!NOTE]
