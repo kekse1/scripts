@@ -411,7 +411,7 @@ be files with names out of their `sha224sum`, with original extensions.
 Conversion of all (compressed) linux man pages (/usr/share/man/)
 into `text/plain` versions. BUT you need a copy of the whole fs
 tree, because original input files are being deleted (so replaced
-by the new ones) [see also "$_unlink"];
+by the new ones) [see also `$_unlink`, on the top];
 
 * [Version v**0.1.0**](src/man2txt.sh) (created **2025-06-30**)
 
