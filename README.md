@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-06-30**\] For a private project I just coded the new [`man2txt`.sh](#man2txtsh), v**0.1.0**;
 * \[**2025-05-03**\] TINY helper [`ntpdate`.sh](#ntpdatesh), v**0.3.0**;
 * \[**2025-04-21**\] Updated the [`reverse`.sh](#reversesh), v**0.4.2**;
 * \[**2025-04-16**\] New lil helper [`quit`.sh](#quitsh), v**0.1.0**;
@@ -41,6 +42,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`create-random-files`.sh](#create-random-filessh)
 	* [`download-wiki-dumps`.sh](#download-wiki-dumpssh)
 	* [`index`.sh](#indexsh)
+	* [`man2txt`.sh](#man2txtsh)
 	* [`inc`.sh](#incsh)
 	* [`crypto`.sh](#cryptosh)
 	* [`quit`.sh](#quitsh)
@@ -397,6 +399,23 @@ be files with names out of their `sha224sum`, with original extensions.
 
 > [!TIP]
 > See also my new [`inc.sh`](#incsh). Both together are better. :-)
+
+<br><br>
+
+### `man2txt.sh`
+<a href="src/man2txt.sh">
+<img id="man2txtsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60man2txt.sh%60" />
+</a>
+
+Conversion of all (compressed) linux man pages (/usr/share/man/)
+into `text/plain` versions. BUT you need a copy of the whole fs
+tree, because original input files are being deleted (so replaced
+by the new ones) [see also "$_unlink"];
+
+* [Version v**0.1.0**](src/man2txt.sh) (created **2025-06-30**)
+
+Depends on the `groff` and `col` utilities. And maybe also on my own
+[**`dump.js`**](https://github.com/kekse1/dump.js/) utilties (in there).
 
 <br><br>
 
