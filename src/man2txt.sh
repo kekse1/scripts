@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://norbert.com.es/
-# v0.1.0
+# v0.1.1
 #
 # Conversion of all (compressed) linux man pages (/usr/share/man/)
 # into `text/plain` versions. BUT you need a copy of the whole fs
@@ -42,7 +42,14 @@ PROJ="$(realpath "${DIR}/../")"
 LIB="$(realpath "${DIR}/lib/")"
 
 #
-source "${LIB}/ansi.sh" || exit 123 # https://github.com/kekse1/scripts/#ansish
+# https://github.com/kekse1/scripts/#ansish
+source "${LIB}/ansi.sh" 2>/dev/null
+
+if [[ $? -ne 0 ]]; then
+	echo -e "You also need to download on of my helper scripts:"
+	echo -e "\thttps://github.com/kekse1/scripts/#ansish"
+	exit 14
+fi
 
 #
 syntax()

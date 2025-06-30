@@ -8,7 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
-* \[**2025-06-30**\] For a private project I just coded the new [`man2txt`.sh](#man2txtsh), v**0.1.0**;
+* \[**2025-06-30**\] For a private project I just coded the new [`man2txt`.sh](#man2txtsh), v**0.1.1**;
 * \[**2025-06-30**\] Updated the [`ansi`.sh](#ansish), v**1.3.3**;
 * \[**2025-05-03**\] TINY helper [`ntpdate`.sh](#ntpdatesh), v**0.3.0**;
 * \[**2025-04-21**\] Updated the [`reverse`.sh](#reversesh), v**0.4.2**;
@@ -413,7 +413,7 @@ into `text/plain` versions. BUT you need a copy of the whole fs
 tree, because original input files are being deleted (so replaced
 by the new ones) [see also `$_unlink`, on the top];
 
-* [Version v**0.1.0**](src/man2txt.sh) (created **2025-06-30**)
+* [Version v**0.1.1**](src/man2txt.sh) (created **2025-06-30**)
 
 Depends on the `groff` and `col` utilities. And maybe also on my own
 [**`dump.js`**](https://github.com/kekse1/dump.js/) utilties (in there).
