@@ -193,6 +193,7 @@ done < <(find "$in" -type f -iname '*.gz' -print0)
 echo -e "\r`info`Found `bold``error`${count}`none``info` files `debug`when search finished.`none`\n"
 
 let sectionMaxLen=$sectionMaxLen+2
+INFO "Now I'm inserting the INDEX into the `error`output file`info`! `debug`May need some seconds..`info`!"
 
 for (( i=0; i<count; ++i)); do
 	dir="$(dirname "${files[$i]}")"
