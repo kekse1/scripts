@@ -1,15 +1,15 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.3.2
+# v1.3.3
 #
 
 # for the `line()`:
-[[ -z "$LINE" ]] && export LINE=",.-'\`'-.,"
-[[ -z "$LINE_COLOR" ]] && export LINE_COLOR="auto"
-#export LINE=",.-'\`'-.,"
+#[[ -z "$LINE" ]] && export LINE=",.-'\`'-.,"
+#[[ -z "$LINE_COLOR" ]] && export LINE_COLOR="auto"
+export LINE=",.-'\`'-.,"
 #export LINE_COLOR="auto"
-#export LINE_COLOR="255 255 0"
+export LINE_COLOR="255 255 0"
 
 # for the `progress()`:
 PROGRESS_DONE=( 230 200 60 )
@@ -30,6 +30,12 @@ repeat()
 }
 
 progress()
+{
+	progresss "$@"
+	echo
+}
+
+progresss()
 {
 	local current="$1"
 	local total="$2"; [[ -z "$total" || $total -le 0 ]] && total=100
@@ -54,7 +60,7 @@ progress()
 	elif [[ $width -lt 0 ]]; then
 		width=$((`width`+${width}))
 	fi
-
+	
 	[[ $width -le 0 ]] && width=${width:1}
 	width=$(mod $width $((`width`+1)))
 	[[ $space -gt 0 ]] && width=$((${width}-${space}*2))
@@ -93,7 +99,8 @@ progress()
 		todo="${todo}`repeat $space ' '`"
 	fi
 
-	echo "${done}${todo}`none`"
+	local result="${done}${todo}`none`"
+	echo -ne "\r${result}"
 }
 
 int()
@@ -286,6 +293,16 @@ clearLine()
 	echo -en "\e[2K"
 }
 
+hideCursor()
+{
+	echo -en '\e[?25l'
+}
+
+showCursor()
+{
+	echo -en '\e[?25h'
+}
+
 #
 SOURCE()
 {
@@ -328,4 +345,3 @@ INFO()
 }
 
 #
-
