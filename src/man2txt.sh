@@ -215,8 +215,8 @@ hideCursor; for (( i=0; i<count; ++i )); do
 	dir="$(dirname "$file")"
 	base="$(basename "$file" .gz)"
 	gunzip <"$file" >"${dir}/${base}.tmp1"
-	$GROFF -man -Tascii "${dir}/${base}.tmp1" >"${dir}/${base}.tmp2" #2>/dev/null
-	cat "${dir}/${base}.tmp2" | sed 's/\x1B\[[0-9;]*[Jmsu]//g' | $COL -bx >"${dir}/${base}.txt" #2>/dev/null
+	$GROFF -man -Tascii "${dir}/${base}.tmp1" >"${dir}/${base}.tmp2" 2>/dev/null
+	cat "${dir}/${base}.tmp2" | sed 's/\x1B\[[0-9;]*[Jmsu]//g' | $COL -bx >"${dir}/${base}.txt" 2>/dev/null
 	[[ $_unlink -ne 0 ]] && rm "$file" 2>/dev/null
 	rm "${dir}/${base}.tmp1" "${dir}/${base}.tmp2" 2>/dev/null
 	let done=$done+1
