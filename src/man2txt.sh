@@ -9,6 +9,9 @@
 # tree, because original input files are being deleted (so replaced
 # by the new ones) [see also "$_unlink"];
 #
+# Will also create an extra INDEX FILE which lists all pages with
+# their names, sections and (new target) file path's.
+#
 # Symbolic Links stay, but I'm planning to change them to point to
 # the new versions. Sooner or later...
 #
