@@ -17,11 +17,8 @@
 #
 # Also depends on the `groff` and `col` utilities.
 #
-# TODO: the output file listing should use rather the path names
-# without original '*.gz' extensions.. lil' tiny thing only.
-#
 
-#
+#tiny config
 _refresh=500 # refresh time (against flickering..);
 _unlink=1 # delete old .gz files!? yep. ^_^
 _ansi_optional=1 # see also <https://github.com/kekse1/dump.js/>!
@@ -207,7 +204,10 @@ echo -e "\r`info`Found `bold``error`${count}`none``info` files `debug`when searc
 let sectionMaxLen=$sectionMaxLen+2
 
 for (( i=0; i<count; ++i)); do
-	printf "%-${fileMaxLen}s %${sectionMaxLen}s ${names[$i]}\n" "${files[$i]}" "${sections[$i]}" >>"$out"
+	dir="$(dirname "${files[$i]}")"
+	base="$(basename "${files[$i]}" .gz)"
+	file="${dir}/${base}"
+	printf "%-${fileMaxLen}s %${sectionMaxLen}s ${names[$i]}\n" "${file}" "${sections[$i]}" >>"$out"
 done
 
 curr="`pwd`"
