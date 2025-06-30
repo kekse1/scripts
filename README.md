@@ -415,8 +415,10 @@ by the new ones) [see also `$_unlink`, on the top];
 
 * [Version v**0.1.1**](src/man2txt.sh) (created **2025-06-30**)
 
-Depends on the `groff` and `col` utilities. And maybe also on my own
-[**`dump.js`**](https://github.com/kekse1/dump.js/) utilties (in there).
+> [!NOTE]
+> Depends on the `groff` and `col` utilities. And maybe also on my own
+> [**`dump.js`**](https://github.com/kekse1/dump.js/) utilties (in there);
+> plus my [`ansi.sh`](#ansish) bash scripting extension (here, somewhere above).
 
 <br><br>
 
