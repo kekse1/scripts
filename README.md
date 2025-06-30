@@ -8,7 +8,11 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+<<<<<<< HEAD
 * \[**2025-06-30**\] For a private project I just coded the new [`man2txt`.sh](#man2txtsh), v**0.1.0**;
+=======
+* \[**2025-06-30**\] Updated the [`ansi`.sh](#ansish), v**1.3.3**;
+>>>>>>> ab25a94546dd8fb1ad04393792828392e35237ef
 * \[**2025-05-03**\] TINY helper [`ntpdate`.sh](#ntpdatesh), v**0.3.0**;
 * \[**2025-04-21**\] Updated the [`reverse`.sh](#reversesh), v**0.4.2**;
 * \[**2025-04-16**\] New lil helper [`quit`.sh](#quitsh), v**0.1.0**;
@@ -252,7 +256,7 @@ decided to disable all these by default. If you want/need them, use the `-l` or
 
 It's recommended to copy this file to the `/etc/profile.d/` directory.
 
-* [Version v**1.3.2**](src/ansi.sh) (updated **2025-04-04**)
+* [Version v**1.3.3**](src/ansi.sh) (updated **2025-06-30**)
 
 Now also includes the **`progress()`** function:
 ![progress()](img/ansi-progress.png)
