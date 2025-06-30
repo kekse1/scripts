@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://norbert.com.es/
-# v0.1.1
+# v0.2.0
 #
 # Conversion of all (compressed) linux man pages (/usr/share/man/)
 # into `text/plain` versions. BUT you need a copy of the whole fs
@@ -15,16 +15,17 @@
 # Symbolic Links stay, but I'm planning to change them to point to
 # the new versions. Sooner or later...
 #
-# The $_ansi_optional may allow you to convert without using my
-# <https://github.com/kekse1/dump.js/>. etc. pp.. look at the src!
-#
 # Also depends on the `groff` and `col` utilities.
+#
+# PS: I used my <https://github.com/kekse1/dump.js/> utility `ansi`
+# to remove all ANSI escape sequences.. but I thought this was too
+# much dependencies, so I decided to only do a short `sed` regular
+# expression removement of ANSI escape sequences.. maybe bad? ...
 #
 
 #tiny config
 _refresh=500 # refresh time (against flickering..);
 _unlink=1 # delete old .gz files!? yep. ^_^
-_ansi_optional=1 # see also <https://github.com/kekse1/dump.js/>!
 # see also <https://github.com/kekse1/scripts/#ansish> ... etc.
 
 #
@@ -82,19 +83,6 @@ COL="`which col 2>/dev/null`"
 if [[ $? -ne 0 ]]; then
 	ERROR "Unable to find the \``warn`col`error`\` utility."
 	exit 13
-fi
-
-ANSI="$(realpath "${DIR}/dump.ansi.sh")"
-
-if [[ ! -x "$ANSI" ]]; then
-	ERROR "The \``warn`dump.ansi`error`\` utility wasn't found!"
-
-	if [[ $_ansi_optional -eq 0 ]]; then
-		exit 12
-	else
-		WARN "So the output texts won't be free of any ANSI Escape Sequences.."
-		ANSI=""
-	fi
 fi
 
 #
@@ -209,25 +197,11 @@ let sectionMaxLen=$sectionMaxLen+2
 for (( i=0; i<count; ++i)); do
 	dir="$(dirname "${files[$i]}")"
 	base="$(basename "${files[$i]}" .gz)"
-	file="${dir}/${base}"
+	file="${dir}/${base}.txt"
 	printf "%-${fileMaxLen}s %${sectionMaxLen}s ${names[$i]}\n" "${file}" "${sections[$i]}" >>"$out"
 done
 
-curr="`pwd`"
-rand="${curr}/${RANDOM}${RANDOM}/"
-
-if [[ -d "$rand" ]]; then
-	ERROR "Kinda unexpected......"
-	exit 10
-else
-	mkdir "$rand"
-	
-	if [[ $? -ne 0 ]]; then
-		ERROR "Unable to create `warn`temporary`error` directory!"
-		exit 10
-	fi
-fi
-
+#
 cd "$in"
 INFO "Starting conversion of your `debug`man pages to `error``bold`text/plain`none``info` files, `warn`now`info`!"
 echo
@@ -240,20 +214,11 @@ hideCursor; for (( i=0; i<count; ++i )); do
 	file="${files[i]}"
 	dir="$(dirname "$file")"
 	base="$(basename "$file" .gz)"
-	temp="${rand}/${base}"
-	gunzip <"$file" >"$temp"
-	$GROFF -man -Tascii "$temp" >"${dir}/${base}.tmp1" 2>/dev/null
-	if [[ -n "$ANSI" ]]; then
-	       $ANSI --summary off "${dir}/${base}.tmp1" >"${dir}/${base}.tmp2" 2>/dev/null
-	       [[ $? -ne 0 ]] && cp "${dir}/${base}.tmp1" "${dir}/${base}.tmp2"
-	else
-		cp "${dir}/${base}.tmp1" "${dir}/${base}.tmp2"
-	fi
-	rm "${dir}/${base}.tmp1"
-	cat "${dir}/${base}.tmp2" | $COL -bx >"${dir}/${base}" 2>/dev/null
-	[[ $? -ne 0 ]] && mv "${dir}/${base}.tmp2" "${dir}/${base}"
-	rm "${dir}/${base}.tmp2" 2>/dev/null
-	[[ $_unlink -ne 0 ]] && rm "$file"
+	gunzip <"$file" >"${dir}/${base}.tmp1"
+	$GROFF -man -Tascii "${dir}/${base}.tmp1" >"${dir}/${base}.tmp2" #2>/dev/null
+	cat "${dir}/${base}.tmp2" | sed 's/\x1B\[[0-9;]*[Jmsu]//g' | $COL -bx >"${dir}/${base}.txt" #2>/dev/null
+	[[ $_unlink -ne 0 ]] && rm "$file" 2>/dev/null
+	rm "${dir}/${base}.tmp1" "${dir}/${base}.tmp2" 2>/dev/null
 	let done=$done+1
 	now=$((`date +'%s%N'`/1000000))
 	delta=$((now-lastNow))
@@ -264,10 +229,6 @@ hideCursor; for (( i=0; i<count; ++i )); do
 		progresss $done $count
 	fi
 done; progresss $count $count; echo; showCursor
-
-#
-cd "$curr"
-rm -rf "$rand"
 
 #
 echo
