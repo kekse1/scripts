@@ -17,6 +17,9 @@
 #
 # Also depends on the `groff` and `col` utilities.
 #
+# TODO: the output file listing should use rather the path names
+# without original '*.gz' extensions.. lil' tiny thing only.
+#
 
 #
 _refresh=500 # refresh time (against flickering..);
