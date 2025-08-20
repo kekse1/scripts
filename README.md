@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-08-20**\] New script to (better) count fs entries: [`count`.sh](#countsh); v**0.1.1**;
 * \[**2025-06-30**\] For a private project I just coded the new [`man2txt`.sh](#man2txtsh), v**0.2.0**;
 * \[**2025-06-30**\] Updated the [`ansi`.sh](#ansish), v**1.3.3**;
 * \[**2025-05-03**\] TINY helper [`ntpdate`.sh](#ntpdatesh), v**0.3.0**;
@@ -29,7 +30,6 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`dump`.js](#dumpjs)
 	* [`lines`.sh](#linessh)
 	* [`layout`.sh](#layoutsh)
-	* [`up2date`.sh](#up2datesh)
 	* [`fresh`.sh](#freshsh)
 	* [`ansi`.sh](#ansish)
 	* [`logrotate`.sh](#logrotatesh)
@@ -37,6 +37,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`unexify`.sh](#unexifysh)
 	* [`sync`.sh](#syncsh)
 	* [`up2date`.sh](#up2datesh)
+	* [`count`.sh](#countsh)
 	* [`count-all-lines`.sh](#count-all-linessh)
 	* [`copy`.sh](#copysh)
 	* [`reverse`.sh](#reversesh)
@@ -127,20 +128,6 @@ The most important thing for me was to switch between keyboard layouts - easily 
 So either call it without arguments, so it'll show you the currently used layout. Call it with a concrete layout, to
 switch to it directly. Or call it with a single `-`, so it'll switch between the configured layouts (by default, it's
 on top: `layouts=("us" "de")`).
-
-<br><br>
-
-### `up2date.sh`
-<a href="src/up2date.sh">
-<img id="up2datesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60up2date.sh%60" />
-</a>
-
-* [Version v**0.2.2**](src/up2date.sh) (updated **2025-03-05**)
-
-Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
-I'm using it to do all steps to keep your packages `up2date`, in just one step!
-
-Also, just copy it to `/etc/profile.d/up2date.sh`
 
 <br><br>
 
@@ -280,6 +267,18 @@ Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and 
 I'm using it to do all steps to keep your packages `up2date`, in just one step!
 
 Also, just copy it to `/etc/profile.d/up2date.sh`
+
+<br><br>
+
+### `count.sh`
+<a href="src/count.sh">
+<img id="countsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60count.sh%60" />
+</a>
+
+* [Version v**0.1.1**](src/count.sh) (created **2025-08-20**)
+
+You can copy this file to your '/etc/profile.d/' dir.
+It does *not* need to be executable - it's `source`d.
 
 <br><br>
 
