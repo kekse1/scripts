@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.1
+# v0.3.2
 #
 # Easily use the `hfdownloader` tool, from:
 # https://github.com/bodaay/HuggingFaceModelDownloader
@@ -18,9 +18,9 @@
 
 #
 CONCURRENT=4
-TOKEN="" #a file!
+TOKEN="token.txt" #a file!
 TOOL="./hfdownloader"
-ARGS="--maxRetries 64 --retryInterval 16"
+ARGS="--maxRetries 64 --retryInterval 16 --concurrent 10"
 
 #
 real="$(realpath "$0")"
