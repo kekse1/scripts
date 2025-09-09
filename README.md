@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-09-09**\] New script [`phrack`.sh](#phracksh), v**0.1.0**;
 * \[**2025-08-20**\] New script to (better) count fs entries: [`count`.sh](#countsh); v**0.1.1**;
 * \[**2025-06-30**\] For a private project I just coded the new [`man2txt`.sh](#man2txtsh), v**0.2.0**;
 * \[**2025-06-30**\] Updated the [`ansi`.sh](#ansish), v**1.3.3**;
@@ -61,6 +62,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh)
 	* [`hfget`.sh](#hfgetsh)
 	* [`nightlounge`.sh](#nightloungesh)
+	* [`phrack`.sh](#phracksh)
 	* [`lsblk`.sh](#lsblksh)
 	* [`cursor`.sh](#cursorsh)
 	* [`init-sub-proj`.sh](#init-sub-projsh)
@@ -717,6 +719,19 @@ I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 
 > [!TIP]
 > You can add this to your '/etc/crontab'. ;-)
+
+<br><br>
+
+### `phrack.sh`
+<a href="src/phrack.sh">
+<img id="phracksh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60phrack.sh%60" />
+</a>
+
+Be another mirror! ...
+
+* [Version v**0.1.0**](src/phrack.sh) (created **2025-09-05**)
+
+.. ich brauchte es fuer das Training meines `Norbert`.
 
 <br><br>
 
