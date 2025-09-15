@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-09-16**\] New "sub" script [`phrack-training`.sh](#phracksh), v**0.1.0**;
 * \[**2025-09-09**\] New script [`phrack`.sh](#phracksh), v**0.1.0**;
 * \[**2025-08-20**\] New script to (better) count fs entries: [`count`.sh](#countsh); v**0.1.1**;
 * \[**2025-06-30**\] For a private project I just coded the new [`man2txt`.sh](#man2txtsh), v**0.2.0**;
@@ -62,7 +63,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`convert-hf-to-gguf`.sh](#convert-hf-to-ggufsh)
 	* [`hfget`.sh](#hfgetsh)
 	* [`nightlounge`.sh](#nightloungesh)
-	* [`phrack`.sh](#phracksh)
+	* [`phrack{,-training}`.sh](#phracksh)
 	* [`lsblk`.sh](#lsblksh)
 	* [`cursor`.sh](#cursorsh)
 	* [`init-sub-proj`.sh](#init-sub-projsh)
@@ -729,9 +730,10 @@ I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 
 Be another mirror! ...
 
-* [Version v**0.1.0**](src/phrack.sh) (created **2025-09-05**)
+* [Version v**0.1.0**](src/phrack.sh) (created **2025-09-05**);
+* [Version v**0.1.0**](src/phrack-training.sh) (created **2025-09-16**);
 
-.. ich brauchte es fuer das Training meines `Norbert`.
+.. ich brauchte es fuer das Training meines `Norbert`. Ebenso die "Erweiterung" `phrack-training.sh`..
 
 <br><br>
 
