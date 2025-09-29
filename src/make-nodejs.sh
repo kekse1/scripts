@@ -2,7 +2,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.3.13
+# v0.3.14
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -121,7 +121,7 @@ fi
 if [[ "$termux" == "yes" ]]; then
 	args="${args} ${termux_args}"
 
-	target="/data/data/com.termux/files/usr/${target}/"
+	target="/data/data/com.termux/files/${target}/"
 	tmpdir="/data/data/com.termux/files/home/${tmpdir}/"
 
 	#
