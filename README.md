@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-10-05**\] Moved the [`download-wiki-dumps.sh`](#download-wiki-dumpssh) to my new repository [`unwiki`](https://github.com/kekse1/unwiki/);
 * \[**2025-09-16**\] New "sub" script [`phrack-training`.sh](#phracksh), v**0.1.0**;
 * \[**2025-09-09**\] New script [`phrack`.sh](#phracksh), v**0.1.0**;
 * \[**2025-08-20**\] New script to (better) count fs entries: [`count`.sh](#countsh); v**0.1.1**;
