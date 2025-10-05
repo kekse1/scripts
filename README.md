@@ -372,7 +372,7 @@ After downloading, they'll be `bunzip2`d. Implemented
 with some checks to be absolutely sure, and also creates
 backups, etc. .. jfyi.
 
-* [Version v**0.1.4**](src/download-wiki-dumps.sh) (updated **2025-03-03**);
+* [**moved to my repository `unwiki`**](https://github.com/kekse1/unwiki/)
 
 You may configure the `$url` vector/array on top of the file. It'll hold all the url's
 to the **latest** dumps at [**dumps**.wikimedia.org](https://dumps.wikimedia.org/). But
