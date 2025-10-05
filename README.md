@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-10-05**\] Updated the [`count.sh`](#countsh), v**0.2.0**;
 * \[**2025-10-05**\] Moved the [`download-wiki-dumps.sh`](#download-wiki-dumpssh) to my new repository [`unwiki`](https://github.com/kekse1/unwiki/);
 * \[**2025-09-16**\] New "sub" script [`phrack-training`.sh](#phracksh), v**0.1.0**;
 * \[**2025-09-09**\] New script [`phrack`.sh](#phracksh), v**0.1.0**;
@@ -279,7 +280,7 @@ Also, just copy it to `/etc/profile.d/up2date.sh`
 <img id="countsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60count.sh%60" />
 </a>
 
-* [Version v**0.1.1**](src/count.sh) (created **2025-08-20**)
+* [Version v**0.2.0**](src/count.sh) (updated **2025-10-05**)
 
 You can copy this file to your '/etc/profile.d/' dir.
 It does *not* need to be executable - it's `source`d.
