@@ -9,7 +9,6 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 
 ### News
 * \[**2025-10-05**\] Updated the [`count.sh`](#countsh), v**0.2.0**;
-* \[**2025-10-05**\] Moved the [`download-wiki-dumps.sh`](#download-wiki-dumpssh) to my new repository [`unwiki`](https://github.com/kekse1/unwiki/);
 * \[**2025-09-16**\] New "sub" script [`phrack-training`.sh](#phracksh), v**0.1.0**;
 * \[**2025-09-09**\] New script [`phrack`.sh](#phracksh), v**0.1.0**;
 * \[**2025-08-20**\] New script to (better) count fs entries: [`count`.sh](#countsh); v**0.1.1**;
@@ -374,7 +373,7 @@ After downloading, they'll be `bunzip2`d. Implemented
 with some checks to be absolutely sure, and also creates
 backups, etc. .. jfyi.
 
-* [**moved to my repository `unwiki`**](https://github.com/kekse1/unwiki/)
+* [Version v**0.1.4**](src/download-wiki-dumps.sh) (updated **2025-10-22**);
 
 You may configure the `$url` vector/array on top of the file. It'll hold all the url's
 to the **latest** dumps at [**dumps**.wikimedia.org](https://dumps.wikimedia.org/). But
@@ -382,10 +381,6 @@ expects the original `.bz2` files (so the script can also extract them).
 
 > [!NOTE]
 > Depends on the `wget` and the `bunzip2` utility (but this will also be checked).
-
-> [!TIP]
-> Before v**0.1.4** there were only german dumps, now I added the english ones, too.
-> Additionally there's now also the [**wikidatawiki**](https://dumps.wikimedia.org/wikidatawiki/).
 
 <br><br>
 

@@ -34,7 +34,7 @@
 
 #
 url=(
-	"https://dumps.wikimedia.org/wikidatawiki/latest/wikidatawiki-latest-pages-articles-multistream.xml.bz2"
+	#"https://dumps.wikimedia.org/wikidatawiki/latest/wikidatawiki-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/dewiki/latest/dewiki-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/dewikibooks/latest/dewikibooks-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/dewikisource/latest/dewikisource-latest-pages-articles-multistream.xml.bz2"
@@ -87,7 +87,7 @@ _found_old=0
 BACKUP_DIRECTORY="BACKUP"
 backup_directory="$BACKUP_DIRECTORY"
 tries=0; while [[ -e "$backup_directory" ]]; do
-	let tries=$tries+1
+	((++_tries))
 	backup_directory="${BACKUP_DIRECTORY} #${tries}"
 done; mkdir "$backup_directory"
 
@@ -101,7 +101,7 @@ for i in "${url[@]}"; do
 	_bunzip="${_base:: -4}"
 	
 	if [[ -e "$_base" ]]; then
-		let _found_old=$_found_old+1
+		((++_found_old))
 
 		mv "$_base" "$backup_directory"
 		
@@ -115,7 +115,7 @@ for i in "${url[@]}"; do
 	fi
 	
 	if [[ -e "$_bunzip" ]]; then
-		let _found_old=$_found_old+1
+		((++_found_old))
 		
 		mv "$_bunzip" "$backup_directory"
 		
