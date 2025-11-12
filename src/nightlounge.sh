@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.8
+# v0.2.9
 #
 # Start streaming.. I use it for the "BigFM Nightlounge".
 # You can add this to your /etc/crontab. :-)
@@ -46,7 +46,7 @@ ORIG="$OUT"
 count=0
 
 while [[ -f "${OUT}${EXT}" ]]; do
-	let count=$count+1
+	((++count))
 	OUT="${ORIG} (${count})"
 done
 

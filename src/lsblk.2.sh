@@ -21,7 +21,7 @@ for i in "${OUTPUT[@]}"; do
 	len="${#i}"
 	[[ $MAX_LEN -lt $len ]] && MAX_LEN=$len
 done
-let MAX_LEN=$MAX_LEN+2
+((MAX_LEN+=2))
 
 #
 diskSize()

@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.4
+# v0.2.5
 #
 # My source code needed my (copyright) header when I published it.
 # So I created this script, since more than just less files needed
@@ -134,7 +134,7 @@ for i in "${OPTS[@]}"; do
 	fi
 	in="${in}'"
 	INAMES="${INAMES} ${in}"
-	let EXT=$EXT+1
+	((++EXT))
 done
 INAMES="${INAMES:4}"
 
@@ -161,7 +161,7 @@ if [[ $UNLINK -eq 0 && $RESTORE -eq 0 ]]; then
 	while read -r line; do
 		DATA="${DATA}
 $line"
-		let lines=$lines+1
+		((++lines))
 	done
 	DATA="${DATA:1}"
 
@@ -217,7 +217,7 @@ if [[ $UNLINK -ne 0 ]]; then
 	for i in "${FILES[@]}"; do
 		rm "$i" 2>/dev/null
 		if [[ $? -ne 0 ]]; then
-			let errors=$errors+1
+			((++errors))
 			echo "[ERROR] Unable to remove the backup file '$i'! Ignoring.." >&2
 		fi
 	done
@@ -226,18 +226,18 @@ elif [[ $RESTORE -ne 0 ]]; then
 		ORIG="${i:: -7}"
 		if [[ ! -f "$ORIG" ]]; then
 			echo "[WARNING] The original file '$ORIG' for it's backup file does no longer exist (as file)! Ignoring.." >&2
-			let errors=$errors+1
+			((++errors))
 		fi
 		mv "$i" "$ORIG" 2>/dev/null
 		if [[ $? -ne 0 ]]; then
-			let errors=$errors+1
+			((++errors))
 			echo "[ERROR] Unable to restore the file '$i' from it's backup! Ignoring.." >&2
 		fi
 	done
 else
 	for i in "${FILES[@]}"; do
 		if [[ ! -r "$i" ]]; then
-			let errors=$errors+1
+			((++errors))
 			echo "[WARNING] Can't read the file '$i'. Ignoring.." >&2
 		else
 			data="${DATA}"
@@ -247,13 +247,13 @@ ${line}"
 			done <"$i"
 			eval "cp '$i' '${i}.${BACKUP}'"
 			if [[ $? -ne 0 ]]; then
-				let errors=$errors+1
+				((++errors))
 				echo "[ERROR] Unable to backup the file '$i'! Leaving it UNTOUCHED!" >&2
 				continue
 			fi
 			echo "$data" >"$i"
 			if [[ $? -ne 0 ]]; then
-				let errors=$errors+1
+				((++errors))
 				echo "[ERROR] Unable to write to the file '$i' (so it's backup is being removed now)!" >&2
 				rm "${i}.${BACKUP}"
 			fi

@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.4.6
+# v0.4.7
 #
 # Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
 # since it is *not* executable (but `source` or `.`).
@@ -80,19 +80,19 @@ keep()
 		if [[ $? -eq 0 ]]; then
 			[[ $2 -gt $_depth ]] && _depth=$2
 		else
-			let _erroneous=$_erroneous+1
+			((++_erroneous))
 			return 1
 		fi
 
 		if [[ -e "$1/.keep" ]]; then
-			let _existed=$_existed+1
+			((++_existed))
 		else
 			touch "$1/.keep"
 
 			if [[ $? -eq 0 ]]; then
-				let _created=$_created+1
+				((++_created))
 			else
-				let _erroneous=$_erroneous+1
+				((++_erroneous))
 			fi
 		fi
 

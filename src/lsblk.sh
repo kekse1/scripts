@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.3
+# v0.2.4
 #
 # The main reason for this script was: my Node.js projects need to handle
 # whole block devices oder partitions. But I wanted to configure them by
@@ -64,7 +64,7 @@ for i in "${output[@]}"; do
 	[[ $maxLen -lt $len ]] && maxLen=$len
 done
 
-let maxLen=$maxLen+1
+((++maxLen))
 IFS=''
 
 #
@@ -77,7 +77,7 @@ OUTPUT="$($_lsblk --bytes --output $OUTPUT --pairs | grep -i "$GREP")"
 COUNT=0
 IFS=$'\n'
 for line in $OUTPUT; do
-	let COUNT=$COUNT+1
+	((++COUNT))
 	IFS=' ' vector=( $line )
 	for pair in "${vector[@]}"; do
 		key="${pair%%=*}"

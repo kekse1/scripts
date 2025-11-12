@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.0
+# v0.1.1
 #
 # Kinda tiny "management" of exit and it's codes. ...
 #
@@ -69,7 +69,7 @@ rand()
 
 export QUIT=0; quits()
 {
-	let QUIT=$QUIT+1
+	((++QUIT))
 	[[ $QUIT -gt 255 ]] && QUIT=1
 	return $QUIT
 }

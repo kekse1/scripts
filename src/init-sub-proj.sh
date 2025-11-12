@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://norbert.com.es/
-# v0.4.1
+# v0.4.2
 #
 # I do initialize a sub part of my bigger project with
 # the help of this script.
@@ -153,19 +153,19 @@ _keep()
 		cd "$1"
 
 		if [[ $? -ne 0 ]]; then
-			let _erroneous=$_erroneous+1
+			((++_erroneous))
 			return 1
 		fi
 
 		if [[ -e "$1/.keep" ]]; then
-			let _existed=$_existed+1
+			((++_existed))
 		else
 			touch "$1/.keep"
 
 			if [[ $? -eq 0 ]]; then
-				let _created=$_created+1
+				((++_created))
 			else
-				let _erroneous=$_erroneous+1
+				((++_erroneous))
 			fi
 		fi
 

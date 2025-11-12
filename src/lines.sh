@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.4.2
+# v0.4.3
 #
 # You should put this script into your '/etc/profile.d/'
 # directory, so the `lines()` function will get `source`d.
@@ -163,7 +163,7 @@ lines()
 	fi
 
 	local current=0; IFS=$'\n'; while read line; do
-		let current=$current+1
+		((++current))
 		if [[ $current -ge $from && $current -le $to ]]; then
 		       echo -e "$line"
 	       elif [[ $current -gt $to ]]; then

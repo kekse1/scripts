@@ -1,7 +1,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.6
+# v0.2.7
 #
 # Copy to '/etc/profile.d/` to automatically include
 # the following functions .. read the source 4 info!
@@ -115,7 +115,7 @@ bytes()
 		[[ $unit -eq $index ]] && break
 		rest="$(bc -l <<<"$rest/$base")"
 		int=${rest%%.*}
-		let index=$index+1
+		((++index))
 	done
 	
 	if [[ $base -eq 1024 ]]; then

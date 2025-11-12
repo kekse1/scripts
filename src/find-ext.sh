@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.2
+# v0.2.3
 # 
 # Syntax: `$0 [ --depth / -d <depth> ] [ --raw / -r ] [ --hidden / -d ] [ --full / -f ]`
 # 
@@ -127,7 +127,7 @@ declare -A COUNT
 while IFS= read -r -d '' file; do
 	ext="$(extname "$file")"
 	[[ $? -ne 0 ]] && continue
-	[[ -v COUNT["$ext"] ]] || let count=$count+1
+	[[ -v COUNT["$ext"] ]] || ((++count))
 	COUNT["$ext"]=$((COUNT["$ext"]+1))
 done < <(eval "$FIND")
 

@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.2
+# v0.2.3
 # 
 # Renames a bunch of files in a directory (NOT recursive)
 # with an increasing number. With some options..
@@ -245,8 +245,8 @@ while IFS= read -r -d '' file; do
 	FILES+=( "$file" )
 	ext="$(extname "$file")"
 	[[ $? -ne 0 ]] && continue
-	[[ -v COUNT["$ext"] ]] || let count=$count+1
-	COUNT["$ext"]=$((COUNT["$ext"] + 1))
+	[[ -v COUNT["$ext"] ]] || ((++count))
+	COUNT["$ext"]=$((COUNT["$ext"]+1))
 done < <(eval "$FIND")
 
 #

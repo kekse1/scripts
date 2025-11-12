@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://norbert.com.es/
-# v0.2.0
+# v0.2.1
 #
 # Conversion of all (compressed) linux man pages (/usr/share/man/)
 # into `text/plain` versions. BUT you need a copy of the whole fs
@@ -180,7 +180,7 @@ while IFS= read -r -d '' file; do
 	sections+=( "$section" )
 	names+=( "${name%.*}" )
 	files+=( "$file" )
-	let count=$count+1
+	((++count))
 	now=$((`date +'%s%N'`/1000000))
 	delta=$((now-lastNow))
 	lastNow=$now
@@ -192,7 +192,7 @@ while IFS= read -r -d '' file; do
 done < <(find "$in" -type f -iname '*.gz' -print0)
 echo -e "\r`info`Found `bold``error`${count}`none``info` files `debug`when search finished.`none`\n"
 
-let sectionMaxLen=$sectionMaxLen+2
+((sectionMaxLen+=2))
 INFO "Now I'm inserting the INDEX into the `error`output file`info`! `debug`May need some seconds..`info`!"
 
 for (( i=0; i<count; ++i)); do
@@ -220,7 +220,7 @@ hideCursor; for (( i=0; i<count; ++i )); do
 	cat "${dir}/${base}.tmp2" | sed 's/\x1B\[[0-9;]*[Jmsu]//g' | $COL -bx >"${dir}/${base}.txt" 2>/dev/null
 	[[ $_unlink -ne 0 ]] && rm "$file" 2>/dev/null
 	rm "${dir}/${base}.tmp1" "${dir}/${base}.tmp2" 2>/dev/null
-	let done=$done+1
+	((++done))
 	now=$((`date +'%s%N'`/1000000))
 	delta=$((now-lastNow))
 	lastNow=$now

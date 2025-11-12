@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-11-12**\] Some scripts got a tiny update..
 * \[**2025-10-05**\] Updated the [`count.sh`](#countsh), v**0.2.0**;
 * \[**2025-09-16**\] New "sub" script [`phrack-training`.sh](#phracksh), v**0.1.0**;
 * \[**2025-09-09**\] New script [`phrack`.sh](#phracksh), v**0.1.0**;

@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.2
+# v0.1.3
 #
 # A little helper to `scp` files, with only the remote file path as argument.
 #
@@ -95,10 +95,8 @@ echo
 
 #
 while [[ $_res -ne 0 ]]; do
-	let _loops=$_loops+1
-	echo
-	echo " >> Loop #$_loops"
-	echo
+	((++_loops))
+	echo -e "\n >> Loop #${_loops}\n"
 	eval "$cmd"
 	_res=$?
 

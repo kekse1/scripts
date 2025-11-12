@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.2
+# v0.4.3
 #
 # My own solution (instead of using `autossh` or so).
 #
@@ -77,7 +77,7 @@ echo -e "\t\`${CMD}\`\n"
 while true; do
 	date +"${_date}"
 	echo; eval "$CMD"; echo
-	let _count=$_count+1
+	((++_count))
 	echo -n "Restarting SSH reverse tunnel #${_count}... "
 
 	if [[ -z $_sleep ]]; then
