@@ -22,6 +22,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br>
 
 #### TODO
+* [ ] [`scp.sh`](#scpsh)
 * [ ] [`inc`.sh](#incsh)
 * [ ] [`crypto`.sh](#cryptosh)
 
