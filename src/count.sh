@@ -1,16 +1,17 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.0
+# v0.2.1
 #
 # You can copy this file to your '/etc/profile.d/' dir.
 # It does *not* need to be executable - it's `source`d.
 #
-# Three functions to count fs entries:
+# Four functions to count fs entries:
 #
 #	  F()	files
 #	  D()	directories
 #	  L()	symbolic links
+#	  A()	all entries in directory
 #	[ C()	the base function. better coding.. ]
 #
 # Either without any parameter. Will count all files
@@ -58,7 +59,7 @@ function L()
 	C l 1 $@
 }
 
-function T()
+function A()
 {
 	echo $((`F`+`D`+`L`))
 }
