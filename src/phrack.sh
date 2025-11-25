@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/
-# v0.1.0
+# v0.1.1
 #
 # TODO!!!°1^1 .. ist eine vorbereitung auf mein `norbert`-training.
 # 	... und der wunsch, sowas gutes selbst zu mirror'en. ^_^
@@ -59,9 +59,7 @@ while true; do
 		echo -e "\tCheck if this is really the end of available issues." >&2
 		((--_count))
 		echo -e "\tSo we have ${_count} issues now.\n\n"
-		break
+		exit $_res
 	fi
 done
-
-exit $_res
 
