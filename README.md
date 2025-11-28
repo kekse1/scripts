@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2025-11-28**\] Updated [`create-random-files.sh`](#create-random-filessh), v**1.7.0**;
 * \[**2025-11-12**\] Some scripts got a tiny update..
 * \[**2025-10-05**\] Updated the [`count.sh`](#countsh), v**0.2.0**;
 * \[**2025-09-16**\] New "sub" script [`phrack-training`.sh](#phracksh), v**0.1.0**;
@@ -347,7 +348,7 @@ My [`Norbert`](https://github.com/kekse1/norbert/) needed some random input data
 from a directory I wanted to propagate with some temporary files (of an exactly
 defined file size).
 
-* [Version v**1.6.1**](src/create-random-files.sh) (updated **2025-03-05**);
+* [Version v**1.7.0**](src/create-random-files.sh) (updated **2025-11-28**);
 
 So I created this very tiny tool.
 

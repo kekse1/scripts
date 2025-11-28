@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v1.6.1
+# v1.7.0
 #
 # My `norbert` needed some random input data, from a
 # directory I wanted to propagate with some temporary
@@ -12,10 +12,6 @@
 # So I created this tiny tool. Requirements: the `dd`.
 #
 # Have phun!
-#
-# JFYI: Since v1.1.0 the 1st, 2nd and 3rd argument can
-# also be negative. In this case the absolute value of
-# them defines the maximum of randomly generated params.
 #
 # PS: You can also take the functions `randomChars()`
 # with `random()` and put it into your '/etc/profile.d/*'.
@@ -68,14 +64,6 @@ random()
 [[ "${DEFAULT_EXT::1}" != "." ]] && DEFAULT_EXT=".${DEFAULT_EXT}"
 
 #
-OPENSSL="openssl"
-OPENSSL="`which $OPENSSL 2>/dev/null`"
-
-if [[ $? -ne 0 ]]; then
-	echo "Missing the \`openssl\` tool!" >&2
-	exit 2
-fi
-
 DD="dd"
 DD="`which $DD 2>/dev/null`"
 
@@ -94,7 +82,7 @@ EXT="$4"
 [[ -z "$EXT" ]] && EXT=$DEFAULT_EXT
 [[ "${EXT::1}" != "." ]] && EXT=".${EXT}"
 
-if [[ -z "$COUNT" || -z "$SIZE" || $SIZE -eq 0 || $LEN -eq 0 || $COUNT -eq 0 ]]; then
+if [[ -z "$COUNT" || -z "$SIZE" ]]; then
 	echo "The <file size> and <file name length> can be negative, which would be the maximum of random values for them." >&2
 	echo; echo -e "\tSyntax: \$0 < file amount > < file size > [ < file name length = $DEFAULT_LENGTH > [ < extension = $DEFAULT_EXT > ] ]" >&2
 	echo; exit 1
