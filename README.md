@@ -344,9 +344,8 @@ Now also multiple routes possible.
 <img id="create-random-filessh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60create-random-files.sh%60" />
 </a>
 
-My [`Norbert`](https://github.com/kekse1/norbert/) needed some random input data,
-from a directory I wanted to propagate with some temporary files (of an exactly
-defined file size).
+My `Norbert` needed some random input data, from a directory I wanted to propagate
+with some temporary files (w/ exactly defined file size).
 
 * [Version v**1.7.0**](src/create-random-files.sh) (updated **2025-11-28**);
 
