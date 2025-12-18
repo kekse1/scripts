@@ -7,7 +7,6 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 
 <br><br>
 
-<!--
 ### News
 * \[**2025-11-28**\] Updated [`create-random-files.sh`](#create-random-filessh), v**1.7.0**;
 * \[**2025-11-12**\] Some scripts got a tiny update..
@@ -28,8 +27,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 * [ ] [`inc`.sh](#incsh)
 * [ ] [`crypto`.sh](#cryptosh)
 
-<br><br>-->
-<br>
+<br><br>
 
 ## Index
 1. [News](#news)
