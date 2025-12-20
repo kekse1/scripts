@@ -261,6 +261,8 @@ Plus some helper functions (beneath the regular style and color functions).
 > `bash` also supports kinda '**spread syntax**' for function calls!
 > Example line: `colors=( 32 64 128 ); fg "${colors[@]}"; echo "colored string!"`
 
+Maybe my [`ansi.js`](https://github.com/kekse1/ansi.js/) is also interesting for you?
+
 <br><br>
 
 ### `up2date.sh`
