@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.9
+# v0.3.0
 #
 # Start streaming.. I use it for the "BigFM Nightlounge".
 # You can add this to your /etc/crontab. :-)
@@ -12,6 +12,9 @@
 # with a `sleep` parameter (e.g. "25m") to delay the stream
 # recording for a while.. so if you start this before
 # midnight, it'll wait until it'll finally start the stream.
+#
+# New since v0.3.0: TRYING to use my own `zsleep`. see this
+# link: https://github.com/kekse1/zsleep/
 #
 
 #
@@ -35,8 +38,21 @@ fi
 
 #
 if [[ $# -gt 0 ]]; then
+	echo
 	echo " >> Now we're waiting for the clock until we record the stream: '$1'..."
-	sleep "$1" || exit 2
+
+	_zsleep="`which zsleep 2>/dev/null`"
+	_sleep="`which sleep 2>/dev/null`"
+
+	if [[ -n "$_zsleep" ]]; then
+		echo " >> Cool! The extended \`zsleep\` was found! Using it now.."
+		echo; $_zsleep -pP -- "$1" || exit 2
+	elif [[ -n "$_sleep" ]]; then
+		$_sleep "$1" || exit 3
+	else
+		echo " >> ERROR: Can't use neither \`zsleep\` not \`sleep\`"
+		exit 4
+	fi
 fi
 
 #

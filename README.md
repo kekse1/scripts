@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2026-01-11**\] Extended the [`nightlounge.sh`](#nightloungesh) to (also) use my [**`zsleep`**](https://github.com/kekse1/zsleep/); v**0.3.0**;
 * \[**2025-11-28**\] Updated [`create-random-files.sh`](#create-random-filessh), v**1.7.0**;
 * \[**2025-11-12**\] Some scripts got a tiny update..
 * \[**2025-10-05**\] Updated the [`count.sh`](#countsh), v**0.2.0**;
@@ -717,10 +718,12 @@ Expects either a URL or a file with a list of URLs as parameter. Depends on `wge
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
 I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 
-* [Version v**0.2.8**](src/nightlounge.sh) (updated **2025-03-05**)
+* [Version v**0.3.0**](src/nightlounge.sh) (updated **2026-01-11**)
 
 > [!TIP]
 > You can add this to your '/etc/crontab'. ;-)
+
+Since v**0.3.0** it supports my own [**`zsleep`**](https://github.com/kekse1/zsleep/).
 
 <br><br>
 
