@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2026-02-19**\] New script [`power.sh`](#powersh)!
 * \[**2026-01-11**\] Extended the [`nightlounge.sh`](#nightloungesh) to (also) use my [**`zsleep`**](https://github.com/kekse1/zsleep/); v**0.3.0**;
 * \[**2025-11-28**\] Updated [`create-random-files.sh`](#create-random-filessh), v**1.7.0**;
 * \[**2025-11-12**\] Some scripts got a tiny update..
@@ -33,6 +34,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 ## Index
 1. [News](#news)
 2. [Scripts](#bash-shell-scripts)
+	* [`power`.sh](#powersh)
 	* [`prompt`.sh](#promptsh)
 	* [`dump`.js](#dumpjs)
 	* [`lines`.sh](#linessh)
@@ -80,6 +82,19 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 ## [**Bash Shell** Scripts](./src/)
 
 <br>
+
+### `power.sh`
+<a href="src/power.sh">
+<img id="powersh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60power.sh%60" />
+</a>
+
+Calculate CPU power usage (and costs).
+
+* [Download](src/power.sh) (created **2026-02-19**);
+
+With hints to limit your costs. ;-)
+
+<br><br>
 
 ### `prompt.sh`
 <a href="https://github.com/kekse1/prompt/">
