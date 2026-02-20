@@ -90,7 +90,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 
 Calculate CPU power usage (and costs).
 
-* [Download](src/power.sh) (created **2026-02-19**);
+* [Download](src/power.sh) (updated **2026-02-20**);
 
 With hints to limit your costs. ;-)
 
