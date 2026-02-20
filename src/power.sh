@@ -23,7 +23,7 @@ _seconds=10
 echo -e "Calculating the Watt's in $_seconds seconds..\n"
 
 a="$(grep . /sys/class/powercap/intel-rapl\:0/energy_uj)"
-sleep ${_seconds}s
+sleep ${_seconds}s || exit 123
 b="$(grep . /sys/class/powercap/intel-rapl\:0/energy_uj)"
 
 echo -e "\t(a) $a\n\t(b) $b"
