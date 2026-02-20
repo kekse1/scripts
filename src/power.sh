@@ -22,7 +22,7 @@ _seconds=10
 [[ -n "$1" ]] && _seconds=$1
 echo -e "Calculating the Watt's in $_seconds seconds..\n"
 
-a="$(grep . /sys/class/powercap/intel-rapl\:0/energy_uj)"
+a="$(grep . /sys/class/powercap/intel-rapl\:0/energy_uj)" || exit 234
 sleep ${_seconds}s || exit 123
 b="$(grep . /sys/class/powercap/intel-rapl\:0/energy_uj)"
 
