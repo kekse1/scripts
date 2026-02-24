@@ -8,8 +8,8 @@
 # 
 # FYI: You can limit the power usage:
 # 
-# # echo 125000000 >"/sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw"
-# # # .. set's the limit to 125 Watt!
+# # echo 120000000 >"/sys/class/powercap/intel-rapl:0/constraint_0_power_limit_uw"
+# # # .. set's the limit to 120 Watt!
 # 
 # You can also `crontab -e` and append the above line plus the prefix `@reboot `.
 # 
