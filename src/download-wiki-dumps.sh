@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.4
+# v0.1.5
 #
 # Downloads the *latest* wiki dumps. See the '$url' vector.
 # After downloading, they'll be `bunzip2`d. Implemented
@@ -40,11 +40,15 @@ url=(
 	"https://dumps.wikimedia.org/dewikisource/latest/dewikisource-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/dewiktionary/latest/dewiktionary-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/dewikiquote/latest/dewikiquote-latest-pages-articles-multistream.xml.bz2"
+	"https://dumps.wikimedia.org/dewikiversity/latest/dewikiversity-latest-pages-articles.xml.bz2"
+	"https://dumps.wikimedia.org/dewikinews/latest/dewikinews-latest-pages-articles.xml.bz2"
 	"https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/enwikibooks/latest/enwikibooks-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/enwikisource/latest/enwikisource-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles-multistream.xml.bz2"
 	"https://dumps.wikimedia.org/enwikiquote/latest/enwikiquote-latest-pages-articles-multistream.xml.bz2"
+	"https://dumps.wikimedia.org/enwikiversity/latest/enwikiversity-latest-pages-articles.xml.bz2"
+	"https://dumps.wikimedia.org/enwikinews/latest/enwikinews-latest-pages-articles.xml.bz2"
 )
 
 SIMULATE=0
