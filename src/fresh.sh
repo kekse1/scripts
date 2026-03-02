@@ -21,7 +21,7 @@ _GIT_DATE_SYMBOL='+'
 fresh()
 {
 	(
-		_orig="`pwd`"; trap "cd '$_orig'; echo ' => SIGINT'; return 130;" SIGINT
+		_orig="`pwd`"; trap "cd '$_orig'; echo ' => SIGINT'; exit 130;" SIGINT
 		_dir="`git rev-parse --git-dir 2>/dev/null`"
 
 		if [[ $? -ne 0 ]]; then
