@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.4.7
+# v0.4.8
 #
 # Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
 # since it is *not* executable (but `source` or `.`).
@@ -20,50 +20,58 @@ _GIT_DATE_SYMBOL='+'
 
 fresh()
 {
-	local _dir="`git rev-parse --git-dir 2>/dev/null`"
+	(
+		_orig="`pwd`"; trap "cd '$_orig'; echo ' => SIGINT'; return 130;" SIGINT
+		_dir="`git rev-parse --git-dir 2>/dev/null`"
 
-	if [[ $? -ne 0 ]]; then
-		echo " >> Not inside a git repository!" >&2
-		return 1
-	else
-		_dir="$(realpath "$_dir")"
-		_dir="${_dir::-5}"
-	fi
-
-	local _add=0
-	[[ $# -gt 0 ]] && _add=1
-	
-	local _orig="`pwd`"
-	cd "$_dir"
-
-	local _txt=
-
-	if [[ $_add -eq 0 ]]; then
-		echo -e " >> Only fetching latest repository state."
-		echo -e " >> To also upload your changes, argue with a commit message (\`$_GIT_DATE_SYMBOL\` for a \`date\`)."
-	else
-		_txt="$*"
-
-		if [[ "${_txt::1}" == "$_GIT_DATE_SYMBOL" ]]; then
-			_txt="`date +"$_GIT_DATE_FORMAT_EXT"` ${_txt:1}"
+		if [[ $? -ne 0 ]]; then
+			echo " >> Not inside a git repository!" >&2
+			return 1
 		else
-			_txt="`date +"$_GIT_DATE_FORMAT"`"
-			_txt="[$_txt] $*"
+			_dir="$(realpath "$_dir")"
+			_dir="${_dir::-5}"
 		fi
 
-		echo -e " >> Repository path:\n    \e[1m${_dir}\e[0m"
-		echo -e " >> Applying commit:\n    \e[1m${_txt}\e[0m\n"
-	fi
+		_add=0
+		[[ $# -gt 0 ]] && _add=1
+		
+		cd "$_dir"
+		_txt=
 
-	git pull
+		if [[ $_add -eq 0 ]]; then
+			echo -e " >> Only fetching latest repository state."
+			echo -e " >> To also upload your changes, argue with a commit message (\`$_GIT_DATE_SYMBOL\` for a \`date\`)."
+		else
+			_txt="$*"
 
-	if [[ $_add -ne 0 ]]; then
-		git add --all
-		git commit -m "$_txt"
-		git push
-	fi
+			if [[ "${_txt::1}" == "$_GIT_DATE_SYMBOL" ]]; then
+				_txt="`date +"$_GIT_DATE_FORMAT_EXT"` ${_txt:1}"
+			else
+				_txt="`date +"$_GIT_DATE_FORMAT"`"
+				_txt="[$_txt] $*"
+			fi
 
-	cd "$_orig"
+			echo -e " >> Repository path:\n    \e[1m${_dir}\e[0m"
+			echo -e " >> Applying commit:\n    \e[1m${_txt}\e[0m\n"
+		fi
+
+		git pull &
+		wait $!
+
+		if [[ $_add -ne 0 ]]; then
+			#git add --all || (rest; return $?)
+			#git commit -m "$_txt" || (rest; return $?)
+			#git push || (rest; return $?)
+			git add --all &
+			wait $!
+			git commit -m "$_txt" &
+			wait $!
+			git push &
+			wait $!
+		fi
+
+		cd "$_orig"
+	)
 }
 
 keep()
