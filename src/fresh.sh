@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.4.8
+# v0.4.9
 #
 # Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
 # since it is *not* executable (but `source` or `.`).
@@ -21,7 +21,6 @@ _GIT_DATE_SYMBOL='+'
 fresh()
 {
 	(
-		_orig="`pwd`"; trap "cd '$_orig'; echo ' => SIGINT'; exit 130;" SIGINT
 		_dir="`git rev-parse --git-dir 2>/dev/null`"
 
 		if [[ $? -ne 0 ]]; then
@@ -69,8 +68,6 @@ fresh()
 			git push &
 			wait $!
 		fi
-
-		cd "$_orig"
 	)
 }
 
@@ -116,6 +113,8 @@ keep()
 	}
 
 	local _orig="`pwd`"
+	trap "cd '$_orig'" SIGINT
+
 	traverse "$_orig" 1
 
 	if [[ $_created -gt 0 ]]; then

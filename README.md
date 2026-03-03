@@ -8,7 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
-* \[**2026-03-02**\] Updated my [`fresh.sh`](#freshsh), v**0.4.8**;
+* \[**2026-03-03**\] Updated my [`fresh.sh`](#freshsh), v**0.4.9**;
 * \[**2026-02-19**\] New script [`power.sh`](#powersh)!
 * \[**2026-01-11**\] Extended the [`nightlounge.sh`](#nightloungesh) to (also) use my [**`zsleep`**](https://github.com/kekse1/zsleep/); v**0.3.0**;
 * \[**2025-11-28**\] Updated [`create-random-files.sh`](#create-random-filessh), v**1.7.0**;
@@ -160,7 +160,7 @@ on top: `layouts=("us" "de")`).
 <img id="freshsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60fresh.sh%60" />
 </a>
 
-* [Version v**0.4.8**](src/fresh.sh) (updated **2026-03-02**)
+* [Version v**0.4.9**](src/fresh.sh) (updated **2026-03-03**)
 
 Helper to quickly update `git` repositories.. really tiny.
 
