@@ -31,7 +31,11 @@ help="${header}
   of your images. This is a bit risk, but there'll be no files ('*_original') left
   which could be opened by web site visitors or so. ;-)
 
-  So, that's all. Have phun! The cake."
+  So, that's all. Have phun! The cake.
+  
+
+  PS: To verify your headers, use \`exiftool -a -u -g1 \"\${image}\"\`. :-)
+  "
 
 helpMe()
 {
