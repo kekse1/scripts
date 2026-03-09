@@ -35,5 +35,5 @@ echo -e "( ( $b - $a) / $div )\n"
 echo -e "  => ~$watt Watt\n"
 
 echo -e "       kWh per hour: a = ( $watt / 1000 )"
-echo -e "Price (0.35€ / kWh): b = ( a * 0.35 )"
+echo -e "Costs (0.35€ / kWh): b = ( a * 0.35 )"
 
