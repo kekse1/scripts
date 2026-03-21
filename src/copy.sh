@@ -2,7 +2,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.1.3
+# v0.1.4
 #
 # A little helper to `scp` files, with only the remote file path as argument.
 #
@@ -59,6 +59,7 @@ _reached_max=0
 
 stop()
 {
+	trap - INT
 	echo -e "\n >> SIGINT (loops: $_loops)"
 	exit $_res
 }
@@ -124,4 +125,6 @@ fi
 echo " >> Command was: '$cmd'"
 echo
 
+trap - INT
 exit $_res
+

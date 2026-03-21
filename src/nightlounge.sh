@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.0
+# v0.3.1
 #
 # Start streaming.. I use it for the "BigFM Nightlounge".
 # You can add this to your /etc/crontab. :-)
@@ -80,6 +80,7 @@ cleanUp()
 	ls -ahl "$OUT"
 	ls -al "$OUT"
 	echo -e "\n\n"
+	trap - INT
 }
 
 #

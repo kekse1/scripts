@@ -3,7 +3,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.3
+# v0.4.4
 #
 # My own solution (instead of using `autossh` or so).
 #
@@ -63,6 +63,7 @@ CMD="${CMD:: -1}"
 #
 sigint()
 {
+	trap - SIGINT
 	echo -e "\nReceived SIGINT (<Ctrl>+<C>), so we exit here." >&2
 	exit
 }
@@ -89,4 +90,5 @@ while true; do
 done
 
 #
+trap - SIGINT
 

@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.4.9
+# v0.4.10
 #
 # Tiny helper (copy it to '/etc/profile.d/fresh.sh'),
 # since it is *not* executable (but `source` or `.`).
@@ -113,7 +113,7 @@ keep()
 	}
 
 	local _orig="`pwd`"
-	trap "cd '$_orig'" SIGINT
+	trap "cd '$_orig'; trap - SIGINT;" SIGINT
 
 	traverse "$_orig" 1
 
@@ -128,6 +128,7 @@ keep()
 	[[ $_depth -gt 1 ]] && echo -e " >> Traversed recursively up to a maximum depth of \e[1m${_depth}\e[0m."
 
 	cd "$_orig"
+	trap - SIGINT
 	
 	[[ $_erroneous -ne 0 ]] && return 1
 	return 0
