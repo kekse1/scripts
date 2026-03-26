@@ -8,6 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
+* \[**2026-03-26**\] REALLY tiny script [`hash.sh`](#hashsh): meant to be improved (see TODO)!
 * \[**2026-03-21**\] Some scripts (4) updated: I forgot to remove all the `trap` l8rs..
 * \[**2026-03-03**\] Updated my [`fresh.sh`](#freshsh), v**0.4.9**;
 * \[**2026-02-19**\] New script [`power.sh`](#powersh)!
@@ -76,6 +77,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`lsblk`.sh](#lsblksh)
 	* [`cursor`.sh](#cursorsh)
 	* [`init-sub-proj`.sh](#init-sub-projsh)
+	* [`hash`.sh](#hashsh)
 3. [Contact](#contact)
 4. [Copyright and License](#copyright-and-license)
 
@@ -813,6 +815,20 @@ contain entries in your original project). Symbolic
 Links stay exactly the same (so using `readlink`).
 
 <br><br>
+
+### `hash.sh`
+<a href="src/hash.sh">
+<img id="hashsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60hash.sh%60" />
+</a>
+
+REALLY TINY.
+
+* [Version v**0.1.0**](src/hash.sh) (created **2026-03-26**)
+
+It's meant to become improved `in a day or two... *sing*`!
+See the TODO comment on top.
+
+<br><br><br><br>
 
 # Contact
 <img src="https://kekse.biz/github.php?override=github:scripts&draw&text=scripts@kekse.biz&angle=6&size=38pt&fg=150,20,90&font=OpenSans&ro&readonly&h=64&v=16" />
