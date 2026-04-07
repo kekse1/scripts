@@ -3,9 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/
-#
-# TINY helper.. I'm not even describing it on the README.md.
-# 
+# v0.1.0
 #
 
 #
