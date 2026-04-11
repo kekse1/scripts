@@ -8,7 +8,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 <br><br>
 
 ### News
-* \[**2026-04-07**\] TINY helper [`if.sh`](#ifsh); really nothing special, v**0.1.1**;
+* \[**2026-04-07**\] TINY helper [`if.sh`](#ifsh); really nothing special, v**0.1.2**;
 * \[**2026-03-26**\] REALLY tiny script [`hash.sh`](#hashsh): meant to be improved (see TODO)!
 * \[**2026-03-21**\] Some scripts (4) updated: I forgot to remove all the `trap` l8rs..
 * \[**2026-03-03**\] Updated my [`fresh.sh`](#freshsh), v**0.4.9**;
@@ -839,7 +839,7 @@ See the TODO comment on top.
 
 Really nothing special.. it just came up out of necessity!
 
-* [Version v**0.1.1**](src/if.sh) (published **2026-04-07**)
+* [Version v**0.1.2**](src/if.sh) (updated **2026-04-11**)
 
 Copy this script to `/usr/local/sbin/if.sh` or even `/usr/local/bin/if.sh` (which
 is possible because I'm using `sudo` in this script). Call it without any parameter

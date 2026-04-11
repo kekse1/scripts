@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/
-# v0.1.1
+# v0.1.2
 #
 
 #
@@ -34,7 +34,7 @@ if [[ "$1" == "up" || "$1" == "UP" ]]; then
 	showInfo
 	echo "Shutting UP"
 	sudo ip link set dev "$iface" up
-	[[ $dhcp -ne 0 ]] && sudo dhclient "$iface"
+	[[ $dhcp -ne 0 ]] && sudo dhclient "$iface" || true
 elif [[ "$1" == "down" || "$1" == "DOWN" ]]; then
 	showInfo
 	echo "Shutting DOWN"
