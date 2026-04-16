@@ -739,7 +739,7 @@ Expects either a URL or a file with a list of URLs as parameter. Depends on `wge
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
 I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 
-* [Version v**0.3.1**](src/nightlounge.sh) (updated **2026-03-21**)
+* [Version v**0.3.2**](src/nightlounge.sh) (updated **2026-04-16**)
 
 > [!TIP]
 > You can add this to your '/etc/crontab'. ;-)
