@@ -1,7 +1,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.7
+# v0.2.8
 #
 # Copy to '/etc/profile.d/` to automatically include
 # the following functions .. read the source 4 info!
@@ -130,7 +130,8 @@ bytes()
 	[[ $index -eq 0 ]] && prec=0
 	
 	#
-	local result="$(LANG=C printf "%.${prec}f" "${rest/./,}" 2>/dev/null)"
+	local result="$(LANG=C printf "%.${prec}f" "$rest" 2>/dev/null)"
+	[[ $? -ne 0 ]] && local result="$(LANG=C printf "%.${prec}f" "${rest/./,}" 2>/dev/null)"
 	[[ $? -ne 0 ]] && result="$(LANG=C printf "%.${prec}f" "${rest/,/.}" 2>/dev/null)"
 	result="`tryCast $result`"
 

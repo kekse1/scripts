@@ -7,34 +7,6 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 
 <br><br>
 
-### News
-* \[**2026-04-07**\] TINY helper [`if.sh`](#ifsh); really nothing special, v**0.1.2**;
-* \[**2026-03-26**\] REALLY tiny script [`hash.sh`](#hashsh): meant to be improved (see TODO)!
-* \[**2026-03-21**\] Some scripts (4) updated: I forgot to remove all the `trap` l8rs..
-* \[**2026-03-03**\] Updated my [`fresh.sh`](#freshsh), v**0.4.9**;
-* \[**2026-02-19**\] New script [`power.sh`](#powersh)!
-* \[**2026-01-11**\] Extended the [`nightlounge.sh`](#nightloungesh) to (also) use my [**`asleep`**](https://github.com/kekse1/asleep/); v**0.3.0**;
-* \[**2025-11-28**\] Updated [`create-random-files.sh`](#create-random-filessh), v**1.7.0**;
-* \[**2025-11-12**\] Some scripts got a tiny update..
-* \[**2025-10-05**\] Updated the [`count.sh`](#countsh), v**0.2.0**;
-* \[**2025-09-16**\] New "sub" script [`phrack-training`.sh](#phracksh), v**0.1.0**;
-* \[**2025-09-09**\] New script [`phrack`.sh](#phracksh), v**0.1.0**;
-* \[**2025-08-20**\] New script to (better) count fs entries: [`count`.sh](#countsh); v**0.1.1**;
-* \[**2025-06-30**\] For a private project I just coded the new [`man2txt`.sh](#man2txtsh), v**0.2.0**;
-* \[**2025-06-30**\] Updated the [`ansi`.sh](#ansish), v**1.3.3**;
-* \[**2025-05-03**\] TINY helper [`ntpdate`.sh](#ntpdatesh), v**0.3.0**;
-* \[**2025-04-21**\] Updated the [`reverse`.sh](#reversesh), v**0.4.2**;
-* \[**2025-04-16**\] New lil helper [`quit`.sh](#quitsh), v**0.1.0**;
-
-<br>
-
-#### TODO
-* [ ] [`scp.sh`](#scpsh)
-* [ ] [`inc`.sh](#incsh)
-* [ ] [`crypto`.sh](#cryptosh)
-
-<br><br>
-
 ## Index
 1. [News](#news)
 2. [Scripts](#bash-shell-scripts)
@@ -549,7 +521,7 @@ The font archive can be un-zipped in `/usr/share/figlet/` (even for `toilet`), o
 <img id="mathsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60math.sh%60" />
 </a>
 
-* [Version v**0.2.6**](src/math.sh) (updated **2025-03-05**)
+* [Version v**0.2.8**](src/math.sh) (updated **2026-04-21**)
 
 Functions to be `source`d (so copy to `/etc/profile.d/`) providing conversions for size, and in
 the future also some more math related functions.. for now, look at the source to get to know more.
