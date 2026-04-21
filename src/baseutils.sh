@@ -1,7 +1,7 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.4.3
+# v0.4.4
 #
 
 #
@@ -158,9 +158,12 @@ height()
 
 eol()
 {
-	echo TODO >&2
-	return 255
-	#using $count
+	local _count=$1; [[ -z "$_count" ]] && _count=1
+
+	while [[ $_count -gt 0 ]]; do
+		echo
+		((--_count))
+	done
 }
 
 pad()

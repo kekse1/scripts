@@ -538,7 +538,7 @@ detect which suites best:
 <img id="baseutilssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60baseutils.sh%60" />
 </a>
 
-* [Version v**0.4.3**](src/baseutils.sh) (updated **2025-04-10**)
+* [Version v**0.4.4**](src/baseutils.sh) (updated **2026-04-21**)
 
 This is just the beginning of more bash functions.
 
