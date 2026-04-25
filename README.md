@@ -52,6 +52,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`init-sub-proj`.sh](#init-sub-projsh)
 	* [`hash`.sh](#hashsh)
 	* [`if`.sh](#ifsh)
+	* [`pause`.sh](#pausesh)
 3. [Contact](#contact)
 4. [Copyright and License](#copyright-and-license)
 
@@ -816,6 +817,20 @@ Really nothing special.. it just came up out of necessity!
 Copy this script to `/usr/local/sbin/if.sh` or even `/usr/local/bin/if.sh` (which
 is possible because I'm using `sudo` in this script). Call it without any parameter
 for a short help info.
+
+<br><br>
+
+### `pause.sh`
+<a href="src/pause.sh">
+<img id="pausesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60pause.sh%60" />
+</a>
+
+Really nothing special.. it just came up out of necessity! TINY as hell..
+
+* [Version v**0.0.1**](src/pause.sh) (created **2026-04-25**)
+
+Just simulates the old Microsoft DOS `PAUSE` command. Best to copy to
+`/usr/local/bin/pause` (or even upper-case for DOS style).
 
 <br><br><br><br>
 
