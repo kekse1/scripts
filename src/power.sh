@@ -32,7 +32,7 @@ echo -e "\t(a) $a\n\t(b) $b"
 ((div=(1000000*_seconds)))
 ((watt=(b-a)/div))
 
-echo -e "( ( $b - $a) / (${_seconds} * 1.000.000) )\n"
+echo -e "( ($b - $a) / (${_seconds} * 1.000.000) )\n"
 echo -e "  => ~$watt Watt\n"
 
 echo -e "       kWh per hour: a = ( $watt / 1000 )"
