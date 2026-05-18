@@ -715,7 +715,7 @@ I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 * [Version v**0.3.2**](src/nightlounge.sh) (updated **2026-04-16**)
 
 > [!TIP]
-> You can add this to your '/etc/crontab'. ;-)
+> You can add this to your **`/etc/crontab`**. ;-)
 
 Since v**0.3.0** it supports my own [**`asleep`**](https://github.com/kekse1/asleep/).
 
