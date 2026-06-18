@@ -3,7 +3,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/
-# v0.1.2
+# v0.1.3
 #
 
 #
@@ -18,12 +18,15 @@ dhcp=0
 showInfo()
 {
 	echo "Interface: $iface"
-	echo -n "     DHCP: "
 
-	if [[ $dhcp -eq 0 ]]; then
-		echo "no"
-	else
-		echo "yes"
+	if [[ $1 -ne 0 ]]; then
+		echo -n "    DHCP: "
+
+		if [[ $dhcp -eq 0 ]]; then
+			echo "no"
+		else
+			echo "yes"
+		fi
 	fi
 
 	echo
@@ -31,12 +34,12 @@ showInfo()
 
 #
 if [[ "$1" == "up" || "$1" == "UP" ]]; then
-	showInfo
+	showInfo 1
 	echo "Shutting UP"
 	sudo ip link set dev "$iface" up
 	[[ $dhcp -ne 0 ]] && sudo dhclient "$iface" || true
 elif [[ "$1" == "down" || "$1" == "DOWN" ]]; then
-	showInfo
+	showInfo 0
 	echo "Shutting DOWN"
 	sudo ip link set dev "$iface" down
 else

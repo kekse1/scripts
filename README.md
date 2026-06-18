@@ -812,7 +812,7 @@ See the TODO comment on top.
 
 Really nothing special.. it just came up out of necessity!
 
-* [Version v**0.1.2**](src/if.sh) (updated **2026-04-11**)
+* [Version v**0.1.3**](src/if.sh) (updated **2026-06-18**)
 
 Copy this script to `/usr/local/sbin/if.sh` or even `/usr/local/bin/if.sh` (which
 is possible because I'm using `sudo` in this script). Call it without any parameter
