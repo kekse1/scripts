@@ -1,5 +1,5 @@
 # Copyright (c) 2018 Sebastian Kucharczyk <kuchen@kekse.biz>
-# https://kekse.biz/ https://github.com/kekse1/utilities/
+# https://kekse.biz/ https://github.com/kekse1/scripts/
 # v0.2.2
 # 
 # Copy this file to '/etc/profile.d/up2date.sh'!
@@ -84,7 +84,7 @@ up2time()
 	$_ntpdate $SERVER || return 1
 
 	if [ -n "$_hwclock" ]; then
-		hwclock --systohc || return 2
+		$_hwclock --systohc || return 2
 	fi
 }
 
@@ -148,8 +148,10 @@ termux()
 	if [ -n "$_apt" ]; then
 		$_apt full-upgrade || return 3
 
-		$_apt autoremove || return 4
+		$_apt autoremove --purge || return 4
 		$_apt autoclean || return 5
+
+		debianSweep || return 6
 	fi
 
 	up2npm
@@ -178,8 +180,10 @@ debian()
 
 	$_apt full-upgrade || return 3
 
-	$_apt autoremove || return 4
+	$_apt autoremove --purge || return 4
 	$_apt autoclean || return 5
+
+	debianSweep || return 6
 
 	up2npm
 	up2file
@@ -246,4 +250,22 @@ cfg()
 			;;
 	esac
 }
+
+debianSweep()
+{
+	local _apt="`which apt 2>/dev/null`"
+	[[ -z "$_apt" ]] && return 255
+
+	$_apt purge ~c
+	[[ $? -eq 0 ]] && return 0
+	[[ -n "$NO_FALLBACK" ]] && return 1
+
+	# untested *polyfill* ...
+	local _dpkg="`which dpkg 2>/dev/null`"
+	[[ -z "$_dpkg" ]] && return 254
+	# .. here:
+	$_dpkg --purge $($_dpkg -l | grep '^rc' | awk '{print $2}')
+	return $?
+}
+
 

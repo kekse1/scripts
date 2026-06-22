@@ -265,12 +265,15 @@ Maybe my [`ansi.js`](https://github.com/kekse1/ansi.js/) is also interesting for
 <img id="up2datesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60up2date.sh%60" />
 </a>
 
-* [Version v**0.2.1**](src/up2date.sh)
+* [Version v**0.2.2**](src/up2date.sh) (updated **2026-06-22**)
 
-Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/) and [Termux](https://termux.dev/) Linux.
+Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/)
+and [Termux](https://termux.dev/) Linux.
+
 I'm using it to do all steps to keep your packages `up2date`, in just one step!
 
-Also, just copy it to `/etc/profile.d/up2date.sh`
+> [!TIP]
+> Copy to `/etc/profile.d/up2date.sh`
 
 <br><br>
 
