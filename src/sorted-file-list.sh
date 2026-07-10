@@ -6,7 +6,7 @@
 #
 
 # set to zero(0) to enable this whole tool! .. ^_^
-_DRY_RUN=0
+_DRY_RUN=1
 
 #
 [[ $_DRY_RUN -ne 0 ]] && echo -e "FYI: Set \`\$_DRY_RUN\` (on top of this script) to zero(0) to really use this tool!\n" >&2

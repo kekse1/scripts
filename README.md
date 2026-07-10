@@ -852,6 +852,9 @@ enumerated by their file size (ascending by default).
 
 See also `--help / -h / -?` (or call it without any argument).
 
+**And** look at the **top of the script**: change the `$_DRY_RUN` variable before.
+
+
 <br><br><br><br>
 
 # Contact
