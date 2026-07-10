@@ -2,6 +2,8 @@
 
 Every Script is made by myself, arose out of necessity.. or because I found it interesting.
 
+<br>
+
 > [!NOTE]
 > All of these scripts are implemented for the [`bash` shell](https://www.gnu.org/software/bash/) only!
 
@@ -839,6 +841,8 @@ Just simulates the old Microsoft DOS `PAUSE` command. Best to copy to
 
 # Contact
 <img src="https://kekse.biz/github.php?override=github:scripts&draw&text=scripts@kekse.biz&angle=6&size=38pt&fg=150,20,90&font=OpenSans&ro&readonly&h=64&v=16" />
+
+<br>
 
 # Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](./COPYRIGHT.txt),
