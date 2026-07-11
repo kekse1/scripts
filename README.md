@@ -848,12 +848,16 @@ This script will copy all matching files into a (newly created) target directory
 each with a numerical, counted prefix to keep the order of files, which will be
 enumerated by their file size (ascending by default).
 
-* [Version v**0.2.1**](src/sorted-file-list.sh) (created **2026-07-11**)
+* [Version v**0.3.1**](src/sorted-file-list.sh) (created **2026-07-11**)
 
 See also `--help / -h / -?` (or call it without any argument).
 
-**And** look at the **top of the script**: change the `$_DRY_RUN` variable before.
+> [!NOTE]
+> Look at the **top of the script**: change the `$_DRY_RUN` variable before.
 
+> [!TIP]
+> This script is extended now, to be used also with
+> my [**`dump.js`**](https://github.com/kekse1/dump.js/).
 
 <br><br><br><br>
 
