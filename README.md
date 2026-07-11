@@ -857,7 +857,7 @@ See also `--help / -h / -?` (or call it without any argument).
 
 > [!TIP]
 > This script is extended now, to be used also with
-> my [**`dump.js`**](https://github.com/kekse1/dump.js/).
+> my [**`dump.js`**](https://github.com/kekse1/dump.js/#scripts).
 
 <br><br><br><br>
 
