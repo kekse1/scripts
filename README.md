@@ -848,7 +848,7 @@ This script will copy all matching files into a (newly created) target directory
 each with a numerical, counted prefix to keep the order of files, which will be
 enumerated by their file size (ascending by default).
 
-* [Version v**0.3.1**](src/sorted-file-list.sh) (created **2026-07-11**)
+* [Version v**0.4.0**](src/sorted-file-list.sh) (created **2026-07-11**)
 
 See also `--help / -h / -?` (or call it without any argument).
 
