@@ -850,7 +850,7 @@ Following steps in this helper script:
 	synced via `rsync` (`$_RFC_HOST`, `$_RFC_SYNC`, maybe `$_RFC_skip_rsync`);
 2. Put all this `*.txt` files into a single `.txt` output file - **SORTED ORDER**!
 	The extra files (`rfc-index.txt`, etc.) will be on top of this file. But
-	you can decide to skip 'em => `$_RFC_extra_skip` (maybe `$_RFC_extra_eol`).
+	you can decide to skip 'em => `$_RFC_extra_skip`.
 
 This way I can train my own A.I. with "everything" in only a single
 file (my reason to create this `bash` shell script ;-) ...
