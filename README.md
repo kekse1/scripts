@@ -56,7 +56,6 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`hash`.sh](#hashsh)
 	* [`if`.sh](#ifsh)
 	* [`pause`.sh](#pausesh)
-	* [`sorted-file-list`.sh](#sorted-file-listsh)
 3. [Contact](#contact)
 4. [Copyright and License](#copyright-and-license)
 
@@ -839,25 +838,6 @@ Really nothing special.. it just came up out of necessity! TINY as hell..
 Just simulates the old Microsoft DOS `PAUSE` command. Best to copy to
 `/usr/local/bin/pause` (or even upper-case for DOS style).
 
-### `sorted-file-list.sh`
-<a href="src/sorted-file-list.sh">
-<img id="sorted-file-listsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60sorted-file-list.sh%60" />
-</a>
-
-This script will copy all matching files into a (newly created) target directory,
-each with a numerical, counted prefix to keep the order of files, which will be
-enumerated by their file size (ascending by default).
-
-* [Version v**0.4.0**](src/sorted-file-list.sh) (created **2026-07-11**)
-
-See also `--help / -h / -?` (or call it without any argument).
-
-> [!NOTE]
-> Look at the **top of the script**: change the `$_DRY_RUN` variable before.
-
-> [!TIP]
-> This script is extended now, to be used also with
-> my [**`dump.js`**](https://github.com/kekse1/dump.js/#scripts).
 
 <br><br><br><br>
 
