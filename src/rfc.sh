@@ -222,9 +222,12 @@ if [[ $extra -gt 0 && $_RFC_extra_skip -eq 0 ]]; then
 		fi
 	done
 
-	[[ -n $_RFC_extra_eol && $_RFC_extra_eol -gt 0 ]] && \
+	if [[ -n $_RFC_extra_eol && $_RFC_extra_eol -gt 0 ]]; then
 		for i in `seq 1 $_RFC_extra_eol`; do
 			echo >>"$_RFC_FILE"; done
+	else
+		echo >>"$_RFC_FILE"
+	fi
 fi
 
 #
