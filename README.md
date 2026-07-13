@@ -56,6 +56,7 @@ Every Script is made by myself, arose out of necessity.. or because I found it i
 	* [`hash`.sh](#hashsh)
 	* [`if`.sh](#ifsh)
 	* [`pause`.sh](#pausesh)
+	* [`rfc`.sh](#rfcsh)
 3. [Contact](#contact)
 4. [Copyright and License](#copyright-and-license)
 
@@ -838,6 +839,27 @@ Really nothing special.. it just came up out of necessity! TINY as hell..
 Just simulates the old Microsoft DOS `PAUSE` command. Best to copy to
 `/usr/local/bin/pause` (or even upper-case for DOS style).
 
+### `rfc.sh`
+<a href="src/rfc.sh">
+<img id="rfcsh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60rfc.sh%60" />
+</a>
+
+Following steps in this helper script:
+
+1. Download/Update all RFCs (text/only) into the target directory - they get
+	synced via `rsync` (see $_RFC_HOST, $_RFC_SYNC and maybe $_RFC_skip_rsync);
+2. Put all this *.txt files into a single .txt output file - IN SORTED ORDER!
+	the extra files (`rfc-index.txt`, etc.) will be on top of this file. But
+	you can decide to skip 'em, see '$_RFC_extra_skip' (and maybe $_RFC_extra_eol).
+
+This way I can train my own A.I. with "everything" in only a single
+file (my reason to create this `bash` shell script ;-) ...
+
+* [Version v**0.3.2**](src/rfc.sh) (created **2026-07-13**)
+
+See also the variables below this comment.
+They can also be set before calling this script, easily in your terminal.
+You can even set `$_RFC_DIR` instead of the only command line argument.
 
 <br><br><br><br>
 
