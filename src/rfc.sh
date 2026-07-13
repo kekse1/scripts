@@ -228,7 +228,6 @@ if [[ $extra -gt 0 && $_RFC_extra_skip -eq 0 ]]; then
 fi
 
 #
-if false; then
 mapfile -t SORTED < <(printf "%s\n" "${FILES[@]}" | sort -V); unset FILES
 
 echo -e "\nRegular files ($((files-extra))):\n"
@@ -241,8 +240,7 @@ for i in "${SORTED[@]}"; do
 		echo "ERROR"
 		_errors+=("$i")
 	fi
-done; echo;
-fi
+done
 
 #
 _error=${#_errors}
