@@ -3,18 +3,14 @@
 #
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.3.2
+# v0.3.3
 #
 # Start streaming.. I use it for the "BigFM Nightlounge".
 # You can add this to your /etc/crontab. :-)
 #
-# New since v0.2.3: you can optionally start this script
-# with a `sleep` parameter (e.g. "25m") to delay the stream
-# recording for a while.. so if you start this before
-# midnight, it'll wait until it'll finally start the stream.
-#
-# New since v0.3.0: TRYING to use my own `asleep`. see this
-# link: https://github.com/kekse1/asleep/
+# If you're using my own `asleep` < https://github.com/kekse1/asleep/ >,
+# it'll enhance the functionality a bit. I also added the `+` parameter
+# (or an empty string) to start directly at 00:00:01. ;-)
 #
 
 #
@@ -38,20 +34,32 @@ fi
 
 #
 if [[ $# -gt 0 ]]; then
-	echo
-	echo " >> Now we're waiting for the clock until we record the stream: '$1'..."
+	_str=" >> Now we're waiting for the clock until we record the stream"
+	_param="$1"
 
 	_asleep="`which asleep 2>/dev/null`"
 	_sleep="`which sleep 2>/dev/null`"
 
 	if [[ -n "$_asleep" ]]; then
 		echo " >> Cool! The extended \`asleep\` was found! Using it now.."
-		echo; $_asleep -pPc -- "$1" || exit 2
+
+		if [[ -z "$_param" || "$_param" == "+" ]]; then
+			_param="1@"
+			echo -e "${_str} at 00:00:01 am"
+		else
+			echo -e "${_str}: '${_param}'"
+		fi
 	elif [[ -n "$_sleep" ]]; then
-		$_sleep "$1" || exit 3
+		echo -e "${_str}: '${_param}'"
 	else
 		echo " >> ERROR: Can't use neither \`asleep\` not \`sleep\`"
 		exit 4
+	fi
+
+	if [[ -n "$_asleep" ]]; then
+		echo; $_asleep -v -- "$_param" || exit 2
+	else
+		$_sleep -- "$_param" || exit 3
 	fi
 fi
 

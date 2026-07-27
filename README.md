@@ -719,12 +719,13 @@ Expects either a URL or a file with a list of URLs as parameter. Depends on `wge
 Downloads a Stream until the `DURATION` is reached (then `wget` will be stopped).
 I use this script for my daily download of the 'BigFM Nightlounge' podcast.
 
-* [Version v**0.3.2**](src/nightlounge.sh) (updated **2026-04-16**)
+* [Version v**0.3.3**](src/nightlounge.sh) (updated **2026-07-27**)
 
 > [!TIP]
 > You can add this to your **`/etc/crontab`**. ;-)
 
-Since v**0.3.0** it supports my own [**`asleep`**](https://github.com/kekse1/asleep/).
+Since v**0.3.0** it supports my own [**`asleep`**](https://github.com/kekse1/asleep/);
+plus additional `+` syntax (or empty string) to start at really `00:00:01`..
 
 <br><br>
 
