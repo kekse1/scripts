@@ -1,6 +1,6 @@
 # Copyright (c) 2018 Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/scripts/
-# v0.2.2
+# v0.3.0
 # 
 # Copy this file to '/etc/profile.d/up2date.sh'!
 #
@@ -63,6 +63,8 @@ up2date()
 			return 1
 			;;
 	esac
+
+	firmwareUpdate
 
 	echo
 	echo -e "\n\nNow just call \`cfg\` to find updated configuration files.."
@@ -268,4 +270,11 @@ debianSweep()
 	return $?
 }
 
+firmwareUpdate()
+{
+	local _fwupdmgr="`which fwupdmgr 2>/dev/null`"
+	[[ -z "$_fwupdmgr" ]] && return 0
+	$_fwupdmgr refresh || return $?
+	$_fwupdmgr update || return $?
+}
 

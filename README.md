@@ -1,12 +1,14 @@
 <img src="without.svg" /><br>
 <img src="https://kekse.biz/github.php?draw&override=github:scripts" />
 
-Every Script is made by myself, arose out of necessity.. or because I found it interesting.
+Every Script is made by myself, arose out of necessity
+ ... or because I found it interesting.
 
 <br>
 
 > [!NOTE]
-> All of these scripts are implemented for the [`bash` shell](https://www.gnu.org/software/bash/) only!
+> All of these scripts are implemented for the
+> [`bash` shell](https://www.gnu.org/software/bash/) only!
 
 <br><br>
 
@@ -269,7 +271,7 @@ Maybe my [`ansi.js`](https://github.com/kekse1/ansi.js/) is also interesting for
 <img id="up2datesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60up2date.sh%60" />
 </a>
 
-* [Version v**0.2.2**](src/up2date.sh) (updated **2026-06-22**)
+* [Version v**0.3.0**](src/up2date.sh) (updated **2026-08-02**)
 
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/)
 and [Termux](https://termux.dev/) Linux.
