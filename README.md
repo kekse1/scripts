@@ -271,7 +271,7 @@ Maybe my [`ansi.js`](https://github.com/kekse1/ansi.js/) is also interesting for
 <img id="up2datesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60up2date.sh%60" />
 </a>
 
-* [Version v**0.3.0**](src/up2date.sh) (updated **2026-08-02**)
+* [Version v**0.3.1**](src/up2date.sh) (updated **2026-08-04**)
 
 Tool for [Gentoo](https://gentoo.org/) Linux, [Debian](https://debian.org/)
 and [Termux](https://termux.dev/) Linux.
