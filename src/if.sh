@@ -7,7 +7,7 @@
 #
 
 #
-_LOG="/root/if.sh.log"
+_LOG="${HOME}/if.sh.log"
 _LOG_ONLY=0
 
 #
