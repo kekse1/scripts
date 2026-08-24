@@ -3,8 +3,12 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/
-# v0.1.3
+# v0.1.4
 #
+
+#
+_LOG="/root/if.sh.log"
+_LOG_ONLY=1
 
 #
 iface="enp5s0" # [ enp5s0, wlp6s0 ];
@@ -33,15 +37,31 @@ showInfo()
 }
 
 #
+checkLogging()
+{
+	[[ -z "$_LOG" ]] && return 0
+	echo -en "[`date`](`id -un`) $1" >>"$_LOG"
+	if [[ -z $_LOG_ONLY || $_LOG_ONLY -eq 0 ]]; then
+		echo >>"$_LOG"
+		return 0
+	fi
+	echo " (only pretending)" >>"$_LOG"
+	return 1
+}
+
+#
 if [[ "$1" == "up" || "$1" == "UP" ]]; then
 	showInfo 1
 	echo "Shutting UP"
-	sudo ip link set dev "$iface" up
-	[[ $dhcp -ne 0 ]] && sudo dhclient "$iface" || true
+	checkLogging "$1"
+	if [[ $? -eq 0 ]]; then
+		sudo ip link set dev "$iface" up
+		[[ $dhcp -ne 0 ]] && sudo dhclient "$iface" || true
+	fi
 elif [[ "$1" == "down" || "$1" == "DOWN" ]]; then
 	showInfo 0
 	echo "Shutting DOWN"
-	sudo ip link set dev "$iface" down
+	checkLogging "$1" && sudo ip link set dev "$iface" down
 else
 	echo
 	echo "Syntax: \$0 < UP / up / down / help > [ < iface > ]" >&2

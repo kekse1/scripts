@@ -822,11 +822,13 @@ See the TODO comment on top.
 
 Really nothing special.. it just came up out of necessity!
 
-* [Version v**0.1.3**](src/if.sh) (updated **2026-06-18**)
+* [Version v**0.1.4**](src/if.sh) (updated **2026-08-24**)
 
 Copy this script to `/usr/local/sbin/if.sh` or even `/usr/local/bin/if.sh` (which
 is possible because I'm using `sudo` in this script). Call it without any parameter
 for a short help info.
+
+\[**2026-08-24**\] Update: introduced two config variables (on top of the script).
 
 <br><br>
 
