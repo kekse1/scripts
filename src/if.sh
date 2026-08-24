@@ -8,7 +8,7 @@
 
 #
 _LOG="/root/if.sh.log"
-_LOG_ONLY=1
+_LOG_ONLY=0
 
 #
 iface="enp5s0" # [ enp5s0, wlp6s0 ];
