@@ -84,6 +84,8 @@ or even maybe only the scripts version..
 Just found it at [physicsdolphin/**nv-uefi-unlocker**](https://github.com/physicsdolphin/nv-uefi-unlocker/blob/main/release/make-usbroot.sh),
 and I modified it really only a little bit (the way I'm using such function usually).
 
+<br><br>
+
 ### `power.sh`
 <a href="src/power.sh">
 <img id="powersh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60power.sh%60" />
