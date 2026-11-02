@@ -15,6 +15,7 @@ Every Script is made by myself, arose out of necessity
 ## Index
 1. [News](#news)
 2. [Scripts](#bash-shell-scripts)
+    * [`usage`.sh](#usagesh)
 	* [`power`.sh](#powersh)
 	* [`prompt`.sh](#promptsh)
 	* [`dump`.js](#dumpjs)
@@ -67,6 +68,21 @@ Every Script is made by myself, arose out of necessity
 ## [**Bash Shell** Scripts](./src/)
 
 <br>
+
+### `usage.sh`
+<a href="src/usage.sh">
+<img id="usagesh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60usage.sh%60" />
+</a>
+
+Addresses an old problem: scripts need comments on their topmost, but also
+as output of a `--help` call.. so when I don't dynamically create my `--help`
+output, it can simply be exactly the same data (or even partially the same);
+or even maybe only the scripts version..
+
+* [Version v**0.0.2**](src/usage.sh) (created **2026-11-02**)
+
+Just found it at [physicsdolphin/**nv-uefi-unlocker**](https://github.com/physicsdolphin/nv-uefi-unlocker/blob/main/release/make-usbroot.sh),
+and I modified it really only a little bit (the way I'm using such function usually).
 
 ### `power.sh`
 <a href="src/power.sh">
