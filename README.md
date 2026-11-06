@@ -198,7 +198,7 @@ can optionally limit the line count to a specific value.
 <img id="make-nodejssh" src="https://kekse.biz/github.php?override=github:scripts&draw&angle=3&size=56&fg=140,130,20&font=OpenSans&ro&readonly&v=48&h=48&text=%60make-nodejs.sh%60" />
 </a>
 
-* [Version v**0.3.13**](src/make-nodejs.sh) (updated **2025-04-10**)
+* [Version v**0.3.15**](src/make-nodejs.sh) (updated **2026-11-06**)
 
 For **amd64** and **arm64** (Termux): a script to build a [Node.js](https://nodejs.org/) version that you define in
 the command line, with target path `/opt/node.js/${version}/` plus a **symbolic link** `0` pointing to there: so you
@@ -207,11 +207,12 @@ the only thing left to do, _just once_, is to merge the fs structure under the s
 the `/usr/` hierarchy.
 
 > [!NOTE]
-> Just call it via `make-nodejs.sh 23.9.0` (or `make-nodejs.sh v23.9.0`), e.g.!
+> Just call it via `make-nodejs.sh 26.13.0` (or `make-nodejs.sh v26.13.0`), e.g.!
 
 > [!NOTE]
 > In v**0.3.11** I changed the `$tmdir` variable to be below the `/opt/nodejs/` (target) directory,
-> due to my `noexec` option in my `/etc/fstab` for my `/tmp/` (ram disk) directory/mount.
+> due to my `noexec` option in my `/etc/fstab` for my `/tmp/` (ram disk) directory/mount. And since
+> v**0.3.15** it'll automatically be deleted if download failed (and if it was created by the script).
 
 <br><br>
 

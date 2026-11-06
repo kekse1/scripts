@@ -2,7 +2,7 @@
 # 
 # Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 # https://kekse.biz/ https://github.com/kekse1/utilities/
-# v0.3.14
+# v0.3.15
 #
 # JFYI: This is a really old design, so I'm not sure
 # whether everything is really "fine" and "correct",
@@ -159,12 +159,15 @@ else
 fi
 
 #
+_madeTempDir=0
+
 if [[ ! -d "$tmpdir" ]]; then
 	if [[ -e "$tmpdir" ]]; then
 		echo " >> Temporary directory is not a directory." >&2
 		exit 16
 	else
 		mkdir -pv "$tmpdir"
+		_madeTempDir=1
 	fi
 fi
 
@@ -223,12 +226,18 @@ fi
 #
 download()
 {
+	rmTempDir()
+	{
+		[[ $_madeTempDir -ne 0 && -d "$tmpdir" ]] && rmdir "$tmpdir" >/dev/null 2>&1
+	}
+
 	useWget()
 	{
 		local wh="$(which "wget" 2>/dev/null)"
 
 		if [[ $? -ne 0 ]]; then
 			echo " >> PROBLEM: Couldn't find 'wget' to download.. aborting!" >&2
+			rmTempDir
 			exit 8
 		fi
 
@@ -238,6 +247,7 @@ download()
 
 		if [[ $? -ne 0 ]]; then
 			echo " >> FAILED to download '$url'.." >&2
+			rmTempDir
 			exit 9
 		else
 			echo " >> Sucessfully downloaded '$url'"
@@ -250,6 +260,7 @@ download()
 
 		if [[ $? -ne 0 ]]; then
 			echo " >> PROBLEM: Couldn't find 'curl' to download.. aborting!" >&2
+			rmTempDir
 			exit 10
 		fi
 
@@ -259,6 +270,7 @@ download()
 
 		if [[ $? -ne 0 ]]; then
 			echo " >> FAILED to download '$url'.." >&2
+			rmTempDir
 			exit 11
 		else
 			echo " >> Successfully downloaded '$url'"
